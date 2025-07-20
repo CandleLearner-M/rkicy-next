@@ -113,3 +113,17 @@
     outline-offset: 2px;
   }
 }
+
+// Container-wide mixin (for wider content)
+@mixin container-wide {
+  width: 100%;
+  margin: 0 auto;
+  padding-left: $spacing-lg;
+  padding-right: $spacing-lg;
+  max-width: 1400px;
+  
+  @media (min-width: $breakpoint-xl) {
+    padding-left: $spacing-2xl;
+    padding-right: $spacing-2xl;
+  }
+}

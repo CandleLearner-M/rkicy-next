@@ -3,11 +3,12 @@
 import { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import styles from "./Hero.module.scss";
 import HeroBackground from "./HeroBackground";
 import PartnerLogos from "./PartnerLogos";
+import HeroCards from "./HeroCards";
 
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null);
@@ -19,8 +20,8 @@ export default function Hero() {
       opacity: 1,
       y: 0,
       transition: {
-        delay: i * 0.2,
-        duration: 0.8,
+        delay: i * 0.15,
+        duration: 0.7,
         ease: [0.22, 1, 0.36, 1],
       },
     }),
@@ -28,7 +29,14 @@ export default function Hero() {
 
   const buttonVariants = {
     initial: { scale: 1 },
-    hover: { scale: 1.05, transition: { duration: 0.2 } },
+    hover: { 
+      scale: 1.03, 
+      boxShadow: "0 10px 25px rgba(66, 153, 225, 0.35)",
+      transition: { 
+        duration: 0.2,
+        ease: "easeOut"
+      } 
+    },
   };
 
   return (
@@ -38,15 +46,17 @@ export default function Hero() {
       <div className={styles.contentContainer}>
         <div className={styles.textContent}>
           <motion.div className={styles.headingWrapper}>
-            <motion.h2 
-              className={styles.preHeading}
+            <motion.div 
+              className={styles.preHeadingWrapper}
               custom={0}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
               variants={textVariants}
             >
-              Leading Morocco&apos;s Digital Transformation
-            </motion.h2>
+              <span className={styles.preHeadingPill}>
+                Leading Morocco&apos;s Digital Transformation
+              </span>
+            </motion.div>
             
             <motion.h1 
               className={styles.mainHeading}
@@ -55,8 +65,8 @@ export default function Hero() {
               animate={isInView ? "visible" : "hidden"}
               variants={textVariants}
             >
-              Empowering Morocco&apos;s
-              <span className={styles.highlight}> Digital Future</span>
+              Empowering Morocco&apos;s{" "}
+              <span className={styles.highlight}>Digital Future</span>
             </motion.h1>
           </motion.div>
           
@@ -101,68 +111,45 @@ export default function Hero() {
               </Link>
             </motion.div>
           </motion.div>
+
+          <motion.div 
+            className={styles.trustBadge}
+            custom={4}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            variants={textVariants}
+          >
+            <div className={styles.trustIcon}>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M8 0L10.2 5.37L16 5.88L11.73 9.8L12.97 15.52L8 12.5L3.03 15.52L4.27 9.8L0 5.88L5.8 5.37L8 0Z" fill="currentColor"/>
+              </svg>
+            </div>
+            <span>Trusted by Industry Leaders</span>
+          </motion.div>
         </div>
         
         <motion.div 
           className={styles.imageContainer}
-          initial={{ opacity: 0, scale: 0.9 }}
+          initial={{ opacity: 0, scale: 0.95 }}
           animate={{ 
             opacity: isInView ? 1 : 0,
-            scale: isInView ? 1 : 0.9,
+            scale: isInView ? 1 : 0.95,
           }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
         >
-          <Image
-            src="/hero-image.png"
-            alt="Digital Transformation Visualization"
-            width={600}
-            height={500}
-            className={styles.heroImage}
-            priority
-          />
+          <div className={styles.imageWrapper}>
+            <div className={styles.glowEffect}></div>
+            <Image
+              src="/hero-image.png"
+              alt="Digital Transformation Visualization"
+              width={660}
+              height={550}
+              className={styles.heroImage}
+              priority
+            />
+          </div>
           
-          <motion.div 
-            className={styles.statCard}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ 
-              opacity: isInView ? 1 : 0, 
-              y: isInView ? 0 : 20 
-            }}
-            transition={{ duration: 0.5, delay: 0.9 }}
-          >
-            <div className={styles.statIcon}>
-              <Image 
-                src="/icons/clients-icon.svg" 
-                alt="Client icon" 
-                width={32} 
-                height={32} 
-              />
-            </div>
-            <div className={styles.statContent}>
-              <p className={styles.statNumber}>200+</p>
-              <p className={styles.statLabel}>Happy Clients</p>
-            </div>
-          </motion.div>
-          
-          <motion.div 
-            className={styles.expertiseCard}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ 
-              opacity: isInView ? 1 : 0, 
-              y: isInView ? 0 : 20 
-            }}
-            transition={{ duration: 0.5, delay: 1.1 }}
-          >
-            <div className={styles.expertiseIcon}>
-              <Image 
-                src="/icons/tech-icon.svg" 
-                alt="Technology icon" 
-                width={32} 
-                height={32} 
-              />
-            </div>
-            <p className={styles.expertiseLabel}>Enterprise Solutions</p>
-          </motion.div>
+          <HeroCards isInView={isInView} />
         </motion.div>
       </div>
       

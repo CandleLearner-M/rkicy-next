@@ -1,29 +1,37 @@
 @import "@/styles/variables.scss";
 @import "@/styles/mixins.scss";
 
+// New color variables specifically for the hero section
+
+
 .heroSection {
   position: relative;
   overflow: hidden;
-  padding: 6rem 0 3rem;
+  padding: 7rem 0 5rem;
   min-height: 90vh;
+  display: flex;
+  flex-direction: column;
   
   @media (min-width: $breakpoint-lg) {
-    padding: 8rem 0 4rem;
+    padding: 9rem 0 6rem;
+    min-height: 85vh;
   }
 }
 
 .contentContainer {
   @include container;
   position: relative;
-  z-index: 1;
+  z-index: 2;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 3rem;
+  gap: 4rem;
+  margin-bottom: 3rem;
   
   @media (min-width: $breakpoint-lg) {
     grid-template-columns: 1fr 1fr;
     align-items: center;
     gap: 2rem;
+    margin-bottom: 4rem;
   }
 }
 
@@ -40,37 +48,117 @@
 }
 
 .headingWrapper {
-  margin-bottom: $spacing-xl;
+  margin-bottom: 1.75rem;
+  width: 100%;
 }
 
-.preHeading {
-  font-size: 1rem;
-  font-weight: 500;
+.preHeadingWrapper {
+  margin-bottom: 1.25rem;
+}
+
+.preHeadingPill {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: $primary;
-  margin-bottom: $spacing-md;
+  letter-spacing: 0.05em;
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+  background: linear-gradient(
+    to right,
+    rgba($hero-gradient-start, 0.1),
+    rgba($hero-gradient-end, 0.18)
+  );
+  color: $hero-gradient-start;
   
   [data-theme="dark"] & {
-    color: $primary-light;
+    background: linear-gradient(
+      to right,
+      rgba($hero-gradient-start, 0.25),
+      rgba($hero-gradient-end, 0.35)
+    );
+    color: lighten($hero-gradient-start, 25%);
   }
 }
 
 .mainHeading {
-  @include heading-xl;
+  font-size: 2.5rem;
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -0.025em;
   margin-bottom: $spacing-sm;
+  background: linear-gradient(
+    to bottom,
+    $text-primary,
+    rgba($text-primary, 0.85)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  
+  @media (min-width: $breakpoint-md) {
+    font-size: 3.5rem;
+  }
+  
+  @media (min-width: $breakpoint-lg) {
+    font-size: 3.75rem;
+  }
+  
+  [data-theme="dark"] & {
+    background: linear-gradient(
+      to bottom,
+      $text-primary-dark,
+      rgba($text-primary-dark, 0.85)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
   
   .highlight {
-    background: linear-gradient(90deg, $primary 0%, #2d7cf5 100%);
+    background: linear-gradient(
+      90deg, 
+      $hero-gradient-start 0%, 
+      $hero-accent 100%
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     color: transparent;
+    position: relative;
+    display: inline-block;
+    
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(
+        90deg, 
+        $hero-gradient-start 0%, 
+        $hero-accent 100%
+      );
+      border-radius: 4px;
+      opacity: 0.7;
+    }
     
     [data-theme="dark"] & {
-      background: linear-gradient(90deg, $primary-light 0%, #93c5fd 100%);
+      background: linear-gradient(
+        90deg, 
+        lighten($hero-gradient-start, 15%) 0%, 
+        lighten($hero-accent, 10%) 100%
+      );
       -webkit-background-clip: text;
       background-clip: text;
+      
+      &::after {
+        background: linear-gradient(
+          90deg, 
+          lighten($hero-gradient-start, 15%) 0%, 
+          lighten($hero-accent, 10%) 100%
+        );
+      }
     }
   }
 }
@@ -78,9 +166,13 @@
 .description {
   font-size: 1.125rem;
   color: $text-secondary;
-  max-width: 570px;
-  margin-bottom: $spacing-2xl;
+  max-width: 540px;
+  margin-bottom: 2.5rem;
   line-height: 1.7;
+  
+  @media (min-width: $breakpoint-md) {
+    font-size: 1.25rem;
+  }
   
   [data-theme="dark"] & {
     color: $text-secondary-dark;
@@ -92,6 +184,7 @@
   flex-direction: column;
   gap: $spacing-md;
   width: 100%;
+  margin-bottom: 2rem;
   
   @media (min-width: $breakpoint-md) {
     flex-direction: row;
@@ -110,40 +203,97 @@
 }
 
 .primaryButton {
-  @include button-primary;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.875rem 1.5rem;
+  padding: 1rem 1.75rem;
   width: 100%;
   font-weight: 600;
+  border-radius: $radius-md;
+  background: linear-gradient(
+    135deg,
+    $hero-gradient-start 0%,
+    $hero-gradient-end 100%
+  );
+  color: white;
+  border: none;
   position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+  }
+  
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0.2),
+      rgba(255, 255, 255, 0)
+    );
+    animation: shimmer 3s infinite;
+  }
+  
+  @keyframes shimmer {
+    100% {
+      left: 100%;
+    }
+  }
   
   @media (min-width: $breakpoint-md) {
     width: auto;
+    padding: 1rem 2rem;
+  }
+  
+  [data-theme="dark"] & {
+    background: linear-gradient(
+      135deg,
+      darken($hero-gradient-start, 5%) 0%,
+      darken($hero-gradient-end, 5%) 100%
+    );
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   }
 }
 
 .secondaryButton {
-  @include button-secondary;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.875rem 1.5rem;
+  padding: 1rem 1.75rem;
   width: 100%;
   font-weight: 600;
+  border-radius: $radius-md;
+  background-color: transparent;
+  color: $text-primary;
+  border: 1.5px solid rgba($hero-gradient-start, 0.3);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background-color: rgba($hero-gradient-start, 0.05);
+    border-color: rgba($hero-gradient-start, 0.5);
+    transform: translateY(-2px);
+  }
   
   @media (min-width: $breakpoint-md) {
     width: auto;
+    padding: 1rem 2rem;
   }
   
   [data-theme="dark"] & {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.05);
     color: $text-primary-dark;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
     
     &:hover {
-      background-color: rgba(255, 255, 255, 0.15);
+      background-color: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.3);
     }
   }
 }
@@ -159,51 +309,112 @@
   }
 }
 
+.trustBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+  font-size: 0.875rem;
+  color: $text-secondary;
+  
+  [data-theme="dark"] & {
+    color: $text-secondary-dark;
+  }
+  
+  .trustIcon {
+    display: flex;
+    align-items: center;
+    color: $hero-gradient-start;
+    
+    [data-theme="dark"] & {
+      color: lighten($hero-gradient-start, 15%);
+    }
+  }
+}
+
 .imageContainer {
   position: relative;
   display: flex;
   justify-content: center;
-  padding-top: $spacing-lg;
+  height: 450px;
   
   @media (min-width: $breakpoint-lg) {
     justify-content: flex-end;
-    padding-top: 0;
+    height: 500px;
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.glowEffect {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  background: radial-gradient(
+    circle at center,
+    $hero-glow-light 0%,
+    rgba(66, 153, 225, 0) 70%
+  );
+  filter: blur(40px);
+  z-index: -1;
+  
+  [data-theme="dark"] & {
+    background: radial-gradient(
+      circle at center,
+      $hero-glow-dark 0%,
+      rgba(66, 153, 225, 0) 70%
+    );
+    filter: blur(60px);
   }
 }
 
 .heroImage {
-  width: 100%;
+  width: auto;
   height: auto;
-  max-width: 520px;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
   border-radius: 12px;
-  filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.15));
+  z-index: 1;
   
   [data-theme="dark"] & {
-    filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.3));
-    // Slightly increase brightness for dark mode
-    filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.3)) brightness(1.05);
+    filter: brightness(1.05) contrast(1.05);
   }
 }
 
-.statCard, .expertiseCard {
+.floatingCard {
   position: absolute;
-  background-color: white;
-  border-radius: $radius-lg;
-  padding: $spacing-md;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  background-color: $hero-card-bg-light;
+  backdrop-filter: blur(10px);
+  border-radius: $radius-xl;
+  padding: $spacing-md $spacing-lg;
+  box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(255, 255, 255, 0.8);
   display: flex;
   align-items: center;
+  z-index: 2;
   
   [data-theme="dark"] & {
-    background-color: $bg-secondary-dark;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    background-color: $hero-card-bg-dark;
+    box-shadow: 
+      0 10px 25px rgba(0, 0, 0, 0.2),
+      0 0 0 1px rgba(255, 255, 255, 0.1);
   }
 }
 
 .statCard {
   bottom: 5%;
   left: 0;
-  gap: $spacing-md;
+  gap: 1rem;
   
   @media (min-width: $breakpoint-lg) {
     bottom: 15%;
@@ -214,7 +425,7 @@
 .expertiseCard {
   top: 15%;
   right: 0;
-  gap: $spacing-sm;
+  gap: 0.75rem;
   
   @media (min-width: $breakpoint-lg) {
     top: 10%;
@@ -222,25 +433,40 @@
   }
 }
 
-.statIcon, .expertiseIcon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 48px;
-  background: linear-gradient(135deg, rgba($primary, 0.1) 0%, rgba($primary, 0.2) 100%);
-  border-radius: $radius-md;
+.techCard {
+  top: 60%;
+  left: 0;
+  gap: 0.75rem;
   
-  [data-theme="dark"] & {
-    background: linear-gradient(135deg, rgba($primary, 0.2) 0%, rgba($primary, 0.3) 100%);
+  @media (min-width: $breakpoint-lg) {
+    top: 65%;
+    left: -10%;
   }
 }
 
-.icon {
-  color: $primary;
+.statIcon,
+.expertiseIcon,
+.techIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: $radius-lg;
+  color: $hero-gradient-start;
+  background: linear-gradient(
+    135deg,
+    rgba($hero-gradient-start, 0.15) 0%,
+    rgba($hero-gradient-end, 0.25) 100%
+  );
   
   [data-theme="dark"] & {
-    color: $primary-light;
+    color: lighten($hero-gradient-start, 15%);
+    background: linear-gradient(
+      135deg,
+      rgba($hero-gradient-start, 0.25) 0%,
+      rgba($hero-gradient-end, 0.35) 100%
+    );
   }
 }
 
@@ -252,15 +478,17 @@
 .statNumber {
   font-size: 1.5rem;
   font-weight: 700;
-  color: $primary;
+  color: $hero-gradient-start;
+  line-height: 1.2;
   
   [data-theme="dark"] & {
-    color: $primary-light;
+    color: lighten($hero-gradient-start, 15%);
   }
 }
 
 .statLabel {
   font-size: 0.875rem;
+  font-weight: 500;
   color: $text-secondary;
   
   [data-theme="dark"] & {
@@ -268,11 +496,12 @@
   }
 }
 
-.expertiseLabel {
+.expertiseLabel,
+.techLabel {
   font-size: 0.875rem;
   font-weight: 600;
   white-space: nowrap;
-  color: $text-primary; // Fixed - 
+  color: $text-primary;
   
   [data-theme="dark"] & {
     color: $text-primary-dark;
