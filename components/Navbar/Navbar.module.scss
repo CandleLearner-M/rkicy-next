@@ -1,0 +1,126 @@
+@import "@/styles/variables.scss";
+@import "@/styles/mixins.scss";
+
+.header {
+  position: relative;
+  z-index: 10;
+}
+
+.nav {
+  @include container;
+  @include flex(row, space-between, center);
+  padding-top: $spacing-lg;
+  padding-bottom: $spacing-lg;
+}
+
+.logo {
+  @include flex(row, flex-start, center);
+  height: 30px;
+  overflow: hidden;
+}
+
+.logoImage {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+
+.desktopNav {
+  @include flex(row, flex-end, center, $spacing-xl);
+  display: none;
+  
+  @media (min-width: $breakpoint-md) {
+    display: flex;
+  }
+}
+
+.navLink {
+  font-size: 1rem;
+  font-weight: 500;
+  color: $text-secondary;
+  transition: color $transition-normal;
+  
+  &:hover {
+    color: $primary;
+  }
+  
+  [data-theme="dark"] & {
+    color: $text-secondary-dark;
+    
+    &:hover {
+      color: $primary-light;
+    }
+  }
+}
+
+.contactButton {
+  @include button-primary;
+}
+
+.mobileNavControls {
+  @include flex(row, flex-end, center, $spacing-md);
+  
+  @media (min-width: $breakpoint-md) {
+    display: none;
+  }
+}
+
+.mobileMenuButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-sm;
+  border-radius: $radius-md;
+}
+
+.menuIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.mobileMenu {
+  position: absolute;
+  top: 5rem;
+  left: 0;
+  right: 0;
+  padding: $spacing-md;
+  background-color: $bg-primary;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  
+  [data-theme="dark"] & {
+    background-color: $bg-primary-dark;
+  }
+  
+  @media (min-width: $breakpoint-md) {
+    display: none;
+  }
+}
+
+.mobileMenuLinks {
+  @include flex(column, flex-start, stretch, $spacing-md);
+}
+
+.mobileNavLink {
+  font-size: 1rem;
+  font-weight: 500;
+  color: $text-secondary;
+  padding: $spacing-sm 0;
+  
+  [data-theme="dark"] & {
+    color: $text-secondary-dark;
+  }
+  
+  &:hover {
+    color: $primary;
+    
+    [data-theme="dark"] & {
+      color: $primary-light;
+    }
+  }
+}
+
+.mobileContactButton {
+  @include button-primary;
+  width: 100%;
+  margin-top: $spacing-sm;
+}

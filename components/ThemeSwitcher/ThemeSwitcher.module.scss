@@ -1,0 +1,29 @@
+@import "@/styles/variables.scss";
+
+.themeSwitcher {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: $radius-full;
+  transition: background-color $transition-normal;
+  
+  &:hover {
+    background-color: $bg-secondary;
+    
+    [data-theme="dark"] & {
+      background-color: $bg-secondary-dark;
+    }
+  }
+}
+
+.icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: $text-primary;
+  
+  [data-theme="dark"] & {
+    color: $text-primary-dark;
+  }
+}

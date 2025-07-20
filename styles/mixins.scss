@@ -1,0 +1,115 @@
+@import 'variables';
+
+@mixin flex($direction: row, $justify: flex-start, $align: stretch, $gap: 0) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}
+
+@mixin container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $spacing-md;
+  padding-right: $spacing-md;
+  
+  @media (min-width: $breakpoint-sm) {
+    padding-left: $spacing-lg;
+    padding-right: $spacing-lg;
+    max-width: 640px;
+  }
+  
+  @media (min-width: $breakpoint-md) {
+    max-width: 768px;
+  }
+  
+  @media (min-width: $breakpoint-lg) {
+    max-width: 1024px;
+  }
+  
+  @media (min-width: $breakpoint-xl) {
+    max-width: 1280px;
+  }
+}
+
+@mixin heading-xl {
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  
+  @media (min-width: $breakpoint-sm) {
+    font-size: 3rem;
+  }
+  
+  @media (min-width: $breakpoint-md) {
+    font-size: 3.75rem;
+  }
+}
+
+@mixin heading-lg {
+  font-size: 1.875rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  
+  @media (min-width: $breakpoint-sm) {
+    font-size: 2.25rem;
+  }
+}
+
+@mixin heading-md {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  
+  @media (min-width: $breakpoint-sm) {
+    font-size: 1.875rem;
+  }
+}
+
+@mixin button-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.25rem;
+  font-weight: 500;
+  border-radius: $radius-md;
+  background-color: $primary;
+  color: white;
+  transition: background-color $transition-normal;
+  
+  &:hover {
+    background-color: $primary-dark;
+  }
+  
+  &:focus {
+    outline: 2px solid $primary-light;
+    outline-offset: 2px;
+  }
+}
+
+@mixin button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.25rem;
+  font-weight: 500;
+  border-radius: $radius-md;
+  background-color: white;
+  color: $text-secondary;
+  border: 1px solid #e5e7eb;
+  transition: background-color $transition-normal;
+  
+  &:hover {
+    background-color: #f9fafb;
+  }
+  
+  &:focus {
+    outline: 2px solid $primary-light;
+    outline-offset: 2px;
+  }
+}
