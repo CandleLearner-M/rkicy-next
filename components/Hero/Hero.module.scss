@@ -1,0 +1,280 @@
+@import "@/styles/variables.scss";
+@import "@/styles/mixins.scss";
+
+.heroSection {
+  position: relative;
+  overflow: hidden;
+  padding: 6rem 0 3rem;
+  min-height: 90vh;
+  
+  @media (min-width: $breakpoint-lg) {
+    padding: 8rem 0 4rem;
+  }
+}
+
+.contentContainer {
+  @include container;
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  
+  @media (min-width: $breakpoint-lg) {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 2rem;
+  }
+}
+
+.textContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  
+  @media (min-width: $breakpoint-lg) {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+.headingWrapper {
+  margin-bottom: $spacing-xl;
+}
+
+.preHeading {
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: $primary;
+  margin-bottom: $spacing-md;
+  
+  [data-theme="dark"] & {
+    color: $primary-light;
+  }
+}
+
+.mainHeading {
+  @include heading-xl;
+  margin-bottom: $spacing-sm;
+  
+  .highlight {
+    background: linear-gradient(90deg, $primary 0%, #2d7cf5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    
+    [data-theme="dark"] & {
+      background: linear-gradient(90deg, $primary-light 0%, #93c5fd 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+  }
+}
+
+.description {
+  font-size: 1.125rem;
+  color: $text-secondary;
+  max-width: 570px;
+  margin-bottom: $spacing-2xl;
+  line-height: 1.7;
+  
+  [data-theme="dark"] & {
+    color: $text-secondary-dark;
+  }
+}
+
+.buttonGroup {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  width: 100%;
+  
+  @media (min-width: $breakpoint-md) {
+    flex-direction: row;
+    gap: $spacing-lg;
+    width: auto;
+  }
+}
+
+.primaryButtonWrapper, 
+.secondaryButtonWrapper {
+  width: 100%;
+  
+  @media (min-width: $breakpoint-md) {
+    width: auto;
+  }
+}
+
+.primaryButton {
+  @include button-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 1.5rem;
+  width: 100%;
+  font-weight: 600;
+  position: relative;
+  
+  @media (min-width: $breakpoint-md) {
+    width: auto;
+  }
+}
+
+.secondaryButton {
+  @include button-secondary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 1.5rem;
+  width: 100%;
+  font-weight: 600;
+  
+  @media (min-width: $breakpoint-md) {
+    width: auto;
+  }
+  
+  [data-theme="dark"] & {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: $text-primary-dark;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+  }
+}
+
+.buttonIcon {
+  width: 18px;
+  height: 18px;
+  margin-left: $spacing-sm;
+  transition: transform 0.3s ease;
+  
+  .primaryButton:hover & {
+    transform: translateX(3px);
+  }
+}
+
+.imageContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding-top: $spacing-lg;
+  
+  @media (min-width: $breakpoint-lg) {
+    justify-content: flex-end;
+    padding-top: 0;
+  }
+}
+
+.heroImage {
+  width: 100%;
+  height: auto;
+  max-width: 520px;
+  border-radius: 12px;
+  filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.15));
+  
+  [data-theme="dark"] & {
+    filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.3));
+    // Slightly increase brightness for dark mode
+    filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.3)) brightness(1.05);
+  }
+}
+
+.statCard, .expertiseCard {
+  position: absolute;
+  background-color: white;
+  border-radius: $radius-lg;
+  padding: $spacing-md;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  
+  [data-theme="dark"] & {
+    background-color: $bg-secondary-dark;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.statCard {
+  bottom: 5%;
+  left: 0;
+  gap: $spacing-md;
+  
+  @media (min-width: $breakpoint-lg) {
+    bottom: 15%;
+    left: -5%;
+  }
+}
+
+.expertiseCard {
+  top: 15%;
+  right: 0;
+  gap: $spacing-sm;
+  
+  @media (min-width: $breakpoint-lg) {
+    top: 10%;
+    right: -5%;
+  }
+}
+
+.statIcon, .expertiseIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, rgba($primary, 0.1) 0%, rgba($primary, 0.2) 100%);
+  border-radius: $radius-md;
+  
+  [data-theme="dark"] & {
+    background: linear-gradient(135deg, rgba($primary, 0.2) 0%, rgba($primary, 0.3) 100%);
+  }
+}
+
+.icon {
+  color: $primary;
+  
+  [data-theme="dark"] & {
+    color: $primary-light;
+  }
+}
+
+.statContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.statNumber {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: $primary;
+  
+  [data-theme="dark"] & {
+    color: $primary-light;
+  }
+}
+
+.statLabel {
+  font-size: 0.875rem;
+  color: $text-secondary;
+  
+  [data-theme="dark"] & {
+    color: $text-secondary-dark;
+  }
+}
+
+.expertiseLabel {
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
+  color: $text-primary;
+  
+  [data-theme="dark"] & {
+    color: $text-primary-dark;
+  }
+}

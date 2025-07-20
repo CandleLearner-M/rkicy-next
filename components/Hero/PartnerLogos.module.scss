@@ -1,0 +1,64 @@
+@import "@/styles/variables.scss";
+@import "@/styles/mixins.scss";
+
+.partnersSection {
+  margin-top: 4rem;
+  
+  @media (min-width: $breakpoint-lg) {
+    margin-top: 6rem;
+  }
+}
+
+.partnersContainer {
+  @include container;
+  text-align: center;
+}
+
+.partnersTitle {
+  font-size: 1rem;
+  font-weight: 500;
+  color: $text-secondary;
+  margin-bottom: $spacing-xl;
+  
+  [data-theme="dark"] & {
+    color: $text-secondary-dark;
+  }
+}
+
+.logoGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem 4rem;
+  
+  @media (min-width: $breakpoint-md) {
+    flex-wrap: nowrap;
+    gap: 4rem;
+  }
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  filter: grayscale(100%);
+  opacity: 0.7;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    filter: grayscale(0);
+    opacity: 1;
+  }
+  
+  [data-theme="dark"] & {
+    filter: grayscale(100%) brightness(1.8);
+    
+    &:hover {
+      filter: grayscale(0) brightness(1.8);
+    }
+  }
+}

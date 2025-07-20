@@ -17,7 +17,7 @@ export default function Navbar() {
       <nav className={styles.nav}>
         <Link href="/" className={styles.logo}>
           <Image
-            src="/logo.png"
+            src="/logo.svg"
             alt="Rkicy Technology"
             width={120}
             height={40}

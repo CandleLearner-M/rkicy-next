@@ -15,14 +15,11 @@
 
 .logo {
   @include flex(row, flex-start, center);
-  height: 30px;
-  overflow: hidden;
 }
 
 .logoImage {
-  object-fit: cover;
-  width: 100%;
-  height: auto;
+  height: 2.5rem;
+  width: auto;
 }
 
 .desktopNav {

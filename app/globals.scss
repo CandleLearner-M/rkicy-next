@@ -1,11 +1,5 @@
 @import '@/styles/variables';
 
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 :root {
   --font-outfit: 'Outfit', sans-serif;
 }
@@ -19,11 +13,11 @@ body {
   color: $text-primary;
   line-height: 1.5;
   transition: background-color 0.3s, color 0.3s;
-  
-  &[data-theme="dark"] {
-    background-color: $bg-primary-dark;
-    color: $text-primary-dark;
-  }
+}
+
+body[data-theme="dark"] {
+  background-color: $bg-primary-dark;
+  color: $text-primary-dark;
 }
 
 a {
@@ -50,4 +44,10 @@ img {
 
 ul, ol {
   list-style: none;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }

@@ -24,8 +24,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={outfit.variable}>
-        <Navbar />
         <ThemeProvider attribute="data-theme" defaultTheme="system" enableSystem>
+          <Navbar />
           {children}
           <Analytics />
         </ThemeProvider>
