@@ -272,7 +272,7 @@
   font-size: 0.875rem;
   font-weight: 600;
   white-space: nowrap;
-  color: $text-primary;
+  color: $text-primary; // Fixed - 
   
   [data-theme="dark"] & {
     color: $text-primary-dark;

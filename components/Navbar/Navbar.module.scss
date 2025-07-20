@@ -1,123 +1,344 @@
-@import "@/styles/variables.scss";
-@import "@/styles/mixins.scss";
-
-.header {
-  position: relative;
-  z-index: 10;
+// Navbar styling with SCSS modules
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 1.5rem 0;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+  
+  &.scrolled {
+    padding: 1rem 0;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  }
+  
+  [data-theme='dark'] & {
+    background: rgba(18, 24, 38, 0.85);
+    
+    &.scrolled {
+      background: rgba(18, 24, 38, 0.95);
+    }
+  }
 }
 
-.nav {
-  @include container;
-  @include flex(row, space-between, center);
-  padding-top: $spacing-lg;
-  padding-bottom: $spacing-lg;
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.logo {
-  @include flex(row, flex-start, center);
-}
-
-.logoImage {
-  height: 2.5rem;
-  width: auto;
+.logoContainer {
+  display: flex;
+  align-items: center;
 }
 
 .desktopNav {
-  @include flex(row, flex-end, center, $spacing-xl);
-  display: none;
+  display: flex;
+  align-items: center;
   
-  @media (min-width: $breakpoint-md) {
-    display: flex;
-  }
-}
-
-.navLink {
-  font-size: 1rem;
-  font-weight: 500;
-  color: $text-secondary;
-  transition: color $transition-normal;
-  
-  &:hover {
-    color: $primary;
-  }
-  
-  [data-theme="dark"] & {
-    color: $text-secondary-dark;
-    
-    &:hover {
-      color: $primary-light;
-    }
-  }
-}
-
-.contactButton {
-  @include button-primary;
-}
-
-.mobileNavControls {
-  @include flex(row, flex-end, center, $spacing-md);
-  
-  @media (min-width: $breakpoint-md) {
+  @media (max-width: 1024px) {
     display: none;
   }
 }
 
-.mobileMenuButton {
+.navLinks {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  
+  li {
+    position: relative;
+    font-size: 1rem;
+    font-weight: 500;
+    
+    a {
+      color: #333;
+      text-decoration: none;
+      transition: color 0.2s ease;
+      
+      [data-theme='dark'] & {
+        color: #f0f0f0;
+      }
+      
+      &:hover {
+        color: #3B82F6;
+      }
+    }
+    
+    &.active {
+      a {
+        color: #3B82F6;
+        font-weight: 600;
+      }
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -6px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #3B82F6;
+        border-radius: 2px;
+      }
+    }
+  }
+}
+
+.navActions {
+  display: flex;
+  align-items: center;
+  margin-left: 3rem;
+  gap: 1.5rem;
+}
+
+.languageSwitcher {
+  position: relative;
+}
+
+.languageButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #333;
+  transition: all 0.2s ease;
+  
+  [data-theme='dark'] & {
+    color: #f0f0f0;
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  &:hover {
+    background: rgba(0, 0, 0, 0.05);
+    
+    [data-theme='dark'] & {
+      background: rgba(255, 255, 255, 0.1);
+    }
+  }
+  
+  .rotated {
+    transform: rotate(180deg);
+    transition: transform 0.2s ease;
+  }
+}
+
+.languageDropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  width: 150px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  z-index: 10;
+  
+  [data-theme='dark'] & {
+    background: #1E293B;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+  }
+  
+  button {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border: none;
+    background: transparent;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    color: #333;
+    
+    [data-theme='dark'] & {
+      color: #f0f0f0;
+    }
+    
+    &:hover {
+      background: rgba(0, 0, 0, 0.05);
+      
+      [data-theme='dark'] & {
+        background: rgba(255, 255, 255, 0.05);
+      }
+    }
+    
+    &.activeLanguage {
+      color: #3B82F6;
+      font-weight: 600;
+      background: rgba(59, 130, 246, 0.08);
+    }
+  }
+}
+
+.themeToggle {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: $spacing-sm;
-  border-radius: $radius-md;
-}
-
-.menuIcon {
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
-.mobileMenu {
-  position: absolute;
-  top: 5rem;
-  left: 0;
-  right: 0;
-  padding: $spacing-md;
-  background-color: $bg-primary;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  color: #333;
+  transition: all 0.2s ease;
   
-  [data-theme="dark"] & {
-    background-color: $bg-primary-dark;
-  }
-  
-  @media (min-width: $breakpoint-md) {
-    display: none;
-  }
-}
-
-.mobileMenuLinks {
-  @include flex(column, flex-start, stretch, $spacing-md);
-}
-
-.mobileNavLink {
-  font-size: 1rem;
-  font-weight: 500;
-  color: $text-secondary;
-  padding: $spacing-sm 0;
-  
-  [data-theme="dark"] & {
-    color: $text-secondary-dark;
+  [data-theme='dark'] & {
+    color: #FFD700;
+    border-color: rgba(255, 255, 255, 0.2);
   }
   
   &:hover {
-    color: $primary;
+    background: rgba(0, 0, 0, 0.05);
     
-    [data-theme="dark"] & {
-      color: $primary-light;
+    [data-theme='dark'] & {
+      background: rgba(255, 255, 255, 0.1);
     }
   }
 }
 
-.mobileContactButton {
-  @include button-primary;
+// Mobile styles
+.mobileMenuButton {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  
+  [data-theme='dark'] & {
+    color: #f0f0f0;
+  }
+  
+  @media (max-width: 1024px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.mobileNav {
+  position: absolute;
+  top: 100%;
+  left: 0;
   width: 100%;
-  margin-top: $spacing-sm;
+  background: white;
+  padding: 1.5rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  
+  [data-theme='dark'] & {
+    background: #1A2237;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  @media (min-width: 1025px) {
+    display: none;
+  }
+}
+
+.mobileNavLinks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-bottom: 1.5rem;
+  
+  li {
+    font-size: 1.1rem;
+    font-weight: 500;
+    
+    a {
+      color: #333;
+      text-decoration: none;
+      display: block;
+      padding: 0.5rem 0;
+      
+      [data-theme='dark'] & {
+        color: #f0f0f0;
+      }
+    }
+    
+    &.active {
+      a {
+        color: #3B82F6;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+.mobileNavActions {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  
+  [data-theme='dark'] & {
+    border-top-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.mobileLangButtons {
+  display: flex;
+  gap: 0.5rem;
+  
+  button {
+    flex: 1;
+    padding: 0.75rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    background: transparent;
+    cursor: pointer;
+    color: #333;
+    
+    [data-theme='dark'] & {
+      color: #f0f0f0;
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    
+    &.activeLanguage {
+      background-color: #3B82F6;
+      color: white;
+      border-color: #3B82F6;
+      font-weight: 600;
+    }
+  }
+}
+
+.mobileThemeToggle {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border-radius: 6px;
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  color: #333;
+  font-size: 0.9rem;
+  font-weight: 500;
+  
+  [data-theme='dark'] & {
+    color: #f0f0f0;
+    border-color: rgba(255, 255, 255, 0.2);
+  }
 }

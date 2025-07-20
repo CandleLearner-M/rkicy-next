@@ -4,7 +4,7 @@ import { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
-import { ChevronRight, Users, ServerCog } from "lucide-react";
+import { ArrowRight, ChevronRight } from "lucide-react";
 import styles from "./Hero.module.scss";
 import HeroBackground from "./HeroBackground";
 import PartnerLogos from "./PartnerLogos";
@@ -131,7 +131,12 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.9 }}
           >
             <div className={styles.statIcon}>
-              <Users size={24} className={styles.icon} />
+              <Image 
+                src="/icons/clients-icon.svg" 
+                alt="Client icon" 
+                width={32} 
+                height={32} 
+              />
             </div>
             <div className={styles.statContent}>
               <p className={styles.statNumber}>200+</p>
@@ -149,7 +154,12 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 1.1 }}
           >
             <div className={styles.expertiseIcon}>
-              <ServerCog size={24} className={styles.icon} />
+              <Image 
+                src="/icons/tech-icon.svg" 
+                alt="Technology icon" 
+                width={32} 
+                height={32} 
+              />
             </div>
             <p className={styles.expertiseLabel}>Enterprise Solutions</p>
           </motion.div>
