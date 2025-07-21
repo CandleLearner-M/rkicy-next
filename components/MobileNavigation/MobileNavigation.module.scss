@@ -1,0 +1,279 @@
+@import "@/styles/variables.scss";
+
+// Variables specific to the mobile navigation
+$nav-height: 64px;
+$nav-item-size: 50px;
+$nav-center-button-size: 58px;
+$expanded-menu-item-height: 56px;
+
+// Main container for mobile navigation
+.mobileNavigation {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  
+  // Hide on larger screens
+  @media (min-width: 1024px) {
+    display: none;
+  }
+}
+
+// Primary navigation bar
+.primaryNav {
+  display: flex;
+  height: $nav-height;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.06);
+  position: relative;
+  z-index: 100;
+  border-radius: 20px 20px 0 0;
+  
+  [data-theme="dark"] & {
+    background: rgba(25, 25, 27, 0.92);
+    box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.2);
+  }
+}
+
+// Left and right sections for nav items
+.leftSection, .rightSection {
+  display: flex;
+  flex: 1;
+  justify-content: space-evenly;
+}
+
+// Center section for the plus button
+.centerSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: $nav-center-button-size;
+}
+
+// Individual nav item
+.navItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  height: $nav-height;
+  text-decoration: none;
+  color: $text-secondary;
+  position: relative;
+  transition: color 0.3s;
+  
+  &:hover, &:focus {
+    color: $primary;
+  }
+  
+  &.active {
+    color: $primary;
+  }
+  
+  [data-theme="dark"] & {
+    color: $text-secondary-dark;
+    
+    &:hover, &:focus, &.active {
+      color: $primary-light;
+    }
+  }
+}
+
+// Icon container
+.navIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+  position: relative;
+}
+
+// Text label
+.navLabel {
+  font-size: 0.75rem;
+  font-weight: 500;
+  transition: opacity 0.3s;
+  white-space: nowrap;
+}
+
+// Active indicator dot
+.activeIndicator {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: $primary;
+  
+  [data-theme="dark"] & {
+    background: $primary-light;
+  }
+}
+
+// Prominent center button
+.centerButton {
+  width: $nav-center-button-size;
+  height: $nav-center-button-size;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  padding: 0;
+  position: absolute;
+  bottom: 15px; // Elevation above nav bar
+  cursor: pointer;
+  outline: none;
+  
+  &:focus {
+    .buttonBackground {
+      transform: scale(1.05);
+    }
+  }
+}
+
+// Button background with gradient
+.buttonBackground {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, $primary, darken($primary, 15%));
+  color: white;
+  box-shadow: 0 8px 25px rgba($primary, 0.4);
+  transform-origin: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba($primary, 0.5);
+  }
+  
+  [data-theme="dark"] & {
+    box-shadow: 0 8px 25px rgba($primary, 0.6);
+    
+    &:hover {
+      box-shadow: 0 10px 30px rgba($primary, 0.7);
+    }
+  }
+  
+  .centerButton.active & {
+    background: darken($primary, 10%);
+  }
+}
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Expanded menu container
+.expandedMenuContainer {
+  position: absolute;
+  bottom: $nav-height;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  z-index: 2;
+}
+
+// Expanded menu content
+.expandedMenu {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.1);
+  
+  [data-theme="dark"] & {
+    background: rgba(25, 25, 27, 0.96);
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.3);
+  }
+}
+
+// Expanded nav items
+.expandedNavItem {
+  display: flex;
+  align-items: center;
+  height: $expanded-menu-item-height;
+  padding: 0 16px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: $text-primary;
+  transition: all 0.2s;
+  position: relative;
+  
+  &:hover, &:focus {
+    background: rgba(0, 0, 0, 0.03);
+  }
+  
+  &.active {
+    color: $primary;
+    background: rgba($primary, 0.06);
+  }
+  
+  [data-theme="dark"] & {
+    color: $text-primary-dark;
+    
+    &:hover, &:focus {
+      background: rgba(255, 255, 255, 0.05);
+    }
+    
+    &.active {
+      color: $primary-light;
+      background: rgba($primary, 0.15);
+    }
+  }
+}
+
+.expandedNavIcon {
+  margin-right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.expandedNavLabel {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.expandedActiveIndicator {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 60%;
+  border-radius: 0 2px 2px 0;
+  background: $primary;
+  
+  [data-theme="dark"] & {
+    background: $primary-light;
+  }
+}
+
+// Semi-transparent backdrop
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  
+  [data-theme="dark"] & {
+    background: rgba(0, 0, 0, 0.5);
+  }
+}

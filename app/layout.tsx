@@ -6,6 +6,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FixedBackground from "@/components/FixedBackground";
 import NextTopLoader from "nextjs-toploader";
+import AiChatAssistant from "@/components/AiChatAssistant";
+import MobileNavigation from "@/components/MobileNavigation";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -32,6 +34,8 @@ export default function RootLayout({
           <Navbar />
           <FixedBackground />
           {children}
+          <AiChatAssistant />
+          <MobileNavigation />
           <Footer />
           <Analytics />
         </ThemeProvider>
