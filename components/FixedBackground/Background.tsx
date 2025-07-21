@@ -1,9 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import styles from "./HeroBackground.module.scss";
+import styles from "./Background.module.scss";
 
-export default function HeroBackground() {
+export default function Background() {
   return (
     <>
       <div className={styles.gradient1} />

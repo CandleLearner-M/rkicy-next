@@ -3,10 +3,9 @@
 import { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion, useInView, AnimatePresence } from "framer-motion";
-import { ArrowRight, ChevronRight } from "lucide-react";
+import { motion, useInView } from "framer-motion";
+import { ChevronRight } from "lucide-react";
 import styles from "./Hero.module.scss";
-import HeroBackground from "./HeroBackground";
 import PartnerLogos from "./PartnerLogos";
 import HeroCards from "./HeroCards";
 
@@ -41,7 +40,6 @@ export default function Hero() {
 
   return (
     <section className={styles.heroSection} ref={ref}>
-      <HeroBackground />
       
       <div className={styles.contentContainer}>
         <div className={styles.textContent}>
@@ -91,7 +89,6 @@ export default function Hero() {
             <motion.div 
               variants={buttonVariants}
               initial="initial"
-              whileHover="hover"
               className={styles.primaryButtonWrapper}
             >
               <Link href="/services" className={styles.primaryButton}>
@@ -103,7 +100,6 @@ export default function Hero() {
             <motion.div
               variants={buttonVariants}
               initial="initial"
-              whileHover="hover"
               className={styles.secondaryButtonWrapper}
             >
               <Link href="/contact" className={styles.secondaryButton}>
@@ -140,7 +136,7 @@ export default function Hero() {
           <div className={styles.imageWrapper}>
             <div className={styles.glowEffect}></div>
             <Image
-              src="/hero-image.png"
+              src="/hero-image.webp"
               alt="Digital Transformation Visualization"
               width={660}
               height={550}

@@ -347,7 +347,7 @@
 .imageWrapper {
   position: relative;
   width: 100%;
-  max-width: 520px;
+  max-width: 540px;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -386,7 +386,7 @@
   z-index: 1;
   
   [data-theme="dark"] & {
-    filter: brightness(1.05) contrast(1.05);
+    // filter: brightness(1.05) contrast(1.05);
   }
 }
 
@@ -439,7 +439,7 @@
   gap: 0.75rem;
   
   @media (min-width: $breakpoint-lg) {
-    top: 65%;
+    top: 35%;
     left: -10%;
   }
 }
