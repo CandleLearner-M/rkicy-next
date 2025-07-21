@@ -4,8 +4,8 @@
   --font-outfit: 'Outfit', sans-serif;
 }
 
-html, body {
-  font-family: var(--font-outfit);
+html, body, *, input {
+  font-family: var(--font-outfit) !important;
 }
 
 body {

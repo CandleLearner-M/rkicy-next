@@ -5,11 +5,12 @@
 .chatLauncher {
   position: fixed;
   bottom: 24px;
+  right: 24px;
   
   @media (max-width: 768px) {
-    bottom: 110px;
+    bottom: 80px;
+    right: 0.8rem;
   }
-  right: 24px;
   display: flex;
   align-items: center;
   gap: 12px;
