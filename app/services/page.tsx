@@ -21,6 +21,7 @@ import {
   Building
 } from "lucide-react";
 import styles from "./ServicesSection.module.scss";
+import PageHeader from "@/components/PageHeader";
 
 const ServicesSection = () => {
   const services = [
@@ -100,6 +101,14 @@ const ServicesSection = () => {
 
   return (
     <section className={styles.servicesSection}>
+       <PageHeader 
+          title="Our Services" 
+          subtitle="Comprehensive IT Solutions for Modern Enterprises"
+          breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "Services", href: "/services", active: true }
+          ]}
+        />
       <div className={styles.container}>
         {/* Decorative elements */}
         <div className={styles.decorPattern}></div>

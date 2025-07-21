@@ -1,0 +1,215 @@
+@import "@/styles/variables.scss";
+
+.pageHeader {
+  position: relative;
+  padding: 8rem 0 4rem;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 2;
+  
+  @media (max-width: 768px) {
+    padding: 0 1.5rem;
+  }
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    background: linear-gradient(135deg, rgba($primary, 0.1) 0%, rgba($accent, 0.05) 100%);
+    
+    [data-theme="dark"] & {
+      background: linear-gradient(135deg, rgba($primary, 0.15) 0%, rgba($accent, 0.1) 100%);
+    }
+  }
+  
+  .pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 110%;
+    height: 120%;
+    overflow: hidden;
+    
+    .patternInner {
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(circle, rgba($primary, 0.05) 1px, transparent 1px),
+        radial-gradient(circle, rgba($primary, 0.05) 1px, transparent 1px);
+      background-size: 40px 40px;
+      background-position: 0 0, 20px 20px;
+      
+      [data-theme="dark"] & {
+        background-image: 
+          radial-gradient(circle, rgba($primary, 0.1) 1px, transparent 1px),
+          radial-gradient(circle, rgba($primary, 0.1) 1px, transparent 1px);
+      }
+    }
+  }
+  
+  .glow {
+    position: absolute;
+    top: -50%;
+    left: -20%;
+    width: 70%;
+    height: 200%;
+    background: radial-gradient(ellipse at center, rgba($primary, 0.15) 0%, rgba($primary, 0) 70%);
+    border-radius: 50%;
+    transform: rotate(-20deg);
+    pointer-events: none;
+    
+    [data-theme="dark"] & {
+      background: radial-gradient(ellipse at center, rgba($primary, 0.2) 0%, rgba($primary, 0) 70%);
+    }
+  }
+}
+
+.breadcrumbs {
+  margin-bottom: 1rem;
+  
+  ol {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  li {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    
+    a {
+      color: $text-secondary;
+      text-decoration: none;
+      transition: color 0.2s ease;
+      
+      &:hover {
+        color: $primary;
+      }
+      
+      [data-theme="dark"] & {
+        color: $text-secondary-dark;
+        
+        &:hover {
+          color: $primary-light;
+        }
+      }
+    }
+    
+    span[aria-current="page"] {
+      color: $text-primary;
+      font-weight: 600;
+      
+      [data-theme="dark"] & {
+        color: $text-primary-dark;
+      }
+    }
+    
+    .separator {
+      margin: 0 0.75rem;
+      color: rgba($text-secondary, 0.5);
+      
+      [data-theme="dark"] & {
+        color: rgba($text-secondary-dark, 0.5);
+      }
+    }
+  }
+}
+
+.activeCrumb {
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, $primary, rgba($accent, 0.6));
+    border-radius: 1px;
+  }
+}
+
+.titleContainer {
+  margin-bottom: 1rem;
+}
+
+.titleWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.titleWord {
+  display: inline-block;
+  font-size: 3.25rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: $text-primary;
+  
+  [data-theme="dark"] & {
+    color: $text-primary-dark;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 2.5rem;
+  }
+  
+  @media (max-width: 576px) {
+    font-size: 2rem;
+  }
+}
+
+.titleAccent {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 35%;
+  height: 8px;
+  background: linear-gradient(90deg, rgba($primary, 0.8), rgba($accent, 0.3));
+  border-radius: 4px;
+  transform-origin: left;
+  
+  @media (max-width: 768px) {
+    height: 6px;
+    bottom: 3px;
+  }
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0;
+  color: $text-secondary;
+  
+  [data-theme="dark"] & {
+    color: $text-secondary-dark;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+  }
+}

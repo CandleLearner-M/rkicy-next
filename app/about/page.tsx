@@ -18,6 +18,7 @@ import Image from "next/image";
 import Link from "next/link";
 // import PageHeader from "@/components/PageHeader";
 import styles from "./page.module.scss";
+import PageHeader from "@/components/PageHeader";
 
 // Team data
 const leadershipTeam = [
@@ -126,14 +127,14 @@ export default function AboutPage() {
   return (
     <main className={styles.aboutPage}>
       {/* Page header */}
-      {/* <PageHeader 
+      <PageHeader 
         title="About Us" 
         subtitle="Morocco's Leading IT Solutions Provider"
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "About", href: "/about", active: true }
         ]}
-      /> */}
+      />
       
       <div className={styles.container}>
         {/* Decorative elements */}
