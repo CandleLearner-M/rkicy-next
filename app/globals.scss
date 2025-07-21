@@ -50,3 +50,33 @@ ul, ol {
   margin: 0;
   padding: 0;
 }
+
+button,
+input,
+select,
+textarea,
+a {
+  outline: none;
+  -webkit-tap-highlight-color: transparent; /* Removes blue highlight on mobile tap */
+}
+
+/* Remove default button styles */
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  
+  /* Remove the annoying blue square/outline */
+  &:focus,
+  &:active {
+    outline: none;
+    box-shadow: none;
+  }
+  
+  /* Remove default button appearance on iOS */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
