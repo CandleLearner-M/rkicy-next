@@ -80,6 +80,33 @@ const Navbar: React.FC = () => {
     }
   };
 
+  // Theme toggle animation variants
+  const themeIconVariants = {
+    initial: { 
+      rotate: -90,
+      opacity: 0,
+      scale: 0.5,
+    },
+    animate: { 
+      rotate: 0,
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.35,
+        ease: "backOut",
+      }
+    },
+    exit: { 
+      rotate: 90,
+      opacity: 0,
+      scale: 0.5,
+      transition: {
+        duration: 0.35,
+        ease: "backIn",
+      }
+    }
+  };
+
   // Nav links with active state
   const navLinks = [
     { name: 'About', href: '/about' },
@@ -200,17 +227,38 @@ const Navbar: React.FC = () => {
                   backgroundColor: theme === 'dark' 
                     ? "rgba(255, 215, 0, 0.15)" 
                     : "rgba(0, 0, 0, 0.08)",
-                  transition: { duration: 0.2 }
                 }}
-                whileTap={{ scale: 0.9, rotate: 15 }}
+                whileTap={{ scale: 0.9 }}
                 onClick={toggleTheme}
                 aria-label={theme === 'dark' ? "Switch to light mode" : "Switch to dark mode"}
               >
-                <motion.div
-                  key={theme}
-                >
-                  {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
-                </motion.div>
+                <div className={styles.themeIconWrapper}>
+                  <AnimatePresence mode="wait" initial={false}>
+                    {theme === 'dark' ? (
+                      <motion.div
+                        key="sun"
+                        variants={themeIconVariants}
+                        initial="initial"
+                        animate="animate"
+                        exit="exit"
+                        className={styles.themeIcon}
+                      >
+                        <Sun size={18} />
+                      </motion.div>
+                    ) : (
+                      <motion.div
+                        key="moon"
+                        variants={themeIconVariants}
+                        initial="initial"
+                        animate="animate"
+                        exit="exit"
+                        className={styles.themeIcon}
+                      >
+                        <Moon size={18} />
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
               </motion.button>
             )}
           </div>
@@ -227,19 +275,37 @@ const Navbar: React.FC = () => {
                   ? "rgba(255, 215, 0, 0.15)" 
                   : "rgba(0, 0, 0, 0.08)",
               }}
-              whileTap={{ scale: 0.9, rotate: 15 }}
+              whileTap={{ scale: 0.9 }}
               onClick={toggleTheme}
               aria-label={theme === 'dark' ? "Switch to light mode" : "Switch to dark mode"}
             >
-              <motion.div
-                key={theme}
-                initial={{ rotate: -30, opacity: 0 }}
-                animate={{ rotate: 0, opacity: 1 }}
-                exit={{ rotate: 30, opacity: 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
-              </motion.div>
+              <div className={styles.themeIconWrapper}>
+                <AnimatePresence mode="wait" initial={false}>
+                  {theme === 'dark' ? (
+                    <motion.div
+                      key="sun"
+                      variants={themeIconVariants}
+                      initial="initial"
+                      animate="animate"
+                      exit="exit"
+                      className={styles.themeIcon}
+                    >
+                      <Sun size={18} />
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="moon"
+                      variants={themeIconVariants}
+                      initial="initial"
+                      animate="animate"
+                      exit="exit"
+                      className={styles.themeIcon}
+                    >
+                      <Moon size={18} />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
             </motion.button>
           )}
         </div>

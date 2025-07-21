@@ -3,7 +3,7 @@
 
 .navbar {
   position: absolute;
-  top:0;
+  top: 0;
   left: 0;
   width: 100%;
   padding: 1.5rem 0;
@@ -235,7 +235,6 @@
   cursor: pointer;
   color: $text-primary;
   transition: all 0.3s ease;
-  overflow: hidden; // For the icon animation
   
   [data-theme='dark'] & {
     color: #FFD700;
@@ -251,8 +250,24 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
   }
+}
 
-  svg {
-    transform: translateY(2px);
-  }
+.themeIconWrapper {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.themeIcon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }

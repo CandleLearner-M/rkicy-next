@@ -40,13 +40,30 @@
   }
 }
 
-.logoWrapper {
-  margin-bottom: 1.5rem;
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  position: relative;
+  margin-bottom: 2rem;
 }
 
-.logo {
-  height: auto;
+.logoImage {
+  height: 2.5rem;
+  width: auto;
+
+    filter: invert(100%) sepia(0%) saturate(7491%) hue-rotate(127deg) brightness(102%) contrast(99%);
+    animation: logoImageGlow 7s infinite ease-in-out;
 }
+
+.logospan {
+  align-self: end;
+  font-weight: 500;
+  font-size: 0.8rem;
+  position: relative;
+  left: -6px;
+  color: white;
+} 
 
 .companyDescription {
   color: #cbd5e1;

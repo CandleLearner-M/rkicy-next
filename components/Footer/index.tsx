@@ -16,6 +16,7 @@ import {
   ArrowUp
 } from 'lucide-react';
 import styles from './Footer.module.scss';
+import Logo from '../Navbar/Logo';
 
 const Footer = () => {
   const [email, setEmail] = useState('');
@@ -53,14 +54,25 @@ const Footer = () => {
         <div className={styles.topSection}>
           {/* Company info */}
           <div className={styles.companyInfo}>
-            <div className={styles.logoWrapper}>
+            {/* <div className={styles.logoWrapper}>
               <Image 
-                src="/logo-white.png" 
+                src="/icons/logo.svg" 
                 alt="Rkicy Technology"
                 width={140}
                 height={40}
                 className={styles.logo}
               />
+            </div> */}
+            <div className={styles.logo}>
+              <Image
+                src="/logo.svg"
+                alt="Rkicy Technology"
+                width={120}
+                height={40}
+                draggable={false}
+                className={styles.logoImage}
+              />
+              <span className={styles.logospan}>Tech</span>
             </div>
             <p className={styles.companyDescription}>
               Leading Morocco's digital transformation with enterprise-grade IT solutions,
