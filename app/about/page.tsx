@@ -291,27 +291,72 @@ export default function AboutPage() {
         </section>
         
         {/* Timeline */}
-        <motion.section 
-          className={styles.timelineSection}
-          ref={timelineRef}
-          style={{ opacity: timelineOpacity, y: timelineY }}
-        >
-          <h2 className={styles.sectionTitle + ' ' + styles.centeredTitle}>Our Journey</h2>
+        <section className={styles.timelineSection}>
+          <motion.h2 
+            className={styles.sectionTitle + ' ' + styles.centeredTitle}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true, margin: "-50px" }}
+          >
+            Our Journey
+          </motion.h2>
           
           <div className={styles.timeline}>
-            <div className={styles.timelineLine}></div>
+            <motion.div 
+              className={styles.timelineLine}
+              initial={{ scaleY: 0, originY: 0 }}
+              whileInView={{ scaleY: 1 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+              viewport={{ once: true, margin: "-100px" }}
+            ></motion.div>
+            
             {milestones.map((milestone, index) => (
-              <div key={index} className={styles.timelineItem}>
-                <div className={styles.timelinePoint}></div>
-                <div className={styles.timelineYear}>{milestone.year}</div>
-                <div className={styles.timelineContent}>
+              <motion.div 
+                key={index} 
+                className={styles.timelineItem}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.5 + (index * 0.15) }}
+                viewport={{ once: true, margin: "-50px" }}
+              >
+                {/* <motion.div 
+                  className={styles.timelinePoint}
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  transition={{ 
+                    duration: 0.4, 
+                    delay: 0.3 + (index * 0.15),
+                    type: "spring", 
+                    stiffness: 300
+                  }}
+                  viewport={{ once: true, margin: "-50px" }}
+                ></motion.div> */}
+                
+                <motion.div 
+                  className={styles.timelineYear}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.6 + (index * 0.15) }}
+                  viewport={{ once: true, margin: "-50px" }}
+                >
+                  {milestone.year}
+                </motion.div>
+                
+                <motion.div 
+                  className={styles.timelineContent}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.7 + (index * 0.15) }}
+                  viewport={{ once: true, margin: "-50px" }}
+                >
                   <h3 className={styles.timelineTitle}>{milestone.title}</h3>
                   <p className={styles.timelineDescription}>{milestone.description}</p>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
             ))}
           </div>
-        </motion.section>
+        </section>
         
         {/* Team Section */}
         <section className={styles.teamSection}>
