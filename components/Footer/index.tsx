@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { 
   MapPin, 
   Phone, 
@@ -11,12 +12,12 @@ import {
   Instagram, 
   Facebook,
   ChevronRight,
-  Send,
+  ArrowRight,
   ArrowUp
 } from 'lucide-react';
 import styles from './Footer.module.scss';
 
-const Footer: React.FC = () => {
+const Footer = () => {
   const [email, setEmail] = useState('');
   const [subscribeStatus, setSubscribeStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
@@ -45,125 +46,137 @@ const Footer: React.FC = () => {
 
   return (
     <footer className={styles.footer}>
-      <div className={styles.waveBackground}>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
-          <path fill="currentColor" fillOpacity="1" d="M0,96L48,112C96,128,192,160,288,165.3C384,171,480,149,576,149.3C672,149,768,171,864,176C960,181,1056,171,1152,144C1248,117,1344,75,1392,53.3L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-        </svg>
-      </div>
       
-      <div className={styles.contentContainer}>
-        <div className={styles.mainContent}>
-          {/* Company info section */}
-          <div className={styles.companySection}>
+      
+      {/* Main content */}
+      <div className={styles.container}>
+        <div className={styles.topSection}>
+          {/* Company info */}
+          <div className={styles.companyInfo}>
             <div className={styles.logoWrapper}>
-              <div className={styles.logoIcon}>
-                <img src='/icons/logo.svg' />
-              </div>
-              <h3 className={styles.logoText}>Rkicy Technology</h3>
+              <Image 
+                src="/logo-white.png" 
+                alt="Rkicy Technology"
+                width={140}
+                height={40}
+                className={styles.logo}
+              />
             </div>
-            
-            <p className={styles.description}>
-              Empowering Morocco's digital future with enterprise-grade IT solutions, from AI to hardware.
+            <p className={styles.companyDescription}>
+              Leading Morocco's digital transformation with enterprise-grade IT solutions,
+              from AI to hardware. Empowering businesses across Morocco and beyond.
             </p>
             
             <div className={styles.contactInfo}>
               <div className={styles.contactItem}>
-                <MapPin size={18} />
-                <span>Casablanca, Morocco</span>
-              </div>
-              <div className={styles.contactItem}>
-                <Phone size={18} />
+                <Phone size={18} className={styles.contactIcon} />
                 <span>+212 522 123 456</span>
               </div>
               <div className={styles.contactItem}>
-                <Mail size={18} />
-                <span>contact@rkicy-tech.ma</span>
+                <Mail size={18} className={styles.contactIcon} />
+                <span>contact@rkicy.tech</span>
+              </div>
+              <div className={styles.contactItem}>
+                <MapPin size={18} className={styles.contactIcon} />
+                <span>Casablanca, Morocco</span>
               </div>
             </div>
             
             <div className={styles.socialLinks}>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className={styles.socialLink}>
                 <Linkedin size={18} />
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className={styles.socialLink}>
                 <Twitter size={18} />
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className={styles.socialLink}>
                 <Instagram size={18} />
               </a>
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className={styles.socialLink}>
                 <Facebook size={18} />
               </a>
             </div>
           </div>
           
-          {/* Links sections */}
-          <div className={styles.linksContainer}>
+          {/* Link sections */}
+          <div className={styles.linksSection}>
             {/* Company links */}
-            <div className={styles.linksColumn}>
-              <h4>Company</h4>
-              <ul>
+            <div className={styles.linkColumn}>
+              <h3 className={styles.linkHeader}>Company</h3>
+              <ul className={styles.linkList}>
                 <li>
-                  <ChevronRight size={16} />
+                  <ChevronRight size={16} className={styles.linkIcon} />
                   <Link href="/about">About Us</Link>
                 </li>
                 <li>
-                  <ChevronRight size={16} />
+                  <ChevronRight size={16} className={styles.linkIcon} />
                   <Link href="/team">Our Team</Link>
                 </li>
                 <li>
-                  <ChevronRight size={16} />
+                  <ChevronRight size={16} className={styles.linkIcon} />
                   <Link href="/careers">Careers</Link>
                 </li>
                 <li>
-                  <ChevronRight size={16} />
-                  <Link href="/blog">Blog</Link>
+                  <ChevronRight size={16} className={styles.linkIcon} />
+                  <Link href="/news">News</Link>
+                </li>
+                <li>
+                  <ChevronRight size={16} className={styles.linkIcon} />
+                  <Link href="/contact">Contact</Link>
                 </li>
               </ul>
             </div>
             
             {/* Services links */}
-            <div className={styles.linksColumn}>
-              <h4>Services</h4>
-              <ul>
+            <div className={styles.linkColumn}>
+              <h3 className={styles.linkHeader}>Services</h3>
+              <ul className={styles.linkList}>
                 <li>
-                  <ChevronRight size={16} />
+                  <ChevronRight size={16} className={styles.linkIcon} />
                   <Link href="/services/ai-solutions">AI Solutions</Link>
                 </li>
                 <li>
-                  <ChevronRight size={16} />
-                  <Link href="/services/cloud-services">Cloud Services</Link>
+                  <ChevronRight size={16} className={styles.linkIcon} />
+                  <Link href="/services/enterprise-it">Enterprise IT</Link>
                 </li>
                 <li>
-                  <ChevronRight size={16} />
-                  <Link href="/services/cybersecurity">Cybersecurity</Link>
+                  <ChevronRight size={16} className={styles.linkIcon} />
+                  <Link href="/services/cloud-solutions">Cloud Solutions</Link>
                 </li>
                 <li>
-                  <ChevronRight size={16} />
-                  <Link href="/services/hardware-solutions">Hardware Solutions</Link>
+                  <ChevronRight size={16} className={styles.linkIcon} />
+                  <Link href="/services/digital-transformation">Digital Transformation</Link>
+                </li>
+                <li>
+                  <ChevronRight size={16} className={styles.linkIcon} />
+                  <Link href="/services/hardware">Hardware</Link>
                 </li>
               </ul>
             </div>
             
-            {/* Support links */}
-            <div className={styles.linksColumn}>
-              <h4>Support</h4>
-              <ul>
+            {/* Resources links */}
+            <div className={styles.linkColumn}>
+              <h3 className={styles.linkHeader}>Resources</h3>
+              <ul className={styles.linkList}>
                 <li>
-                  <ChevronRight size={16} />
-                  <Link href="/contact">Contact Us</Link>
+                  <ChevronRight size={16} className={styles.linkIcon} />
+                  <Link href="/blog">Blog</Link>
                 </li>
                 <li>
-                  <ChevronRight size={16} />
-                  <Link href="/faq">FAQ</Link>
+                  <ChevronRight size={16} className={styles.linkIcon} />
+                  <Link href="/case-studies">Case Studies</Link>
                 </li>
                 <li>
-                  <ChevronRight size={16} />
-                  <Link href="/support">Technical Support</Link>
+                  <ChevronRight size={16} className={styles.linkIcon} />
+                  <Link href="/whitepapers">Whitepapers</Link>
                 </li>
                 <li>
-                  <ChevronRight size={16} />
-                  <Link href="/resources">Resources</Link>
+                  <ChevronRight size={16} className={styles.linkIcon} />
+                  <Link href="/partners">Partners</Link>
+                </li>
+                <li>
+                  <ChevronRight size={16} className={styles.linkIcon} />
+                  <Link href="/testimonials">Testimonials</Link>
                 </li>
               </ul>
             </div>
@@ -171,8 +184,10 @@ const Footer: React.FC = () => {
           
           {/* Newsletter section */}
           <div className={styles.newsletterSection}>
-            <h4>Stay Updated</h4>
-            <p>Subscribe to our newsletter for the latest tech insights and company news.</p>
+            <h3 className={styles.newsletterHeader}>Subscribe to Our Newsletter</h3>
+            <p className={styles.newsletterText}>
+              Stay updated with our latest news, insights, and tech innovations.
+            </p>
             
             <form onSubmit={handleSubscribe} className={styles.subscribeForm}>
               <div className={styles.inputWrapper}>
@@ -180,24 +195,24 @@ const Footer: React.FC = () => {
                   type="email" 
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email" 
-                  aria-label="Email address"
+                  placeholder="Your email address" 
+                  className={styles.emailInput}
+                  required 
                 />
-                <button type="submit" aria-label="Subscribe">
-                  <Send size={18} />
-                  Subscribe
+                <button type="submit" className={styles.submitButton}>
+                  <ArrowRight size={18} />
                 </button>
               </div>
               
               {subscribeStatus === 'success' && (
-                <p className={styles.successMessage}>
+                <p className={styles.statusMessage + ' ' + styles.success}>
                   Thank you for subscribing!
                 </p>
               )}
               
               {subscribeStatus === 'error' && (
-                <p className={styles.errorMessage}>
-                  Please enter a valid email.
+                <p className={styles.statusMessage + ' ' + styles.error}>
+                  Please enter a valid email address.
                 </p>
               )}
             </form>
@@ -218,41 +233,35 @@ const Footer: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
-      
-      {/* Partners section */}
-      <div className={styles.partnersSection}>
-        <div className={styles.contentContainer}>
-          <h4>Trusted by World-Class Brands</h4>
+        
+        {/* Partners section */}
+        <div className={styles.partnersSection}>
+          <h3 className={styles.partnerHeader}>Trusted by Industry Leaders</h3>
           <div className={styles.partnerLogos}>
-            <img className={styles.helpBrand} src="/icons/zebra.svg" alt="Zebra" draggable='false' />
-            <img className={styles.helpBrand} src="/icons/openai.svg" alt="OpenAI" draggable='false' />
-            <img className={styles.helpBrand} src="/icons/sap.svg" alt="SAP"  draggable='false' />
-            <img className={styles.helpBrand} src="/icons/microsoft.svg" alt="Microsoft" draggable='false' />
+            <Image src="/icons/zebra.svg" alt="Zebra" width={120} height={40} />
+            <Image src="/icons/openai.svg" alt="OpenAI" width={120} height={40} />
+            <Image src="/icons/sap.svg" alt="SAP" width={120} height={40} />
+            <Image src="/icons/microsoft.svg" alt="Microsoft" width={120} height={40} />
           </div>
         </div>
-      </div>
-      
-      {/* Copyright section */}
-      <div className={styles.copyrightSection}>
-        <div className={styles.contentContainer}>
-          <div className={styles.copyrightWrapper}>
-            <p>© {currentYear} Rkicy Technology. All rights reserved.</p>
-            
-            <div className={styles.legalLinks}>
-              <Link href="/privacy">Privacy Policy</Link>
-              <Link href="/terms">Terms of Service</Link>
-              <Link href="/cookies">Cookie Policy</Link>
-            </div>
-            
-            <button 
-              onClick={scrollToTop}
-              className={styles.scrollTopButton}
-              aria-label="Scroll to top"
-            >
-              <ArrowUp size={20} />
-            </button>
+        
+        <div className={styles.divider} />
+        
+        {/* Bottom section */}
+        <div className={styles.bottomSection}>
+          <div className={styles.copyright}>
+            © {currentYear} Rkicy Technology. All rights reserved.
           </div>
+          
+          <div className={styles.legalLinks}>
+            <Link href="/terms">Terms of Service</Link>
+            <span className={styles.dot}>•</span>
+            <Link href="/privacy">Privacy Policy</Link>
+            <span className={styles.dot}>•</span>
+            <Link href="/cookies">Cookies</Link>
+          </div>
+          
+          
         </div>
       </div>
     </footer>
