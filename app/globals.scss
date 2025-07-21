@@ -9,14 +9,13 @@ html, body {
 }
 
 body {
-  background-color: $bg-primary;
+  position: relative;
   color: $text-primary;
   line-height: 1.5;
   transition: background-color 0.3s, color 0.3s;
 }
 
 body[data-theme="dark"] {
-  background-color: $bg-primary-dark;
   color: $text-primary-dark;
 }
 

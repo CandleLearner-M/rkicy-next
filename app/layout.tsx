@@ -4,6 +4,7 @@ import "./globals.scss";
 import { ThemeProvider } from "@/theme/ThemeProvider";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import FixedBackground from "@/components/FixedBackground";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -27,6 +28,7 @@ export default function RootLayout({
       <body className={outfit.variable}>
         <ThemeProvider attribute="data-theme" defaultTheme="system" enableSystem>
           <Navbar />
+          <FixedBackground />
           {children}
           <Footer />
           <Analytics />
