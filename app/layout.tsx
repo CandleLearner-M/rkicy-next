@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/theme/ThemeProvider";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FixedBackground from "@/components/FixedBackground";
+import NextTopLoader from "nextjs-toploader";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -27,6 +28,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={outfit.variable}>
         <ThemeProvider attribute="data-theme" defaultTheme="system" enableSystem>
+          <NextTopLoader showSpinner={false} />
           <Navbar />
           <FixedBackground />
           {children}
