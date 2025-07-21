@@ -109,10 +109,12 @@ const Navbar: React.FC = () => {
 
   // Nav links with active state
   const navLinks = [
+    { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
     { name: 'Services', href: '/services' },
     { name: 'Partners', href: '/partners' },
-    { name: 'Testimonials', href: '/testimonials' },
+    { name: 'Hardware', href: '/hardware' },
+    { name: 'Projects', href: '/projects' },
     { name: 'Contact', href: '/contact' }
   ];
 
