@@ -34,7 +34,7 @@ export default function RootLayout({
           <Navbar />
           <FixedBackground />
           {children}
-          <AiChatAssistant />
+          {/* <AiChatAssistant /> */}
           <MobileNavigation />
           <Footer />
           <Analytics />

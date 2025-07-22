@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import styles from "./MobileHero.module.scss";
+import PartnerLogos from "./PartnerLogos";
 
 export default function MobileHero() {
   const ref = useRef(null);
@@ -140,6 +141,7 @@ export default function MobileHero() {
           <span>Trusted by Industry Leaders</span>
         </motion.div>
       </div>
+      <PartnerLogos />
     </section>
   );
 }
