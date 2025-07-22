@@ -1,5 +1,3 @@
-/* No imports needed here - hardcoding values instead */
-
 .fixedBackground {
   position: fixed;
   top: 0;
@@ -19,27 +17,26 @@
   }
 }
 
-/* Main gradients */
+/* Static gradients */
 .gradient1 {
   position: absolute;
-  top: -10%;
-  right: -10%;
-  width: 70%;
-  height: 70%;
+  top: 0;
+  right: 0;
+  width: 80%;
+  height: 80%;
   border-radius: 50%;
   background: radial-gradient(
     ellipse at center,
-    rgba(79, 70, 229, 0.06) 0%,
-    rgba(79, 70, 229, 0) 70%
+    rgba(79, 70, 229, 0.05) 0%,
+    rgba(79, 70, 229, 0) 75%
   );
   opacity: 0.8;
-  transform: translateZ(0);
   
   [data-theme="dark"] & {
     background: radial-gradient(
       ellipse at center,
-      rgba(79, 70, 229, 0.08) 0%,
-      rgba(79, 70, 229, 0) 70%
+      rgba(79, 70, 229, 0.07) 0%,
+      rgba(79, 70, 229, 0) 75%
     );
     opacity: 0.6;
   }
@@ -47,56 +44,30 @@
 
 .gradient2 {
   position: absolute;
-  bottom: -15%;
-  left: -10%;
-  width: 60%;
-  height: 60%;
+  bottom: 0;
+  left: 0;
+  width: 70%;
+  height: 70%;
   border-radius: 50%;
   background: radial-gradient(
     circle at center,
-    rgba(59, 130, 246, 0.05) 0%,
-    rgba(59, 130, 246, 0) 70%
-  );
-  opacity: 0.8;
-  transform: translateZ(0);
-  
-  [data-theme="dark"] & {
-    background: radial-gradient(
-      circle at center,
-      rgba(59, 130, 246, 0.07) 0%,
-      rgba(59, 130, 246, 0) 70%
-    );
-    opacity: 0.6;
-  }
-}
-
-.gradient3 {
-  position: absolute;
-  top: 30%;
-  left: 40%;
-  width: 40%;
-  height: 40%;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle at center,
-    rgba(6, 182, 212, 0.04) 0%,
-    rgba(6, 182, 212, 0) 70%
+    rgba(59, 130, 246, 0.04) 0%,
+    rgba(59, 130, 246, 0) 75%
   );
   opacity: 0.7;
-  transform: translateZ(0);
   
   [data-theme="dark"] & {
     background: radial-gradient(
       circle at center,
-      rgba(6, 182, 212, 0.06) 0%,
-      rgba(6, 182, 212, 0) 70%
+      rgba(59, 130, 246, 0.06) 0%,
+      rgba(59, 130, 246, 0) 75%
     );
     opacity: 0.5;
   }
 }
 
-/* Container for all animated shapes */
-.shapesContainer {
+/* Container for all static elements */
+.backgroundElements {
   position: absolute;
   top: 0;
   left: 0;
@@ -104,189 +75,34 @@
   height: 100%;
   overflow: hidden;
   pointer-events: none;
-  transform: translateZ(0);
 }
 
-/* Animated circles and shapes */
-.circle1 {
-  position: absolute;
-  top: 15%;
-  left: 10%;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background: linear-gradient(
-    135deg,
-    rgba(79, 70, 229, 0.12) 0%,
-    rgba(59, 130, 246, 0.18) 100%
-  );
-  opacity: 0.6;
-  box-shadow: 0 0 40px 0 rgba(79, 70, 229, 0.1);
-  will-change: transform;
-  transform: translateZ(0);
-  
-  [data-theme="dark"] & {
-    background: linear-gradient(
-      135deg,
-      rgba(79, 70, 229, 0.15) 0%,
-      rgba(59, 130, 246, 0.2) 100%
-    );
-    opacity: 0.4;
-    box-shadow: 0 0 40px 0 rgba(79, 70, 229, 0.15);
-  }
-  
-  @media (min-width: 768px) {  /* Using hardcoded 768px instead of $breakpoint-md */
-    width: 120px;
-    height: 120px;
-  }
-}
-
-.circle2 {
-  position: absolute;
-  bottom: 25%;
-  right: 15%;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: linear-gradient(
-    135deg,
-    rgba(6, 182, 212, 0.15) 0%,
-    rgba(59, 130, 246, 0.2) 100%
-  );
-  opacity: 0.6;
-  will-change: transform;
-  transform: translateZ(0);
-  
-  [data-theme="dark"] & {
-    background: linear-gradient(
-      135deg,
-      rgba(6, 182, 212, 0.15) 0%,
-      rgba(59, 130, 246, 0.2) 100%
-    );
-    opacity: 0.4;
-  }
-  
-  @media (min-width: 768px) {  /* Using hardcoded 768px instead of $breakpoint-md */
-    width: 90px;
-    height: 90px;
-  }
-}
-
-.circle3 {
-  position: absolute;
-  top: 45%;
-  left: 25%;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: linear-gradient(
-    135deg,
-    rgba(167, 139, 250, 0.12) 0%,
-    rgba(139, 92, 246, 0.18) 100%
-  );
-  opacity: 0.5;
-  will-change: transform;
-  transform: translateZ(0);
-  
-  [data-theme="dark"] & {
-    background: linear-gradient(
-      135deg,
-      rgba(167, 139, 250, 0.15) 0%,
-      rgba(139, 92, 246, 0.2) 100%
-    );
-    opacity: 0.4;
-  }
-  
-  @media (min-width: 768px) {  /* Using hardcoded 768px instead of $breakpoint-md */
-    width: 60px;
-    height: 60px;
-  }
-}
-
-.square {
-  position: absolute;
-  top: 35%;
-  right: 20%;
-  width: 90px;
-  height: 90px;
-  border-radius: 16px;
-  background: linear-gradient(
-    135deg, 
-    rgba(79, 70, 229, 0.1) 0%, 
-    rgba(6, 182, 212, 0.15) 100%
-  );
-  opacity: 0.6;
-  will-change: transform;
-  transform: translateZ(0);
-  
-  [data-theme="dark"] & {
-    background: linear-gradient(
-      135deg,
-      rgba(79, 70, 229, 0.1) 0%,
-      rgba(6, 182, 212, 0.15) 100%
-    );
-    opacity: 0.35;
-  }
-  
-  @media (min-width: 768px) {  /* Using hardcoded 768px instead of $breakpoint-md */
-    width: 140px;
-    height: 140px;
-    border-radius: 24px;
-  }
-}
-
-/* Grid elements */
+/* Grid element - similar to the one in the image */
 .grid {
   position: absolute;
-  bottom: -5%;
-  left: 5%;
-  width: 250px;
-  height: 250px;
-  background-image: linear-gradient(rgba(79, 70, 229, 0.12) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(79, 70, 229, 0.12) 1px, transparent 1px);
+  top: 0;
+  right: 0;
+  width: 60%;
+  height: 100%;
+  background-image: linear-gradient(rgba(79, 70, 229, 0.08) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(79, 70, 229, 0.08) 1px, transparent 1px);
   background-size: 25px 25px;
-  opacity: 0.35;
-  transform: rotate(-15deg);
+  opacity: 0.12;
+  transform: rotate(0deg);
   transform-origin: center;
   
   [data-theme="dark"] & {
-    background-image: linear-gradient(rgba(79, 70, 229, 0.15) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(79, 70, 229, 0.15) 1px, transparent 1px);
-    opacity: 0.2;
-  }
-  
-  @media (min-width: 768px) {  /* Using hardcoded 768px instead of $breakpoint-md */
-    width: 350px;
-    height: 350px;
-  }
-}
-
-.grid2 {
-  position: absolute;
-  top: 15%;
-  right: 10%;
-  width: 180px;
-  height: 180px;
-  background-image: linear-gradient(rgba(6, 182, 212, 0.1) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(6, 182, 212, 0.1) 1px, transparent 1px);
-  background-size: 20px 20px;
-  opacity: 0.3;
-  transform: rotate(15deg);
-  transform-origin: center;
-  
-  [data-theme="dark"] & {
-    background-image: linear-gradient(rgba(6, 182, 212, 0.12) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(6, 182, 212, 0.12) 1px, transparent 1px);
+    background-image: linear-gradient(rgba(79, 70, 229, 0.1) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(79, 70, 229, 0.1) 1px, transparent 1px);
     opacity: 0.15;
   }
   
-  @media (min-width: 768px) {  /* Using hardcoded 768px instead of $breakpoint-md */
-    width: 250px;
-    height: 250px;
+  @media (min-width: 768px) {
+    width: 50%;
   }
 }
 
-/* Floating dots */
+/* Static dots for visual interest */
 .dotsContainer {
   position: absolute;
   top: 0;
@@ -299,17 +115,17 @@
 .dot {
   position: absolute;
   border-radius: 50%;
-  background-color: #4f46e5;  /* Indigo */
-  opacity: 0.4;
+  background-color: #4f46e5;
+  opacity: 0.3;
   filter: blur(1px);
   
   [data-theme="dark"] & {
-    background-color: #3b82f6;  /* Blue */
-    opacity: 0.3;
+    background-color: #3b82f6;
+    opacity: 0.25;
   }
 }
 
-/* Optional noise texture for added depth */
+/* Subtle noise texture for added depth */
 .noise {
   position: absolute;
   top: 0;
