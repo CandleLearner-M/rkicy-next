@@ -12,6 +12,7 @@ import Navbar from "@/components/Navbar";
 import {NextIntlClientProvider, hasLocale} from 'next-intl';
 import {notFound} from 'next/navigation';
 import {routing} from '@/i18n/routing';
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 
 const outfit = Outfit({
@@ -53,6 +54,7 @@ export default async function LocaleLayout({
             <MobileNavigation />
             <Footer />
             <Analytics />
+            <SpeedInsights />             
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>
