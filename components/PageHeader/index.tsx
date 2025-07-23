@@ -44,11 +44,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
     setIsLoaded(true);
     controls.start('visible');
   }, [controls]);
-  
-  // Improved word splitting with regex to handle different whitespace characters
-  // This fixes the issue with missing spaces in translated content
-  const titleWords = title.split(/\s+/).filter(word => word.length > 0);
-  
+
   return (
     <motion.div 
       className={styles.pageHeader}
@@ -99,39 +95,28 @@ const PageHeader: React.FC<PageHeaderProps> = ({
         )}
         
         <div className={styles.titleContainer}>
-          {titleWords.length === 0 ? (
-            // Fallback if no words are found
-            <h1 className={styles.title}>{title}</h1>
-          ) : (
-            <div className={styles.titleWrapper}>
-              {titleWords.map((word, i) => (
-                <motion.span
-                  key={i}
-                  className={styles.titleWord}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{
-                    opacity: isLoaded ? 1 : 0,
-                    y: isLoaded ? 0 : 20
-                  }}
-                  transition={{
-                    duration: 0.6,
-                    delay: 0.5 + i * 0.1,
-                    ease: [0.22, 1, 0.36, 1]
-                  }}
-                >
-                  {word}
-                  {/* Explicitly add a space after each word except the last */}
-                  <span className={styles.wordSpace}>{i < titleWords.length - 1 ? ' ' : ''}</span>
-                </motion.span>
-              ))}
-              <motion.span
-                className={styles.titleAccent}
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: isLoaded ? 1 : 0 }}
-                transition={{ duration: 0.8, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              />
-            </div>
-          )}
+          {/* Don't split the title into words - render it as a single animated unit */}
+          <motion.h1 
+            className={styles.title}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{
+              opacity: isLoaded ? 1 : 0,
+              y: isLoaded ? 0 : 20
+            }}
+            transition={{
+              duration: 0.6,
+              delay: 0.5,
+              ease: [0.22, 1, 0.36, 1]
+            }}
+          >
+            {title}
+            <motion.span
+              className={styles.titleAccent}
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: isLoaded ? 1 : 0 }}
+              transition={{ duration: 0.8, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            />
+          </motion.h1>
         </div>
         
         {subtitle && (

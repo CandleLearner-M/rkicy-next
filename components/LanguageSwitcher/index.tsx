@@ -22,7 +22,6 @@ export default function LanguageSwitcher({
   const languages = [
     { code: 'en', label: 'English' },
     { code: 'fr', label: 'Français' },
-    { code: 'ar', label: 'العربية' }
   ];
   
   // Animation variants for dropdown

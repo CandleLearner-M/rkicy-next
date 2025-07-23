@@ -154,19 +154,22 @@
 
 .titleContainer {
   margin-bottom: 1rem;
-}
-
-.titleWrapper {
   position: relative;
   display: inline-block;
 }
 
-.titleWord {
-  display: inline-block;
+// New title style using h1 instead of span collection
+.title {
+  position: relative;
+  display: block;
   font-size: 3.25rem;
   font-weight: 800;
   line-height: 1.2;
   color: $text-primary;
+  margin: 0;
+  white-space: normal;
+  word-wrap: break-word;
+  word-spacing: normal;
   
   [data-theme="dark"] & {
     color: $text-primary-dark;
@@ -211,5 +214,28 @@
   
   @media (max-width: 768px) {
     font-size: 1.1rem;
+  }
+}
+
+// Add RTL support
+[dir="rtl"] {
+  .breadcrumbs {
+    ol {
+      flex-direction: row-reverse;
+    }
+    
+    .separator {
+      transform: scaleX(-1);
+    }
+  }
+  
+  .title, .subtitle {
+    text-align: right;
+  }
+  
+  .titleAccent {
+    right: 0;
+    left: auto;
+    transform-origin: right;
   }
 }

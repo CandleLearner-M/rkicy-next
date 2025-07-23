@@ -1,179 +1,321 @@
-{
-  "common": {
-    "title": "Rkicy Tech",
-    "description": "Empowering Morocco's Digital Future",
-    "navigation": {
-      "home": "Home",
-      "about": "About",
-      "services": "Services",
-      "partners": "Partners",
-      "hardware": "Hardware",
-      "projects": "Projects",
-      "contact": "Contact"
-    },
-    "actions": {
-      "getStarted": "Get Started",
-      "contactUs": "Contact Us",
-      "exploreServices": "Explore Our Services"
-    },
-    "language": {
-      "english": "English",
-      "french": "Français",
-      "arabic": "العربية"
-    },
-    "theme": {
-      "switchToLight": "Switch to light mode",
-      "switchToDark": "Switch to dark mode"
-    },
-    "home": {
-      "hero": {
-        "title": "Empowering Morocco's Digital Future",
-        "subtitle": "From AI to hardware, Rkicy Technology delivers powerful, enterprise-grade IT solutions for modern businesses across Morocco and beyond.",
-        "badge": "Leading Morocco's Digital Transformation",
-        "stats": {
-          "clients": "Happy Clients",
-          "powered": "AI Powered"
+  {
+    "common": {
+      "title": "Rkicy Tech",
+      "description": "Empowering Morocco's Digital Future",
+      "navigation": {
+        "home": "Home",
+        "about": "About",
+        "services": "Services",
+        "partners": "Partners",
+        "hardware": "Hardware",
+        "projects": "Projects",
+        "contact": "Contact"
+      },
+      "actions": {
+        "getStarted": "Get Started",
+        "contactUs": "Contact Us",
+        "exploreServices": "Explore Our Services"
+      },
+      "language": {
+        "english": "English",
+        "french": "Français",
+        "arabic": "العربية"
+      },
+      "theme": {
+        "switchToLight": "Switch to light mode",
+        "switchToDark": "Switch to dark mode"
+      },
+      "home": {
+        "hero": {
+          "title": "Empowering Morocco's Digital Future",
+          "subtitle": "From AI to hardware, Rkicy Technology delivers powerful, enterprise-grade IT solutions for modern businesses across Morocco and beyond.",
+          "badge": "Leading Morocco's Digital Transformation",
+          "stats": {
+            "clients": "Happy Clients",
+            "powered": "AI Powered"
+          }
         }
       }
-    }
-  },
-  "navigation": {
-    "items": {
-      "home": "Home",
-      "about": "About",
-      "services": "Services",
-      "partners": "Partners",
-      "hardware": "Hardware",
-      "projects": "Projects",
-      "contact": "Contact"
     },
-    "accessibility": {
-      "openMenu": "Open navigation menu",
-      "closeMenu": "Close navigation menu"
-    }
-  },
-  "accessibility": {
-    "breadcrumbs": "Breadcrumb navigation"
-  },
-  "about": {
-    "title": "About Us",
-    "subtitle": "Morocco's Leading IT Solutions Provider",
     "navigation": {
-      "home": "Home",
-      "about": "About"
+      "items": {
+        "home": "Home",
+        "about": "About",
+        "services": "Services",
+        "partners": "Partners",
+        "hardware": "Hardware",
+        "projects": "Projects",
+        "contact": "Contact"
+      },
+      "accessibility": {
+        "openMenu": "Open navigation menu",
+        "closeMenu": "Close navigation menu"
+      }
     },
     "accessibility": {
       "breadcrumbs": "Breadcrumb navigation"
     },
-    "actions": {
-      "contactUs": "Contact Us",
-      "exploreServices": "Explore Our Services"
-    },
-    "vision": {
-      "sectionTitle": "Our Vision & Mission",
+    "about": {
+      "title": "About Us",
+      "subtitle": "Morocco's Leading IT Solutions Provider",
+      "navigation": {
+        "home": "Home",
+        "about": "About"
+      },
+      "accessibility": {
+        "breadcrumbs": "Breadcrumb navigation"
+      },
+      "actions": {
+        "contactUs": "Contact Us",
+        "exploreServices": "Explore Our Services"
+      },
       "vision": {
-        "title": "Our Vision",
-        "description": "To be the cornerstone of Morocco's digital future, recognized for our technical excellence, innovative solutions, and commitment to making advanced technology accessible to businesses of all sizes."
+        "sectionTitle": "Our Vision & Mission",
+        "vision": {
+          "title": "Our Vision",
+          "description": "To be the cornerstone of Morocco's digital future, recognized for our technical excellence, innovative solutions, and commitment to making advanced technology accessible to businesses of all sizes."
+        },
+        "mission": {
+          "title": "Our Mission", 
+          "description": "To empower Moroccan businesses with enterprise-grade technology solutions that drive digital transformation, enhance operational efficiency, and foster sustainable growth in an increasingly connected world."
+        }
       },
-      "mission": {
-        "title": "Our Mission", 
-        "description": "To empower Moroccan businesses with enterprise-grade technology solutions that drive digital transformation, enhance operational efficiency, and foster sustainable growth in an increasingly connected world."
+      "story": {
+        "title": "Our Story",
+        "lead": "Founded in 2023 in Rabat, Rkicy Technology was born from a vision to bridge the technology gap for Moroccan enterprises.",
+        "paragraph1": "Rkicy Technology was established to provide cutting-edge IT services in artificial intelligence, software development, and strategic consulting, while also serving as a trusted distributor of enterprise-grade hardware through our partnerships with global technology leaders.",
+        "paragraph2": "Our founding team brings decades of combined experience from leading global technology firms, with deep expertise in enterprise solutions, AI implementation, and digital transformation. This unique combination of local insight and international experience allows us to deliver world-class solutions tailored to the specific needs of our Moroccan clients.",
+        "paragraph3": "Today, we're rapidly establishing ourselves as Morocco's premier technology partner, helping organizations of all sizes navigate their digital transformation journeys with confidence and clarity."
+      },
+      "stats": {
+        "experts": "Technology Experts",
+        "partnerships": "Global Partnerships", 
+        "clients": "Clients Served"
+      },
+      "video": {
+        "playButton": "Play company video",
+        "watchStory": "Watch our story",
+        "established": "Est.",
+        "closeVideo": "Close video",
+        "placeholder": "Company introduction video would play here."
+      },
+      "values": {
+        "title": "Our Core Values",
+        "integrity": {
+          "title": "Integrity",
+          "description": "We uphold the highest standards of honesty, transparency, and ethical conduct in every interaction with clients, partners, and colleagues."
+        },
+        "excellence": {
+          "title": "Excellence", 
+          "description": "We are committed to delivering exceptional quality in everything we do, from technology solutions to client service and support."
+        },
+        "collaboration": {
+          "title": "Collaboration",
+          "description": "We believe in the power of partnership—working closely with clients as true partners to achieve transformative results together."
+        },
+        "innovation": {
+          "title": "Innovation",
+          "description": "We embrace continuous learning and innovative thinking, staying at the forefront of technology to deliver forward-looking solutions."
+        }
+      },
+      "timeline": {
+        "title": "Our Journey",
+        "founding": {
+          "title": "Founding of Rkicy Technology",
+          "description": "Established in Rabat with a vision to transform Morocco's IT landscape through innovative solutions and services."
+        },
+        "zebra": {
+          "title": "Strategic Partnership with Zebra Technologies", 
+          "description": "Became an official partner and distributor for Zebra Technologies hardware in Morocco."
+        },
+        "sap": {
+          "title": "SAP Partnership",
+          "description": "Formalized partnership with SAP to deliver enterprise-grade ERP solutions to Moroccan businesses."
+        },
+        "ai": {
+          "title": "Launch of AI Consulting Practice",
+          "description": "Expanded service offerings with dedicated AI consulting and implementation services."
+        },
+        "government": {
+          "title": "Government Sector Expansion", 
+          "description": "Began serving key government agencies with specialized IT solutions and digital transformation services."
+        }
+      },
+      "team": {
+        "title": "Meet Our Leadership",
+        "viewProfile": "View Profile",
+        "hideProfile": "Hide Profile",
+        "expertiseAreas": "Areas of Expertise",
+        "members": {
+          "mohammed": {
+            "name": "Mohammed Alami",
+            "position": "Founder & CEO",
+            "bio": "With over 15 years of experience in enterprise IT solutions, Mohammed founded Rkicy Technology with a vision to transform Morocco's technological landscape. His expertise spans AI implementation, digital transformation, and strategic partnerships with global tech leaders.",
+            "areas": ["Strategic Leadership", "Technology Vision", "Global Partnerships"]
+          },
+          "leila": {
+            "name": "Leila Bensouda", 
+            "position": "Chief Technology Officer",
+            "bio": "Leading our technical strategy, Leila brings 12+ years of software architecture and AI development experience. Her background includes senior roles at international tech firms and a passion for applying cutting-edge solutions to real-world business challenges.",
+            "areas": ["AI & Machine Learning", "Cloud Architecture", "Technical Leadership"]
+          },
+          "karim": {
+            "name": "Karim Idrissi",
+            "position": "Director of Consulting", 
+            "bio": "Karim heads our consulting practice, bringing deep expertise in digital transformation and enterprise system integration. With experience serving clients across North Africa and Europe, he ensures our solutions deliver measurable business impact.",
+            "areas": ["Digital Strategy", "Business Process Optimization", "Enterprise Solutions"]
+          }
+        }
+      },
+      "partners": {
+        "title": "Our Strategic Partners",
+        "description": "We collaborate with leading global technology providers to deliver the most advanced solutions to our clients."
+      },
+      "cta": {
+        "title": "Ready to transform your business?", 
+        "description": "Let's discuss how Rkicy Technology can help your organization thrive in the digital age."
       }
     },
-    "story": {
-      "title": "Our Story",
-      "lead": "Founded in 2023 in Rabat, Rkicy Technology was born from a vision to bridge the technology gap for Moroccan enterprises.",
-      "paragraph1": "Rkicy Technology was established to provide cutting-edge IT services in artificial intelligence, software development, and strategic consulting, while also serving as a trusted distributor of enterprise-grade hardware through our partnerships with global technology leaders.",
-      "paragraph2": "Our founding team brings decades of combined experience from leading global technology firms, with deep expertise in enterprise solutions, AI implementation, and digital transformation. This unique combination of local insight and international experience allows us to deliver world-class solutions tailored to the specific needs of our Moroccan clients.",
-      "paragraph3": "Today, we're rapidly establishing ourselves as Morocco's premier technology partner, helping organizations of all sizes navigate their digital transformation journeys with confidence and clarity."
+    "services": {
+    "page": {
+      "title": "Our Services",
+      "subtitle": "Comprehensive IT Solutions for Modern Enterprises"
     },
-    "stats": {
-      "experts": "Technology Experts",
-      "partnerships": "Global Partnerships", 
-      "clients": "Clients Served"
+    "navigation": {
+      "home": "Home",
+      "services": "Services"
     },
-    "video": {
-      "playButton": "Play company video",
-      "watchStory": "Watch our story",
-      "established": "Est.",
-      "closeVideo": "Close video",
-      "placeholder": "Company introduction video would play here."
+    "section": {
+      "overline": "Our Services",
+      "heading": "Comprehensive IT Solutions for Modern Enterprises",
+      "subheading": "From artificial intelligence to hardware infrastructure, we offer end-to-end technology solutions that empower Moroccan businesses to thrive in the digital era."
     },
-    "values": {
-      "title": "Our Core Values",
-      "integrity": {
-        "title": "Integrity",
-        "description": "We uphold the highest standards of honesty, transparency, and ethical conduct in every interaction with clients, partners, and colleagues."
-      },
-      "excellence": {
-        "title": "Excellence", 
-        "description": "We are committed to delivering exceptional quality in everything we do, from technology solutions to client service and support."
-      },
-      "collaboration": {
-        "title": "Collaboration",
-        "description": "We believe in the power of partnership—working closely with clients as true partners to achieve transformative results together."
-      },
-      "innovation": {
-        "title": "Innovation",
-        "description": "We embrace continuous learning and innovative thinking, staying at the forefront of technology to deliver forward-looking solutions."
+    "featured": {
+      "title": "AI Solutions",
+      "description": "Our flagship AI solutions leverage cutting-edge machine learning, natural language processing, and computer vision to solve complex business challenges and unlock new opportunities for growth.",
+      "features": [
+        "Intelligent data analytics and predictive modeling",
+        "AI-powered process automation",
+        "Custom machine learning solutions",
+        "Computer vision for quality control and monitoring"
+      ],
+      "learnMore": "Learn more about our AI Solutions",
+      "badge": {
+        "highlighted": "Flagship",
+        "service": "Service"
       }
     },
-    "timeline": {
-      "title": "Our Journey",
-      "founding": {
-        "title": "Founding of Rkicy Technology",
-        "description": "Established in Rabat with a vision to transform Morocco's IT landscape through innovative solutions and services."
-      },
-      "zebra": {
-        "title": "Strategic Partnership with Zebra Technologies", 
-        "description": "Became an official partner and distributor for Zebra Technologies hardware in Morocco."
-      },
-      "sap": {
-        "title": "SAP Partnership",
-        "description": "Formalized partnership with SAP to deliver enterprise-grade ERP solutions to Moroccan businesses."
-      },
+    "servicesList": {
       "ai": {
-        "title": "Launch of AI Consulting Practice",
-        "description": "Expanded service offerings with dedicated AI consulting and implementation services."
+        "name": "AI Solutions",
+        "description": "Transforming business operations with intelligent automation, data analytics, and machine learning solutions tailored for Moroccan enterprises.",
+        "features": [
+          "Natural Language Processing",
+          "Predictive Analytics",
+          "Computer Vision Systems",
+          "AI-powered Decision Support"
+        ]
       },
-      "government": {
-        "title": "Government Sector Expansion", 
-        "description": "Began serving key government agencies with specialized IT solutions and digital transformation services."
+      "enterpriseIT": {
+        "name": "Enterprise IT",
+        "description": "Comprehensive enterprise IT infrastructure solutions that power modern businesses with scalable, secure, and efficient technology systems.",
+        "features": [
+          "IT Infrastructure Design",
+          "System Integration",
+          "Enterprise Resource Planning",
+          "Legacy System Modernization"
+        ]
+      },
+      "cloud": {
+        "name": "Cloud Solutions",
+        "description": "Accelerate your digital transformation with our enterprise-grade cloud solutions designed for scalability, security, and performance.",
+        "features": [
+          "Cloud Migration Strategy",
+          "Hybrid Cloud Architecture",
+          "Cloud-native Applications",
+          "Serverless Computing"
+        ]
+      },
+      "cybersecurity": {
+        "name": "Cybersecurity",
+        "description": "Protect your business with advanced cybersecurity solutions that safeguard your data, infrastructure, and digital assets from evolving threats.",
+        "features": [
+          "Security Assessment",
+          "Threat Detection & Response",
+          "Data Protection",
+          "Compliance Management"
+        ]
+      },
+      "digitalTransformation": {
+        "name": "Digital Transformation",
+        "description": "Strategic digital transformation services that help Moroccan businesses innovate, adapt, and thrive in an increasingly digital marketplace.",
+        "features": [
+          "Digital Strategy Consulting",
+          "Process Automation",
+          "Customer Experience Design",
+          "Digital Workforce Enablement"
+        ]
+      },
+      "hardware": {
+        "name": "Hardware Solutions",
+        "description": "Enterprise-grade hardware solutions and infrastructure deployments customized to meet the specific needs of your organization.",
+        "features": [
+          "Server Infrastructure",
+          "Network Equipment",
+          "End-user Computing",
+          "IoT Device Management"
+        ]
       }
     },
-    "team": {
-      "title": "Meet Our Leadership",
-      "viewProfile": "View Profile",
-      "hideProfile": "Hide Profile",
-      "expertiseAreas": "Areas of Expertise",
-      "members": {
-        "mohammed": {
-          "name": "Mohammed Alami",
-          "position": "Founder & CEO",
-          "bio": "With over 15 years of experience in enterprise IT solutions, Mohammed founded Rkicy Technology with a vision to transform Morocco's technological landscape. His expertise spans AI implementation, digital transformation, and strategic partnerships with global tech leaders.",
-          "areas": ["Strategic Leadership", "Technology Vision", "Global Partnerships"]
+    "serviceCard": {
+      "explore": "Explore {serviceName}"
+    },
+    "process": {
+      "title": "Our Service Delivery Approach",
+      "steps": {
+        "1": {
+          "title": "Consultation",
+          "description": "We begin with a comprehensive consultation to understand your business needs, challenges, and objectives."
         },
-        "leila": {
-          "name": "Leila Bensouda", 
-          "position": "Chief Technology Officer",
-          "bio": "Leading our technical strategy, Leila brings 12+ years of software architecture and AI development experience. Her background includes senior roles at international tech firms and a passion for applying cutting-edge solutions to real-world business challenges.",
-          "areas": ["AI & Machine Learning", "Cloud Architecture", "Technical Leadership"]
+        "2": {
+          "title": "Strategic Planning",
+          "description": "Our experts develop a tailored strategy and roadmap aligned with your business goals and technology requirements."
         },
-        "karim": {
-          "name": "Karim Idrissi",
-          "position": "Director of Consulting", 
-          "bio": "Karim heads our consulting practice, bringing deep expertise in digital transformation and enterprise system integration. With experience serving clients across North Africa and Europe, he ensures our solutions deliver measurable business impact.",
-          "areas": ["Digital Strategy", "Business Process Optimization", "Enterprise Solutions"]
+        "3": {
+          "title": "Implementation",
+          "description": "Our technical team delivers the solution with precision, ensuring minimal disruption to your operations."
+        },
+        "4": {
+          "title": "Ongoing Support",
+          "description": "We provide continuous monitoring, maintenance, and optimization to ensure lasting success."
         }
       }
     },
-    "partners": {
-      "title": "Our Strategic Partners",
-      "description": "We collaborate with leading global technology providers to deliver the most advanced solutions to our clients."
+    "custom": {
+      "title": "Need a Customized Solution?",
+      "description": "Every business is unique. Our team of experts will work with you to develop tailored technology solutions that address your specific challenges and goals.",
+      "ctaButton": "Schedule a Consultation",
+      "features": [
+        "Custom Development",
+        "Expert Consultation",
+        "Secure Implementation",
+        "Ongoing Support"
+      ]
+    },
+    "industries": {
+      "title": "Industries We Serve",
+      "finance": "Finance",
+      "healthcare": "Healthcare",
+      "manufacturing": "Manufacturing",
+      "retail": "Retail",
+      "education": "Education",
+      "government": "Government"
     },
     "cta": {
-      "title": "Ready to transform your business?", 
-      "description": "Let's discuss how Rkicy Technology can help your organization thrive in the digital age."
+      "title": "Ready to transform your business?",
+      "description": "Let's discuss how our services can help your organization thrive in the digital age.",
+      "primaryButton": "View All Services",
+      "secondaryButton": "Contact Us"
     }
   }
-}
+  }

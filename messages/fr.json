@@ -175,5 +175,147 @@
       "title": "Prêt à transformer votre entreprise ?", 
       "description": "Discutons de la façon dont Rkicy Technology peut aider votre organisation à prospérer à l'ère numérique."
     }
+  },
+  "services": {
+    "page": {
+      "title": "Nos Services",
+      "subtitle": "Solutions IT complètes pour les entreprises modernes"
+    },
+    "navigation": {
+      "home": "Accueil",
+      "services": "Services"
+    },
+    "section": {
+      "overline": "Nos Services",
+      "heading": "Solutions IT complètes pour les entreprises modernes",
+      "subheading": "De l'intelligence artificielle à l'infrastructure matérielle, nous offrons des solutions technologiques de bout en bout qui permettent aux entreprises marocaines de prospérer à l'ère numérique."
+    },
+    "featured": {
+      "title": "Solutions d'IA",
+      "description": "Nos solutions d'IA phares utilisent l'apprentissage automatique de pointe, le traitement du langage naturel et la vision par ordinateur pour résoudre des défis commerciaux complexes et débloquer de nouvelles opportunités de croissance.",
+      "features": [
+        "Analyse de données intelligente et modélisation prédictive",
+        "Automatisation des processus basée sur l'IA",
+        "Solutions personnalisées d'apprentissage automatique",
+        "Vision par ordinateur pour le contrôle qualité et la surveillance"
+      ],
+      "learnMore": "En savoir plus sur nos Solutions d'IA",
+      "badge": {
+        "highlighted": "Service",
+        "service": "Phare"
+      }
+    },
+    "servicesList": {
+      "ai": {
+        "name": "Solutions d'IA",
+        "description": "Transformer les opérations commerciales avec l'automatisation intelligente, l'analyse de données et des solutions d'apprentissage automatique adaptées aux entreprises marocaines.",
+        "features": [
+          "Traitement du langage naturel",
+          "Analytique prédictive",
+          "Systèmes de vision par ordinateur",
+          "Aide à la décision alimentée par l'IA"
+        ]
+      },
+      "enterpriseIT": {
+        "name": "IT d'Entreprise",
+        "description": "Solutions d'infrastructure IT complètes qui alimentent les entreprises modernes avec des systèmes technologiques évolutifs, sécurisés et efficaces.",
+        "features": [
+          "Conception d'infrastructure IT",
+          "Intégration de systèmes",
+          "Planification des ressources d'entreprise",
+          "Modernisation des systèmes existants"
+        ]
+      },
+      "cloud": {
+        "name": "Solutions Cloud",
+        "description": "Accélérez votre transformation numérique avec nos solutions cloud professionnelles conçues pour l'évolutivité, la sécurité et la performance.",
+        "features": [
+          "Stratégie de migration vers le cloud",
+          "Architecture cloud hybride",
+          "Applications cloud-native",
+          "Informatique serverless"
+        ]
+      },
+      "cybersecurity": {
+        "name": "Cybersécurité",
+        "description": "Protégez votre entreprise avec des solutions de cybersécurité avancées qui protègent vos données, votre infrastructure et vos actifs numériques contre les menaces évolutives.",
+        "features": [
+          "Évaluation de la sécurité",
+          "Détection et réponse aux menaces",
+          "Protection des données",
+          "Gestion de la conformité"
+        ]
+      },
+      "digitalTransformation": {
+        "name": "Transformation Numérique",
+        "description": "Services de transformation numérique stratégiques qui aident les entreprises marocaines à innover, s'adapter et prospérer sur un marché de plus en plus numérique.",
+        "features": [
+          "Conseil en stratégie numérique",
+          "Automatisation des processus",
+          "Conception de l'expérience client",
+          "Habilitation de la main-d'œuvre numérique"
+        ]
+      },
+      "hardware": {
+        "name": "Solutions Matérielles",
+        "description": "Solutions matérielles professionnelles et déploiements d'infrastructure personnalisés pour répondre aux besoins spécifiques de votre organisation.",
+        "features": [
+          "Infrastructure de serveurs",
+          "Équipement réseau",
+          "Informatique utilisateur final",
+          "Gestion des appareils IoT"
+        ]
+      }
+    },
+    "serviceCard": {
+      "explore": "Explorer {serviceName}"
+    },
+    "process": {
+      "title": "Notre Approche de Prestation de Services",
+      "steps": {
+        "1": {
+          "title": "Consultation",
+          "description": "Nous commençons par une consultation approfondie pour comprendre vos besoins, défis et objectifs commerciaux."
+        },
+        "2": {
+          "title": "Planification Stratégique",
+          "description": "Nos experts développent une stratégie et une feuille de route personnalisées alignées sur vos objectifs commerciaux et vos exigences technologiques."
+        },
+        "3": {
+          "title": "Mise en Œuvre",
+          "description": "Notre équipe technique livre la solution avec précision, en assurant une perturbation minimale de vos opérations."
+        },
+        "4": {
+          "title": "Support Continu",
+          "description": "Nous fournissons une surveillance, une maintenance et une optimisation continues pour garantir un succès durable."
+        }
+      }
+    },
+    "custom": {
+      "title": "Besoin d'une Solution Personnalisée ?",
+      "description": "Chaque entreprise est unique. Notre équipe d'experts travaillera avec vous pour développer des solutions technologiques sur mesure qui répondent à vos défis et objectifs spécifiques.",
+      "ctaButton": "Planifier une Consultation",
+      "features": [
+        "Développement Personnalisé",
+        "Consultation Expert",
+        "Implémentation Sécurisée",
+        "Support Continu"
+      ]
+    },
+    "industries": {
+      "title": "Industries que Nous Servons",
+      "finance": "Finance",
+      "healthcare": "Santé",
+      "manufacturing": "Fabrication",
+      "retail": "Commerce de détail",
+      "education": "Éducation",
+      "government": "Gouvernement"
+    },
+    "cta": {
+      "title": "Prêt à transformer votre entreprise ?",
+      "description": "Discutons de la façon dont nos services peuvent aider votre organisation à prospérer à l'ère numérique.",
+      "primaryButton": "Voir Tous les Services",
+      "secondaryButton": "Contactez-nous"
+    }
   }
 }
