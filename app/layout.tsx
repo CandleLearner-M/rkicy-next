@@ -2,12 +2,13 @@ import { Analytics } from "@vercel/analytics/react";
 import { Outfit } from "next/font/google";
 import "./globals.scss";
 import { ThemeProvider } from "@/theme/ThemeProvider";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FixedBackground from "@/components/FixedBackground";
 import NextTopLoader from "nextjs-toploader";
 import AiChatAssistant from "@/components/AiChatAssistant";
 import MobileNavigation from "@/components/MobileNavigation";
+import HeroNav from "@/components/Navbar/HeroNav";
+import Navbar from "@/components/Navbar";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -32,6 +33,7 @@ export default function RootLayout({
         <ThemeProvider attribute="data-theme" defaultTheme="system" enableSystem>
           <NextTopLoader showSpinner={false} />
           <Navbar />
+          <HeroNav />
           <FixedBackground />
           {children}
           {/* <AiChatAssistant /> */}

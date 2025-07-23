@@ -1,319 +1,341 @@
-"use client";
+'use client';
 
-import { useState, useEffect, useRef } from 'react';
-import { motion, useInView, AnimatePresence } from 'framer-motion';
-import { Sun, Moon, Globe, ChevronDown } from 'lucide-react';
-import Link from 'next/link';
+import { useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
+import { motion, AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
+import Image from 'next/image';
 import { useTheme } from 'next-themes';
-import Logo from './Logo';
+import { useSmartScroll } from './hooks/useSmartScroll';
+import { Menu, X, ChevronRight, Globe, Sun, Moon } from 'lucide-react';
 import styles from './Navbar.module.scss';
 
-type Language = 'en' | 'fr' | 'ar';
+const navLinks = [
+  { name: 'Home', href: '/' },
+  { name: 'About', href: '/about' },
+  { name: 'Services', href: '/services' },
+  { name: 'Partners', href: '/partners' },
+  { name: 'Hardware', href: '/hardware' },
+  { name: 'Projects', href: '/projects' },
+  { name: 'Contact', href: '/contact' },
+];
 
-const Navbar: React.FC = () => {
-  const [language, setLanguage] = useState<Language>('en');
-  const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
-  
-  const navRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(navRef, { once: true });
-  
+export default function Navbar() {
+  const { visible } = useSmartScroll({ threshold: 100, throttleDelay: 100 });
   const pathname = usePathname();
   const { theme, setTheme } = useTheme();
-  
-  // Prevent hydration mismatch
+  const [mounted, setMounted] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [hoverIndex, setHoverIndex] = useState(null);
+  const navbarRef = useRef(null);
+
+  // Handle theme initialization
   useEffect(() => {
     setMounted(true);
-  }, []);
+    
+    // Find active nav link index
+    const index = navLinks.findIndex(link => link.href === pathname);
+    setActiveIndex(index >= 0 ? index : 0);
+  }, [pathname]);
 
-  // Handle language change
-  const handleLanguageChange = (lang: Language) => {
-    setLanguage(lang);
-    setIsLanguageDropdownOpen(false);
+  // Animation variants
+  const navbarVariants = {
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 400,
+        damping: 30,
+        mass: 1,
+      }
+    },
+    hidden: {
+      y: -100,
+      opacity: 0,
+      transition: {
+        type: "spring",
+        stiffness: 400,
+        damping: 30,
+        mass: 1,
+      }
+    }
   };
 
-  // Theme toggle handler
+  const navItemVariants = {
+    initial: { opacity: 0, y: -20 },
+    animate: i => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 300,
+        damping: 24,
+        delay: i * 0.05,
+      }
+    }),
+    exit: { opacity: 0, y: -10 }
+  };
+
+  // Mobile menu animations
+  const mobileMenuVariants = {
+    closed: {
+      x: "100%",
+      opacity: 0,
+      transition: {
+        type: "spring",
+        stiffness: 300,
+        damping: 30,
+      }
+    },
+    open: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 300,
+        damping: 30,
+        staggerChildren: 0.07,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const mobileItemVariants = {
+    closed: { x: 50, opacity: 0 },
+    open: { 
+      x: 0, 
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 300,
+        damping: 24
+      }
+    }
+  };
+
+  // Handle theme toggle
   const toggleTheme = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark');
   };
 
-  // Staggered animation for navbar elements
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.08,
-        delayChildren: 0.1,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    },
-  };
-  
-  const itemVariants = {
-    hidden: { opacity: 0, y: -15 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    },
-  };
-  
-  // Dropdown animation variants
-  const dropdownVariants = {
-    hidden: { opacity: 0, y: -5, height: 0 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      height: 'auto',
-      transition: { duration: 0.3, ease: "easeOut" } 
-    },
-    exit: {
-      opacity: 0,
-      y: -5,
-      height: 0,
-      transition: { duration: 0.2, ease: "easeIn" }
-    }
-  };
+  // Wait for theme to be available to prevent hydration mismatch
+  if (!mounted) return null;
 
-  // Theme toggle animation variants
-  const themeIconVariants = {
-    initial: { 
-      rotate: -90,
-      opacity: 0,
-      scale: 0.5,
-    },
-    animate: { 
-      rotate: 0,
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.35,
-        ease: "backOut",
-      }
-    },
-    exit: { 
-      rotate: 90,
-      opacity: 0,
-      scale: 0.5,
-      transition: {
-        duration: 0.35,
-        ease: "backIn",
-      }
-    }
-  };
-
-  // Nav links with active state
-  const navLinks = [
-    { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
-    { name: 'Services', href: '/services' },
-    { name: 'Partners', href: '/partners' },
-    { name: 'Hardware', href: '/hardware' },
-    { name: 'Projects', href: '/projects' },
-    { name: 'Contact', href: '/contact' }
-  ];
-
-  const languageLabels = {
-    en: 'English',
-    fr: 'Français',
-    ar: 'العربية'
-  };
-  
   return (
-    <div className={styles.navbar} ref={navRef}>
-      <motion.div 
-        className={styles.container}
-        variants={containerVariants}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
+    <>
+      <motion.header
+        className={styles.navbarWrapper}
+        initial="visible"
+        animate={visible ? "visible" : "hidden"}
+        variants={navbarVariants}
       >
-        <motion.div 
-          className={styles.logoContainer}
-          variants={itemVariants}
-        >
-          <Logo />
-        </motion.div>
-        
-        {/* Desktop Navigation */}
-        <div className={styles.desktopNav}>
-          <ul className={styles.navLinks}>
-            {navLinks.map((link, i) => (
-              <motion.li 
-                key={link.name}
-                variants={itemVariants}
-                whileHover={{ 
-                  scale: 1.05,
-                  color: "#3B82F6",
-                  transition: { duration: 0.2 }
-                }}
-                whileTap={{ scale: 0.95 }}
-                className={pathname === link.href ? styles.active : ''}
+        <div className={styles.container}>
+          <motion.div 
+            className={styles.navbar}
+            ref={navbarRef}
+          >
+            {/* Progress indicator bar */}
+            <div className={styles.progressBar}>
+              <motion.div 
+                className={styles.progressIndicator}
+                initial={{ width: "0%" }}
+                animate={{ width: `${Math.max(0, Math.min(100, window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100))}%` }}
+                transition={{ duration: 0.1 }}
+              />
+            </div>
+            
+            {/* Logo */}
+            <Link href="/" className={styles.logo}>
+              <Image 
+                src="/logo.svg" 
+                alt="Rkicy Tech" 
+                width={120} 
+                height={40} 
+                className={styles.logoImage}
+              />
+            </Link>
+            
+            {/* Desktop Navigation */}
+            <nav className={styles.desktopNav}>
+              <div className={styles.navLinks}>
+                {navLinks.map((link, i) => (
+                  <motion.div
+                    key={link.name}
+                    custom={i}
+                    initial="initial"
+                    animate="animate"
+                    variants={navItemVariants}
+                    className={styles.navItemContainer}
+                  >
+                    <Link
+                      href={link.href}
+                      className={`${styles.navLink} ${pathname === link.href ? styles.active : ''}`}
+                      onMouseEnter={() => setHoverIndex(i)}
+                      onMouseLeave={() => setHoverIndex(null)}
+                    >
+                      {link.name}
+                    </Link>
+                    {pathname === link.href && (
+                      <motion.div 
+                        className={styles.activeIndicator}
+                        layoutId="activeIndicator"
+                        transition={{
+                          type: "spring",
+                          stiffness: 500,
+                          damping: 30
+                        }}
+                      />
+                    )}
+                  </motion.div>
+                ))}
+              </div>
+            </nav>
+            
+            {/* Right Actions */}
+            <div className={styles.actions}>
+              {/* Language Selector */}
+              <motion.div 
+                className={styles.langSelector}
+                custom={navLinks.length}
+                initial="initial"
+                animate="animate"
+                variants={navItemVariants}
               >
-                <Link href={link.href}>
-                  {link.name}
-                </Link>
-              </motion.li>
-            ))}
-          </ul>
-          
-          <div className={styles.navActions}>
-            {/* Language Switcher */}
-            <motion.div 
-              className={styles.languageSwitcher}
-              variants={itemVariants}
-            >
-              <motion.button 
-                whileHover={{
-                  backgroundColor: "rgba(59, 130, 246, 0.1)",
-                  transition: { duration: 0.2 }
-                }}
+                <button className={styles.langButton}>
+                  <Globe size={16} />
+                  <span>English</span>
+                  <motion.div
+                    animate={{ rotate: mobileMenuOpen ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <ChevronRight size={14} className={styles.chevron} />
+                  </motion.div>
+                </button>
+              </motion.div>
+              
+              {/* Theme Toggle */}
+              <motion.button
+                className={styles.themeToggle}
+                onClick={toggleTheme}
+                custom={navLinks.length + 1}
+                initial="initial"
+                animate="animate"
+                variants={navItemVariants}
                 whileTap={{ scale: 0.95 }}
-                className={styles.languageButton}
-                onClick={() => setIsLanguageDropdownOpen(!isLanguageDropdownOpen)}
-                aria-label="Change language"
+                whileHover={{ scale: 1.05 }}
               >
-                <Globe size={18} />
-                <span>{languageLabels[language]}</span>
                 <motion.div
-                  animate={{
-                    rotate: isLanguageDropdownOpen ? 180 : 0,
-                    transition: { duration: 0.3, ease: "easeInOut" }
-                  }}
+                  initial={false}
+                  animate={{ rotateY: theme === 'dark' ? 180 : 0 }}
+                  transition={{ duration: 0.6, type: "spring", stiffness: 200 }}
+                  style={{ width: 20, height: 20, display: "flex", alignItems: "center", justifyContent: "center" }}
                 >
-                  <ChevronDown size={16} />
+                  {theme === 'dark' ? <Moon size={16} /> : <Sun size={16} />}
                 </motion.div>
               </motion.button>
               
-              <AnimatePresence>
-                {isLanguageDropdownOpen && (
-                  <motion.div 
-                    className={styles.languageDropdown}
-                    variants={dropdownVariants}
-                    initial="hidden"
-                    animate="visible"
-                    exit="exit"
-                  >
-                    {Object.entries(languageLabels).map(([langCode, label]) => (
-                      <motion.button 
-                        key={langCode}
-                        onClick={() => handleLanguageChange(langCode as Language)}
-                        className={language === langCode ? styles.activeLanguage : ''}
-                        whileHover={{
-                          backgroundColor: language === langCode 
-                            ? "rgba(59, 130, 246, 0.15)" 
-                            : "rgba(0, 0, 0, 0.05)",
-                          x: 2,
-                          transition: { duration: 0.2 }
-                        }}
-                        whileTap={{ scale: 0.98 }}
-                      >
-                        {label}
-                      </motion.button>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-            
-            {/* Theme Switcher */}
-            {mounted && (
-              <motion.button 
-                className={styles.themeToggle}
-                variants={itemVariants}
-                whileHover={{ 
-                  backgroundColor: theme === 'dark' 
-                    ? "rgba(255, 215, 0, 0.15)" 
-                    : "rgba(0, 0, 0, 0.08)",
-                }}
-                whileTap={{ scale: 0.9 }}
-                onClick={toggleTheme}
-                aria-label={theme === 'dark' ? "Switch to light mode" : "Switch to dark mode"}
+              {/* Mobile Menu Button */}
+              <motion.button
+                className={styles.mobileMenuButton}
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                custom={navLinks.length + 2}
+                initial="initial"
+                animate="animate"
+                variants={navItemVariants}
+                whileTap={{ scale: 0.95 }}
               >
-                <div className={styles.themeIconWrapper}>
-                  <AnimatePresence mode="wait" initial={false}>
-                    {theme === 'dark' ? (
-                      <motion.div
-                        key="sun"
-                        variants={themeIconVariants}
-                        initial="initial"
-                        animate="animate"
-                        exit="exit"
-                        className={styles.themeIcon}
-                      >
-                        <Sun size={18} />
-                      </motion.div>
-                    ) : (
-                      <motion.div
-                        key="moon"
-                        variants={themeIconVariants}
-                        initial="initial"
-                        animate="animate"
-                        exit="exit"
-                        className={styles.themeIcon}
-                      >
-                        <Moon size={18} />
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
+                {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
               </motion.button>
-            )}
-          </div>
+            </div>
+          </motion.div>
         </div>
-        
-        {/* Mobile View - Just Logo and Theme Toggle */}
-        <div className={styles.mobileNav}>
-          {mounted && (
-            <motion.button 
-              className={styles.themeToggle}
-              variants={itemVariants}
-              whileHover={{ 
-                backgroundColor: theme === 'dark' 
-                  ? "rgba(255, 215, 0, 0.15)" 
-                  : "rgba(0, 0, 0, 0.08)",
-              }}
-              whileTap={{ scale: 0.9 }}
-              onClick={toggleTheme}
-              aria-label={theme === 'dark' ? "Switch to light mode" : "Switch to dark mode"}
+      </motion.header>
+      
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <>
+            <motion.div 
+              className={styles.backdrop}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setMobileMenuOpen(false)}
+            />
+            <motion.div
+              className={styles.mobileMenu}
+              initial="closed"
+              animate="open"
+              exit="closed"
+              variants={mobileMenuVariants}
             >
-              <div className={styles.themeIconWrapper}>
-                <AnimatePresence mode="wait" initial={false}>
-                  {theme === 'dark' ? (
-                    <motion.div
-                      key="sun"
-                      variants={themeIconVariants}
-                      initial="initial"
-                      animate="animate"
-                      exit="exit"
-                      className={styles.themeIcon}
-                    >
-                      <Sun size={18} />
-                    </motion.div>
-                  ) : (
-                    <motion.div
-                      key="moon"
-                      variants={themeIconVariants}
-                      initial="initial"
-                      animate="animate"
-                      exit="exit"
-                      className={styles.themeIcon}
-                    >
-                      <Moon size={18} />
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+              <div className={styles.mobileMenuHeader}>
+                <Image 
+                  src="/logo.svg" 
+                  alt="Rkicy Tech" 
+                  width={100} 
+                  height={30} 
+                />
+                <motion.button
+                  className={styles.closeButton}
+                  onClick={() => setMobileMenuOpen(false)}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <X size={24} />
+                </motion.button>
               </div>
-            </motion.button>
-          )}
-        </div>
-      </motion.div>
-    </div>
+              <nav className={styles.mobileNavLinks}>
+                {navLinks.map((link, i) => (
+                  <motion.div
+                    key={link.name}
+                    variants={mobileItemVariants}
+                    custom={i}
+                    className={styles.mobileNavItem}
+                  >
+                    <Link
+                      href={link.href}
+                      className={`${styles.mobileNavLink} ${pathname === link.href ? styles.mobileActive : ''}`}
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      <span>{link.name}</span>
+                      {pathname === link.href && (
+                        <motion.span 
+                          className={styles.activeMobileIndicator}
+                          layoutId="mobileActiveIndicator"
+                        />
+                      )}
+                    </Link>
+                  </motion.div>
+                ))}
+              </nav>
+              <motion.div 
+                className={styles.mobileActions}
+                variants={mobileItemVariants}
+                custom={navLinks.length}
+              >
+                <Link href="/contact" className={styles.mobileCtaButton}>
+                  Contact Us
+                  <ChevronRight size={16} />
+                </Link>
+                <div className={styles.mobileToggleRow}>
+                  <button className={styles.mobileLangButton}>
+                    <Globe size={16} />
+                    <span>English</span>
+                  </button>
+                  <button 
+                    className={styles.mobileThemeToggle}
+                    onClick={toggleTheme}
+                  >
+                    {theme === 'dark' ? <Moon size={16} /> : <Sun size={16} />}
+                  </button>
+                </div>
+              </motion.div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </>
   );
-};
-
-export default Navbar;
+}
