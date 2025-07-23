@@ -1,0 +1,40 @@
+{
+  "common": {
+    "title": "Rkicy Tech",
+    "description": "Propulser l'Avenir Numérique du Maroc",
+    "navigation": {
+      "home": "Accueil",
+      "about": "À propos",
+      "services": "Services",
+      "partners": "Partenaires",
+      "hardware": "Matériel",
+      "projects": "Projets",
+      "contact": "Contact"
+    },
+    "actions": {
+      "getStarted": "Commencer",
+      "contactUs": "Contactez-nous",
+      "exploreServices": "Explorer nos services"
+    },
+    "language": {
+      "english": "English",
+      "french": "Français",
+      "arabic": "العربية"
+    },
+    "theme": {
+      "switchToLight": "Passer au mode clair",
+      "switchToDark": "Passer au mode sombre"
+    },
+    "home": {
+      "hero": {
+        "title": "Propulser l'Avenir Numérique du Maroc",
+        "subtitle": "De l'IA au matériel, Rkicy Technology fournit des solutions informatiques puissantes et professionnelles pour les entreprises modernes à travers le Maroc et au-delà.",
+        "badge": "Leader de la Transformation Numérique du Maroc",
+        "stats": {
+          "clients": "Clients Satisfaits",
+          "powered": "Propulsé par l'IA"
+        }
+      }
+    }
+  }
+}

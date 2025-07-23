@@ -2,21 +2,21 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
-import { Sun, Moon, Globe, ChevronDown } from 'lucide-react';
+import { Sun, Moon } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useLocale, useTranslations } from 'next-intl';
 import { useTheme } from 'next-themes';
 import Logo from './Logo';
 import styles from './HeroNav.module.scss';
+import LanguageSwitcher from '../LanguageSwitcher';
 
-type Language = 'en' | 'fr' | 'ar';
-
-const HeroNav: React.FC = () => {
-  const [language, setLanguage] = useState<Language>('en');
-  const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
+const HeroNav = () => {
   const [mounted, setMounted] = useState(false);
+  const locale = useLocale();
+  const t = useTranslations('common');
   
-  const navRef = useRef<HTMLDivElement>(null);
+  const navRef = useRef(null);
   const isInView = useInView(navRef, { once: true });
   
   const pathname = usePathname();
@@ -26,12 +26,6 @@ const HeroNav: React.FC = () => {
   useEffect(() => {
     setMounted(true);
   }, []);
-
-  // Handle language change
-  const handleLanguageChange = (lang: Language) => {
-    setLanguage(lang);
-    setIsLanguageDropdownOpen(false);
-  };
 
   // Theme toggle handler
   const toggleTheme = () => {
@@ -62,23 +56,6 @@ const HeroNav: React.FC = () => {
       },
     },
   };
-  
-  // Dropdown animation variants
-  const dropdownVariants = {
-    hidden: { opacity: 0, y: -5, height: 0 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      height: 'auto',
-      transition: { duration: 0.3, ease: "easeOut" } 
-    },
-    exit: {
-      opacity: 0,
-      y: -5,
-      height: 0,
-      transition: { duration: 0.2, ease: "easeIn" }
-    }
-  };
 
   // Theme toggle animation variants
   const themeIconVariants = {
@@ -107,22 +84,16 @@ const HeroNav: React.FC = () => {
     }
   };
 
-  // Nav links with active state
+  // Nav links with active state and translations
   const navLinks = [
-    { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
-    { name: 'Services', href: '/services' },
-    { name: 'Partners', href: '/partners' },
-    { name: 'Hardware', href: '/hardware' },
-    { name: 'Projects', href: '/projects' },
-    { name: 'Contact', href: '/contact' }
+    { name: t('navigation.home'), href: `/${locale}` },
+    { name: t('navigation.about'), href: `/${locale}/about` },
+    { name: t('navigation.services'), href: `/${locale}/services` },
+    { name: t('navigation.partners'), href: `/${locale}/partners` },
+    { name: t('navigation.hardware'), href: `/${locale}/hardware` },
+    { name: t('navigation.projects'), href: `/${locale}/projects` },
+    { name: t('navigation.contact'), href: `/${locale}/contact` }
   ];
-
-  const languageLabels = {
-    en: 'English',
-    fr: 'Français',
-    ar: 'العربية'
-  };
   
   return (
     <div className={styles.navbar} ref={navRef}>
@@ -167,57 +138,7 @@ const HeroNav: React.FC = () => {
               className={styles.languageSwitcher}
               variants={itemVariants}
             >
-              <motion.button 
-                whileHover={{
-                  backgroundColor: "rgba(59, 130, 246, 0.1)",
-                  transition: { duration: 0.2 }
-                }}
-                whileTap={{ scale: 0.95 }}
-                className={styles.languageButton}
-                onClick={() => setIsLanguageDropdownOpen(!isLanguageDropdownOpen)}
-                aria-label="Change language"
-              >
-                <Globe size={18} />
-                <span>{languageLabels[language]}</span>
-                <motion.div
-                  animate={{
-                    rotate: isLanguageDropdownOpen ? 180 : 0,
-                    transition: { duration: 0.3, ease: "easeInOut" }
-                  }}
-                >
-                  <ChevronDown size={16} />
-                </motion.div>
-              </motion.button>
-              
-              <AnimatePresence>
-                {isLanguageDropdownOpen && (
-                  <motion.div 
-                    className={styles.languageDropdown}
-                    variants={dropdownVariants}
-                    initial="hidden"
-                    animate="visible"
-                    exit="exit"
-                  >
-                    {Object.entries(languageLabels).map(([langCode, label]) => (
-                      <motion.button 
-                        key={langCode}
-                        onClick={() => handleLanguageChange(langCode as Language)}
-                        className={language === langCode ? styles.activeLanguage : ''}
-                        whileHover={{
-                          backgroundColor: language === langCode 
-                            ? "rgba(59, 130, 246, 0.15)" 
-                            : "rgba(0, 0, 0, 0.05)",
-                          x: 2,
-                          transition: { duration: 0.2 }
-                        }}
-                        whileTap={{ scale: 0.98 }}
-                      >
-                        {label}
-                      </motion.button>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              <LanguageSwitcher variant="default" />
             </motion.div>
             
             {/* Theme Switcher */}
@@ -232,7 +153,7 @@ const HeroNav: React.FC = () => {
                 }}
                 whileTap={{ scale: 0.9 }}
                 onClick={toggleTheme}
-                aria-label={theme === 'dark' ? "Switch to light mode" : "Switch to dark mode"}
+                aria-label={theme === 'dark' ? t('theme.switchToLight') : t('theme.switchToDark')}
               >
                 <div className={styles.themeIconWrapper}>
                   <AnimatePresence mode="wait" initial={false}>
@@ -279,7 +200,7 @@ const HeroNav: React.FC = () => {
               }}
               whileTap={{ scale: 0.9 }}
               onClick={toggleTheme}
-              aria-label={theme === 'dark' ? "Switch to light mode" : "Switch to dark mode"}
+              aria-label={theme === 'dark' ? t('theme.switchToLight') : t('theme.switchToDark')}
             >
               <div className={styles.themeIconWrapper}>
                 <AnimatePresence mode="wait" initial={false}>

@@ -9,6 +9,10 @@ import AiChatAssistant from "@/components/AiChatAssistant";
 import MobileNavigation from "@/components/MobileNavigation";
 import HeroNav from "@/components/Navbar/HeroNav";
 import Navbar from "@/components/Navbar";
+import {NextIntlClientProvider, hasLocale} from 'next-intl';
+import {notFound} from 'next/navigation';
+import {routing} from '@/i18n/routing';
+
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -22,26 +26,38 @@ export const metadata = {
     "From AI to hardware, Rkicy Technology delivers powerful, enterprise-grade IT solutions for modern businesses.",
 };
 
-export default function RootLayout({
+export default async function LocaleLayout({
   children,
-}: Readonly<{
+  params
+}: {
   children: React.ReactNode;
-}>) {
+  params: Promise<{locale: string}>;
+}) {
+  // Ensure that the incoming `locale` is valid
+  const {locale} = await params;
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+ 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <body className={outfit.variable}>
-        <ThemeProvider attribute="data-theme" defaultTheme="system" enableSystem>
-          <NextTopLoader showSpinner={false} />
-          <Navbar />
-          <HeroNav />
-          <FixedBackground />
-          {children}
-          {/* <AiChatAssistant /> */}
-          <MobileNavigation />
-          <Footer />
-          <Analytics />
-        </ThemeProvider>
+        <NextIntlClientProvider>
+          <ThemeProvider attribute="data-theme" defaultTheme="system" enableSystem>
+            <NextTopLoader showSpinner={false} />
+            <Navbar />
+            <HeroNav />
+            <FixedBackground />
+            {children}
+            {/* <AiChatAssistant /> */}
+            <MobileNavigation />
+            <Footer />
+            <Analytics />
+          </ThemeProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );
 }
+
+

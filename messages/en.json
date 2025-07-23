@@ -1,0 +1,40 @@
+{
+  "common": {
+    "title": "Rkicy Tech",
+    "description": "Empowering Morocco's Digital Future",
+    "navigation": {
+      "home": "Home",
+      "about": "About",
+      "services": "Services",
+      "partners": "Partners",
+      "hardware": "Hardware",
+      "projects": "Projects",
+      "contact": "Contact"
+    },
+    "actions": {
+      "getStarted": "Get Started",
+      "contactUs": "Contact Us",
+      "exploreServices": "Explore Our Services"
+    },
+    "language": {
+      "english": "English",
+      "french": "Français",
+      "arabic": "العربية"
+    },
+    "theme": {
+      "switchToLight": "Switch to light mode",
+      "switchToDark": "Switch to dark mode"
+    },
+    "home": {
+      "hero": {
+        "title": "Empowering Morocco's Digital Future",
+        "subtitle": "From AI to hardware, Rkicy Technology delivers powerful, enterprise-grade IT solutions for modern businesses across Morocco and beyond.",
+        "badge": "Leading Morocco's Digital Transformation",
+        "stats": {
+          "clients": "Happy Clients",
+          "powered": "AI Powered"
+        }
+      }
+    }
+  }
+}

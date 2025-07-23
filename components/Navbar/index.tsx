@@ -3,25 +3,32 @@
 import { useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLocale, useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { useTheme } from 'next-themes';
 import { useSmartScroll } from './hooks/useSmartScroll';
-import { ChevronDown, Globe, Sun, Moon } from 'lucide-react';
-import styles from './Navbar.module.scss';
+import { Sun, Moon } from 'lucide-react';
 import Logo from './Logo';
-
-const navLinks = [
-  { name: 'Home', href: '/' },
-  { name: 'About', href: '/about' },
-  { name: 'Services', href: '/services' },
-  { name: 'Partners', href: '/partners' },
-  { name: 'Hardware', href: '/hardware' },
-  { name: 'Projects', href: '/projects' },
-  { name: 'Contact', href: '/contact' },
-];
+import styles from './Navbar.module.scss';
+import LanguageSwitcher from '../LanguageSwitcher';
 
 export default function Navbar() {
-  // Configure SmartScroll with initiallyVisible: false
+  // Get translations
+  const t = useTranslations('common');
+  const locale = useLocale();
+  
+  // Navigation links using translations
+  const navLinks = [
+    { name: t('navigation.home'), href: `/${locale}` },
+    { name: t('navigation.about'), href: `/${locale}/about` },
+    { name: t('navigation.services'), href: `/${locale}/services` },
+    { name: t('navigation.partners'), href: `/${locale}/partners` },
+    { name: t('navigation.hardware'), href: `/${locale}/hardware` },
+    { name: t('navigation.projects'), href: `/${locale}/projects` },
+    { name: t('navigation.contact'), href: `/${locale}/contact` },
+  ];
+
+  // Smart scroll and other hooks
   const { visible } = useSmartScroll({ 
     threshold: 100, 
     throttleDelay: 100, 
@@ -31,18 +38,13 @@ export default function Navbar() {
   const pathname = usePathname();
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(0);
   const [hoverIndex, setHoverIndex] = useState(null);
   const navbarRef = useRef(null);
 
   // Handle theme initialization
   useEffect(() => {
     setMounted(true);
-    
-    // Find active nav link index
-    const index = navLinks.findIndex(link => link.href === pathname);
-    setActiveIndex(index >= 0 ? index : 0);
-  }, [pathname]);
+  }, []);
 
   // Animation variants
   const navbarVariants = {
@@ -94,7 +96,7 @@ export default function Navbar() {
   return (
     <motion.header
       className={styles.navbarWrapper}
-      initial="hidden" // Start hidden
+      initial="hidden"
       animate={visible ? "visible" : "hidden"}
       variants={navbarVariants}
     >
@@ -105,7 +107,7 @@ export default function Navbar() {
         >
           {/* Logo */}
           <div className={styles.logoContainer}>
-            <Link href="/" className={styles.logo}>
+            <Link href={`/${locale}`} className={styles.logo}>
               <Logo />
             </Link>
           </div>
@@ -164,22 +166,12 @@ export default function Navbar() {
           <div className={styles.actions}>
             {/* Language Selector */}
             <motion.div 
-              className={styles.langSelector}
               custom={navLinks.length}
               initial="initial"
               animate="animate"
               variants={navItemVariants}
             >
-              <button className={styles.langButton} aria-label="Change language">
-                <Globe size={16} strokeWidth={2} />
-                <span>English</span>
-                <motion.div
-                  animate={{ rotate: 0 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <ChevronDown size={14} className={styles.chevron} strokeWidth={2.5} />
-                </motion.div>
-              </button>
+              <LanguageSwitcher variant="compact" />
             </motion.div>
             
             {/* Theme Toggle */}
@@ -192,7 +184,7 @@ export default function Navbar() {
               variants={navItemVariants}
               whileTap={{ scale: 0.92 }}
               whileHover={{ scale: 1.05 }}
-              aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+              aria-label={theme === 'dark' ? t('theme.switchToLight') : t('theme.switchToDark')}
             >
               <motion.div
                 className={styles.themeIcon}
