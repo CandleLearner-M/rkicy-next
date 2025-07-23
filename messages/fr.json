@@ -36,5 +36,144 @@
         }
       }
     }
+  },
+  "navigation": {
+    "items": {
+      "home": "Accueil",
+      "about": "À propos",
+      "services": "Services",
+      "partners": "Partenaires",
+      "hardware": "Matériel",
+      "projects": "Projets",
+      "contact": "Contact"
+    },
+    "accessibility": {
+      "openMenu": "Ouvrir le menu de navigation",
+      "closeMenu": "Fermer le menu de navigation"
+    }
+  },
+  "accessibility": {
+    "breadcrumbs": "Navigation par fil d'Ariane"
+  },
+  "about": {
+    "title": "À propos de nous",
+    "subtitle": "Le principal fournisseur de solutions informatiques du Maroc",
+    "navigation": {
+      "home": "Accueil",
+      "about": "À propos"
+    },
+    "accessibility": {
+      "breadcrumbs": "Navigation par fil d'Ariane"
+    },
+    "actions": {
+      "contactUs": "Nous Contacter",
+      "exploreServices": "Explorer Nos Services"
+    },
+    "vision": {
+      "sectionTitle": "Notre Vision et Mission",
+      "vision": {
+        "title": "Notre Vision",
+        "description": "Être la pierre angulaire de l'avenir numérique du Maroc, reconnu pour notre excellence technique, nos solutions innovantes et notre engagement à rendre la technologie avancée accessible aux entreprises de toutes tailles."
+      },
+      "mission": {
+        "title": "Notre Mission", 
+        "description": "Donner aux entreprises marocaines les moyens d'agir grâce à des solutions technologiques de niveau entreprise qui favorisent la transformation numérique, améliorent l'efficacité opérationnelle et encouragent une croissance durable dans un monde de plus en plus connecté."
+      }
+    },
+    "story": {
+      "title": "Notre Histoire",
+      "lead": "Fondée en 2023 à Rabat, Rkicy Technology est née d'une vision visant à combler le fossé technologique pour les entreprises marocaines.",
+      "paragraph1": "Rkicy Technology a été créée pour fournir des services informatiques de pointe en intelligence artificielle, développement de logiciels et conseil stratégique, tout en servant de distributeur de confiance de matériel de niveau entreprise grâce à nos partenariats avec des leaders technologiques mondiaux.",
+      "paragraph2": "Notre équipe fondatrice apporte des décennies d'expérience combinée des principales entreprises technologiques mondiales, avec une expertise approfondie en solutions d'entreprise, implémentation d'IA et transformation numérique. Cette combinaison unique de perspicacité locale et d'expérience internationale nous permet de fournir des solutions de classe mondiale adaptées aux besoins spécifiques de nos clients marocains.",
+      "paragraph3": "Aujourd'hui, nous nous établissons rapidement comme le premier partenaire technologique du Maroc, aidant les organisations de toutes tailles à naviguer dans leurs parcours de transformation numérique avec confiance et clarté."
+    },
+    "stats": {
+      "experts": "Experts en Technologie",
+      "partnerships": "Partenariats Mondiaux", 
+      "clients": "Clients Servis"
+    },
+    "video": {
+      "playButton": "Lire la vidéo de l'entreprise",
+      "watchStory": "Regarder notre histoire",
+      "established": "Fondé",
+      "closeVideo": "Fermer la vidéo",
+      "placeholder": "La vidéo de présentation de l'entreprise serait diffusée ici."
+    },
+    "values": {
+      "title": "Nos Valeurs Fondamentales",
+      "integrity": {
+        "title": "Intégrité",
+        "description": "Nous respectons les plus hauts standards d'honnêteté, de transparence et de conduite éthique dans chaque interaction avec les clients, partenaires et collègues."
+      },
+      "excellence": {
+        "title": "Excellence", 
+        "description": "Nous nous engageons à fournir une qualité exceptionnelle dans tout ce que nous faisons, des solutions technologiques au service client et au support."
+      },
+      "collaboration": {
+        "title": "Collaboration",
+        "description": "Nous croyons au pouvoir du partenariat—travaillant étroitement avec les clients comme de véritables partenaires pour obtenir des résultats transformateurs ensemble."
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "Nous embrassons l'apprentissage continu et la pensée innovante, restant à la pointe de la technologie pour fournir des solutions tournées vers l'avenir."
+      }
+    },
+    "timeline": {
+      "title": "Notre Parcours",
+      "founding": {
+        "title": "Fondation de Rkicy Technology",
+        "description": "Établie à Rabat avec une vision de transformer le paysage informatique du Maroc grâce à des solutions et services innovants."
+      },
+      "zebra": {
+        "title": "Partenariat Stratégique avec Zebra Technologies", 
+        "description": "Devenu partenaire officiel et distributeur du matériel Zebra Technologies au Maroc."
+      },
+      "sap": {
+        "title": "Partenariat SAP",
+        "description": "Partenariat formalisé avec SAP pour fournir des solutions ERP de niveau entreprise aux entreprises marocaines."
+      },
+      "ai": {
+        "title": "Lancement de la Pratique de Conseil en IA",
+        "description": "Expansion des offres de services avec des services dédiés de conseil et d'implémentation en IA."
+      },
+      "government": {
+        "title": "Expansion du Secteur Gouvernemental", 
+        "description": "Commencé à servir les principales agences gouvernementales avec des solutions informatiques spécialisées et des services de transformation numérique."
+      }
+    },
+    "team": {
+      "title": "Rencontrez Notre Direction",
+      "viewProfile": "Voir le Profil",
+      "hideProfile": "Masquer le Profil",
+      "expertiseAreas": "Domaines d'Expertise",
+      "members": {
+        "mohammed": {
+          "name": "Mohammed Alami",
+          "position": "Fondateur et PDG",
+          "bio": "Avec plus de 15 ans d'expérience dans les solutions informatiques d'entreprise, Mohammed a fondé Rkicy Technology avec une vision de transformer le paysage technologique du Maroc. Son expertise couvre l'implémentation d'IA, la transformation numérique et les partenariats stratégiques avec les leaders technologiques mondiaux.",
+          "areas": ["Leadership Stratégique", "Vision Technologique", "Partenariats Mondiaux"]
+        },
+        "leila": {
+          "name": "Leila Bensouda", 
+          "position": "Directrice Technique",
+          "bio": "Dirigeant notre stratégie technique, Leila apporte plus de 12 ans d'expérience en architecture logicielle et développement d'IA. Son parcours comprend des rôles seniors dans des entreprises technologiques internationales et une passion pour l'application de solutions de pointe aux défis commerciaux du monde réel.",
+          "areas": ["IA et Apprentissage Automatique", "Architecture Cloud", "Leadership Technique"]
+        },
+        "karim": {
+          "name": "Karim Idrissi",
+          "position": "Directeur du Conseil", 
+          "bio": "Karim dirige notre pratique de conseil, apportant une expertise approfondie en transformation numérique et intégration de systèmes d'entreprise. Avec une expérience au service de clients à travers l'Afrique du Nord et l'Europe, il s'assure que nos solutions offrent un impact commercial mesurable.",
+          "areas": ["Stratégie Numérique", "Optimisation des Processus Métier", "Solutions d'Entreprise"]
+        }
+      }
+    },
+    "partners": {
+      "title": "Nos Partenaires Stratégiques",
+      "description": "Nous collaborons avec les principaux fournisseurs de technologie mondiaux pour offrir les solutions les plus avancées à nos clients."
+    },
+    "cta": {
+      "title": "Prêt à transformer votre entreprise ?", 
+      "description": "Discutons de la façon dont Rkicy Technology peut aider votre organisation à prospérer à l'ère numérique."
+    }
   }
 }

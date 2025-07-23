@@ -40,7 +40,7 @@ export default async function LocaleLayout({
   }
  
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning >
       <body className={outfit.variable}>
         <NextIntlClientProvider>
           <ThemeProvider attribute="data-theme" defaultTheme="system" enableSystem>

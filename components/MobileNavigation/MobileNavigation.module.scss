@@ -277,3 +277,18 @@ $expanded-menu-item-height: 56px;
     background: rgba(0, 0, 0, 0.5);
   }
 }
+
+[dir="rtl"] .mobileNavigation {
+  .leftSection {
+    order: 2;
+  }
+  
+  .rightSection {
+    order: 0;
+  }
+  
+  .navLabel,
+  .expandedNavLabel {
+    text-align: right;
+  }
+}

@@ -36,5 +36,144 @@
         }
       }
     }
+  },
+  "navigation": {
+    "items": {
+      "home": "Home",
+      "about": "About",
+      "services": "Services",
+      "partners": "Partners",
+      "hardware": "Hardware",
+      "projects": "Projects",
+      "contact": "Contact"
+    },
+    "accessibility": {
+      "openMenu": "Open navigation menu",
+      "closeMenu": "Close navigation menu"
+    }
+  },
+  "accessibility": {
+    "breadcrumbs": "Breadcrumb navigation"
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "Morocco's Leading IT Solutions Provider",
+    "navigation": {
+      "home": "Home",
+      "about": "About"
+    },
+    "accessibility": {
+      "breadcrumbs": "Breadcrumb navigation"
+    },
+    "actions": {
+      "contactUs": "Contact Us",
+      "exploreServices": "Explore Our Services"
+    },
+    "vision": {
+      "sectionTitle": "Our Vision & Mission",
+      "vision": {
+        "title": "Our Vision",
+        "description": "To be the cornerstone of Morocco's digital future, recognized for our technical excellence, innovative solutions, and commitment to making advanced technology accessible to businesses of all sizes."
+      },
+      "mission": {
+        "title": "Our Mission", 
+        "description": "To empower Moroccan businesses with enterprise-grade technology solutions that drive digital transformation, enhance operational efficiency, and foster sustainable growth in an increasingly connected world."
+      }
+    },
+    "story": {
+      "title": "Our Story",
+      "lead": "Founded in 2023 in Rabat, Rkicy Technology was born from a vision to bridge the technology gap for Moroccan enterprises.",
+      "paragraph1": "Rkicy Technology was established to provide cutting-edge IT services in artificial intelligence, software development, and strategic consulting, while also serving as a trusted distributor of enterprise-grade hardware through our partnerships with global technology leaders.",
+      "paragraph2": "Our founding team brings decades of combined experience from leading global technology firms, with deep expertise in enterprise solutions, AI implementation, and digital transformation. This unique combination of local insight and international experience allows us to deliver world-class solutions tailored to the specific needs of our Moroccan clients.",
+      "paragraph3": "Today, we're rapidly establishing ourselves as Morocco's premier technology partner, helping organizations of all sizes navigate their digital transformation journeys with confidence and clarity."
+    },
+    "stats": {
+      "experts": "Technology Experts",
+      "partnerships": "Global Partnerships", 
+      "clients": "Clients Served"
+    },
+    "video": {
+      "playButton": "Play company video",
+      "watchStory": "Watch our story",
+      "established": "Est.",
+      "closeVideo": "Close video",
+      "placeholder": "Company introduction video would play here."
+    },
+    "values": {
+      "title": "Our Core Values",
+      "integrity": {
+        "title": "Integrity",
+        "description": "We uphold the highest standards of honesty, transparency, and ethical conduct in every interaction with clients, partners, and colleagues."
+      },
+      "excellence": {
+        "title": "Excellence", 
+        "description": "We are committed to delivering exceptional quality in everything we do, from technology solutions to client service and support."
+      },
+      "collaboration": {
+        "title": "Collaboration",
+        "description": "We believe in the power of partnership—working closely with clients as true partners to achieve transformative results together."
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "We embrace continuous learning and innovative thinking, staying at the forefront of technology to deliver forward-looking solutions."
+      }
+    },
+    "timeline": {
+      "title": "Our Journey",
+      "founding": {
+        "title": "Founding of Rkicy Technology",
+        "description": "Established in Rabat with a vision to transform Morocco's IT landscape through innovative solutions and services."
+      },
+      "zebra": {
+        "title": "Strategic Partnership with Zebra Technologies", 
+        "description": "Became an official partner and distributor for Zebra Technologies hardware in Morocco."
+      },
+      "sap": {
+        "title": "SAP Partnership",
+        "description": "Formalized partnership with SAP to deliver enterprise-grade ERP solutions to Moroccan businesses."
+      },
+      "ai": {
+        "title": "Launch of AI Consulting Practice",
+        "description": "Expanded service offerings with dedicated AI consulting and implementation services."
+      },
+      "government": {
+        "title": "Government Sector Expansion", 
+        "description": "Began serving key government agencies with specialized IT solutions and digital transformation services."
+      }
+    },
+    "team": {
+      "title": "Meet Our Leadership",
+      "viewProfile": "View Profile",
+      "hideProfile": "Hide Profile",
+      "expertiseAreas": "Areas of Expertise",
+      "members": {
+        "mohammed": {
+          "name": "Mohammed Alami",
+          "position": "Founder & CEO",
+          "bio": "With over 15 years of experience in enterprise IT solutions, Mohammed founded Rkicy Technology with a vision to transform Morocco's technological landscape. His expertise spans AI implementation, digital transformation, and strategic partnerships with global tech leaders.",
+          "areas": ["Strategic Leadership", "Technology Vision", "Global Partnerships"]
+        },
+        "leila": {
+          "name": "Leila Bensouda", 
+          "position": "Chief Technology Officer",
+          "bio": "Leading our technical strategy, Leila brings 12+ years of software architecture and AI development experience. Her background includes senior roles at international tech firms and a passion for applying cutting-edge solutions to real-world business challenges.",
+          "areas": ["AI & Machine Learning", "Cloud Architecture", "Technical Leadership"]
+        },
+        "karim": {
+          "name": "Karim Idrissi",
+          "position": "Director of Consulting", 
+          "bio": "Karim heads our consulting practice, bringing deep expertise in digital transformation and enterprise system integration. With experience serving clients across North Africa and Europe, he ensures our solutions deliver measurable business impact.",
+          "areas": ["Digital Strategy", "Business Process Optimization", "Enterprise Solutions"]
+        }
+      }
+    },
+    "partners": {
+      "title": "Our Strategic Partners",
+      "description": "We collaborate with leading global technology providers to deliver the most advanced solutions to our clients."
+    },
+    "cta": {
+      "title": "Ready to transform your business?", 
+      "description": "Let's discuss how Rkicy Technology can help your organization thrive in the digital age."
+    }
   }
 }

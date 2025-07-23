@@ -1,0 +1,132 @@
+/*
+ * RTL (Right-to-Left) Support
+ * This file contains global styles for proper Arabic language display
+ */
+
+// Apply these styles when dir="rtl" is set on the html element
+[dir="rtl"] {
+  // Text alignment and direction
+  text-align: right;
+  
+  // General text and content
+  p, h1, h2, h3, h4, h5, h6, span, div, li, td, th {
+    text-align: right;
+    direction: rtl;
+  }
+  
+  // Lists
+  ul, ol {
+    padding-right: 1.5rem;
+    padding-left: 0;
+  }
+  
+  // Layout and positioning flips
+  .row {
+    flex-direction: row-reverse;
+  }
+  
+  // Margins and paddings
+  .ml-auto { margin-left: initial !important; margin-right: auto !important; }
+  .mr-auto { margin-right: initial !important; margin-left: auto !important; }
+  
+  .pl-1, .pl-2, .pl-3, .pl-4, .pl-5 { padding-left: initial; padding-right: var(--padding-value); }
+  .pr-1, .pr-2, .pr-3, .pr-4, .pr-5 { padding-right: initial; padding-left: var(--padding-value); }
+  
+  .ml-1, .ml-2, .ml-3, .ml-4, .ml-5 { margin-left: initial; margin-right: var(--margin-value); }
+  .mr-1, .mr-2, .mr-3, .mr-4, .mr-5 { margin-right: initial; margin-left: var(--margin-value); }
+  
+  // Border radius flips
+  .rounded-r { border-radius: 0 !important; border-top-left-radius: var(--radius) !important; border-bottom-left-radius: var(--radius) !important; }
+  .rounded-l { border-radius: 0 !important; border-top-right-radius: var(--radius) !important; border-bottom-right-radius: var(--radius) !important; }
+  
+  // Flexbox adjustments
+  .justify-start { justify-content: flex-end !important; }
+  .justify-end { justify-content: flex-start !important; }
+  
+  // Text alignments (override Bootstrap or other frameworks)
+  .text-left { text-align: right !important; }
+  .text-right { text-align: left !important; }
+  
+  // Icons and directional elements
+  .chevron-right:before { content: '\f053'; } /* FontAwesome example: replace right with left */
+  .chevron-left:before { content: '\f054'; } /* FontAwesome example: replace left with right */
+
+  // Navbar specific adjustments
+  .navbar {
+    .navLinks {
+      flex-direction: row-reverse;
+    }
+    
+    .logoContainer {
+      padding-right: 0;
+      padding-left: 1.5rem;
+      
+      &::after {
+        right: auto;
+        left: 0;
+      }
+    }
+    
+    .actions {
+      padding-left: 0;
+      padding-right: 1.5rem;
+      
+      &::before {
+        left: auto;
+        right: 0;
+      }
+    }
+  }
+  
+  // Language dropdown adjustment
+  .languageDropdown {
+    left: 0;
+    right: auto;
+  }
+  
+  // Fix arrows and chevrons
+  svg.chevron, .arrow-icon {
+    transform: scaleX(-1);
+  }
+  
+  // Hero section adjustments
+  .hero-content {
+    text-align: right;
+  }
+  
+  // Custom components in your UI
+  .pageHeader {
+    .breadcrumbs ol {
+      flex-direction: row-reverse;
+    }
+    
+    .separator {
+      transform: scaleX(-1);
+    }
+    
+    .titleContainer, .subtitle {
+      text-align: right;
+    }
+  }
+}
+
+// Specific fixes for RTL text in Flexbox layouts
+[dir="rtl"] .d-flex {
+  &.flex-row {
+    flex-direction: row-reverse;
+  }
+  
+  .ml-auto {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+  }
+}
+
+// Fix for scroll animations that might be directional
+[dir="rtl"] [data-aos="fade-right"] {
+  transform: translate3d(-100px, 0, 0);
+}
+
+[dir="rtl"] [data-aos="fade-left"] {
+  transform: translate3d(100px, 0, 0);
+}
