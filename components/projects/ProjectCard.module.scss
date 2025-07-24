@@ -1,0 +1,143 @@
+@import '@/styles/variables.scss';
+@import '@/styles/mixins.scss';
+
+.projectCard {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    
+    .projectImage {
+      transform: scale(1.05);
+    }
+  }
+  
+  [data-theme="dark"] & {
+    background: rgba(30, 30, 40, 0.7);
+    border: 1px solid rgba(70, 70, 100, 0.2);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    
+    &:hover {
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+    }
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+
+.projectImage {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.logoOverlay {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  [data-theme="dark"] & {
+    background: linear-gradient(135deg, rgba(40,40,60,0.9), rgba(30,30,50,0.7));
+    border: 1px solid rgba(70, 70, 100, 0.3);
+  }
+}
+
+.projectLogo {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.cardContent {
+  padding: 1.5rem;
+}
+
+.projectTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+}
+
+.projectDescription {
+  font-size: 0.95rem;
+  margin: 0 0 1rem;
+  color: $text-secondary;
+  line-height: 1.6;
+  
+  [data-theme="dark"] & {
+    color: $text-secondary-dark;
+  }
+}
+
+.tagsContainer {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.tag {
+  padding: 0.35rem 0.75rem;
+  border-radius: 2rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: rgba(79, 70, 229, 0.1);
+  color: #4f46e5;
+  
+  [data-theme="dark"] & {
+    background: rgba(129, 140, 248, 0.15);
+    color: #a5b4fc;
+  }
+}
+
+.tagCount {
+  padding: 0.35rem 0.75rem;
+  border-radius: 2rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: rgba(0, 0, 0, 0.05);
+  color: $text-secondary;
+  
+  [data-theme="dark"] & {
+    background: rgba(255, 255, 255, 0.1);
+    color: $text-secondary-dark;
+  }
+}
+
+.projectLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #4f46e5;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    gap: 0.75rem;
+  }
+  
+  [data-theme="dark"] & {
+    color: #818cf8;
+  }
+}

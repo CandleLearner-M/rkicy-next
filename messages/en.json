@@ -341,5 +341,125 @@
             "microsoft": "Microsoft logo"
           }
         }
+  },
+  "projects": {
+    "hero": {
+      "badge": "Our Portfolio",
+      "title": "Discover our {highlight}impactful projects{/highlight}",
+      "subtitle": "Explore our diverse range of successful technology implementations across different industries and sectors"
+    },
+    "featuredWork": "Featured Work",
+    "featuredWorkSubtitle": "Highlighting our most impactful and innovative projects",
+    "allProjects": "All Projects",
+    "allProjectsSubtitle": "Browse our complete portfolio of successful implementations",
+    "viewProject": "View Project",
+    "viewDetails": "View Details",
+    "paycov": {
+      "subtitle": "Revolutionary fintech platform for Morocco",
+      "shortDescription": "A comprehensive payment solution bringing modern cashless transactions to Moroccan businesses and consumers.",
+      "title": "Paycov",
+      "description": "A revolutionary fintech platform bringing modern payments to Morocco and beyond",
+      "backToProjects": "Back to Projects",
+      "visitWebsite": "Visit Website",
+      "learnMore": "Learn More",
+      "tabs": {
+        "overview": "Overview",
+        "features": "Features",
+        "technology": "Technology",
+        "journey": "Journey"
+      },
+      "overview": {
+        "title": "Revolutionizing Payments in Morocco",
+        "description1": "Paycov is a comprehensive payment platform designed specifically for the Moroccan market, enabling true financial inclusion and digital payments for all. From peer-to-peer transfers to QR & NFC payments, chat-based transactions, and multi-card management, Paycov delivers a complete cashless experience.",
+        "description2": "Our solution bridges the gap between traditional banking systems and modern digital payments, making financial services accessible to everyone in Morocco—regardless of whether they have a bank account.",
+        "keyPoints": {
+          "point1": "First truly comprehensive payment platform built for Morocco",
+          "point2": "Accessible to both banked and unbanked populations",
+          "point3": "Bank-grade security with regulatory compliance"
+        }
+      },
+      "founder": {
+        "name": "Mehdi Alaoui",
+        "title": "Founder & CEO",
+        "quote": "I founded Paycov after returning to Morocco and experiencing firsthand the challenges of digital payments here. Our mission is to make cashless transactions accessible to every Moroccan, regardless of their banking status."
+      },
+      "gallery": {
+        "dashboard": "Paycov Dashboard Interface",
+        "payments": "Payment Processing Interface",
+        "chat": "Chat-Based Payment Interface"
+      },
+      "featuresSection": {
+        "title": "Key Features",
+        "subtitle": "Powerful features designed for the Moroccan market"
+      },
+      "features": {
+        "p2p": {
+          "title": "Peer-to-peer transfers",
+          "description": "Send and receive money instantly with anyone—no bank account required."
+        },
+        "qr": {
+          "title": "QR & NFC payments",
+          "description": "Pay for taxis, groceries, shopping, and more with just your phone. No more cash—just scan a QR or tap to pay instantly and securely."
+        },
+        "chat": {
+          "title": "Chat-based payments",
+          "description": "Request or send payments directly in your conversations—fast and intuitive."
+        },
+        "card": {
+          "title": "Instant card management",
+          "description": "Add, manage, and use multiple cards securely from any Moroccan or international bank."
+        }
+      },
+      "security": {
+        "title": "Your Money, Secured",
+        "description": "Bank-grade security and full regulatory compliance—your peace of mind comes first.",
+        "features": {
+          "encryption": "End-to-end encryption for all transactions",
+          "fraud": "Advanced fraud detection and prevention",
+          "regulatory": "Full compliance with Bank Al-Maghrib regulations"
+        }
+      },
+      "technology": {
+        "title": "Technology Stack",
+        "subtitle": "The powerful technologies behind Paycov",
+        "categories": {
+          "frontend": "Frontend",
+          "backend": "Backend",
+          "devops": "DevOps & Infrastructure"
+        },
+        "architecture": {
+          "title": "System Architecture",
+          "description": "Paycov is built on a modern, scalable architecture designed for security, performance, and reliability. The system employs microservices for flexibility and uses real-time data processing to ensure instant transactions."
+        }
+      },
+      "journey": {
+        "title": "The Paycov Journey",
+        "subtitle": "From concept to revolutionary fintech platform",
+        "nextSteps": {
+          "title": "What's Next for Paycov",
+          "description": "Our roadmap for expanding Paycov's reach and capabilities",
+          "items": {
+            "launch": {
+              "title": "Public Launch",
+              "description": "Official launch across Morocco with full feature set"
+            },
+            "expansion": {
+              "title": "Market Expansion",
+              "description": "Expanding partnerships with merchants and service providers"
+            },
+            "international": {
+              "title": "International Expansion",
+              "description": "Beginning expansion to neighboring North African countries"
+            }
+          }
+        }
+      },
+      "cta": {
+        "title": "Ready to experience the future of payments?",
+        "description": "Join thousands of Moroccans already waiting for the launch of Paycov",
+        "primaryButton": "Join the Waitlist",
+        "secondaryButton": "Contact for More Info"
+      }
+    }
   }
   }
