@@ -317,5 +317,19 @@
       "primaryButton": "Voir Tous les Services",
       "secondaryButton": "Contactez-nous"
     }
+  },
+  "home": {
+    "hero": {
+      "title": "Propulser l'Avenir {break}Numérique du Maroc",
+      "subtitle": "De l'IA au matériel, nous fournissons des solutions informatiques puissantes pour les entreprises modernes au Maroc.",
+      "badge": "Leader de la Transformation Numérique du Maroc",
+      "imageAlt": "Transformation Numérique",
+      "trust": "Approuvé par les Leaders du Secteur",
+      "stats": {
+        "powered": "Propulsé par l'IA",
+        "enterprise": "Solutions d'Entreprise",
+        "clients": "Plus de 200 Clients"
+      }
+    }
   }
 }

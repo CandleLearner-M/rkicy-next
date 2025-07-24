@@ -5,12 +5,16 @@ import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import { useLocale, useTranslations } from 'next-intl';
 import styles from "./MobileHero.module.scss";
 import PartnerLogos from "./PartnerLogos";
 
 export default function MobileHero() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+  const t = useTranslations('home.hero');
+  const tCommon = useTranslations('common');
+  const locale = useLocale();
 
   return (
     <section className={styles.mobileHero} ref={ref}>
@@ -30,7 +34,7 @@ export default function MobileHero() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
           transition={{ duration: 0.4 }}
         >
-          Leading Morocco's Digital Transformation
+          {t('badge')}
         </motion.div>
         
         {/* Main Title */}
@@ -40,8 +44,10 @@ export default function MobileHero() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          Empowering Morocco's <br />
-          <span className={styles.highlight}>Digital Future</span>
+          {t.rich('title', {
+            break: () => <br />,
+            highlight: (chunks) => <span className={styles.highlight}>{chunks}</span>
+          })}
         </motion.h1>
         
         {/* Feature Cards Row */}
@@ -58,7 +64,7 @@ export default function MobileHero() {
                 <path d="M12 2V4M12 20V22M4.93 4.93L6.34 6.34M17.66 17.66L19.07 19.07M2 12H4M20 12H22M6.34 17.66L4.93 19.07M19.07 4.93L17.66 6.34" />
               </svg>
             </div>
-            <span className={styles.featureText}>AI Powered</span>
+            <span className={styles.featureText}>{t('stats.powered')}</span>
           </div>
           
           <div className={styles.featureCard}>
@@ -69,7 +75,7 @@ export default function MobileHero() {
                 <line x1="12" y1="22.08" x2="12" y2="12" />
               </svg>
             </div>
-            <span className={styles.featureText}>Enterprise Solutions</span>
+            <span className={styles.featureText}>{t('stats.enterprise')}</span>
           </div>
           
           <div className={styles.featureCard}>
@@ -80,7 +86,9 @@ export default function MobileHero() {
                 <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
               </svg>
             </div>
-            <span className={styles.featureText}><strong>200+</strong> Clients</span>
+            <span className={styles.featureText}>{t.rich('stats.clients', {
+              strong: (chunks) => <strong>{chunks}</strong>
+            })}</span>
           </div>
         </motion.div>
         
@@ -93,7 +101,7 @@ export default function MobileHero() {
         >
           <Image
             src="/hero-image.webp"
-            alt="Digital Transformation"
+            alt={t('imageAlt')}
             width={450}
             height={300}
             className={styles.mainImage}
@@ -108,7 +116,7 @@ export default function MobileHero() {
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          From AI to hardware, we deliver powerful IT solutions for modern businesses across Morocco.
+          {t('subtitle')}
         </motion.p>
         
         {/* CTA Buttons */}
@@ -118,13 +126,13 @@ export default function MobileHero() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          <Link href="/services" className={styles.primaryCta}>
-            <span>Explore Our Services</span>
+          <Link href={`/${locale}/services`} className={styles.primaryCta}>
+            <span>{tCommon('actions.exploreServices')}</span>
             <ChevronRight size={16} />
           </Link>
           
-          <Link href="/contact" className={styles.secondaryCta}>
-            Contact Us
+          <Link href={`/${locale}/contact`} className={styles.secondaryCta}>
+            {tCommon('actions.contactUs')}
           </Link>
         </motion.div>
         
@@ -138,7 +146,7 @@ export default function MobileHero() {
           <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
             <path d="M8 0L10.2 5.37L16 5.88L11.73 9.8L12.97 15.52L8 12.5L3.03 15.52L4.27 9.8L0 5.88L5.8 5.37L8 0Z" />
           </svg>
-          <span>Trusted by Industry Leaders</span>
+          <span>{t('trust')}</span>
         </motion.div>
       </div>
       <PartnerLogos />

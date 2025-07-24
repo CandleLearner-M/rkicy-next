@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
+import { useTranslations } from 'next-intl';
 import styles from "./Hero.module.scss";
 
 interface HeroCardsProps {
@@ -9,6 +9,8 @@ interface HeroCardsProps {
 }
 
 export default function HeroCards({ isInView }: HeroCardsProps) {
+  const t = useTranslations('home.hero');
+
   const cardVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: (i: number) => ({
@@ -41,7 +43,7 @@ export default function HeroCards({ isInView }: HeroCardsProps) {
         </div>
         <div className={styles.statContent}>
           <div className={styles.statNumber}>200+</div>
-          <div className={styles.statLabel}>Happy Clients</div>
+          <div className={styles.statLabel}>{t('stats.clients')}</div>
         </div>
       </motion.div>
       
@@ -57,7 +59,7 @@ export default function HeroCards({ isInView }: HeroCardsProps) {
             <path d="M22 12H18L15 21L9 3L6 12H2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
-        <div className={styles.expertiseLabel}>Enterprise Solutions</div>
+        <div className={styles.expertiseLabel}>{t('stats.enterprise')}</div>
       </motion.div>
       
       <motion.div 
@@ -75,7 +77,7 @@ export default function HeroCards({ isInView }: HeroCardsProps) {
             <path d="M4.5 15.5L3 20L6 19L9 20L7.5 15.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
-        <div className={styles.techLabel}>AI Powered</div>
+        <div className={styles.techLabel}>{t('stats.powered')}</div>
       </motion.div>
     </>
   );

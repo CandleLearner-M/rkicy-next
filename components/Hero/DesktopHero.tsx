@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { ChevronRight } from "lucide-react";
+import { useLocale, useTranslations } from 'next-intl';
 import styles from "./Hero.module.scss";
 import PartnerLogos from "./PartnerLogos";
 import HeroCards from "./HeroCards";
@@ -12,6 +13,9 @@ import HeroCards from "./HeroCards";
 export default function DesktopHero() {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const t = useTranslations('home.hero');
+  const tCommon = useTranslations('common');
+  const locale = useLocale();
 
   const textVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -52,7 +56,7 @@ export default function DesktopHero() {
               variants={textVariants}
             >
               <span className={styles.preHeadingPill}>
-                Leading Morocco&apos;s Digital Transformation
+                {t('badge')}
               </span>
             </motion.div>
             
@@ -63,8 +67,9 @@ export default function DesktopHero() {
               animate={isInView ? "visible" : "hidden"}
               variants={textVariants}
             >
-              Empowering Morocco&apos;s{" "}
-              <span className={styles.highlight}>Digital Future</span>
+              {t.rich('title', {
+                highlight: (chunks) => <span className={styles.highlight}>{chunks}</span>
+              })}
             </motion.h1>
           </motion.div>
           
@@ -75,8 +80,7 @@ export default function DesktopHero() {
             animate={isInView ? "visible" : "hidden"}
             variants={textVariants}
           >
-            From AI to hardware, Rkicy Technology delivers powerful, enterprise-grade 
-            IT solutions for modern businesses across Morocco and beyond.
+            {t('subtitle')}
           </motion.p>
           
           <motion.div 
@@ -89,11 +93,10 @@ export default function DesktopHero() {
             <motion.div 
               variants={buttonVariants}
               initial="initial"
-              whileHover="hover"
               className={styles.primaryButtonWrapper}
             >
-              <Link href="/services" className={styles.primaryButton}>
-                Explore Our Services 
+              <Link href={`/${locale}/services`} className={styles.primaryButton}>
+                {tCommon('actions.exploreServices')}
                 <ChevronRight className={styles.buttonIcon} />
               </Link>
             </motion.div>
@@ -101,11 +104,10 @@ export default function DesktopHero() {
             <motion.div
               variants={buttonVariants}
               initial="initial"
-              whileHover="hover"
               className={styles.secondaryButtonWrapper}
             >
-              <Link href="/contact" className={styles.secondaryButton}>
-                Contact Us
+              <Link href={`/${locale}/contact`} className={styles.secondaryButton}>
+                {tCommon('actions.contactUs')}
               </Link>
             </motion.div>
           </motion.div>
@@ -122,7 +124,7 @@ export default function DesktopHero() {
                 <path d="M8 0L10.2 5.37L16 5.88L11.73 9.8L12.97 15.52L8 12.5L3.03 15.52L4.27 9.8L0 5.88L5.8 5.37L8 0Z" fill="currentColor"/>
               </svg>
             </div>
-            <span>Trusted by Industry Leaders</span>
+            <span>{t('trust')}</span>
           </motion.div>
         </div>
         
@@ -139,7 +141,7 @@ export default function DesktopHero() {
             <div className={styles.glowEffect}></div>
             <Image
               src="/hero-image.webp"
-              alt="Digital Transformation Visualization"
+              alt={t('imageAlt')}
               width={660}
               height={550}
               className={styles.heroImage}

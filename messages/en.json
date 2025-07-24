@@ -317,5 +317,19 @@
       "primaryButton": "View All Services",
       "secondaryButton": "Contact Us"
     }
+  },
+  "home": {
+    "hero": {
+      "title": "Empowering Morocco's {break}Digital Future",
+      "subtitle": "From AI to hardware, we deliver powerful IT solutions for modern businesses across Morocco.",
+      "badge": "Leading Morocco's Digital Transformation",
+      "imageAlt": "Digital Transformation",
+      "trust": "Trusted by Industry Leaders",
+      "stats": {
+        "powered": "AI Powered",
+        "enterprise": "Enterprise Solutions",
+        "clients": "200+ Clients"
+      }
+    }
   }
   }
