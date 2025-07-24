@@ -35,6 +35,7 @@
             "powered": "AI Powered"
           }
         }
+        
       }
     },
     "navigation": {
@@ -330,6 +331,15 @@
         "enterprise": "Enterprise Solutions",
         "clients": "200+ Clients"
       }
-    }
+    },
+    "partners": {
+          "title": "Trusted by Industry Leaders",
+          "logos": {
+            "zebra": "Zebra logo",
+            "openai": "OpenAI logo",
+            "sap": "SAP logo",
+            "microsoft": "Microsoft logo"
+          }
+        }
   }
   }

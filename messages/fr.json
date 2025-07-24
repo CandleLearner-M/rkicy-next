@@ -330,6 +330,15 @@
         "enterprise": "Solutions d'Entreprise",
         "clients": "Plus de 200 Clients"
       }
-    }
+    },
+        "partners": {
+          "title": "Approuvé par les Leaders de l'Industrie",
+          "logos": {
+            "zebra": "Logo Zebra",
+            "openai": "Logo OpenAI",
+            "sap": "Logo SAP",
+            "microsoft": "Logo Microsoft"
+          }
+        }
   }
 }

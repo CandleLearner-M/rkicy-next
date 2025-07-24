@@ -60,7 +60,7 @@ export default function DesktopHero() {
               </span>
             </motion.div>
             
-            <motion.h1 
+              <motion.h1 
               className={styles.mainHeading}
               custom={1}
               initial="hidden"
@@ -68,6 +68,7 @@ export default function DesktopHero() {
               variants={textVariants}
             >
               {t.rich('title', {
+                break: () => <br />,
                 highlight: (chunks) => <span className={styles.highlight}>{chunks}</span>
               })}
             </motion.h1>

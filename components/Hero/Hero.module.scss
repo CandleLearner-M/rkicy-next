@@ -108,6 +108,7 @@
   font-size: 2rem; // Smaller on mobile
   line-height: 1.15;
   font-weight: 800;
+  max-width: 12ch;
   letter-spacing: -0.025em;
   margin-bottom: $spacing-sm;
   background: linear-gradient(
