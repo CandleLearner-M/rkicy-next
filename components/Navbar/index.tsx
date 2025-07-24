@@ -171,7 +171,7 @@ export default function Navbar() {
               animate="animate"
               variants={navItemVariants}
             >
-              <LanguageSwitcher variant="compact" />
+              <LanguageSwitcher  buttonClassName={styles.customLanguageButton} />
             </motion.div>
             
             {/* Theme Toggle */}
