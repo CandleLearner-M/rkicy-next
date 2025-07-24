@@ -35,11 +35,11 @@
   border-radius: 24px;
   pointer-events: auto;
   
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  will-change: transform;
-  transform: translateZ(0);
-  // Critical fix for backdrop-filter blur
+  // Start with a solid background, no blur initially
+  background-color: rgba(255, 255, 255, 0.85);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              backdrop-filter 0.6s ease-in-out, 
+              background-color 0.6s ease-in-out;
   
   // Premium frosted glass border
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -47,8 +47,15 @@
     0 8px 32px rgba(0, 0, 0, 0.08),
     0 4px 12px rgba(0, 0, 0, 0.05),
     0 0 0 1px rgba(255, 255, 255, 0.5) inset;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   
+  // Dark mode initial state
+  [data-theme="dark"] & {
+    background-color: rgba(20, 20, 30, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 
+      0 10px 35px rgba(0, 0, 0, 0.3),
+      0 0 0 1px rgba(150, 150, 200, 0.1) inset;
+  }
   // Beautiful highlight effect
   &::before {
     content: '';
@@ -97,6 +104,18 @@
         0 15px 40px rgba(0, 0, 0, 0.35),
         0 0 0 1px rgba(150, 150, 200, 0.15) inset;
     }
+  }
+}
+
+.blurActive {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  
+  // When blur is active, reduce the background opacity
+  background-color: rgba(255, 255, 255, 0.65) !important;
+  
+  [data-theme="dark"] & {
+    background-color: rgba(20, 20, 30, 0.75) !important;
   }
 }
 

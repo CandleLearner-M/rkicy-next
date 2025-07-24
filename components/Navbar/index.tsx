@@ -39,11 +39,31 @@ export default function Navbar() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const navbarRef = useRef(null);
+  
+  // Animation state for the blur effect
+  const [blurReady, setBlurReady] = useState(false);
 
   // Handle theme initialization
   useEffect(() => {
     setMounted(true);
   }, []);
+  
+  // Handle blur animation timing
+  useEffect(() => {
+    let timeoutId;
+    if (visible) {
+      // Reset blur state immediately when hidden
+      setBlurReady(false);
+      // Delay the blur effect slightly
+      timeoutId = setTimeout(() => {
+        setBlurReady(true);
+      }, 200); // Adjust timing as needed
+    }
+    
+    return () => {
+      if (timeoutId) clearTimeout(timeoutId);
+    };
+  }, [visible]);
 
   // Animation variants - keep only the essential ones
   const navbarVariants = {
@@ -92,82 +112,79 @@ export default function Navbar() {
   if (!mounted) return null;
 
   return (
-    <>
-      <div style={{ position: 'absolute', top: -1000, left: -1000, opacity: 0, pointerEvents: 'none' }}>
-        <div className={styles.navbar} style={{ width: 100, height: 50 }} />
-      </div>
-      <motion.header
-        className={styles.navbarWrapper}
-        initial="hidden"
-        
-        animate={visible ? "visible" : "hidden"}
-        variants={navbarVariants}
-      >
-        <div className={styles.container}>
-          <nav className={styles.navbar} ref={navbarRef}>
-            {/* Logo */}
-            <div className={styles.logoContainer}>
-              <Link href={`/${locale}`} className={styles.logo}>
-                <Logo />
-              </Link>
-            </div>
-            
-            {/* Desktop Navigation */}
-            <div className={styles.desktopNav}>
-              <ul className={styles.navLinks}>
-                {navLinks.map((link, i) => (
-                  <motion.li
-                    key={link.name}
-                    custom={i}
-                    initial="initial"
-                    animate="animate"
-                    variants={navItemVariants}
-                    className={styles.navItemContainer}
+    <motion.header
+      className={styles.navbarWrapper}
+      initial="hidden"
+      animate={visible ? "visible" : "hidden"}
+      variants={navbarVariants}
+    >
+      <div className={styles.container}>
+        <nav 
+          className={`${styles.navbar} ${blurReady ? styles.blurActive : ''}`}
+          ref={navbarRef}
+        >
+          {/* Logo */}
+          <div className={styles.logoContainer}>
+            <Link href={`/${locale}`} className={styles.logo}>
+              <Logo />
+            </Link>
+          </div>
+          
+          {/* Desktop Navigation */}
+          <div className={styles.desktopNav}>
+            <ul className={styles.navLinks}>
+              {navLinks.map((link, i) => (
+                <motion.li
+                  key={link.name}
+                  custom={i}
+                  initial="initial"
+                  animate="animate"
+                  variants={navItemVariants}
+                  className={styles.navItemContainer}
+                >
+                  <Link
+                    href={link.href}
+                    className={`${styles.navLink} ${pathname === link.href ? styles.active : ''}`}
                   >
-                    <Link
-                      href={link.href}
-                      className={`${styles.navLink} ${pathname === link.href ? styles.active : ''}`}
-                    >
-                      <span>{link.name}</span>
-                      {pathname === link.href && (
-                        <div className={styles.activeIndicator} />
-                      )}
-                    </Link>
-                  </motion.li>
-                ))}
-              </ul>
-            </div>
+                    <span>{link.name}</span>
+                    {pathname === link.href && (
+                      <div className={styles.activeIndicator} />
+                    )}
+                  </Link>
+                </motion.li>
+              ))}
+            </ul>
+          </div>
+          
+          {/* Right Actions */}
+          <div className={styles.actions}>
+            {/* Language Selector */}
+            <motion.div 
+              custom={navLinks.length}
+              initial="initial"
+              animate="animate"
+              variants={navItemVariants}
+            >
+              <LanguageSwitcher buttonClassName={styles.customLanguageButton} />
+            </motion.div>
             
-            {/* Right Actions */}
-            <div className={styles.actions}>
-              {/* Language Selector */}
-              <motion.div 
-                custom={navLinks.length}
-                initial="initial"
-                animate="animate"
-                variants={navItemVariants}
-              >
-                <LanguageSwitcher buttonClassName={styles.customLanguageButton} />
-              </motion.div>
-              
-              {/* Theme Toggle */}
-              <motion.button
-                className={styles.themeToggle}
-                onClick={toggleTheme}
-                custom={navLinks.length + 1}
-                initial="initial"
-                animate="animate"
-                variants={navItemVariants}
-                aria-label={theme === 'dark' ? t('theme.switchToLight') : t('theme.switchToDark')}
-              >
-                <div className={styles.themeIcon}>
-                  {theme === 'dark' ? <Moon size={16} strokeWidth={2.5} /> : <Sun size={16} strokeWidth={2.5} />}
-                </div>
-              </motion.button>
-            </div>
-          </nav>
-        </div>
-      </motion.header>
-    </>
+            {/* Theme Toggle */}
+            <motion.button
+              className={styles.themeToggle}
+              onClick={toggleTheme}
+              custom={navLinks.length + 1}
+              initial="initial"
+              animate="animate"
+              variants={navItemVariants}
+              aria-label={theme === 'dark' ? t('theme.switchToLight') : t('theme.switchToDark')}
+            >
+              <div className={styles.themeIcon}>
+                {theme === 'dark' ? <Moon size={16} strokeWidth={2.5} /> : <Sun size={16} strokeWidth={2.5} />}
+              </div>
+            </motion.button>
+          </div>
+        </nav>
+      </div>
+    </motion.header>
   );
 }
