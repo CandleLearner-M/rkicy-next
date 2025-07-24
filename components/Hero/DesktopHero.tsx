@@ -147,6 +147,7 @@ export default function DesktopHero() {
               height={550}
               className={styles.heroImage}
               priority
+              draggable={false}
             />
           </div>
           

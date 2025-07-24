@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useLocale, useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { useTheme } from 'next-themes';
@@ -38,7 +38,6 @@ export default function Navbar() {
   const pathname = usePathname();
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  const [hoverIndex, setHoverIndex] = useState(null);
   const navbarRef = useRef(null);
 
   // Handle theme initialization
@@ -46,7 +45,7 @@ export default function Navbar() {
     setMounted(true);
   }, []);
 
-  // Animation variants
+  // Animation variants - keep only the essential ones
   const navbarVariants = {
     visible: {
       y: 0,
@@ -81,8 +80,7 @@ export default function Navbar() {
         damping: 24,
         delay: i * 0.05,
       }
-    }),
-    exit: { opacity: 0, y: -10 }
+    })
   };
 
   // Handle theme toggle with animation
@@ -101,10 +99,7 @@ export default function Navbar() {
       variants={navbarVariants}
     >
       <div className={styles.container}>
-        <motion.nav 
-          className={styles.navbar}
-          ref={navbarRef}
-        >
+        <nav className={styles.navbar} ref={navbarRef}>
           {/* Logo */}
           <div className={styles.logoContainer}>
             <Link href={`/${locale}`} className={styles.logo}>
@@ -123,8 +118,6 @@ export default function Navbar() {
                   animate="animate"
                   variants={navItemVariants}
                   className={styles.navItemContainer}
-                  onMouseEnter={() => setHoverIndex(i)}
-                  onMouseLeave={() => setHoverIndex(null)}
                 >
                   <Link
                     href={link.href}
@@ -132,29 +125,7 @@ export default function Navbar() {
                   >
                     <span>{link.name}</span>
                     {pathname === link.href && (
-                      <motion.div 
-                        className={styles.activeIndicator}
-                        layoutId="activeIndicator"
-                        transition={{
-                          type: "spring",
-                          stiffness: 500,
-                          damping: 30
-                        }}
-                      />
-                    )}
-                    {hoverIndex === i && pathname !== link.href && (
-                      <motion.div 
-                        className={styles.hoverIndicator}
-                        layoutId="hoverIndicator"
-                        initial={{ opacity: 0, width: 0 }}
-                        animate={{ opacity: 1, width: '100%' }}
-                        exit={{ opacity: 0, width: 0 }}
-                        transition={{
-                          type: "spring",
-                          stiffness: 400,
-                          damping: 25
-                        }}
-                      />
+                      <div className={styles.activeIndicator} />
                     )}
                   </Link>
                 </motion.li>
@@ -171,7 +142,7 @@ export default function Navbar() {
               animate="animate"
               variants={navItemVariants}
             >
-              <LanguageSwitcher  buttonClassName={styles.customLanguageButton} />
+              <LanguageSwitcher buttonClassName={styles.customLanguageButton} />
             </motion.div>
             
             {/* Theme Toggle */}
@@ -182,27 +153,14 @@ export default function Navbar() {
               initial="initial"
               animate="animate"
               variants={navItemVariants}
-              whileTap={{ scale: 0.92 }}
-              whileHover={{ scale: 1.05 }}
               aria-label={theme === 'dark' ? t('theme.switchToLight') : t('theme.switchToDark')}
             >
-              <motion.div
-                className={styles.themeIcon}
-                initial={false}
-                animate={{ 
-                  rotateY: theme === 'dark' ? 180 : 0,
-                  scale: [1, 1.1, 1]
-                }}
-                transition={{ 
-                  duration: 0.5, 
-                  scale: { duration: 0.3 }
-                }}
-              >
+              <div className={styles.themeIcon}>
                 {theme === 'dark' ? <Moon size={16} strokeWidth={2.5} /> : <Sun size={16} strokeWidth={2.5} />}
-              </motion.div>
+              </div>
             </motion.button>
           </div>
-        </motion.nav>
+        </nav>
       </div>
     </motion.header>
   );

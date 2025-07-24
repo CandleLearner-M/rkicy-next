@@ -49,6 +49,7 @@ export default function PartnerLogos() {
                 width={logo.width}
                 height={40}
                 className={styles.logoImage}
+                draggable={false}
               />
             </motion.div>
           ))}

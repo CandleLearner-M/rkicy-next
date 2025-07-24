@@ -28,6 +28,8 @@
   position: relative;
   display: flex;
   align-items: center;
+  background-color: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(5px);
   justify-content: space-between;
   height: 68px;
   padding: 2.5rem 2rem;
@@ -36,11 +38,6 @@
   // overflow: hidden;
   
   // Critical fix for backdrop-filter blur
-  background-color: rgba(255, 255, 255, 0.65);
-  backdrop-filter: blur(20px) !important;
-  -webkit-backdrop-filter: blur(20px) !important;
-  will-change: transform; // Ensures hardware acceleration
-  transform: translateZ(0); // Forces GPU rendering
   
   // Premium frosted glass border
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -72,7 +69,6 @@
       0 12px 36px rgba(0, 0, 0, 0.1),
       0 6px 16px rgba(0, 0, 0, 0.07),
       0 0 0 1px rgba(255, 255, 255, 0.6) inset;
-    transform: translateY(-1px) translateZ(0);
   }
   
   // Dark mode styles
@@ -142,10 +138,6 @@
   align-items: center;
   height: 100%;
   transition: all 0.3s ease;
-  
-  &:hover {
-    transform: translateY(-1px);
-  }
 }
 
 // Desktop Navigation with premium styling
@@ -436,4 +428,24 @@
   display: flex;
   perspective: 800px;
   transform-style: preserve-3d;
+}
+
+
+// Theme icon animation
+.themeIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  
+  [data-theme="dark"] & {
+    transform: rotateY(180deg);
+  }
+}
+
+// Remove any whileTap and whileHover animations, use CSS transitions instead
+.themeToggle {
+  &:active {
+    transform: scale(0.92);
+  }
 }
