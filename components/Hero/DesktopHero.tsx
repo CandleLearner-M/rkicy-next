@@ -2,16 +2,14 @@
 
 import { useRef } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import { useLocale, useTranslations } from 'next-intl';
 import styles from "./Hero.module.scss";
 import PartnerLogos from "./PartnerLogos";
-import HeroCards from "./HeroCards";
 
 export default function DesktopHero() {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const t = useTranslations('home.hero');
   const tCommon = useTranslations('common');
@@ -19,7 +17,7 @@ export default function DesktopHero() {
 
   const textVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: (i: number) => ({
+    visible: (i) => ({
       opacity: 1,
       y: 0,
       transition: {
@@ -35,44 +33,75 @@ export default function DesktopHero() {
     hover: { 
       scale: 1.03, 
       boxShadow: "0 10px 25px rgba(66, 153, 225, 0.35)",
-      transition: { 
-        duration: 0.2,
-        ease: "easeOut"
-      } 
+      transition: { duration: 0.2, ease: "easeOut" } 
     },
+  };
+  
+  const shapeVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: (i) => ({
+      opacity: 1,
+      scale: 1,
+      transition: {
+        delay: i * 0.2 + 0.3,
+        duration: 0.8,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    }),
   };
 
   return (
     <section className={styles.heroSection} ref={ref}>
+      <div className={styles.backgroundElements}>
+        <motion.div 
+          className={styles.backgroundShape1}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          custom={0}
+          variants={shapeVariants}
+        />
+        <motion.div 
+          className={styles.backgroundShape2}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          custom={1}
+          variants={shapeVariants}
+        />
+        <motion.div 
+          className={styles.backgroundShape3}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          custom={2}
+          variants={shapeVariants}
+        />
+      </div>
       
       <div className={styles.contentContainer}>
         <div className={styles.textContent}>
-          <motion.div className={styles.headingWrapper}>
-            <motion.div 
-              className={styles.preHeadingWrapper}
-              custom={0}
-              initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
-              variants={textVariants}
-            >
-              <span className={styles.preHeadingPill}>
-                {t('badge')}
-              </span>
-            </motion.div>
-            
-              <motion.h1 
-              className={styles.mainHeading}
-              custom={1}
-              initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
-              variants={textVariants}
-            >
-              {t.rich('title', {
-                break: () => <br />,
-                highlight: (chunks) => <span className={styles.highlight}>{chunks}</span>
-              })}
-            </motion.h1>
+          <motion.div 
+            className={styles.preHeadingWrapper}
+            custom={0}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            variants={textVariants}
+          >
+            <span className={styles.preHeadingPill}>
+              {t('badge')}
+            </span>
           </motion.div>
+          
+          <motion.h1 
+            className={styles.mainHeading}
+            custom={1}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            variants={textVariants}
+          >
+            {t.rich('title', {
+              break: () => <br />,
+              highlight: (chunks) => <span className={styles.highlight}>{chunks}</span>
+            })}
+          </motion.h1>
           
           <motion.p 
             className={styles.description}
@@ -91,68 +120,53 @@ export default function DesktopHero() {
             animate={isInView ? "visible" : "hidden"}
             variants={textVariants}
           >
-            <motion.div 
-              variants={buttonVariants}
-              initial="initial"
-              className={styles.primaryButtonWrapper}
-            >
-              <Link href={`/${locale}/services`} className={styles.primaryButton}>
+            <Link href={`/${locale}/services`} className={styles.primaryButton}>
+              <motion.span
+                variants={buttonVariants}
+                initial="initial"
+                whileHover="hover"
+                className={styles.buttonInner}
+              >
                 {tCommon('actions.exploreServices')}
                 <ChevronRight className={styles.buttonIcon} />
-              </Link>
-            </motion.div>
+              </motion.span>
+            </Link>
 
-            <motion.div
-              variants={buttonVariants}
-              initial="initial"
-              className={styles.secondaryButtonWrapper}
-            >
-              <Link href={`/${locale}/contact`} className={styles.secondaryButton}>
+            <Link href={`/${locale}/contact`} className={styles.secondaryButton}>
+              <motion.span
+                variants={buttonVariants}
+                initial="initial"
+                whileHover="hover"
+                className={styles.buttonInner}
+              >
                 {tCommon('actions.contactUs')}
-              </Link>
-            </motion.div>
+              </motion.span>
+            </Link>
           </motion.div>
 
           <motion.div 
-            className={styles.trustBadge}
+            className={styles.statsRow}
             custom={4}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
             variants={textVariants}
           >
-            <div className={styles.trustIcon}>
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path d="M8 0L10.2 5.37L16 5.88L11.73 9.8L12.97 15.52L8 12.5L3.03 15.52L4.27 9.8L0 5.88L5.8 5.37L8 0Z" fill="currentColor"/>
-              </svg>
+            <div className={styles.statItem}>
+              <span className={styles.statValue}>98%</span>
+              <span className={styles.statLabel}>{t('satisfactionRate')}</span>
             </div>
-            <span>{t('trust')}</span>
+            <div className={styles.statDivider} />
+            <div className={styles.statItem}>
+              <span className={styles.statValue}>10+</span>
+              <span className={styles.statLabel}>{t('yearsOfExperience')}</span>
+            </div>
+            <div className={styles.statDivider} />
+            <div className={styles.statItem}>
+              <span className={styles.statValue}>200+</span>
+              <span className={styles.statLabel}>{t('clientsServed')}</span>
+            </div>
           </motion.div>
         </div>
-        
-        <motion.div 
-          className={styles.imageContainer}
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ 
-            opacity: isInView ? 1 : 0,
-            scale: isInView ? 1 : 0.95,
-          }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-        >
-          <div className={styles.imageWrapper}>
-            <div className={styles.glowEffect}></div>
-            <Image
-              src="/hero-image.webp"
-              alt={t('imageAlt')}
-              width={660}
-              height={550}
-              className={styles.heroImage}
-              priority
-              draggable={false}
-            />
-          </div>
-          
-          <HeroCards isInView={isInView} />
-        </motion.div>
       </div>
       
       <PartnerLogos />
