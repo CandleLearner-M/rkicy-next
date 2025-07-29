@@ -1,10 +1,10 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Globe, ChevronDown } from 'lucide-react';
+import { Globe, ChevronDown, Check } from 'lucide-react';
 import styles from './LanguageSwitcher.module.scss';
 
 export default function LanguageSwitcher({ 
@@ -17,6 +17,21 @@ export default function LanguageSwitcher({
   const router = useRouter();
   const pathname = usePathname();
   const t = useTranslations('common');
+  const menuRef = useRef(null);
+  
+  // Handle clicks outside of the dropdown
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [menuRef]);
   
   // Available languages
   const languages = [
@@ -26,18 +41,32 @@ export default function LanguageSwitcher({
   
   // Animation variants for dropdown
   const dropdownVariants = {
-    hidden: { opacity: 0, y: -5, height: 0 },
+    hidden: { 
+      opacity: 0, 
+      y: -10, 
+      height: 0,
+      transition: { 
+        duration: 0.2, 
+        ease: [0.22, 1, 0.36, 1] 
+      } 
+    },
     visible: { 
       opacity: 1, 
       y: 0,
       height: 'auto',
-      transition: { duration: 0.3, ease: "easeOut" } 
+      transition: { 
+        duration: 0.3, 
+        ease: [0.22, 1, 0.36, 1] 
+      } 
     },
     exit: {
       opacity: 0,
-      y: -5,
+      y: -10,
       height: 0,
-      transition: { duration: 0.2, ease: "easeIn" }
+      transition: { 
+        duration: 0.2, 
+        ease: [0.22, 1, 0.36, 1] 
+      }
     }
   };
   
@@ -52,24 +81,36 @@ export default function LanguageSwitcher({
   // Get current language label
   const currentLanguage = languages.find(lang => lang.code === locale)?.label || 'English';
 
+
+
   return (
-    <div className={`${styles.languageSwitcher} ${styles[variant]}`}>
-      <button 
+    <div 
+      className={`${styles.languageSwitcher} ${styles[variant]}`}
+      ref={menuRef}
+    >
+      <motion.button 
         className={`${styles.languageButton} ${buttonClassName || ''}`}
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
+        initial="rest"
       >
-        <Globe size={variant === 'compact' ? 16 : 18} strokeWidth={variant === 'compact' ? 2 : 1.5} />
+        <Globe 
+          size={variant === 'compact' ? 16 : 18} 
+          strokeWidth={variant === 'compact' ? 2 : 1.5} 
+        />
         <span>{currentLanguage}</span>
         <motion.div
           animate={{
             rotate: isOpen ? 180 : 0,
-            transition: { duration: 0.3, ease: "easeInOut" }
+            transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] }
           }}
         >
-          <ChevronDown size={variant === 'compact' ? 14 : 16} strokeWidth={variant === 'compact' ? 2.5 : 2} />
+          <ChevronDown 
+            size={variant === 'compact' ? 14 : 16} 
+            strokeWidth={variant === 'compact' ? 2.5 : 2} 
+          />
         </motion.div>
-      </button>
+      </motion.button>
       
       <AnimatePresence>
         {isOpen && (
@@ -81,13 +122,29 @@ export default function LanguageSwitcher({
             exit="exit"
           >
             {languages.map((lang) => (
-              <button 
+              <motion.button 
                 key={lang.code}
                 onClick={() => handleLanguageChange(lang.code)}
                 className={`${styles.languageOption} ${locale === lang.code ? styles.activeLanguage : ''}`}
+                whileHover={{
+                  x: 4,
+                  transition: { duration: 0.2 }
+                }}
               >
-                {lang.label}
-              </button>
+                <span>{lang.label}</span>
+                {locale === lang.code && (
+                  <motion.div 
+                    initial={{ scale: 0, opacity: 0 }}
+                    animate={{ 
+                      scale: 1, 
+                      opacity: 1,
+                      transition: { delay: 0.1, duration: 0.3 }  
+                    }}
+                  >
+                    <Check size={16} />
+                  </motion.div>
+                )}
+              </motion.button>
             ))}
           </motion.div>
         )}

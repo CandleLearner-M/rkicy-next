@@ -1,10 +1,21 @@
 @import "@/styles/variables";
 
+// Premium color variables to match hero and navbar
+$premium-primary: #4285f4;
+$premium-secondary: #34a853; 
+$premium-gradient-start: #4285f4;
+$premium-gradient-end: #34a853;
+$premium-bg-light: rgba(255, 255, 255, 0.85);
+$premium-bg-dark: rgba(10, 12, 16, 0.85);
+$premium-border-light: rgba(226, 232, 240, 0.8);
+$premium-border-dark: rgba(45, 55, 72, 0.8);
+
 .languageSwitcher {
   position: relative;
   display: inline-block;
 }
 
+// Default style
 .languageButton {
   display: flex;
   align-items: center;
@@ -62,11 +73,14 @@
   width: 100%;
   padding: 0.75rem 1rem;
   text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   border: none;
   background: transparent;
   font-size: 0.9rem;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   color: $text-primary;
   
   [data-theme='dark'] & {
@@ -169,6 +183,151 @@
       background: rgba(20, 20, 30, 0.85);
       backdrop-filter: blur(20px);
       border: 1px solid rgba(100, 100, 150, 0.2);
+    }
+  }
+}
+
+// Premium variant (to match the hero and navbar)
+.premium {
+  .languageButton {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba($premium-gradient-start, 0.15);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: $text-primary;
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    
+    [data-theme='dark'] & {
+      color: $text-primary-dark;
+      background: rgba(255, 255, 255, 0.03);
+      border-color: rgba($premium-gradient-start, 0.25);
+    }
+    
+    &:hover {
+      border-color: rgba($premium-gradient-start, 0.4);
+      background: rgba($premium-gradient-start, 0.05);
+      box-shadow: 0 4px 15px rgba($premium-gradient-start, 0.1);
+      
+      [data-theme='dark'] & {
+        background: rgba($premium-gradient-start, 0.08);
+        border-color: rgba($premium-gradient-start, 0.5);
+        box-shadow: 0 4px 15px rgba($premium-gradient-start, 0.15);
+      }
+    }
+  }
+  
+  .languageDropdown {
+    width: 160px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 12px;
+    border: 1px solid $premium-border-light;
+    box-shadow: 
+      0 15px 35px rgba(0, 0, 0, 0.08),
+      0 5px 15px rgba(0, 0, 0, 0.04);
+    
+    [data-theme='dark'] & {
+      background: rgba(15, 17, 23, 0.95);
+      backdrop-filter: blur(20px);
+      border-color: $premium-border-dark;
+      box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.25),
+        0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+  }
+  
+  .languageOption {
+    padding: 0.85rem 1.25rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    
+    &:hover {
+      background: rgba($premium-gradient-start, 0.05);
+      
+      [data-theme='dark'] & {
+        background: rgba($premium-gradient-start, 0.1);
+      }
+    }
+    
+    &.activeLanguage {
+      background: linear-gradient(
+        90deg, 
+        rgba($premium-gradient-start, 0.08) 0%, 
+        rgba($premium-gradient-end, 0.08) 100%
+      );
+      font-weight: 600;
+      color: $premium-gradient-start;
+      
+      [data-theme='dark'] & {
+        background: linear-gradient(
+          90deg, 
+          rgba($premium-gradient-start, 0.15) 0%, 
+          rgba($premium-gradient-end, 0.15) 100%
+        );
+        color: lighten($premium-gradient-start, 15%);
+      }
+    }
+  }
+}
+
+// Mobile variant (for the mobile menu)
+.mobile {
+  width: 100%;
+  
+  .languageButton {
+    width: 100%;
+    justify-content: space-between;
+    padding: 0.75rem 1.25rem;
+    background: rgba($premium-gradient-start, 0.05);
+    border-radius: 10px;
+    border: 1px solid rgba($premium-gradient-start, 0.1);
+    
+    [data-theme='dark'] & {
+      background: rgba($premium-gradient-start, 0.08);
+      border-color: rgba($premium-gradient-start, 0.2);
+    }
+    
+    &:hover {
+      background: rgba($premium-gradient-start, 0.08);
+      
+      [data-theme='dark'] & {
+        background: rgba($premium-gradient-start, 0.12);
+      }
+    }
+  }
+  
+  .languageDropdown {
+    position: relative;
+    width: 100%;
+    margin-top: 0.5rem;
+    border-radius: 10px;
+  }
+  
+  .languageOption {
+    padding: 0.75rem 1.25rem;
+    
+    &.activeLanguage {
+      background: linear-gradient(
+        90deg, 
+        rgba($premium-gradient-start, 0.1) 0%, 
+        rgba($premium-gradient-end, 0.1) 100%
+      );
+      
+      [data-theme='dark'] & {
+        background: linear-gradient(
+          90deg, 
+          rgba($premium-gradient-start, 0.2) 0%, 
+          rgba($premium-gradient-end, 0.2) 100%
+        );
+      }
     }
   }
 }
