@@ -5,6 +5,7 @@ import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import { ChevronRight, Star } from "lucide-react";
 import { useLocale, useTranslations } from 'next-intl';
+import { useTheme } from 'next-themes';
 import styles from "./MobileHero.module.scss";
 import PartnerLogos from "./PartnerLogos";
 
@@ -14,6 +15,7 @@ export default function MobileHero() {
   const t = useTranslations('home.hero');
   const tCommon = useTranslations('common');
   const locale = useLocale();
+  const { theme } = useTheme();
 
   const textVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -42,7 +44,7 @@ export default function MobileHero() {
   };
 
   return (
-    <section className={styles.mobileHero} ref={ref}>
+    <section className={styles.mobileHero} ref={ref} data-theme={theme}>
       {/* Background Elements */}
       <div className={styles.backgroundElements}>
         <motion.div 
@@ -129,23 +131,10 @@ export default function MobileHero() {
         </div>
       </motion.div>
       
-      {/* Trust Badge */}
-      {/* <motion.div 
-        className={styles.trustBadge}
-        custom={4}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-        variants={textVariants}
-      >
-        <Star className={styles.starIcon} size={16} fill="currentColor" />
-        <span>{t('trust')}</span>
-      </motion.div> */}
-      {/* <div></div> */}
-      
-      {/* CTA Buttons - Now at bottom */}
+      {/* CTA Buttons */}
       <motion.div 
         className={styles.ctaContainer}
-        custom={5}
+        custom={4}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
         variants={textVariants}
@@ -158,6 +147,18 @@ export default function MobileHero() {
         <Link href={`/${locale}/contact`} className={styles.secondaryCta}>
           <span>{tCommon('actions.contactUs')}</span>
         </Link>
+      </motion.div>
+      
+      {/* Trust Badge - Now positioned at the bottom */}
+      <motion.div 
+        className={styles.trustBadge}
+        custom={5}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        variants={textVariants}
+      >
+        <Star className={styles.starIcon} size={16} fill="currentColor" />
+        <span>{t('trust')}</span>
       </motion.div>
     </section>
   );
