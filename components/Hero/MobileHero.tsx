@@ -30,44 +30,11 @@ export default function MobileHero() {
     }),
   };
 
-  const shapeVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: (i) => ({
-      opacity: 1,
-      scale: 1,
-      transition: {
-        delay: i * 0.2 + 0.3,
-        duration: 0.8,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    }),
-  };
-
   return (
     <section className={styles.mobileHero} ref={ref} data-theme={theme}>
       {/* Background Elements */}
       <div className={styles.backgroundElements}>
-        <motion.div 
-          className={styles.backgroundShape1}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          custom={0}
-          variants={shapeVariants}
-        />
-        <motion.div 
-          className={styles.backgroundShape2}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          custom={1}
-          variants={shapeVariants}
-        />
-        <motion.div 
-          className={styles.backgroundShape3}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          custom={2}
-          variants={shapeVariants}
-        />
+        
         <div className={styles.gridOverlay}></div>
       </div>
       
@@ -149,17 +116,7 @@ export default function MobileHero() {
         </Link>
       </motion.div>
       
-      {/* Trust Badge - Now positioned at the bottom */}
-      <motion.div 
-        className={styles.trustBadge}
-        custom={5}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-        variants={textVariants}
-      >
-        <Star className={styles.starIcon} size={16} fill="currentColor" />
-        <span>{t('trust')}</span>
-      </motion.div>
+   
     </section>
   );
 }

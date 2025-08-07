@@ -152,6 +152,7 @@ $premium-box-bg-light: rgba(240, 245, 255, 0.6);
   text-transform: uppercase;
   border-radius: 100px;
   margin-bottom: 1.5rem;
+  backdrop-filter: blur(8px);
   text-align: center;
   transition: background 0.3s ease, color 0.3s ease;
   
@@ -314,7 +315,31 @@ $premium-box-bg-light: rgba(240, 245, 255, 0.6);
   }
 }
 
-// CTA buttons
+// Trust badge
+.trustBadge {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+  margin-top: 0.5rem;
+  transition: color 0.3s ease;
+  
+  [data-theme="light"] & {
+    color: rgba(0, 0, 0, 0.6);
+  }
+}
+
+.starIcon {
+  color: #eab308;
+  transition: color 0.3s ease;
+}
+
+// CTA buttons - positioned at bottom
 .ctaContainer {
   position: relative;
   z-index: 10;
@@ -322,7 +347,7 @@ $premium-box-bg-light: rgba(240, 245, 255, 0.6);
   flex-direction: column;
   width: 100%;
   gap: 0.75rem;
-  margin-bottom: 1.5rem; // Added margin-bottom to create space for trust badge
+  margin-top: auto;
   max-width: 100%;
 }
 
@@ -420,28 +445,4 @@ $premium-box-bg-light: rgba(240, 245, 255, 0.6);
       background-color: rgba(0, 0, 0, 0.04);
     }
   }
-}
-
-// Trust badge - Moved to bottom
-.trustBadge {
-  position: relative;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.85rem;
-  margin-top: auto;
-  padding-top: 1rem;
-  transition: color 0.3s ease;
-  
-  [data-theme="light"] & {
-    color: rgba(0, 0, 0, 0.6);
-  }
-}
-
-.starIcon {
-  color: #eab308;
-  transition: color 0.3s ease;
 }
