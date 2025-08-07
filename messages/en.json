@@ -326,6 +326,9 @@
       "badge": "Leading Morocco's Digital Transformation",
       "imageAlt": "Digital Transformation",
       "trust": "Trusted by Industry Leaders",
+      "satisfactionRate": "Satisfaction Rate",
+      "yearsOfExperience": "Years of Experience", 
+      "clientsServed": "Clients Served",
       "stats": {
         "powered": "AI Powered",
         "enterprise": "Enterprise Solutions",

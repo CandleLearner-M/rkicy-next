@@ -325,6 +325,9 @@
       "badge": "Leader de la Transformation Numérique du Maroc",
       "imageAlt": "Transformation Numérique",
       "trust": "Approuvé par les Leaders du Secteur",
+      "satisfactionRate": "Taux de Satisfaction",
+      "yearsOfExperience": "Années d'Expérience", 
+      "clientsServed": "Clients Servis",
       "stats": {
         "powered": "Propulsé par l'IA",
         "enterprise": "Solutions d'Entreprise",
