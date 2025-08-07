@@ -61,12 +61,10 @@ $premium-box-bg-light: rgba(240, 245, 255, 0.6);
   height: 300px;
   border-radius: 50%;
   background: linear-gradient(135deg, rgba($premium-gradient-start, 0.08), rgba($premium-gradient-end, 0.12));
-  filter: blur(80px);
   transition: opacity 0.3s ease;
   
   [data-theme="light"] & {
     background: linear-gradient(135deg, rgba($premium-gradient-start, 0.05), rgba($premium-gradient-end, 0.08));
-    filter: blur(90px);
     opacity: 0.6;
   }
 }
@@ -79,12 +77,10 @@ $premium-box-bg-light: rgba(240, 245, 255, 0.6);
   height: 250px;
   border-radius: 50%;
   background: linear-gradient(135deg, rgba($premium-accent, 0.05), rgba($premium-secondary, 0.08));
-  filter: blur(70px);
   transition: opacity 0.3s ease;
   
   [data-theme="light"] & {
     background: linear-gradient(135deg, rgba($premium-accent, 0.04), rgba($premium-secondary, 0.05));
-    filter: blur(80px);
     opacity: 0.5;
   }
 }
@@ -97,12 +93,10 @@ $premium-box-bg-light: rgba(240, 245, 255, 0.6);
   height: 200px;
   border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
   background: linear-gradient(135deg, rgba($premium-secondary, 0.03), rgba($premium-primary, 0.06));
-  filter: blur(60px);
   transition: opacity 0.3s ease;
   
   [data-theme="light"] & {
     background: linear-gradient(135deg, rgba($premium-secondary, 0.02), rgba($premium-primary, 0.04));
-    filter: blur(70px);
     opacity: 0.4;
   }
 }
