@@ -13,8 +13,7 @@ function Logo() {
             draggable={false}
             className={styles.logoImage}
           />
-          <span className={styles.logospan}>Tech</span>
-        </Link>
+        </Link>   
   )
 }
 export default Logo

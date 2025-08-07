@@ -13,7 +13,6 @@ import LanguageSwitcher from '../LanguageSwitcher';
 
 const HeroNav = () => {
   const [mounted, setMounted] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
   const locale = useLocale();
@@ -24,20 +23,6 @@ const HeroNav = () => {
   
   const pathname = usePathname();
   const { theme, setTheme } = useTheme();
-  
-  // Handle scroll events to show/hide navbar
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 100) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
   
   // Prevent hydration mismatch
   useEffect(() => {
@@ -274,72 +259,6 @@ const HeroNav = () => {
         </motion.div>
       </div>
       
-      {/* Sticky navbar that appears on scroll */}
-      <div className={`${styles.scrolledNav} ${scrolled ? styles.visible : ''}`}>
-        <div className={styles.container}>
-          <div className={styles.logoContainer}>
-            <Link href={`/${locale}`}>
-              <Logo />
-            </Link>
-          </div>
-          
-          <div className={styles.desktopNav}>
-            <ul className={styles.navLinks}>
-              {navLinks.map((link) => (
-                <li 
-                  key={link.name}
-                  className={pathname === link.href ? styles.active : ''}
-                >
-                  <Link href={link.href}>
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            
-            <div className={styles.navActions}>
-              <div className={styles.languageSwitcher}>
-                <LanguageSwitcher variant="premium" />
-              </div>
-              
-              {mounted && (
-                <button 
-                  className={styles.themeToggle}
-                  onClick={toggleTheme}
-                  aria-label={theme === 'dark' ? t('theme.switchToLight') : t('theme.switchToDark')}
-                >
-                  <div className={styles.themeIconWrapper}>
-                    {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
-                  </div>
-                </button>
-              )}
-            </div>
-          </div>
-          
-          <div className={styles.mobileNav}>
-            {mounted && (
-              <button 
-                className={styles.themeToggle}
-                onClick={toggleTheme}
-                aria-label={theme === 'dark' ? t('theme.switchToLight') : t('theme.switchToDark')}
-              >
-                <div className={styles.themeIconWrapper}>
-                  {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
-                </div>
-              </button>
-            )}
-            
-            <button
-              className={styles.mobileMenuButton}
-              onClick={() => setMobileMenuOpen(true)}
-              aria-label={t('navigation.openMenu')}
-            >
-              <Menu size={20} />
-            </button>
-          </div>
-        </div>
-      </div>
-      
       {/* Mobile menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
@@ -382,7 +301,7 @@ const HeroNav = () => {
                       href={link.href}
                       className={`block py-3 px-4 text-lg font-medium rounded-lg transition-colors ${
                         pathname === link.href
-                          ? "bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400"
+                          ? "bg-indigo-50 text-indigo-600 dark:bg-indigo-900/20 dark:text-indigo-400"
                           : "hover:bg-gray-100 dark:hover:bg-gray-800"
                       }`}
                       onClick={() => setMobileMenuOpen(false)}

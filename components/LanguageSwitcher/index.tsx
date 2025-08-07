@@ -126,10 +126,7 @@ export default function LanguageSwitcher({
                 key={lang.code}
                 onClick={() => handleLanguageChange(lang.code)}
                 className={`${styles.languageOption} ${locale === lang.code ? styles.activeLanguage : ''}`}
-                whileHover={{
-                  x: 4,
-                  transition: { duration: 0.2 }
-                }}
+               
               >
                 <span>{lang.label}</span>
                 {locale === lang.code && (
