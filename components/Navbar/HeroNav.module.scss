@@ -11,6 +11,7 @@ $premium-bg-light: rgba(255, 255, 255, 0.85);
 $premium-bg-dark: rgba(10, 12, 16, 0.85);
 $premium-border-light: rgba(226, 232, 240, 0.8);
 $premium-border-dark: rgba(45, 55, 72, 0.8);
+$transition-bezier: cubic-bezier(0.22, 1, 0.36, 1);
 
 .navbar {
   position: absolute;
@@ -56,7 +57,7 @@ $premium-border-dark: rgba(45, 55, 72, 0.8);
       $premium-gradient-start,
       $premium-gradient-end
     );
-    transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: width 0.5s $transition-bezier;
     border-radius: 2px;
   }
   
@@ -96,6 +97,11 @@ $premium-border-dark: rgba(45, 55, 72, 0.8);
     font-size: 0.95rem;
     font-weight: 500;
     letter-spacing: 0.01em;
+    transition: transform 0.2s $transition-bezier;
+    
+    &:hover {
+      transform: translateY(-2px);
+    }
     
     a {
       color: $text-primary;
@@ -176,8 +182,8 @@ $premium-border-dark: rgba(45, 55, 72, 0.8);
         $premium-gradient-end 100%
       );
       border-radius: 2px;
-      transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1), 
-                  left 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: width 0.3s $transition-bezier, 
+                  left 0.3s $transition-bezier;
       
       [data-theme='dark'] & {
         background: linear-gradient(
@@ -225,7 +231,7 @@ $premium-border-dark: rgba(45, 55, 72, 0.8);
   border: 1px solid rgba($premium-gradient-start, 0.15);
   cursor: pointer;
   color: $premium-gradient-start;
-  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: all 0.3s $transition-bezier;
   
   [data-theme='dark'] & {
     color: #FFD700;
@@ -244,6 +250,11 @@ $premium-border-dark: rgba(45, 55, 72, 0.8);
       border-color: rgba(255, 215, 0, 0.3);
       box-shadow: 0 4px 15px rgba(255, 215, 0, 0.15);
     }
+  }
+  
+  &:active {
+    transform: scale(0.9);
+    transition: transform 0.2s $transition-bezier;
   }
 }
 
@@ -284,7 +295,7 @@ $premium-border-dark: rgba(45, 55, 72, 0.8);
   color: $premium-gradient-start;
   font-size: 0.9rem;
   font-weight: 600;
-  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: all 0.3s $transition-bezier;
   
   [data-theme='dark'] & {
     color: lighten($premium-gradient-start, 15%);
@@ -303,6 +314,11 @@ $premium-border-dark: rgba(45, 55, 72, 0.8);
       border-color: rgba($premium-gradient-start, 0.5);
       box-shadow: 0 4px 15px rgba($premium-gradient-start, 0.15);
     }
+  }
+  
+  &:active {
+    transform: scale(0.9);
+    transition: transform 0.2s $transition-bezier;
   }
 }
 

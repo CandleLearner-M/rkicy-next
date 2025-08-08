@@ -129,10 +129,6 @@ const HeroNav = () => {
                 <motion.li 
                   key={link.name}
                   variants={itemVariants}
-                  whileHover={{ 
-                    y: -2,
-                    transition: { duration: 0.2 }
-                  }}
                   className={pathname === link.href ? styles.active : ''}
                 >
                   <Link href={link.href}>
@@ -156,7 +152,6 @@ const HeroNav = () => {
                 <motion.button 
                   className={styles.themeToggle}
                   variants={itemVariants}
-                  whileTap={{ scale: 0.9 }}
                   onClick={toggleTheme}
                   aria-label={theme === 'dark' ? t('theme.switchToLight') : t('theme.switchToDark')}
                 >
@@ -199,7 +194,6 @@ const HeroNav = () => {
               <motion.button 
                 className={styles.themeToggle}
                 variants={itemVariants}
-                whileTap={{ scale: 0.9 }}
                 onClick={toggleTheme}
                 aria-label={theme === 'dark' ? t('theme.switchToLight') : t('theme.switchToDark')}
               >
@@ -237,7 +231,6 @@ const HeroNav = () => {
             <motion.button
               className={styles.languageToggle}
               variants={itemVariants}
-              whileTap={{ scale: 0.9 }}
               onClick={toggleLanguage}
               aria-label={t('language.switch')}
             >
