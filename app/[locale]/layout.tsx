@@ -13,6 +13,7 @@ import {NextIntlClientProvider, hasLocale} from 'next-intl';
 import {notFound} from 'next/navigation';
 import {routing} from '@/i18n/routing';
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import UnifiedNavbar from "@/components/Navbar/UnifiedNavbar";
 
 
 const outfit = Outfit({
@@ -46,8 +47,9 @@ export default async function LocaleLayout({
         <NextIntlClientProvider>
           <ThemeProvider attribute="data-theme" defaultTheme="system" enableSystem>
             <NextTopLoader showSpinner={false} />
-            <Navbar />
-            <HeroNav />
+            {/* <Navbar /> */}
+            {/* <HeroNav /> */}
+            <UnifiedNavbar />
             <FixedBackground />
             {children}
             {/* <AiChatAssistant /> */}
