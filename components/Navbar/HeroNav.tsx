@@ -2,9 +2,9 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
-import { Sun, Moon, Menu, X } from 'lucide-react';
+import { Sun, Moon, Globe } from 'lucide-react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 import { useTheme } from 'next-themes';
 import Logo from './Logo';
@@ -13,11 +13,10 @@ import LanguageSwitcher from '../LanguageSwitcher';
 
 const HeroNav = () => {
   const [mounted, setMounted] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
   const locale = useLocale();
   const t = useTranslations('common');
-  
+  const router = useRouter();
   const navRef = useRef(null);
   const isInView = useInView(navRef, { once: true });
   
@@ -32,6 +31,13 @@ const HeroNav = () => {
   // Theme toggle handler
   const toggleTheme = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark');
+  };
+
+  // Language toggle handler for mobile
+  const toggleLanguage = () => {
+    const newLocale = locale === 'en' ? 'fr' : 'en';
+    const newPath = pathname.replace(`/${locale}`, `/${newLocale}`);
+    router.push(newPath);
   };
 
   // Staggered animation for navbar elements
@@ -82,26 +88,6 @@ const HeroNav = () => {
       transition: {
         duration: 0.35,
         ease: "backIn",
-      }
-    }
-  };
-
-  // Mobile menu animations
-  const mobileMenuVariants = {
-    closed: { 
-      opacity: 0,
-      x: "100%",
-      transition: { 
-        duration: 0.4,
-        ease: [0.22, 1, 0.36, 1],
-      }
-    },
-    open: { 
-      opacity: 1,
-      x: 0,
-      transition: { 
-        duration: 0.4,
-        ease: [0.22, 1, 0.36, 1],
       }
     }
   };
@@ -206,8 +192,9 @@ const HeroNav = () => {
             </div>
           </div>
           
-          {/* Mobile Navigation */}
+          {/* Mobile Navigation - Now just theme toggle and language toggle */}
           <div className={styles.mobileNav}>
+            {/* Theme Toggle */}
             {mounted && (
               <motion.button 
                 className={styles.themeToggle}
@@ -246,82 +233,20 @@ const HeroNav = () => {
               </motion.button>
             )}
             
+            {/* Direct Language Toggle Button */}
             <motion.button
-              className={styles.mobileMenuButton}
+              className={styles.languageToggle}
               variants={itemVariants}
               whileTap={{ scale: 0.9 }}
-              onClick={() => setMobileMenuOpen(true)}
-              aria-label={t('navigation.openMenu')}
+              onClick={toggleLanguage}
+              aria-label={t('language.switch')}
             >
-              <Menu size={20} />
+              <Globe size={18} className={styles.globeIcon} />
+              <span className={styles.currentLanguage}>{locale.toUpperCase()}</span>
             </motion.button>
           </div>
         </motion.div>
       </div>
-      
-      {/* Mobile menu */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            className="fixed inset-0 z-50 bg-white dark:bg-gray-900 flex flex-col"
-            initial="closed"
-            animate="open"
-            exit="closed"
-            variants={mobileMenuVariants}
-          >
-            <div className="flex justify-between items-center px-6 py-4 border-b border-gray-200 dark:border-gray-800">
-              <div className={styles.logoContainer}>
-                <Logo />
-              </div>
-              <button
-                onClick={() => setMobileMenuOpen(false)}
-                className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-                aria-label={t('navigation.closeMenu')}
-              >
-                <X size={24} />
-              </button>
-            </div>
-            
-            <div className="flex-1 overflow-y-auto p-6">
-              <ul className="space-y-4">
-                {navLinks.map((link) => (
-                  <motion.li 
-                    key={link.name}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ 
-                      opacity: 1, 
-                      x: 0,
-                      transition: {
-                        duration: 0.3,
-                        ease: "easeOut"
-                      }
-                    }}
-                  >
-                    <Link
-                      href={link.href}
-                      className={`block py-3 px-4 text-lg font-medium rounded-lg transition-colors ${
-                        pathname === link.href
-                          ? "bg-indigo-50 text-indigo-600 dark:bg-indigo-900/20 dark:text-indigo-400"
-                          : "hover:bg-gray-100 dark:hover:bg-gray-800"
-                      }`}
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      {link.name}
-                    </Link>
-                  </motion.li>
-                ))}
-              </ul>
-              
-              <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-800">
-                <p className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-4">
-                  {t('navigation.switchLanguage')}
-                </p>
-                <LanguageSwitcher variant="mobile" />
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </>
   );
 };
