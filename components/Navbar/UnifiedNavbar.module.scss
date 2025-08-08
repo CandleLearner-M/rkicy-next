@@ -8,37 +8,23 @@ $premium-accent: #8b5cf6;
 $premium-gradient-start: #2563eb;
 $premium-gradient-end: #8b5cf6;
 $transition-bezier: cubic-bezier(0.16, 1, 0.3, 1);
+$premium-spring: cubic-bezier(0.34, 1.56, 0.64, 1); // Bouncy spring curve
 
-// Z-index map for better organization
+// Z-index management
 $z-index: (
-  'mobile-menu-overlay': 999,
-  'mobile-menu': 1000,
-  'navbar': 990,
+  'navbar': 1000,
   'backdrop': -1,
   'indicator': 1
 );
 
-// Helper classes for motion transitions
-.animated {
-  transition-property: transform, opacity, background-color, box-shadow, border-radius;
-  transition-timing-function: $transition-bezier;
-  transition-duration: 0.4s;
-  will-change: transform, opacity, background-color, box-shadow, border-radius;
-}
-
-// Navbar placeholder for SSR
-.navbarPlaceholder {
-  height: 80px;
-  width: 100%;
-}
-
+// Navbar wrapper
 .navbarWrapper {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: map-get($z-index, 'navbar');
-  padding: 0.75rem;
+  padding: 0.7rem;
   pointer-events: none;
   display: flex;
   justify-content: center;
@@ -47,19 +33,24 @@ $z-index: (
 .container {
   max-width: 1400px;
   margin: 0 auto;
-  width: 100%;
+  width: 97%;
   display: flex;
   justify-content: center;
+  
+  @media (max-width: $breakpoint-lg) {
+    width: 100%;
+  }
 }
 
-// Main navbar container
+// Main navbar container with shared properties
 .navbar {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
   pointer-events: auto;
-  max-width: 1400px;
+  width: 100%;
+  will-change: transform, border-radius, background-color, box-shadow, height;
   
   &::before {
     content: '';
@@ -67,32 +58,24 @@ $z-index: (
     inset: 0;
     border-radius: inherit;
     z-index: map-get($z-index, 'backdrop');
-    transition: opacity 0.4s ease;
+    transition: all 0.4s $transition-bezier;
     opacity: 0;
+    backdrop-filter: blur(0px);
   }
   
-  // Hero state (transparent full-width)
+  // Apply different styles based on state
   &.heroNavbar {
     padding: 1.75rem 2.5rem;
-    height: 80px;
-    position: relative;
+    height: auto;
     
-    // Enhanced glass effect for hero navbar links
+    // Link hover effects specific to hero state
     .navLink {
-      &:hover {
-        background: linear-gradient(
-          135deg,
-          rgba($premium-gradient-start, 0.05) 0%,
-          rgba($premium-gradient-end, 0.08) 100%
-        );
+      &::after {
+        transform-origin: center;
       }
       
-      &.active {
-        background: linear-gradient(
-          135deg,
-          rgba($premium-gradient-start, 0.1) 0%,
-          rgba($premium-gradient-end, 0.15) 100%
-        );
+      &:hover {
+        transform: translateY(-1px);
       }
     }
     
@@ -101,33 +84,36 @@ $z-index: (
     }
   }
   
-  // Floating state (pill-shaped)
   &.floatingNavbar {
-    padding: 0 2rem;
+    padding: 0.75rem 2rem;
     height: 68px;
     
-    // Enhanced backdrop blur effect for floating navbar
     &::before {
       opacity: 1;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
     
-    // Animated border for floating navbar
+    // Glowing border effect on hover
     &:hover {
-      border-color: rgba($premium-gradient-start, 0.25);
-      
-      [data-theme='dark'] & {
-        border-color: rgba($premium-gradient-start, 0.4);
+      &::before {
+        box-shadow: 0 0 0 1px rgba($premium-gradient-start, 0.2);
+        
+        [data-theme="dark"] & {
+          box-shadow: 0 0 0 1px rgba($premium-gradient-end, 0.3);
+        }
       }
     }
   }
 }
 
-// Logo container
+// Logo styles with improved animation
 .logoContainer {
   position: relative;
   height: 100%;
   display: flex;
   align-items: center;
+  z-index: 2;
   
   .heroNavbar & {
     &::after {
@@ -151,6 +137,7 @@ $z-index: (
         rgba(150, 150, 150, 0.15),
         rgba(150, 150, 150, 0)
       );
+      transition: opacity 0.3s ease;
       
       [data-theme="dark"] & {
         background: linear-gradient(
@@ -168,10 +155,10 @@ $z-index: (
   display: flex;
   align-items: center;
   height: 100%;
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: transform 0.3s $premium-spring;
   
   &:hover {
-    transform: translateY(-1px) scale(1.03);
+    transform: translateY(-2px) scale(1.02);
   }
   
   &:active {
@@ -179,7 +166,7 @@ $z-index: (
   }
 }
 
-// Desktop Navigation
+// Desktop Navigation with enhanced animations
 .desktopNav {
   display: flex;
   flex: 1;
@@ -208,7 +195,7 @@ $z-index: (
   margin: 0;
   
   .heroNavbar & {
-    gap: 2rem;
+    gap: 3rem;
   }
   
   .floatingNavbar & {
@@ -224,17 +211,12 @@ $z-index: (
   font-size: 0.95rem;
   font-weight: 500;
   letter-spacing: 0.01em;
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  
-  &:hover {
-    transform: translateY(-2px);
-  }
   
   &.active {
     font-weight: 600;
   }
   
-  // Hero nav style
+  // Hero nav style with improved gradient underlines
   .heroNavbar & {
     position: relative;
     
@@ -252,10 +234,10 @@ $z-index: (
       );
       border-radius: 2px;
       opacity: 0;
-      transform: scaleX(0.3);
+      transform: scaleX(0);
       transform-origin: center;
-      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), 
-                  opacity 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+      transition: transform 0.3s $premium-spring, 
+                  opacity 0.3s $premium-spring;
       
       [data-theme='dark'] & {
         background: linear-gradient(
@@ -267,7 +249,7 @@ $z-index: (
     }
     
     &:hover::after {
-      opacity: 0.8;
+      opacity: 0.7;
       transform: scaleX(0.6);
     }
     
@@ -276,17 +258,18 @@ $z-index: (
       transform: scaleX(0.9);
     }
   }
+  
+  // Floating nav style with pill-shaped highlight
+  .floatingNavbar & {
+    padding: 0 0.25rem;
+  }
 }
 
 .navLink {
   position: relative;
   color: $text-primary;
   text-decoration: none;
-  transition: all 0.3s ease;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  transition: all 0.3s $transition-bezier;
   
   [data-theme='dark'] & {
     color: $text-primary-dark;
@@ -300,9 +283,19 @@ $z-index: (
     }
   }
   
-  // Hero nav style
+  // Hero nav style with improved text gradient
   .heroNavbar & {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    transition: all 0.3s $premium-spring;
+    
+    &:hover {
+      background-color: rgba($premium-gradient-start, 0.04);
+      
+      [data-theme="dark"] & {
+        background-color: rgba($premium-gradient-end, 0.08);
+      }
+    }
     
     &.active {
       background: linear-gradient(
@@ -313,6 +306,7 @@ $z-index: (
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      text-fill-color: transparent;
       
       [data-theme='dark'] & {
         background: linear-gradient(
@@ -326,28 +320,47 @@ $z-index: (
     }
   }
   
-  // Floating nav style
+  // Floating nav style with improved hover effects
   .floatingNavbar & {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
     height: 38px;
-    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: all 0.2s $premium-spring;
     
     &:hover {
-      background-color: rgba(79, 70, 229, 0.07);
+      background: linear-gradient(
+        135deg,
+        rgba($premium-gradient-start, 0.05) 0%,
+        rgba($premium-gradient-end, 0.08) 100%
+      );
       transform: translateY(-1px);
       
       [data-theme="dark"] & {
-        background-color: rgba(165, 180, 252, 0.12);
+        background: linear-gradient(
+          135deg,
+          rgba($premium-gradient-start, 0.08) 0%,
+          rgba($premium-gradient-end, 0.12) 100%
+        );
       }
     }
     
     &.active {
-      color: #4f46e5;
-      background-color: rgba(79, 70, 229, 0.1);
+      color: $premium-primary;
+      background: linear-gradient(
+        135deg,
+        rgba($premium-gradient-start, 0.08) 0%,
+        rgba($premium-gradient-end, 0.12) 100%
+      );
       
       [data-theme="dark"] & {
-        color: #a5b4fc;
-        background-color: rgba(165, 180, 252, 0.15);
+        color: lighten($premium-primary, 25%);
+        background: linear-gradient(
+          135deg,
+          rgba($premium-gradient-start, 0.12) 0%,
+          rgba($premium-gradient-end, 0.18) 100%
+        );
       }
     }
     
@@ -358,7 +371,7 @@ $z-index: (
   }
 }
 
-// Active indicator with improved animation
+// Enhanced active indicator with glow
 .activeIndicator {
   position: absolute;
   bottom: -1px;
@@ -367,7 +380,7 @@ $z-index: (
   height: 2px;
   background: linear-gradient(90deg, #4f46e5, #818cf8);
   border-radius: 4px;
-  box-shadow: 0 0 8px rgba(79, 70, 229, 0.3);
+  box-shadow: 0 0 8px rgba(79, 70, 229, 0.4);
   z-index: map-get($z-index, 'indicator');
   
   .heroNavbar & {
@@ -376,16 +389,17 @@ $z-index: (
   
   [data-theme="dark"] & {
     background: linear-gradient(90deg, #818cf8, #c7d2fe);
-    box-shadow: 0 0 10px rgba(129, 140, 248, 0.4);
+    box-shadow: 0 0 12px rgba(129, 140, 248, 0.5);
   }
 }
 
-// Right actions section
+// Right actions section with improved separators
 .navActions {
   display: flex;
   align-items: center;
   height: 100%;
-  gap: 1rem;
+  gap: 1.75rem;
+  z-index: 2;
   
   .heroNavbar & {
     padding-left: 0;
@@ -413,6 +427,7 @@ $z-index: (
         rgba(150, 150, 150, 0.15),
         rgba(150, 150, 150, 0)
       );
+      transition: opacity 0.3s ease;
       
       [data-theme="dark"] & {
         background: linear-gradient(
@@ -424,18 +439,23 @@ $z-index: (
       }
     }
   }
+  
+  @media (max-width: $breakpoint-xl) {
+    gap: 1.5rem;
+  }
 }
 
-// Language Switcher - Desktop
+// Language Switcher - Desktop with improved transition
 .languageSwitcher {
   position: relative;
+  transition: transform 0.3s $premium-spring;
   
   @media (max-width: $breakpoint-lg) {
     display: none;
   }
 }
 
-// Direct Language Toggle - Mobile
+// Direct Language Toggle - Mobile with enhanced button styles
 .languageToggle {
   display: none;
   align-items: center;
@@ -445,28 +465,36 @@ $z-index: (
   height: 42px;
   padding: 0 1rem;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba($premium-gradient-start, 0.04);
   border: 1px solid rgba($premium-gradient-start, 0.15);
   cursor: pointer;
   color: $premium-gradient-start;
   font-size: 0.9rem;
   font-weight: 600;
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: all 0.3s $premium-spring;
   
   [data-theme='dark'] & {
     color: lighten($premium-gradient-start, 15%);
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba($premium-gradient-end, 0.06);
     border-color: rgba($premium-gradient-start, 0.25);
   }
   
   &:hover {
     border-color: rgba($premium-gradient-start, 0.4);
-    background: rgba($premium-gradient-start, 0.05);
+    background: linear-gradient(
+      135deg,
+      rgba($premium-gradient-start, 0.06) 0%,
+      rgba($premium-gradient-end, 0.09) 100%
+    );
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba($premium-gradient-start, 0.1);
     
     [data-theme='dark'] & {
-      background: rgba($premium-gradient-start, 0.08);
+      background: linear-gradient(
+        135deg,
+        rgba($premium-gradient-start, 0.1) 0%,
+        rgba($premium-gradient-end, 0.15) 100%
+      );
       border-color: rgba($premium-gradient-start, 0.5);
       box-shadow: 0 4px 15px rgba($premium-gradient-start, 0.15);
     }
@@ -478,26 +506,44 @@ $z-index: (
   
   .floatingNavbar & {
     height: 38px;
+    border-radius: 10px;
   }
   
   @media (max-width: $breakpoint-lg) {
     display: flex;
   }
-  
-  @media (max-width: $breakpoint-sm) {
-    padding: 0 0.75rem;
-  }
 }
 
 .globeIcon {
   opacity: 0.9;
+  filter: drop-shadow(0 0 5px rgba($premium-gradient-start, 0.3));
 }
 
 .currentLanguage {
   position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.3;
+    transform: scaleX(0.7);
+    transition: all 0.2s ease;
+  }
+  
+  .languageToggle:hover & {
+    &::before {
+      opacity: 0.7;
+      transform: scaleX(1);
+    }
+  }
 }
 
-// Theme toggle button
+// Theme toggle button with enhanced animation
 .themeToggle {
   display: flex;
   align-items: center;
@@ -505,34 +551,40 @@ $z-index: (
   width: 42px;
   height: 42px;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba($premium-gradient-start, 0.04);
   border: 1px solid rgba($premium-gradient-start, 0.15);
   cursor: pointer;
   color: $premium-gradient-start;
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: all 0.3s $premium-spring;
+  overflow: hidden;
   
   .floatingNavbar & {
     width: 38px;
     height: 38px;
-    border-radius: 10px;
+    border-radius: 50%;
   }
   
   [data-theme='dark'] & {
     color: #FFD700;
-    background: rgba(255, 255, 255, 0.03);
-    border-color: rgba($premium-gradient-start, 0.25);
+    background: rgba(255, 215, 0, 0.05);
+    border-color: rgba(255, 215, 0, 0.2);
   }
   
   &:hover {
     border-color: rgba($premium-gradient-start, 0.4);
     background: rgba($premium-gradient-start, 0.05);
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba($premium-gradient-start, 0.1);
+    box-shadow: 0 4px 15px rgba($premium-gradient-start, 0.15);
     
     [data-theme='dark'] & {
       background: rgba(255, 215, 0, 0.08);
       border-color: rgba(255, 215, 0, 0.3);
       box-shadow: 0 4px 15px rgba(255, 215, 0, 0.15);
+    }
+    
+    &::after {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1.5);
     }
   }
   
@@ -540,9 +592,32 @@ $z-index: (
     transform: scale(0.95);
   }
   
-  @media (max-width: $breakpoint-sm) {
-    width: 38px;
-    height: 38px;
+  // Ripple effect on hover
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+      circle,
+      rgba($premium-gradient-start, 0.1) 0%,
+      transparent 70%
+    );
+    border-radius: inherit;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 1s ease, opacity 0.5s ease;
+    pointer-events: none;
+    
+    [data-theme='dark'] & {
+      background: radial-gradient(
+        circle,
+        rgba(255, 215, 0, 0.15) 0%,
+        transparent 70%
+      );
+    }
   }
 }
 
@@ -564,227 +639,18 @@ $z-index: (
   justify-content: center;
   width: 100%;
   height: 100%;
-}
-
-// Mobile menu button
-.mobileMenuButton {
-  display: none;
-  align-items: center;
-  justify-content: center;
-  width: 42px;
-  height: 42px;
-  border-radius: 10px;
-  background: rgba($premium-gradient-start, 0.05);
-  border: 1px solid rgba($premium-gradient-start, 0.15);
-  cursor: pointer;
-  color: $premium-gradient-start;
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   
-  .floatingNavbar & {
-    width: 38px;
-    height: 38px;
+  // Add subtle glow effect for icons
+  [data-theme='light'] .sun {
+    filter: drop-shadow(0 0 5px rgba($premium-gradient-start, 0.5));
   }
   
-  [data-theme='dark'] & {
-    background: rgba(255, 255, 255, 0.03);
-    border-color: rgba($premium-gradient-start, 0.25);
-    color: lighten($premium-gradient-start, 15%);
-  }
-  
-  &:hover {
-    border-color: rgba($premium-gradient-start, 0.4);
-    background: rgba($premium-gradient-start, 0.08);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba($premium-gradient-start, 0.1);
-    
-    [data-theme='dark'] & {
-      background: rgba($premium-gradient-start, 0.12);
-      border-color: rgba($premium-gradient-start, 0.5);
-      box-shadow: 0 4px 15px rgba($premium-gradient-start, 0.15);
-    }
-  }
-  
-  &:active {
-    transform: scale(0.95);
-  }
-  
-  @media (max-width: $breakpoint-lg) {
-    display: flex;
-  }
-  
-  @media (max-width: $breakpoint-sm) {
-    width: 38px;
-    height: 38px;
+  [data-theme='dark'] .moon {
+    filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.5));
   }
 }
 
-// Mobile menu
-.mobileMenuOverlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(6px);
-  z-index: map-get($z-index, 'mobile-menu-overlay');
-}
-
-.mobileMenu {
-  position: fixed;
-  top: 90px; // Below the navbar
-  left: 50%;
-  transform: translateX(-50%);
-  width: 85%;
-  max-width: 400px;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05);
-  z-index: map-get($z-index, 'mobile-menu');
-  overflow: hidden;
-  
-  [data-theme='dark'] & {
-    background: #1f2937;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1);
-  }
-}
-
-.mobileMenuContent {
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.mobileNavLinks {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.mobileNavLink {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.85rem 1rem;
-  border-radius: 10px;
-  color: $text-primary;
-  text-decoration: none;
-  font-weight: 500;
-  transition: background-color 0.2s ease;
-  
-  [data-theme='dark'] & {
-    color: $text-primary-dark;
-  }
-  
-  &:hover {
-    background-color: rgba(79, 70, 229, 0.05);
-    
-    [data-theme='dark'] & {
-      background-color: rgba(165, 180, 252, 0.1);
-    }
-  }
-  
-  &.active {
-    color: #4f46e5;
-    background-color: rgba(79, 70, 229, 0.1);
-    font-weight: 600;
-    
-    [data-theme='dark'] & {
-      color: #a5b4fc;
-      background-color: rgba(165, 180, 252, 0.15);
-    }
-  }
-}
-
-.mobileActiveIndicator {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #4f46e5, #8b5cf6);
-  box-shadow: 0 0 6px rgba(79, 70, 229, 0.3);
-  
-  [data-theme="dark"] & {
-    background: linear-gradient(135deg, #818cf8, #c7d2fe);
-    box-shadow: 0 0 6px rgba(129, 140, 248, 0.4);
-  }
-}
-
-.mobileActions {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.mobileActionsTitle {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: rgba(0, 0, 0, 0.5);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  
-  [data-theme='dark'] & {
-    color: rgba(255, 255, 255, 0.5);
-  }
-}
-
-.mobileActionsButtons {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.75rem;
-}
-
-.mobileActionButton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.75rem;
-  border-radius: 10px;
-  background: rgba(0, 0, 0, 0.03);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  color: rgba(0, 0, 0, 0.7);
-  font-size: 0.9rem;
-  font-weight: 500;
-  transition: all 0.2s ease;
-  cursor: pointer;
-  
-  [data-theme='dark'] & {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    color: rgba(255, 255, 255, 0.7);
-  }
-  
-  &:hover {
-    background: rgba(0, 0, 0, 0.05);
-    
-    [data-theme='dark'] & {
-      background: rgba(255, 255, 255, 0.05);
-    }
-  }
-  
-  &:active {
-    transform: scale(0.95);
-  }
-  
-  &.active {
-    background: rgba($premium-primary, 0.1);
-    border-color: rgba($premium-primary, 0.2);
-    color: $premium-primary;
-    font-weight: 600;
-    
-    [data-theme='dark'] & {
-      background: rgba(lighten($premium-primary, 10%), 0.15);
-      border-color: rgba(lighten($premium-primary, 10%), 0.25);
-      color: lighten($premium-primary, 15%);
-    }
-  }
-}
-
-// Media queries for responsiveness
+// Media queries with improved responsiveness
 @media (max-width: $breakpoint-md) {
   .navbarWrapper {
     padding: 0.5rem;
@@ -796,14 +662,14 @@ $z-index: (
     }
     
     &.floatingNavbar {
-      padding: 0.75rem 1.25rem;
-      width: 92%;
+      padding: 0.6rem 1.25rem;
+      width: 94%;
     }
   }
   
   .navLinks {
     .heroNavbar & {
-      gap: 1rem;
+      gap: 1.5rem;
     }
   }
 }
@@ -821,43 +687,97 @@ $z-index: (
     &.floatingNavbar {
       padding: 0.5rem 0.75rem;
       height: 62px;
-      width: 90%;
-    }
-  }
-  
-  .logoContainer {
-    .floatingNavbar & {
-      padding-right: 0.75rem;
-    }
-  }
-  
-  .navActions {
-    .floatingNavbar & {
-      padding-left: 0.75rem;
-      gap: 0.5rem;
+      width: 92%;
+      border-radius: 18px;
     }
   }
 }
 
-// Custom scrollbar styles
-.mobileMenuContent {
-  max-height: calc(100vh - 120px);
-  overflow-y: auto;
-  
-  &::-webkit-scrollbar {
-    width: 6px;
-  }
-  
-  &::-webkit-scrollbar-track {
-    background: transparent;
-  }
-  
-  &::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.1);
-    border-radius: 3px;
+// Enhanced CSS-based link hover effect for floating nav
+.floatingNavbar .navLink {
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 6px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(
+      90deg, 
+      $premium-gradient-start, 
+      $premium-gradient-end
+    );
+    border-radius: 2px;
+    opacity: 0;
+    transition: width 0.3s $premium-spring, 
+                left 0.3s $premium-spring, 
+                opacity 0.3s $premium-spring;
+    z-index: map-get($z-index, 'indicator');
     
-    [data-theme='dark'] & {
-      background: rgba(255, 255, 255, 0.1);
+    [data-theme="dark"] & {
+      background: linear-gradient(
+        90deg, 
+        lighten($premium-gradient-start, 10%), 
+        lighten($premium-gradient-end, 10%)
+      );
     }
+  }
+  
+  &:hover::after {
+    width: 40%;
+    left: 30%;
+    opacity: 0.7;
+  }
+  
+  &.active::after {
+    width: 60%;
+    left: 20%;
+    opacity: 1;
+    height: 2.5px;
+    box-shadow: 0 0 6px rgba($premium-gradient-start, 0.4);
+    
+    [data-theme="dark"] & {
+      box-shadow: 0 0 8px rgba($premium-gradient-end, 0.5);
+    }
+  }
+}
+
+// Add subtle shimmer effect to navbar in floating mode
+.floatingNavbar {
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+    transform: skewX(-25deg);
+    animation: shimmer 8s infinite;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+  }
+  
+  &:hover::after {
+    opacity: 1;
+  }
+  
+  @keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 200%; }
+  }
+}
+
+// Fix for Safari backdrop-filter
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+  .floatingNavbar {
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
   }
 }
