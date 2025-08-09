@@ -7,8 +7,11 @@ $premium-secondary: #134cca;
 $premium-accent: #8b5cf6;
 $premium-gradient-start: #2563eb;
 $premium-gradient-end: #8b5cf6;
-$transition-bezier: cubic-bezier(0.16, 1, 0.3, 1);
-$premium-spring: cubic-bezier(0.34, 1.56, 0.64, 1); // Bouncy spring curve
+
+// Professional transition curves
+$transition-smooth: cubic-bezier(0.23, 1, 0.32, 1); // Professional easing
+$transition-standard: cubic-bezier(0.4, 0, 0.2, 1); // Material standard
+$transition-decelerate: cubic-bezier(0, 0, 0.2, 1); // Deceleration curve
 
 // Z-index management
 $z-index: (
@@ -28,6 +31,15 @@ $z-index: (
   pointer-events: none;
   display: flex;
   justify-content: center;
+  transition: padding 0.4s $transition-smooth;
+  
+  @media (max-width: $breakpoint-md) {
+    padding: 0.5rem;
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    padding: 0.4rem;
+  }
 }
 
 .container {
@@ -36,6 +48,7 @@ $z-index: (
   width: 97%;
   display: flex;
   justify-content: center;
+  transition: width 0.4s $transition-smooth;
   
   @media (max-width: $breakpoint-lg) {
     width: 100%;
@@ -50,7 +63,8 @@ $z-index: (
   justify-content: space-between;
   pointer-events: auto;
   width: 100%;
-  will-change: transform, border-radius, background-color, box-shadow, height;
+  transition: height 0.4s $transition-smooth;
+  will-change: transform, border-radius, background-color, box-shadow;
   
   &::before {
     content: '';
@@ -58,7 +72,7 @@ $z-index: (
     inset: 0;
     border-radius: inherit;
     z-index: map-get($z-index, 'backdrop');
-    transition: all 0.4s $transition-bezier;
+    transition: all 0.4s $transition-smooth;
     opacity: 0;
     backdrop-filter: blur(0px);
   }
@@ -66,27 +80,23 @@ $z-index: (
   // Apply different styles based on state
   &.heroNavbar {
     padding: 1.75rem 2.5rem;
-    height: auto;
-    
-    // Link hover effects specific to hero state
-    .navLink {
-      &::after {
-        transform-origin: center;
-      }
-      
-      &:hover {
-        transform: translateY(-1px);
-      }
-    }
+    height: 80px;
+    transition: all 0.4s $transition-smooth;
     
     @media (max-width: $breakpoint-md) {
       padding: 1.5rem 1.5rem;
+    }
+    
+    @media (max-width: $breakpoint-sm) {
+      padding: 1rem;
+      height: 72px;
     }
   }
   
   &.floatingNavbar {
     padding: 0.75rem 2rem;
     height: 68px;
+    transition: all 0.4s $transition-smooth;
     
     &::before {
       opacity: 1;
@@ -94,20 +104,19 @@ $z-index: (
       -webkit-backdrop-filter: blur(12px);
     }
     
-    // Glowing border effect on hover
-    &:hover {
-      &::before {
-        box-shadow: 0 0 0 1px rgba($premium-gradient-start, 0.2);
-        
-        [data-theme="dark"] & {
-          box-shadow: 0 0 0 1px rgba($premium-gradient-end, 0.3);
-        }
-      }
+    @media (max-width: $breakpoint-md) {
+      padding: 0.6rem 1.25rem;
+    }
+    
+    @media (max-width: $breakpoint-sm) {
+      padding: 0.5rem 0.75rem;
+      height: 62px;
+      border-radius: 18px;
     }
   }
 }
 
-// Logo styles with improved animation
+// Logo styles - hover in CSS
 .logoContainer {
   position: relative;
   height: 100%;
@@ -137,7 +146,6 @@ $z-index: (
         rgba(150, 150, 150, 0.15),
         rgba(150, 150, 150, 0)
       );
-      transition: opacity 0.3s ease;
       
       [data-theme="dark"] & {
         background: linear-gradient(
@@ -148,17 +156,22 @@ $z-index: (
         );
       }
     }
+    
+    @media (max-width: $breakpoint-sm) {
+      padding-right: 0.75rem;
+    }
   }
 }
 
+// Logo hover in CSS
 .logo {
   display: flex;
   align-items: center;
   height: 100%;
-  transition: transform 0.3s $premium-spring;
+  transition: transform 0.3s $transition-smooth;
   
   &:hover {
-    transform: translateY(-2px) scale(1.02);
+    transform: translateY(-1px);
   }
   
   &:active {
@@ -166,11 +179,12 @@ $z-index: (
   }
 }
 
-// Desktop Navigation with enhanced animations
+// Desktop Navigation
 .desktopNav {
   display: flex;
   flex: 1;
   height: 100%;
+  transition: all 0.4s $transition-smooth;
   
   .heroNavbar & {
     justify-content: flex-end;
@@ -193,9 +207,18 @@ $z-index: (
   list-style: none;
   padding: 0;
   margin: 0;
+  transition: gap 0.4s $transition-smooth;
   
   .heroNavbar & {
-    gap: 3rem;
+    gap: 2.5rem;
+    
+    @media (max-width: $breakpoint-xl) {
+      gap: 2rem;
+    }
+    
+    @media (max-width: $breakpoint-lg) {
+      gap: 1.5rem;
+    }
   }
   
   .floatingNavbar & {
@@ -203,6 +226,7 @@ $z-index: (
   }
 }
 
+// Nav item hover in CSS
 .navItem {
   position: relative;
   height: 100%;
@@ -211,12 +235,17 @@ $z-index: (
   font-size: 0.95rem;
   font-weight: 500;
   letter-spacing: 0.01em;
+  transition: transform 0.3s $transition-smooth;
+  
+  &:hover {
+    transform: translateY(-1px);
+  }
   
   &.active {
     font-weight: 600;
   }
   
-  // Hero nav style with improved gradient underlines
+  // Hero nav style with subtle gradient underlines
   .heroNavbar & {
     position: relative;
     
@@ -236,8 +265,8 @@ $z-index: (
       opacity: 0;
       transform: scaleX(0);
       transform-origin: center;
-      transition: transform 0.3s $premium-spring, 
-                  opacity 0.3s $premium-spring;
+      transition: transform 0.3s $transition-smooth, 
+                  opacity 0.3s $transition-smooth;
       
       [data-theme='dark'] & {
         background: linear-gradient(
@@ -250,12 +279,12 @@ $z-index: (
     
     &:hover::after {
       opacity: 0.7;
-      transform: scaleX(0.6);
+      transform: scaleX(0.5);
     }
     
     &.active::after {
       opacity: 1;
-      transform: scaleX(0.9);
+      transform: scaleX(0.8);
     }
   }
   
@@ -265,11 +294,12 @@ $z-index: (
   }
 }
 
+// Nav link hover effects in CSS
 .navLink {
   position: relative;
   color: $text-primary;
   text-decoration: none;
-  transition: all 0.3s $transition-bezier;
+  transition: all 0.25s $transition-standard;
   
   [data-theme='dark'] & {
     color: $text-primary-dark;
@@ -283,11 +313,11 @@ $z-index: (
     }
   }
   
-  // Hero nav style with improved text gradient
+  // Hero nav style with elegant text gradient
   .heroNavbar & {
     padding: 0.5rem 0.75rem;
     border-radius: 8px;
-    transition: all 0.3s $premium-spring;
+    transition: all 0.25s $transition-standard;
     
     &:hover {
       background-color: rgba($premium-gradient-start, 0.04);
@@ -306,7 +336,7 @@ $z-index: (
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      text-fill-color: transparent;
+      color: transparent;
       
       [data-theme='dark'] & {
         background: linear-gradient(
@@ -320,14 +350,14 @@ $z-index: (
     }
   }
   
-  // Floating nav style with improved hover effects
+  // Floating nav style with subtle hover effects in CSS
   .floatingNavbar & {
     padding: 0.5rem 0.75rem;
-    border-radius: 10px;
+    border-radius: 8px;
     display: flex;
     align-items: center;
     height: 38px;
-    transition: all 0.2s $premium-spring;
+    transition: all 0.25s $transition-standard;
     
     &:hover {
       background: linear-gradient(
@@ -335,7 +365,6 @@ $z-index: (
         rgba($premium-gradient-start, 0.05) 0%,
         rgba($premium-gradient-end, 0.08) 100%
       );
-      transform: translateY(-1px);
       
       [data-theme="dark"] & {
         background: linear-gradient(
@@ -371,7 +400,7 @@ $z-index: (
   }
 }
 
-// Enhanced active indicator with glow
+// Active indicator styles
 .activeIndicator {
   position: absolute;
   bottom: -1px;
@@ -380,7 +409,7 @@ $z-index: (
   height: 2px;
   background: linear-gradient(90deg, #4f46e5, #818cf8);
   border-radius: 4px;
-  box-shadow: 0 0 8px rgba(79, 70, 229, 0.4);
+  box-shadow: 0 0 8px rgba(79, 70, 229, 0.3);
   z-index: map-get($z-index, 'indicator');
   
   .heroNavbar & {
@@ -389,20 +418,21 @@ $z-index: (
   
   [data-theme="dark"] & {
     background: linear-gradient(90deg, #818cf8, #c7d2fe);
-    box-shadow: 0 0 12px rgba(129, 140, 248, 0.5);
+    box-shadow: 0 0 10px rgba(129, 140, 248, 0.4);
   }
 }
 
-// Right actions section with improved separators
+// Right actions section
 .navActions {
   display: flex;
   align-items: center;
   height: 100%;
-  gap: 1.75rem;
+  transition: gap 0.4s $transition-smooth, padding-left 0.4s $transition-smooth;
   z-index: 2;
   
   .heroNavbar & {
     padding-left: 0;
+    gap: 1.75rem;
     
     &::before {
       display: none;
@@ -427,7 +457,6 @@ $z-index: (
         rgba(150, 150, 150, 0.15),
         rgba(150, 150, 150, 0)
       );
-      transition: opacity 0.3s ease;
       
       [data-theme="dark"] & {
         background: linear-gradient(
@@ -438,6 +467,10 @@ $z-index: (
         );
       }
     }
+    
+    @media (max-width: $breakpoint-sm) {
+      padding-left: 0.75rem;
+    }
   }
   
   @media (max-width: $breakpoint-xl) {
@@ -445,17 +478,21 @@ $z-index: (
   }
 }
 
-// Language Switcher - Desktop with improved transition
+// Language Switcher hover in CSS
 .languageSwitcher {
   position: relative;
-  transition: transform 0.3s $premium-spring;
+  transition: transform 0.3s $transition-standard;
+  
+  &:hover {
+    transform: translateY(-1px);
+  }
   
   @media (max-width: $breakpoint-lg) {
     display: none;
   }
 }
 
-// Direct Language Toggle - Mobile with enhanced button styles
+// Language Toggle button hover in CSS
 .languageToggle {
   display: none;
   align-items: center;
@@ -464,14 +501,14 @@ $z-index: (
   width: auto;
   height: 42px;
   padding: 0 1rem;
-  border-radius: 12px;
+  border-radius: 10px;
   background: rgba($premium-gradient-start, 0.04);
   border: 1px solid rgba($premium-gradient-start, 0.15);
   cursor: pointer;
   color: $premium-gradient-start;
   font-size: 0.9rem;
   font-weight: 600;
-  transition: all 0.3s $premium-spring;
+  transition: all 0.3s $transition-standard;
   
   [data-theme='dark'] & {
     color: lighten($premium-gradient-start, 15%);
@@ -486,8 +523,8 @@ $z-index: (
       rgba($premium-gradient-start, 0.06) 0%,
       rgba($premium-gradient-end, 0.09) 100%
     );
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba($premium-gradient-start, 0.1);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba($premium-gradient-start, 0.1);
     
     [data-theme='dark'] & {
       background: linear-gradient(
@@ -496,29 +533,33 @@ $z-index: (
         rgba($premium-gradient-end, 0.15) 100%
       );
       border-color: rgba($premium-gradient-start, 0.5);
-      box-shadow: 0 4px 15px rgba($premium-gradient-start, 0.15);
+      box-shadow: 0 4px 12px rgba($premium-gradient-start, 0.15);
     }
   }
   
   &:active {
-    transform: scale(0.95);
+    transform: translateY(1px);
   }
   
   .floatingNavbar & {
     height: 38px;
-    border-radius: 10px;
+    border-radius: 8px;
   }
   
   @media (max-width: $breakpoint-lg) {
     display: flex;
   }
+  
+  @media (max-width: $breakpoint-sm) {
+    padding: 0 0.75rem;
+  }
 }
 
 .globeIcon {
   opacity: 0.9;
-  filter: drop-shadow(0 0 5px rgba($premium-gradient-start, 0.3));
 }
 
+// Underline effect for language toggle
 .currentLanguage {
   position: relative;
   
@@ -543,25 +584,25 @@ $z-index: (
   }
 }
 
-// Theme toggle button with enhanced animation
+// Theme toggle button hover in CSS
 .themeToggle {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 42px;
   height: 42px;
-  border-radius: 12px;
+  border-radius: 10px;
   background: rgba($premium-gradient-start, 0.04);
   border: 1px solid rgba($premium-gradient-start, 0.15);
   cursor: pointer;
   color: $premium-gradient-start;
-  transition: all 0.3s $premium-spring;
+  transition: all 0.3s $transition-standard;
   overflow: hidden;
   
   .floatingNavbar & {
     width: 38px;
     height: 38px;
-    border-radius: 50%;
+    border-radius: 8px;
   }
   
   [data-theme='dark'] & {
@@ -573,51 +614,53 @@ $z-index: (
   &:hover {
     border-color: rgba($premium-gradient-start, 0.4);
     background: rgba($premium-gradient-start, 0.05);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba($premium-gradient-start, 0.15);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba($premium-gradient-start, 0.1);
     
     [data-theme='dark'] & {
       background: rgba(255, 215, 0, 0.08);
       border-color: rgba(255, 215, 0, 0.3);
-      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.15);
+      box-shadow: 0 4px 12px rgba(255, 215, 0, 0.15);
     }
     
     &::after {
-      opacity: 1;
-      transform: translate(-50%, -50%) scale(1.5);
+      opacity: 0.5;
     }
   }
   
   &:active {
-    transform: scale(0.95);
+    transform: translateY(1px);
   }
   
-  // Ripple effect on hover
+  // Subtle highlight effect on hover
   &::after {
     content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(
-      circle,
+    background: linear-gradient(
+      135deg,
       rgba($premium-gradient-start, 0.1) 0%,
-      transparent 70%
+      rgba($premium-gradient-end, 0.15) 70%
     );
-    border-radius: inherit;
     opacity: 0;
-    transform: translate(-50%, -50%) scale(0);
-    transition: transform 1s ease, opacity 0.5s ease;
-    pointer-events: none;
+    transition: opacity 0.4s $transition-standard;
+    border-radius: inherit;
     
     [data-theme='dark'] & {
-      background: radial-gradient(
-        circle,
-        rgba(255, 215, 0, 0.15) 0%,
-        transparent 70%
+      background: linear-gradient(
+        135deg,
+        rgba(255, 215, 0, 0.1) 0%,
+        rgba(255, 180, 0, 0.15) 70%
       );
     }
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    width: 38px;
+    height: 38px;
   }
 }
 
@@ -628,6 +671,7 @@ $z-index: (
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1;
 }
 
 .themeIcon {
@@ -639,61 +683,9 @@ $z-index: (
   justify-content: center;
   width: 100%;
   height: 100%;
-  
-  // Add subtle glow effect for icons
-  [data-theme='light'] .sun {
-    filter: drop-shadow(0 0 5px rgba($premium-gradient-start, 0.5));
-  }
-  
-  [data-theme='dark'] .moon {
-    filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.5));
-  }
 }
 
-// Media queries with improved responsiveness
-@media (max-width: $breakpoint-md) {
-  .navbarWrapper {
-    padding: 0.5rem;
-  }
-  
-  .navbar {
-    &.heroNavbar {
-      padding: 1.25rem;
-    }
-    
-    &.floatingNavbar {
-      padding: 0.6rem 1.25rem;
-      width: 94%;
-    }
-  }
-  
-  .navLinks {
-    .heroNavbar & {
-      gap: 1.5rem;
-    }
-  }
-}
-
-@media (max-width: $breakpoint-sm) {
-  .navbarWrapper {
-    padding: 0.4rem;
-  }
-  
-  .navbar {
-    &.heroNavbar {
-      padding: 1rem;
-    }
-    
-    &.floatingNavbar {
-      padding: 0.5rem 0.75rem;
-      height: 62px;
-      width: 92%;
-      border-radius: 18px;
-    }
-  }
-}
-
-// Enhanced CSS-based link hover effect for floating nav
+// CSS-based link hover effect for floating nav
 .floatingNavbar .navLink {
   &::after {
     content: '';
@@ -709,9 +701,9 @@ $z-index: (
     );
     border-radius: 2px;
     opacity: 0;
-    transition: width 0.3s $premium-spring, 
-                left 0.3s $premium-spring, 
-                opacity 0.3s $premium-spring;
+    transition: width 0.3s $transition-smooth, 
+                left 0.3s $transition-smooth, 
+                opacity 0.3s $transition-smooth;
     z-index: map-get($z-index, 'indicator');
     
     [data-theme="dark"] & {
@@ -726,51 +718,54 @@ $z-index: (
   &:hover::after {
     width: 40%;
     left: 30%;
-    opacity: 0.7;
+    opacity: 0.5;
   }
   
   &.active::after {
-    width: 60%;
-    left: 20%;
-    opacity: 1;
-    height: 2.5px;
-    box-shadow: 0 0 6px rgba($premium-gradient-start, 0.4);
+    width: 50%;
+    left: 25%;
+    opacity: 0.8;
+    height: 2px;
+    box-shadow: 0 0 6px rgba($premium-gradient-start, 0.3);
     
     [data-theme="dark"] & {
-      box-shadow: 0 0 8px rgba($premium-gradient-end, 0.5);
+      box-shadow: 0 0 6px rgba($premium-gradient-end, 0.4);
     }
   }
 }
 
-// Add subtle shimmer effect to navbar in floating mode
+// Subtle glass effect for navbar
 .floatingNavbar {
-  &::after {
+  background-size: 200% 200%;
+  
+  &::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: -100%;
-    width: 50%;
-    height: 100%;
+    inset: 0;
+    border-radius: inherit;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 255, 255, 0.1),
-      transparent
+      135deg,
+      rgba(255, 255, 255, 0.03),
+      rgba(255, 255, 255, 0)
     );
-    transform: skewX(-25deg);
-    animation: shimmer 8s infinite;
     opacity: 0;
-    transition: opacity 0.5s ease;
+    transition: opacity 0.4s $transition-standard;
     pointer-events: none;
+    z-index: 1;
+    
+    [data-theme="dark"] & {
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.05),
+        rgba(255, 255, 255, 0)
+      );
+    }
   }
   
-  &:hover::after {
+  &:hover::before {
     opacity: 1;
-  }
-  
-  @keyframes shimmer {
-    0% { left: -100%; }
-    100% { left: 200%; }
   }
 }
 
@@ -780,4 +775,11 @@ $z-index: (
     -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
   }
+}
+
+// Cross-browser transition optimization
+.navbar, .navLinks, .navItem, .navLink,
+.logoContainer, .logo, .navActions,
+.languageToggle, .languageSwitcher, .themeToggle {
+  will-change: transform, opacity;
 }
