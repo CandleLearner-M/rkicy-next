@@ -694,53 +694,53 @@ $z-index: (
 }
 
 // CSS-based link hover effect for floating nav
-.floatingNavbar .navLink {
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 6px;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(
-      90deg, 
-      $premium-gradient-start, 
-      $premium-gradient-end
-    );
-    border-radius: 2px;
-    opacity: 0;
-    transition: width 0.3s $transition-smooth, 
-                left 0.3s $transition-smooth, 
-                opacity 0.3s $transition-smooth;
-    z-index: map-get($z-index, 'indicator');
+// .floatingNavbar .navLink {
+//   // &::after {
+//   //   content: '';
+//   //   position: absolute;
+//   //   bottom: 6px;
+//   //   left: 50%;
+//   //   width: 0;
+//   //   height: 2px;
+//   //   background: linear-gradient(
+//   //     90deg, 
+//   //     $premium-gradient-start, 
+//   //     $premium-gradient-end
+//   //   );
+//   //   border-radius: 2px;
+//   //   opacity: 0;
+//   //   transition: width 0.3s $transition-smooth, 
+//   //               left 0.3s $transition-smooth, 
+//   //               opacity 0.3s $transition-smooth;
+//   //   z-index: map-get($z-index, 'indicator');
     
-    [data-theme="dark"] & {
-      background: linear-gradient(
-        90deg, 
-        lighten($premium-gradient-start, 10%), 
-        lighten($premium-gradient-end, 10%)
-      );
-    }
-  }
+//   //   [data-theme="dark"] & {
+//   //     background: linear-gradient(
+//   //       90deg, 
+//   //       lighten($premium-gradient-start, 10%), 
+//   //       lighten($premium-gradient-end, 10%)
+//   //     );
+//   //   }
+//   // }
   
-  &:hover::after {
-    width: 40%;
-    left: 30%;
-    opacity: 0.5;
-  }
+//   // &:hover::after {
+//   //   width: 40%;
+//   //   left: 30%;
+//   //   opacity: 0.5;
+//   // }
   
-  // &.active::after {
-  //   width: 50%;
-  //   left: 25%;
-  //   opacity: 0.8;
-  //   height: 2px;
-  //   box-shadow: 0 0 6px rgba($premium-gradient-start, 0.3);
+//   // &.active::after {
+//   //   width: 50%;
+//   //   left: 25%;
+//   //   opacity: 0.8;
+//   //   height: 2px;
+//   //   box-shadow: 0 0 6px rgba($premium-gradient-start, 0.3);
     
-  //   [data-theme="dark"] & {
-  //     box-shadow: 0 0 6px rgba($premium-gradient-end, 0.4);
-  //   }
-  // }
-}
+//   //   [data-theme="dark"] & {
+//   //     box-shadow: 0 0 6px rgba($premium-gradient-end, 0.4);
+//   //   }
+//   // }
+// }
 
 // Subtle glass effect for navbar
 .floatingNavbar {
@@ -751,8 +751,6 @@ $z-index: (
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
     background: linear-gradient(
       135deg,
       rgba(255, 255, 255, 0.03),
