@@ -11,6 +11,7 @@ import Logo from './Logo';
 import styles from './UnifiedNavbar.module.scss';
 import LanguageSwitcher from '../LanguageSwitcher';
 import { useSmartScroll } from './hooks/useSmartScroll';
+import ThemeSwitcher from '../ThemeSwitcher';
 
 // TypeScript interface definitions
 interface NavLink {
@@ -239,7 +240,7 @@ export default function UnifiedNavbar(): JSX.Element | null {
               </button>
               
               {/* Theme Toggle - Complex animation kept in Framer Motion */}
-              <button 
+              {/* <button 
                 className={styles.themeToggle}
                 onClick={toggleTheme}
                 aria-label={theme === 'dark' ? t('theme.switchToLight') : t('theme.switchToDark')}
@@ -271,7 +272,9 @@ export default function UnifiedNavbar(): JSX.Element | null {
                     )}
                   </AnimatePresence>
                 </div>
-              </button>
+              </button> */}
+
+              <ThemeSwitcher duration={350} />
             </div>
           </motion.nav>
         </LayoutGroup>
