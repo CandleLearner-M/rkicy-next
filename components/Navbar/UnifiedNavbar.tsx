@@ -1,8 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence, LayoutGroup } from 'framer-motion';
-import { Sun, Moon, Globe } from 'lucide-react';
+import { motion, LayoutGroup } from 'framer-motion';
+import { Globe } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
@@ -13,71 +13,37 @@ import LanguageSwitcher from '../LanguageSwitcher';
 import { useSmartScroll } from './hooks/useSmartScroll';
 import ThemeSwitcher from '../ThemeSwitcher';
 
-// TypeScript interface definitions
 interface NavLink {
   name: string;
   href: string;
 }
 
 export default function UnifiedNavbar(): JSX.Element | null {
-  const [mounted, setMounted] = useState<boolean>(false);
-  const [isAtTop, setIsAtTop] = useState<boolean>(true);
-  
+  const [mounted, setMounted] = useState(false);
   const locale = useLocale();
   const t = useTranslations('common');
   const router = useRouter();
   const pathname = usePathname();
-  const { theme, setTheme } = useTheme();
-  
-  // Smart scroll behavior for floating navbar
-  const { visible } = useSmartScroll({ 
-    threshold: 50, 
-    throttleDelay: 100, 
-    staticNavbarHeight: 80,
-    initiallyVisible: false
+  const { theme } = useTheme();
+
+  // One source of truth for scroll-driven state
+  const { atTop, visible } = useSmartScroll({
+    threshold: 80,
+    upTolerance: 6,
+    downTolerance: 10,
+    topEpsilon: 8,
+    initiallyVisible: false,
   });
-  
-  // Get scroll position with improved performance
-  useEffect(() => {
-    let ticking = false;
-    
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const scrollPosition = window.scrollY;
-          setIsAtTop(scrollPosition < 10);
-          ticking = false;
-        });
-        
-        ticking = true;
-      }
-    };
-    
-    // Set initial value
-    handleScroll();
-    
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
-  // Prevent hydration mismatch
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
 
-  // Language toggle handler for mobile
   const toggleLanguage = () => {
     const newLocale = locale === 'en' ? 'fr' : 'en';
     const newPath = pathname.replace(`/${locale}`, `/${newLocale}`);
     router.push(newPath);
   };
 
-  // Theme toggle handler
-  const toggleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
-  };
-
-  // Nav links with active state and translations
   const navLinks: NavLink[] = [
     { name: t('navigation.home'), href: `/${locale}` },
     { name: t('navigation.about'), href: `/${locale}/about` },
@@ -85,151 +51,75 @@ export default function UnifiedNavbar(): JSX.Element | null {
     { name: t('navigation.partners'), href: `/${locale}/partners` },
     { name: t('navigation.hardware'), href: `/${locale}/hardware` },
     { name: t('navigation.projects'), href: `/${locale}/projects` },
-    { name: t('navigation.contact'), href: `/${locale}/contact` }
+    { name: t('navigation.contact'), href: `/${locale}/contact` },
   ];
 
-  // Navbar container variants for the transformation with minimal animation
+  // Motion variants simplified to transform/opacity only (no width/backdropFilter)
   const navbarVariants = {
     hero: {
-      borderRadius: 0,
-      backgroundColor: "rgba(255, 255, 255, 0)",
-      backdropFilter: "none",
-      boxShadow: "none",
-      border: "none",
       y: 0,
       opacity: 1,
-      width: "100%"
+      borderRadius: 0,
+      boxShadow: 'none',
     },
     floating: {
-      borderRadius: 24,
-      backgroundColor: theme === 'dark' 
-        ? "rgba(20, 20, 30, 0.85)" 
-        : "rgba(255, 255, 255, 0.85)",
-      backdropFilter: "blur(12px)",
-      boxShadow: theme === 'dark'
-        ? "0 10px 35px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(150, 150, 200, 0.1) inset"
-        : "0 8px 32px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(255, 255, 255, 0.5) inset",
-      border: theme === 'dark'
-        ? "1px solid rgba(255, 255, 255, 0.1)"
-        : "1px solid rgba(0, 0, 0, 0.06)",
       y: 0,
       opacity: 1,
-      width: "94%"
     },
     hidden: {
-      y: -100,
-      opacity: 0
-    }
-  };
-  
-  // Theme icon animation variants - keeping in Framer Motion as it's a complex state transition
-  const themeIconVariants = {
-    initial: { 
-      rotate: -30,
+      y: -20, // less jumpy than -100
       opacity: 0,
-      scale: 0.8,
     },
-    animate: { 
-      rotate: 0,
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.3,
-        ease: [0.23, 1, 0.32, 1], // Subtle cubic ease
-      }
-    },
-    exit: { 
-      rotate: 30,
-      opacity: 0,
-      scale: 0.8,
-      transition: {
-        duration: 0.2,
-        ease: [0.23, 1, 0.32, 1],
-      }
-    }
-  };
+  } as const;
 
-  if (!mounted) return null;
-
-  // Determine the current navbar state
-  let currentVariant = 'hidden';
-  if (isAtTop) {
-    currentVariant = 'hero';
-  } else if (visible) {
-    currentVariant = 'floating';
-  }
+  const currentVariant = atTop ? 'hero' : visible ? 'floating' : 'hidden';
 
   return (
     <div className={styles.navbarWrapper}>
       <div className={styles.container}>
         <LayoutGroup>
           <motion.nav
-            className={`${styles.navbar} ${isAtTop ? styles.heroNavbar : styles.floatingNavbar}`}
-            initial={isAtTop ? "hero" : "floating"}
+            className={`${styles.navbar} ${atTop ? styles.heroNavbar : styles.floatingNavbar}`}
+            initial={false} // avoid mount animation flicker
             animate={currentVariant}
             variants={navbarVariants}
-            transition={{
-              type: "tween",
-              ease: [0.23, 1, 0.32, 1], // Professional cubic easing
-              duration: 0.4
-            }}
+            transition={{ type: 'tween', duration: 0.35, ease: [0.23, 1, 0.32, 1] }}
             role="navigation"
             aria-label={t('navigation.mainNavigation')}
-            layout
+            // layout removed to reduce reflow work
+            style={{ transform: 'translateZ(0)' }} // promote to its own layer
           >
-            {/* Logo */}
-            <div 
-              className={styles.logoContainer}
-              layout
-            >
+            <div className={styles.logoContainer}>
               <Link href={`/${locale}`} className={styles.logo} aria-label={t('navigation.home')}>
                 <Logo />
               </Link>
             </div>
-            
-            {/* Desktop Navigation */}
-            <div 
-              className={styles.desktopNav}
-            >
+
+            <div className={styles.desktopNav}>
               <ul className={styles.navLinks}>
-                {navLinks.map((link) => (
-                  <motion.li
-                    key={link.name}
-                    className={`${styles.navItem} ${pathname === link.href ? styles.active : ''}`}
-                    // layout
-                  >
-                    <Link 
-                      href={link.href} 
-                      className={`${styles.navLink} ${pathname === link.href ? styles.active : ''}`}
-                      aria-current={pathname === link.href ? "page" : undefined}
-                    >
-                      <span>{link.name}</span>
-                      {pathname === link.href && (
-                        <motion.div 
-                          className={styles.activeIndicator}
-                          // layoutId="activeIndicator"
-                          // transition={{ 
-                            // duration: 0.3, 
-                            // ease: [0.23, 1, 0.32, 1] // Professional cubic easing
-                          // }}
-                        />
-                      )}
-                    </Link>
-                  </motion.li>
-                ))}
+                {navLinks.map((link) => {
+                  const active = pathname === link.href;
+                  return (
+                    <li key={link.name} className={`${styles.navItem} ${active ? styles.active : ''}`}>
+                      <Link
+                        href={link.href}
+                        className={`${styles.navLink} ${active ? styles.active : ''}`}
+                        aria-current={active ? 'page' : undefined}
+                      >
+                        <span>{link.name}</span>
+                        {active && <div className={styles.activeIndicator} />}
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
-            
-            {/* Right Actions */}
-            <div 
-              className={styles.navActions}
-            >
-              {/* Language Switcher - Desktop */}
+
+            <div className={styles.navActions}>
               <div className={styles.languageSwitcher}>
                 <LanguageSwitcher variant="premium" />
               </div>
-              
-              {/* Direct Language Toggle - Mobile */}
+
               <button
                 className={styles.languageToggle}
                 onClick={toggleLanguage}
@@ -238,43 +128,13 @@ export default function UnifiedNavbar(): JSX.Element | null {
                 <Globe size={18} className={styles.globeIcon} />
                 <span className={styles.currentLanguage}>{locale.toUpperCase()}</span>
               </button>
-              
-              {/* Theme Toggle - Complex animation kept in Framer Motion */}
-              {/* <button 
-                className={styles.themeToggle}
-                onClick={toggleTheme}
-                aria-label={theme === 'dark' ? t('theme.switchToLight') : t('theme.switchToDark')}
-              >
-                <div className={styles.themeIconWrapper}>
-                  <AnimatePresence mode="wait" initial={false}>
-                    {theme === 'dark' ? (
-                      <motion.div
-                        key="sun"
-                        variants={themeIconVariants}
-                        initial="initial"
-                        animate="animate"
-                        exit="exit"
-                        className={styles.themeIcon}
-                      >
-                        <Sun size={20} />
-                      </motion.div>
-                    ) : (
-                      <motion.div
-                        key="moon"
-                        variants={themeIconVariants}
-                        initial="initial"
-                        animate="animate"
-                        exit="exit"
-                        className={styles.themeIcon}
-                      >
-                        <Moon size={20} />
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              </button> */}
 
-              <ThemeSwitcher duration={350} />
+              <ThemeSwitcher
+                className={styles.themeToggle}
+                ariaLabel={theme === 'dark' ? t('theme.switchToLight') : t('theme.switchToDark')}
+                iconSize={22}
+                duration={500}
+              />
             </div>
           </motion.nav>
         </LayoutGroup>

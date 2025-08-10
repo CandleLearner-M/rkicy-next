@@ -1,61 +1,80 @@
-import { useState, useCallback, useEffect, useRef } from 'react';
-import { throttle } from 'lodash-es';
+import { useEffect, useRef, useState } from 'react';
 
-/**
- * Enhanced Smart Scroll hook with improved performance
- * Controls the visibility of the floating navbar based on scroll behavior
- */
+type Options = {
+  threshold?: number;        // how far down before floating can appear
+  upTolerance?: number;      // pixels you must scroll up before showing
+  downTolerance?: number;    // pixels you must scroll down before hiding
+  topEpsilon?: number;       // y <= topEpsilon counts as "at top"
+  initiallyVisible?: boolean;
+};
+
 export function useSmartScroll({
-  threshold = 10,
-  throttleDelay = 100,
-  staticNavbarHeight = 80,
+  threshold = 80,
+  upTolerance = 6,
+  downTolerance = 10,
+  topEpsilon = 8,
   initiallyVisible = false,
-}) {
+}: Options = {}) {
+  const [atTop, setAtTop] = useState(true);
   const [visible, setVisible] = useState(initiallyVisible);
-  const [prevScrollPos, setPrevScrollPos] = useState(0);
-  const hasScrolledPast = useRef(false);
-  const lastScrollTime = useRef(Date.now());
 
-  const throttledScrollHandler = useCallback(
-    throttle(() => {
-      const now = Date.now();
-      const currentScrollY = window.scrollY;
-      const isScrollingUp = prevScrollPos > currentScrollY;
-      
-      // Update time of last scroll
-      lastScrollTime.current = now;
-      
-      // Check if we've scrolled past threshold
-      if (currentScrollY > staticNavbarHeight + threshold) {
-        hasScrolledPast.current = true;
-      }
-      
-      // Very close to top - always hide floating navbar (show static)
-      if (currentScrollY < 10) {
-        setVisible(false);
-      } 
-      // Scrolling down - hide
-      else if (!isScrollingUp && currentScrollY > staticNavbarHeight) {
-        setVisible(false);
-      }
-      // Scrolling up AND has scrolled down enough before - show
-      else if (isScrollingUp && hasScrolledPast.current && currentScrollY > staticNavbarHeight) {
-        setVisible(true);
-      }
-      
-      setPrevScrollPos(currentScrollY);
-    }, throttleDelay),
-    [prevScrollPos, threshold, throttleDelay, staticNavbarHeight]
-  );
+  const lastY = useRef(0);
+  const ticking = useRef(false);
+  const prevAtTop = useRef<boolean>(true);
+  const prevVisible = useRef<boolean>(initiallyVisible);
 
   useEffect(() => {
-    window.addEventListener('scroll', throttledScrollHandler, { passive: true });
+    const update = () => {
+      ticking.current = false;
 
-    return () => {
-      throttledScrollHandler.cancel();
-      window.removeEventListener('scroll', throttledScrollHandler);
+      const y = window.scrollY;
+      const delta = y - lastY.current;
+      const dirDown = delta > 0;
+
+      // compute atTop
+      const nextAtTop = y <= topEpsilon;
+
+      let nextVisible = prevVisible.current;
+
+      if (nextAtTop) {
+        // when near top, always hide floating navbar
+        nextVisible = false;
+      } else if (dirDown && Math.abs(delta) > downTolerance) {
+        // scrolling down: hide
+        nextVisible = false;
+      } else if (!dirDown && Math.abs(delta) > upTolerance && y > threshold) {
+        // scrolling up after passing threshold: show
+        nextVisible = true;
+      }
+
+      lastY.current = y;
+
+      if (nextAtTop !== prevAtTop.current) {
+        prevAtTop.current = nextAtTop;
+        setAtTop(nextAtTop);
+      }
+      if (nextVisible !== prevVisible.current) {
+        prevVisible.current = nextVisible;
+        setVisible(nextVisible);
+      }
     };
-  }, [throttledScrollHandler]);
 
-  return { visible };
+    const onScroll = () => {
+      if (!ticking.current) {
+        ticking.current = true;
+        window.requestAnimationFrame(update);
+      }
+    };
+
+    // initialize
+    lastY.current = window.scrollY;
+    prevAtTop.current = window.scrollY <= topEpsilon;
+    setAtTop(prevAtTop.current);
+    setVisible(initiallyVisible);
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [downTolerance, upTolerance, threshold, topEpsilon, initiallyVisible]);
+
+  return { atTop, visible };
 }

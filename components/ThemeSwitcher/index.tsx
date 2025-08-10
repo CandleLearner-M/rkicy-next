@@ -32,7 +32,7 @@ export default function ThemeSwitcher({ className, ariaLabel = 'Toggle Theme', i
    <Expand
       className={className}
       aria-label={ariaLabel}
-      toggled={isDarkMode}
+      toggled={!isDarkMode}
       toggle={() => setTheme(isDarkMode ? 'light': 'dark')}
       duration={duration}  
       style={{
