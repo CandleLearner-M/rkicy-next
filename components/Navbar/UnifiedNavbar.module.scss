@@ -742,40 +742,40 @@ $z-index: (
   // }
 }
 
-// Subtle glass effect for navbar
-.floatingNavbar {
-  background-size: 200% 200%;
+// // Subtle glass effect for navbar
+// .floatingNavbar {
+//   background-size: 200% 200%;
   
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    background: linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.03),
-      rgba(255, 255, 255, 0)
-    );
-    opacity: 0;
-    transition: opacity 0.4s $transition-standard;
-    pointer-events: none;
-    z-index: 1;
+//   &::before {
+//     content: '';
+//     position: absolute;
+//     inset: 0;
+//     border-radius: inherit;
+//     backdrop-filter: blur(12px);
+//     -webkit-backdrop-filter: blur(12px);
+//     background: linear-gradient(
+//       135deg,
+//       rgba(255, 255, 255, 0.03),
+//       rgba(255, 255, 255, 0)
+//     );
+//     opacity: 0;
+//     transition: opacity 0.4s $transition-standard;
+//     pointer-events: none;
+//     z-index: 1;
     
-    [data-theme="dark"] & {
-      background: linear-gradient(
-        135deg,
-        rgba(255, 255, 255, 0.05),
-        rgba(255, 255, 255, 0)
-      );
-    }
-  }
+//     [data-theme="dark"] & {
+//       background: linear-gradient(
+//         135deg,
+//         rgba(255, 255, 255, 0.05),
+//         rgba(255, 255, 255, 0)
+//       );
+//     }
+//   }
   
-  &:hover::before {
-    opacity: 1;
-  }
-}
+//   &:hover::before {
+//     opacity: 1;
+//   }
+// }
 
 // Fix for Safari backdrop-filter
 @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
