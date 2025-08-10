@@ -1,56 +1,16 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { 
-  BrainCircuit, 
-  Cloud, 
-  Shield, 
-  ChevronRight, 
-  Code 
-} from "lucide-react";
-import Link from "next/link";
-import styles from "./ServicesPreview.module.scss";
+import { useRef } from 'react';
+import Link from 'next/link';
+import { useLocale, useTranslations } from 'next-intl';
+import { motion } from 'framer-motion';
+import { ArrowUpRight, Brain, Code, Database, Server } from 'lucide-react';
+import styles from './ServicesPreview.module.scss';
 
-const ServicesPreview = () => {
-  const [isInView, setIsInView] = useState(false);
-  
-  // Set isInView after component mount to trigger animations
-  useEffect(() => {
-    setIsInView(true);
-  }, []);
-  
-  // Featured services (subset of all services)
-  const featuredServices = [
-    {
-      id: 'ai-solutions',
-      icon: <BrainCircuit size={32} />,
-      name: 'AI Solutions',
-      description: 'Transforming business operations with intelligent automation, data analytics, and machine learning solutions tailored for Moroccan enterprises.',
-      popular: true
-    },
-    {
-      id: 'cloud-solutions',
-      icon: <Cloud size={32} />,
-      name: 'Cloud Solutions',
-      description: 'Accelerate your digital transformation with our enterprise-grade cloud solutions designed for scalability, security, and performance.',
-      popular: true
-    },
-    {
-      id: 'cybersecurity',
-      icon: <Shield size={32} />,
-      name: 'Cybersecurity',
-      description: 'Protect your business with advanced cybersecurity solutions that safeguard your data, infrastructure, and digital assets from evolving threats.',
-      popular: false
-    },
-    {
-      id: 'software-development',
-      icon: <Code size={32} />,
-      name: 'Software Development',
-      description: 'Custom software solutions designed and developed to address your unique business challenges and opportunities.',
-      popular: false
-    }
-  ];
+export default function ServicesPreview() {
+  const locale = useLocale();
+  const t = useTranslations('duplicate');
+  const containerRef = useRef<HTMLDivElement>(null);
 
   // Animation variants
   const containerVariants = {
@@ -58,99 +18,137 @@ const ServicesPreview = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.15,
         delayChildren: 0.2,
       }
     }
   };
-  
+
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
+    hidden: { y: 20, opacity: 0 },
+    visible: {
       y: 0,
-      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
+      opacity: 1,
+      transition: {
+        type: 'spring',
+        stiffness: 100,
+        damping: 15
+      }
     }
   };
 
+  const serviceCardVariants = {
+    hidden: { y: 30, opacity: 0 },
+    visible: (i: number) => ({
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: 'spring',
+        stiffness: 80,
+        damping: 20,
+        delay: 0.2 + (i * 0.1),
+      }
+    }),
+    hover: {
+      y: -5,
+      transition: {
+        type: 'spring',
+        stiffness: 400,
+        damping: 20
+      }
+    }
+  };
+
+  const services = [
+    {
+      id: '01',
+      title: t('services.ai.title'),
+      description: t('services.ai.description'),
+      icon: <Brain className={styles.serviceIcon} />,
+    },
+    {
+      id: '02',
+      title: t('services.web.title'),
+      description: t('services.web.description'),
+      icon: <Code className={styles.serviceIcon} />,
+    },
+    {
+      id: '03',
+      title: t('services.sap.title'),
+      description: t('services.sap.description'),
+      icon: <Database className={styles.serviceIcon} />,
+    },
+    {
+      id: '04',
+      title: t('services.hardware.title'),
+      description: t('services.hardware.description'),
+      icon: <Server className={styles.serviceIcon} />,
+    }
+  ];
+
   return (
-    <section className={styles.servicesPreview}>
+    <section className={styles.servicesSection} ref={containerRef}>
       <div className={styles.container}>
-        {/* Decorative elements */}
-        <div className={styles.decorPattern}></div>
-        <div className={styles.decorBlur}></div>
-        
-        {/* Section header */}
-        <motion.div 
-          className={styles.sectionHeader}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+        <motion.div
+          className={styles.contentWrapper}
           variants={containerVariants}
-        >
-          <motion.h6 className={styles.overline} variants={itemVariants}>
-            Our Expertise
-          </motion.h6>
-          <motion.h2 className={styles.heading} variants={itemVariants}>
-            Comprehensive <span className={styles.highlight}>IT Solutions</span> for Business Success
-          </motion.h2>
-          <motion.p className={styles.subheading} variants={itemVariants}>
-            We deliver enterprise-grade technology services and solutions tailored to your specific business needs.
-          </motion.p>
-        </motion.div>
-        
-        {/* Services grid */}
-        <motion.div 
-          className={styles.servicesGrid}
           initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          variants={containerVariants}
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
         >
-          {featuredServices.map((service, index) => (
-            <motion.div 
-              key={service.id}
-              className={styles.serviceCard}
-              variants={itemVariants}
-              whileHover={{ 
-                y: -8,
-                boxShadow: "0 20px 40px rgba(0, 0, 0, 0.1)",
-                transition: { duration: 0.3 }
-              }}
-            >
-              <div className={styles.serviceHeader}>
-                <div className={styles.serviceIcon}>
+          <motion.div className={styles.headingWrapper} variants={itemVariants}>
+            <div className={styles.labelWrapper}>
+              <motion.span 
+                className={styles.overline}
+                initial={{ width: 0 }}
+                whileInView={{ width: "100%" }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, ease: "easeInOut", delay: 0.2 }}
+              >
+                {t('services.label')}
+              </motion.span>
+            </div>
+            <h2 className={styles.heading}>
+              {t('services.title')}{' '}
+              <span className={styles.highlightTxt}>{t('services.highlighted')}</span>{' '}
+              {t('services.title2')}
+            </h2>
+            <p className={styles.subheading}>{t('services.subtitle')}</p>
+          </motion.div>
+
+          <div className={styles.servicesContainer}>
+            {services.map((service, index) => (
+              <motion.div 
+                key={service.id}
+                className={styles.serviceCard}
+                custom={index}
+                variants={serviceCardVariants}
+                initial="hidden"
+                whileInView="visible"
+                whileHover="hover"
+                viewport={{ once: true, margin: "-50px" }}
+              >
+                <div className={styles.serviceHeader}>
                   {service.icon}
                 </div>
-                {service.popular && (
-                  <span className={styles.popularBadge}>Popular</span>
-                )}
-              </div>
-              <h3 className={styles.serviceName}>{service.name}</h3>
-              <p className={styles.serviceDescription}>
-                {service.description}
-              </p>
-              <Link href={`/services/${service.id}`} className={styles.serviceLink}>
-                <span>Learn more</span>
-                <ChevronRight size={16} />
-              </Link>
-            </motion.div>
-          ))}
-        </motion.div>
-        
-        {/* View all services CTA */}
-        <motion.div 
-          className={styles.viewAllContainer}
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-        >
-          <Link href="/services" className={styles.viewAllButton}>
-            <span>Explore All Services</span>
-            <ChevronRight size={20} />
-          </Link>
+                <h3 className={styles.serviceTitle}>{service.title}</h3>
+                <p className={styles.serviceDescription}>{service.description}</p>
+                <div className={styles.serviceGlow} />
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div 
+            className={styles.ctaContainer}
+            variants={itemVariants}
+          >
+            <Link href={`/${locale}/services`} className={styles.servicesCta}>
+              <span>{t('services.exploreAll')}</span>
+              <ArrowUpRight className={styles.ctaIcon} size={18} />
+            </Link>
+          </motion.div>
         </motion.div>
       </div>
     </section>
   );
-};
-
-export default ServicesPreview;
+}

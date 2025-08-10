@@ -1,83 +1,196 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import styles from "./PartnersPreview.module.scss";
+import { useRef } from 'react';
+import Image from 'next/image';
+import { useTranslations } from 'next-intl';
+import { motion } from 'framer-motion';
+import { Shield, Award } from 'lucide-react';
+import styles from './PartnersSection.module.scss';
 
-// Featured partners data
-const featuredPartners = [
-  { id: "zebra", name: "Zebra Technologies", logo: "/icons/zebra.svg" },
-  { id: "sap", name: "SAP", logo: "/icons/sap.svg" },
-  { id: "microsoft", name: "Microsoft", logo: "/icons/microsoft.svg" },
-  { id: "openai", name: "OpenAI", logo: "/icons/openai.svg" }
-];
+export default function PartnersSection() {
+  const t = useTranslations('duplicate');
+  const containerRef = useRef<HTMLDivElement>(null);
 
-export default function PartnersPreview() {
-  const [isInView, setIsInView] = useState(false);
-  
-  useEffect(() => {
-    setIsInView(true);
-  }, []);
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: 'spring',
+        stiffness: 100,
+        damping: 15
+      }
+    }
+  };
+
+  const logoVariants = {
+    hidden: { scale: 0.95, opacity: 0 },
+    visible: (i: number) => ({
+      scale: 1,
+      opacity: 1,
+      transition: {
+        type: 'spring',
+        stiffness: 80,
+        damping: 20,
+        delay: 0.3 + (i * 0.1),
+      }
+    }),
+    hover: {
+      y: -5,
+      transition: {
+        type: 'spring',
+        stiffness: 400,
+        damping: 20
+      }
+    }
+  };
+
+  const partners = [
+    {
+      id: '01',
+      name: 'Zebra Technologies',
+      description: t('partners.zebra.description'),
+      logo: '/icons/zebra.svg',
+      badge: t('partners.zebra.badge'),
+      icon: <Shield className={styles.partnerIcon} />,
+    },
+    {
+      id: '02',
+      name: 'OpenAI',
+      description: t('partners.openai.description'),
+      logo: '/icons/openai.svg',
+      badge: t('partners.openai.badge'),
+      icon: <Award className={styles.partnerIcon} />,
+    },
+    {
+      id: '03',
+      name: 'SAP',
+      description: t('partners.sap.description'),
+      logo: '/icons/sap.svg',
+      badge: t('partners.sap.badge'),
+      icon: <Award className={styles.partnerIcon} />,
+    }
+  ];
 
   return (
-    <section className={styles.partnersPreview}>
+    <section className={styles.partnersSection} ref={containerRef}>
       <div className={styles.container}>
-        <div className={styles.decorPattern}></div>
-        
-        <motion.div 
-          className={styles.sectionHeader}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }}
-          transition={{ duration: 0.6 }}
+        <motion.div
+          className={styles.contentWrapper}
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
         >
-          <h2 className={styles.sectionTitle}>
-            Our Strategic <span className={styles.highlight}>Partners</span>
-          </h2>
-          <p className={styles.sectionSubtitle}>
-            We collaborate with global technology leaders to deliver world-class solutions to the Moroccan market
-          </p>
-        </motion.div>
+          <motion.div className={styles.headingWrapper} variants={itemVariants}>
+            <div className={styles.labelWrapper}>
+              <motion.span 
+                className={styles.overline}
+                initial={{ width: 0 }}
+                whileInView={{ width: "100%" }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, ease: "easeInOut", delay: 0.2 }}
+              >
+                {t('partners.label')}
+              </motion.span>
+            </div>
+            <h2 className={styles.heading}>
+              {t('partners.title')}{' '}
+              <span className={styles.highlightTxt}>{t('partners.highlighted')}</span>{' '}
+              {t('partners.title2')}
+            </h2>
+            <p className={styles.subheading}>{t('partners.subtitle')}</p>
+          </motion.div>
         
-        <div className={styles.partnersContainer}>
-          {featuredPartners.map((partner, index) => (
+          <motion.div variants={itemVariants} className={styles.description}>
+            <p>{t('partners.description')}</p>
+            <motion.div
+              className={styles.highlight}
+              initial={{ width: 0 }}
+              whileInView={{ width: "100%" }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.2, ease: "easeInOut", delay: 0.5 }}
+            />
+          </motion.div>
+
+          <div className={styles.featuredPartner}>
             <motion.div 
-              key={partner.id}
-              className={styles.partnerCard}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 30 }}
-              transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-              whileHover={{ y: -8, boxShadow: "0 20px 40px rgba(0, 0, 0, 0.1)" }}
+              className={styles.featuredCard}
+              variants={itemVariants}
             >
-              <div className={styles.logoContainer}>
-                <Image 
-                  src={partner.logo} 
-                  alt={partner.name} 
-                  width={120} 
-                  height={60} 
-                  className={styles.partnerLogo}
-                />
+              <div className={styles.featuredContent}>
+                <div className={styles.badgeWrapper}>
+                  <span className={styles.badge}>
+                    <Shield size={14} />
+                    {t('partners.featuredBadge')}
+                  </span>
+                </div>
+                <h3 className={styles.featuredTitle}>{t('partners.zebra.title')}</h3>
+                <p className={styles.featuredDescription}>{t('partners.zebra.longDescription')}</p>
               </div>
-              <h3 className={styles.partnerName}>{partner.name}</h3>
+              <motion.div 
+                className={styles.featuredLogo}
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: 0.5 }}
+              >
+                <div className={styles.logoWrapper}>
+                  <Image 
+                    src="/icons/zebra.svg" 
+                    alt="Zebra Technologies Logo" 
+                    width={180} 
+                    height={60} 
+                    className={styles.logo}
+                  />
+                </div>
+              </motion.div>
+              <div className={styles.featuredGlow} />
             </motion.div>
-          ))}
-        </div>
-        
-        <motion.div 
-          className={styles.ctaContainer}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-        >
-          <p className={styles.ctaText}>
-            Our partnerships enable us to provide cutting-edge solutions tailored to your needs
-          </p>
-          <Link href="/partners" className={styles.viewAllButton}>
-            <span>Explore All Partners</span>
-            <ArrowRight size={18} />
-          </Link>
+          </div>
+
+          <motion.h3 
+            className={styles.partnersSectionTitle}
+            variants={itemVariants}
+          >
+            {t('partners.trustedPartners')}
+          </motion.h3>
+
+          <div className={styles.partnersLogosContainer}>
+            {partners.map((partner, index) => (
+              <motion.div 
+                key={partner.id}
+                className={styles.partnerLogoCard}
+                custom={index}
+                variants={logoVariants}
+                whileHover="hover"
+              >
+                <div className={styles.logoContainer}>
+                  <Image 
+                    src={partner.logo} 
+                    alt={`${partner.name} Logo`} 
+                    width={140} 
+                    height={50}
+                    className={styles.partnerLogo} 
+                  />
+                </div>
+                <div className={styles.logoGlow} />
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>

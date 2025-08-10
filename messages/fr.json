@@ -355,5 +355,57 @@
     "innovation": "Nous restons à la pointe de la technologie pour proposer des solutions avant-gardistes répondant aux défis numériques de nos clients.",
     "partnership": "Nous construisons des relations durables avec nos clients, devenant une véritable extension de leur équipe dans leur parcours digital.",
     "learnMore": "Découvrir notre histoire"
-  }
+  },
+  "duplicate": {
+    "services": {
+      "label": "Notre Expertise",
+      "title": "",
+      "highlighted": "Solutions IT ",
+      "title2": "complètes pour la réussite de l'entreprise",
+      "subtitle": "Notre gamme complète de services offre tous les outils nécessaires pour transformer votre entreprise et rester en avance dans l'ère numérique.",
+      "exploreAll": "Explorer tous les services",
+      "ai": {
+        "title": "Intelligence Artificielle & Automation",
+        "description": "Solutions intelligentes pour analyser, automatiser et améliorer vos opérations avec l'IA de pointe."
+      },
+      "web": {
+        "title": "Développement Web & Mobile",
+        "description": "Plateformes numériques évolutives, construites avec performance et expérience utilisateur à l'esprit."
+      },
+      "sap": {
+        "title": "Conseil SAP & IT",
+        "description": "Support et conseil de niveau industriel pour les systèmes ERP et feuilles de route numériques complètes."
+      },
+      "hardware": {
+        "title": "Solutions Matérielles Entreprise",
+        "description": "Partenaires officiels de Zebra Technologies et revendeurs de grandes marques comme Dell et HP."
+      }
+    },
+    "partners": {
+      "label": "Nos Partenaires",
+      "title": "Partenaires",
+      "highlighted": "Technologiques",
+      "title2": "de Classe Mondiale",
+      "subtitle": "Construire l'avenir numérique du Maroc avec des partenariats de premier plan",
+      "description": "Nous sommes fiers d'être partenaires de Zebra Technologies et travaillons en étroite collaboration avec des marques de classe mondiale pour fournir du matériel et des infrastructures IT fiables à travers le Maroc.",
+      "featuredBadge": "Partenaire Officiel",
+      "trustedPartners": "Nos Partenaires Technologiques",
+      "zebra": {
+        "title": "Partenaire Officiel de Zebra Technologies",
+        "badge": "Partenaire Officiel",
+        "description": "Solutions matérielles de niveau entreprise",
+        "longDescription": "En tant que partenaire officiel de Zebra Technologies, nous fournissons des solutions matérielles de pointe qui aident les entreprises à optimiser leurs opérations, améliorer l'efficacité et offrir des expériences client exceptionnelles. Notre certification garantit des produits authentiques avec une garantie et un support complets."
+      },
+      "openai": {
+        "title": "Fournisseur de Solutions OpenAI",
+        "badge": "Partenaire d'Innovation",
+        "description": "Implémentation de solutions d'IA avancées pour transformer les entreprises par l'automatisation, l'analyse de données et les flux de travail intelligents."
+      },
+      "sap": {
+        "title": "Partenaire Conseil SAP",
+        "badge": "Partenaire Conseil",
+        "description": "Implémentation et support expert pour les solutions SAP, aidant les entreprises à optimiser leurs opérations et à réaliser leur transformation numérique."
+      }
+    }
+  } 
 }

@@ -10,7 +10,7 @@ const PARTNER_LOGOS = [
   { name: "zebra", src: "/icons/zebra.svg", width: 130 },
   { name: "openai", src: "/icons/openai.svg", width: 140 },
   { name: "sap", src: "/icons/sap.svg", width: 100 },
-  { name: "microsoft", src: "/icons/microsoft.svg", width: 140 },
+  // { name: "microsoft", src: "/icons/microsoft.svg", width: 140 },
 ];
 
 export default function PartnerLogos() {

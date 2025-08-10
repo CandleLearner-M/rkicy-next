@@ -476,5 +476,59 @@
     "innovation": "We stay at the cutting edge of technology to deliver forward-thinking solutions that address our clients' evolving digital challenges.",
     "partnership": "We build lasting relationships with our clients, becoming an extension of their team throughout their digital journey.",
     "learnMore": "Discover our story"
+  },
+
+  "duplicate" : {
+     "services": {
+        "label": "Our Expertise",
+        "title": "Comprehensive ",
+        "highlighted": "IT Solutions ",
+        "title2": "for Business Success",
+        "subtitle": "Our comprehensive range of services provides all the tools you need to transform your business and stay ahead in the digital age.",
+        "exploreAll": "Explore all services",
+        "ai": {
+          "title": "Artificial Intelligence & Automation",
+          "description": "Smart solutions to analyze, automate, and improve your operations with cutting-edge AI technology."
+        },
+        "web": {
+          "title": "Web & Mobile Development",
+          "description": "Scalable digital platforms, built with performance and user experience in mind for modern businesses."
+        },
+        "sap": {
+          "title": "SAP & IT Consulting",
+          "description": "Industry-grade support and consulting for ERP systems and comprehensive digital roadmaps."
+        },
+        "hardware": {
+          "title": "Enterprise Hardware Solutions",
+          "description": "Official partners of Zebra Technologies and resellers of major brands like Dell & HP for all your hardware needs."
+        }
+      },
+      "partners": {
+        "label": "Our Partners",
+        "title": "World-Class",
+        "highlighted": "Technology",
+        "title2": "Partners",
+        "subtitle": "Building the digital future of Morocco with industry-leading partnerships",
+        "description": "We are proud partners of Zebra Technologies, and work closely with world-class brands to deliver trusted hardware and IT infrastructure across Morocco.",
+        "featuredBadge": "Official Partner",
+        "trustedPartners": "Our Technology Partners",
+        "zebra": {
+          "title": "Official Zebra Technologies Partner",
+          "badge": "Official Partner",
+          "description": "Enterprise-grade hardware solutions",
+          "longDescription": "As an official partner of Zebra Technologies, we provide cutting-edge enterprise hardware solutions that help businesses optimize their operations, improve efficiency, and deliver exceptional customer experiences. Our certification ensures you receive genuine products with full warranty and support."
+        },
+        "openai": {
+          "title": "OpenAI Solutions Provider",
+          "badge": "Innovation Partner",
+          "description": "Implementing advanced AI solutions to transform businesses through automation, data analysis, and intelligent workflows."
+        },
+        "sap": {
+          "title": "SAP Consulting Partner",
+          "badge": "Consulting Partner",
+          "description": "Expert implementation and support for SAP solutions, helping businesses streamline operations and achieve digital transformation."
+        }
+      }
   }
+  
 }
