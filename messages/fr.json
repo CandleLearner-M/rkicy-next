@@ -343,5 +343,17 @@
             "microsoft": "Logo Microsoft"
           }
         }
+  },
+  "aboutHero": {
+    "label": "Votre Partenaire IT de Confiance",
+    "title": "Propulsons Ensemble Votre Transformation ",
+    "highlighted": "Numérique",
+    "title2": "",
+    "subtitle": "Expertise locale, vision globale, impact durable",
+    "description": "Fondée en 2023, Rkicy Technology combine l'innovation technologique avec une connaissance approfondie du marché marocain pour offrir des solutions IT sur mesure, de l'IA au matériel d'entreprise.",
+    "expertise": "Notre équipe apporte des années d'expérience en solutions IT, développement d'IA et matériel d'entreprise, pour garantir des résultats exceptionnels.",
+    "innovation": "Nous restons à la pointe de la technologie pour proposer des solutions avant-gardistes répondant aux défis numériques de nos clients.",
+    "partnership": "Nous construisons des relations durables avec nos clients, devenant une véritable extension de leur équipe dans leur parcours digital.",
+    "learnMore": "Découvrir notre histoire"
   }
 }
