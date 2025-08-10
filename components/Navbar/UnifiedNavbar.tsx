@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion, LayoutGroup } from 'framer-motion';
+import { motion, LayoutGroup, AnimatePresence } from 'framer-motion';
 import { Globe } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
@@ -54,8 +54,12 @@ export default function UnifiedNavbar(): JSX.Element | null {
     { name: t('navigation.contact'), href: `/${locale}/contact` },
   ];
 
-  // Motion variants simplified to transform/opacity only (no width/backdropFilter)
+  // Motion variants with entrance animation
   const navbarVariants = {
+    initial: {
+      y: -30,
+      opacity: 0,
+    },
     hero: {
       y: 0,
       opacity: 1,
@@ -66,10 +70,71 @@ export default function UnifiedNavbar(): JSX.Element | null {
       opacity: 1,
     },
     hidden: {
-      y: -20, // less jumpy than -100
+      y: -20,
       opacity: 0,
     },
   } as const;
+
+  // Logo variants for entrance animation
+  const logoVariants = {
+    initial: { opacity: 0, y: -10 },
+    animate: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { 
+        duration: 0.5, 
+        ease: [0.23, 1, 0.32, 1] 
+      }
+    }
+  };
+
+  // Navigation links staggered entrance
+  const navLinksContainerVariants = {
+    initial: { opacity: 0 },
+    animate: { 
+      opacity: 1,
+      transition: { 
+        staggerChildren: 0.05,
+        delayChildren: 0.2,
+      }
+    }
+  };
+
+  const navLinkItemVariants = {
+    initial: { opacity: 0, y: -10 },
+    animate: { 
+      opacity: 1, 
+      y: 0,
+      transition: { 
+        duration: 0.4, 
+        ease: [0.23, 1, 0.32, 1] 
+      }
+    }
+  };
+
+  // Actions container variants
+  const navActionsVariants = {
+    initial: { opacity: 0 },
+    animate: { 
+      opacity: 1,
+      transition: { 
+        staggerChildren: 0.1,
+        delayChildren: 0.3,
+      }
+    }
+  };
+
+  const navActionItemVariants = {
+    initial: { opacity: 0, scale: 0.9 },
+    animate: { 
+      opacity: 1, 
+      scale: 1,
+      transition: { 
+        duration: 0.4, 
+        ease: [0.23, 1, 0.32, 1] 
+      }
+    }
+  };
 
   const currentVariant = atTop ? 'hero' : visible ? 'floating' : 'hidden';
 
@@ -77,65 +142,93 @@ export default function UnifiedNavbar(): JSX.Element | null {
     <div className={styles.navbarWrapper}>
       <div className={styles.container}>
         <LayoutGroup>
-          <motion.nav
-            className={`${styles.navbar} ${atTop ? styles.heroNavbar : styles.floatingNavbar}`}
-            initial={false} // avoid mount animation flicker
-            animate={currentVariant}
-            variants={navbarVariants}
-            transition={{ type: 'tween', duration: 0.35, ease: [0.23, 1, 0.32, 1] }}
-            role="navigation"
-            aria-label={t('navigation.mainNavigation')}
-            // layout removed to reduce reflow work
-            style={{ transform: 'translateZ(0)' }} // promote to its own layer
-          >
-            <div className={styles.logoContainer}>
-              <Link href={`/${locale}`} className={styles.logo} aria-label={t('navigation.home')}>
-                <Logo />
-              </Link>
-            </div>
+          <AnimatePresence>
+            <motion.nav
+              className={`${styles.navbar} ${atTop ? styles.heroNavbar : styles.floatingNavbar}`}
+              initial="initial"
+              animate={currentVariant}
+              variants={navbarVariants}
+              transition={{ type: 'tween', duration: 0.35, ease: [0.23, 1, 0.32, 1] }}
+              role="navigation"
+              aria-label={t('navigation.mainNavigation')}
+              style={{ transform: 'translateZ(0)' }}
+            >
+              <motion.div 
+                className={styles.logoContainer}
+                variants={logoVariants}
+                initial="initial"
+                animate="animate"
+              >
+                <Link href={`/${locale}`} className={styles.logo} aria-label={t('navigation.home')}>
+                  <Logo />
+                </Link>
+              </motion.div>
 
-            <div className={styles.desktopNav}>
-              <ul className={styles.navLinks}>
-                {navLinks.map((link) => {
-                  const active = pathname === link.href;
-                  return (
-                    <li key={link.name} className={`${styles.navItem} ${active ? styles.active : ''}`}>
-                      <Link
-                        href={link.href}
-                        className={`${styles.navLink} ${active ? styles.active : ''}`}
-                        aria-current={active ? 'page' : undefined}
+              <div className={styles.desktopNav}>
+                <motion.ul 
+                  className={styles.navLinks}
+                  variants={navLinksContainerVariants}
+                  initial="initial"
+                  animate="animate"
+                >
+                  {navLinks.map((link) => {
+                    const active = pathname === link.href;
+                    return (
+                      <motion.li 
+                        key={link.name} 
+                        className={`${styles.navItem} ${active ? styles.active : ''}`}
+                        variants={navLinkItemVariants}
                       >
-                        <span>{link.name}</span>
-                        {active && <div className={styles.activeIndicator} />}
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-
-            <div className={styles.navActions}>
-              <div className={styles.languageSwitcher}>
-                <LanguageSwitcher variant="premium" />
+                        <Link
+                          href={link.href}
+                          className={`${styles.navLink} ${active ? styles.active : ''}`}
+                          aria-current={active ? 'page' : undefined}
+                        >
+                          <span>{link.name}</span>
+                          {active && <div className={styles.activeIndicator} />}
+                        </Link>
+                      </motion.li>
+                    );
+                  })}
+                </motion.ul>
               </div>
 
-              <button
-                className={styles.languageToggle}
-                onClick={toggleLanguage}
-                aria-label={t('language.switch')}
+              <motion.div 
+                className={styles.navActions}
+                variants={navActionsVariants}
+                initial="initial"
+                animate="animate"
               >
-                <Globe size={18} className={styles.globeIcon} />
-                <span className={styles.currentLanguage}>{locale.toUpperCase()}</span>
-              </button>
+                <motion.div 
+                  className={styles.languageSwitcher}
+                  variants={navActionItemVariants}
+                >
+                  <LanguageSwitcher variant="premium" />
+                </motion.div>
 
-              <ThemeSwitcher
-                className={styles.themeToggle}
-                ariaLabel={theme === 'dark' ? t('theme.switchToLight') : t('theme.switchToDark')}
-                iconSize={22}
-                duration={500}
-              />
-            </div>
-          </motion.nav>
+                <motion.button
+                  className={styles.languageToggle}
+                  onClick={toggleLanguage}
+                  aria-label={t('language.switch')}
+                  variants={navActionItemVariants}
+                >
+                  <Globe size={18} className={styles.globeIcon} />
+                  <span className={styles.currentLanguage}>{locale.toUpperCase()}</span>
+                </motion.button>
+
+                <motion.div
+                  variants={navActionItemVariants}
+                >
+                  <ThemeSwitcher
+                    className={styles.themeToggle}
+                    ariaLabel={theme === 'dark' ? t('theme.switchToLight') : t('theme.switchToDark')}
+                    iconSize={22}
+                    duration={500}
+                  />
+                </motion.div>
+              </motion.div>
+            </motion.nav>
+          </AnimatePresence>
         </LayoutGroup>
       </div>
     </div>
