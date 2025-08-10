@@ -672,26 +672,6 @@ $z-index: (
   }
 }
 
-.themeIconWrapper {
-  position: relative;
-  width: 20px;
-  height: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1;
-}
-
-.themeIcon {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-}
 
 // CSS-based link hover effect for floating nav
 // .floatingNavbar .navLink {

@@ -59,6 +59,7 @@ export default function UnifiedNavbar(): JSX.Element | null {
     hero: {
       y: 0,
       opacity: 1,
+      boxShadow: 'none',
     },
     floating: {
       y: 0,
