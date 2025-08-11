@@ -528,6 +528,31 @@
           "badge": "Consulting Partner",
           "description": "Expert implementation and support for SAP solutions, helping businesses streamline operations and achieve digital transformation."
         }
+      },
+      "testimonials": {
+        "label": "Client Stories",
+        "title": "What Our",
+        "highlighted": "Clients",
+        "title2": "Say About Us",
+        "subtitle": "Discover how our solutions have transformed businesses across Morocco",
+        "previous": "Previous testimonial",
+        "next": "Next testimonial",
+        "goto": "Go to testimonial",
+        "trustedBy": "Trusted by leading organizations",
+        "roles": {
+          "cto": "Chief Technology Officer",
+          "ceo": "Chief Executive Officer",
+          "director": "IT Director",
+          "it": "Head of IT Infrastructure",
+          "operations": "Operations Director"
+        },
+        "quotes": {
+          "mohammed": "Rkicy Technology transformed our medical diagnostics platform with their AI expertise. Their team delivered a solution that has reduced diagnosis time by 40% and improved accuracy by 30%. They truly understand how to leverage technology to solve real-world problems.",
+          "leila": "Working with Rkicy on our digital transformation was a game-changer. Their SAP implementation was flawless, and their team provided exceptional training. We now have complete visibility across our operations and have increased our operational efficiency by 25%.",
+          "omar": "Partnering with Rkicy for our logistics management system was one of our best decisions. Their custom mobile solution allows real-time tracking and has drastically improved our delivery times. Their support team is responsive and always available when needed.",
+          "amina": "As a financial institution, security and reliability are paramount. Rkicy Technology provided us with enterprise hardware solutions that not only met our strict requirements but also improved our system performance. Their attention to detail and follow-up support has been exceptional.",
+          "karim": "The enterprise hardware solutions provided by Rkicy have revolutionized our port operations. As Zebra Technologies partners, they delivered premium equipment with local support that's been invaluable. Their understanding of our complex workflows made implementation seamless."
+        }
       }
   }
   
