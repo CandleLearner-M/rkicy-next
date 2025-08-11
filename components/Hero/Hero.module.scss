@@ -17,24 +17,13 @@ $premium-border-light: rgba(226, 232, 240, 0.8);
 $premium-border-dark: rgba(45, 55, 72, 0.8);
 
 .hero {
-  position: relative;
-  overflow: hidden;
-  padding: 10rem 0 6rem;
-  padding-bottom: 4rem;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  min-height: 100dvh;
   background-color: $premium-bg-light;
   
   [data-theme="dark"] & {
     background-color: $premium-bg-dark;
   }
   
-  @media (max-width: $breakpoint-md) {
-    padding: 6rem 0 4rem;
-    padding-bottom: 3rem;
-    min-height: 90vh;
-  }
 }
 
 // Background elements
