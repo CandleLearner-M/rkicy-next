@@ -6,48 +6,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Quote, Star } from 'lucide-react';
 import styles from './TestimonialsSection.module.scss';
 
-export default function TestimonialsSection() {
-  const t = useTranslations('duplicate');
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [activeTestimonial, setActiveTestimonial] = useState(0);
-  const [isAutoplay, setIsAutoplay] = useState(true);
-  const autoplayRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: 'spring',
-        stiffness: 100,
-        damping: 15
-      }
-    }
-  };
-
+ // Animation variants removed for scroll triggers
+  
+  // We'll keep the exit animation for testimonial cards (not scroll-based)
   const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.7,
-        ease: [0.22, 1, 0.36, 1]
-      }
-    },
     exit: { 
       opacity: 0,
       y: -20,
@@ -56,9 +19,18 @@ export default function TestimonialsSection() {
         ease: [0.22, 1, 0.36, 1]
       }
     }
-  };
+  } as const;
 
-  const testimonials = [
+  
+
+
+export default function TestimonialsSection() {
+  const t = useTranslations('duplicate');
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
+  const [isAutoplay, setIsAutoplay] = useState(true);
+  const autoplayRef = useRef<NodeJS.Timeout | null>(null);
+const testimonials = [
     {
       id: '01',
       name: 'Karim Idrissi',
@@ -110,7 +82,7 @@ export default function TestimonialsSection() {
       rating: 5,
     }
   ];
-
+ 
   // Handle autoplay
   useEffect(() => {
     if (isAutoplay) {
@@ -172,24 +144,12 @@ export default function TestimonialsSection() {
   return (
     <section className={styles.testimonialsSection} ref={containerRef}>
       <div className={styles.container}>
-        <motion.div
-          className={styles.contentWrapper}
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          <motion.div className={styles.headingWrapper} variants={itemVariants}>
+        <div className={styles.contentWrapper}>
+          <div className={styles.headingWrapper}>
             <div className={styles.labelWrapper}>
-              <motion.span 
-                className={styles.overline}
-                initial={{ width: 0 }}
-                whileInView={{ width: "100%" }}
-                viewport={{ once: true }}
-                transition={{ duration: 1, ease: "easeInOut", delay: 0.2 }}
-              >
+              <span className={styles.overline}>
                 {t('testimonials.label')}
-              </motion.span>
+              </span>
             </div>
             <h2 className={styles.heading}>
               {t('testimonials.title')}{' '}
@@ -197,7 +157,7 @@ export default function TestimonialsSection() {
               {t('testimonials.title2')}
             </h2>
             <p className={styles.subheading}>{t('testimonials.subtitle')}</p>
-          </motion.div>
+          </div>
 
           <div className={styles.testimonialCarousel}>
             <div className={styles.testimonialCardWrapper}>
@@ -282,10 +242,7 @@ export default function TestimonialsSection() {
             </div>
           </div>
 
-          <motion.div 
-            className={styles.trustedBySection}
-            variants={itemVariants}
-          >
+          <div className={styles.trustedBySection}>
             <div className={styles.trustedLine}>
               <div className={styles.trustedLineBefore} />
               <h3 className={styles.trustedTitle}>{t('testimonials.trustedBy')}</h3>
@@ -301,29 +258,16 @@ export default function TestimonialsSection() {
                 'Attijariwafa Bank', 
                 'Groupe Renault Maroc'
               ].map((org, index) => (
-                <motion.div 
+                <div 
                   key={index} 
                   className={styles.organizationItem}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ 
-                    opacity: 1, 
-                    y: 0,
-                    transition: { 
-                      delay: 0.3 + index * 0.1,
-                      duration: 0.6,
-                      ease: [0.22, 1, 0.36, 1]
-                    }
-                  }}
-                  viewport={{ once: true }}
                 >
                   {org}
-                  <div className={styles.glow} />
-                  
-                </motion.div>
+                </div>
               ))}
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -3,7 +3,6 @@
 import { useRef } from 'react';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
 import { ArrowUpRight, Brain, Zap, Users } from 'lucide-react';
 import styles from './AboutPreview.module.scss';
 
@@ -11,53 +10,6 @@ export default function AboutPreview() {
   const locale = useLocale();
   const t = useTranslations('');
   const containerRef = useRef<HTMLDivElement>(null);
-
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: 'spring',
-        stiffness: 100,
-        damping: 15
-      }
-    }
-  };
-
-  const cardVariants = {
-    hidden: { y: 30, opacity: 0 },
-    visible: (i: number) => ({
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: 'spring',
-        stiffness: 80,
-        damping: 20,
-        delay: 0.3 + (i * 0.1),
-      }
-    }),
-    hover: {
-      y: -8,
-      transition: {
-        type: 'spring',
-        stiffness: 400,
-        damping: 20
-      }
-    }
-  };
 
   const pillars = [
     {
@@ -83,52 +35,30 @@ export default function AboutPreview() {
   return (
     <section className={styles.aboutUsSection} ref={containerRef}>
       <div className={styles.container}>
-        <motion.div
-          className={styles.contentWrapper}
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          <motion.div className={styles.headingWrapper} variants={itemVariants}>
+        <div className={styles.contentWrapper}>
+          <div className={styles.headingWrapper}>
             <div className={styles.labelWrapper}>
-              <motion.span 
-                className={styles.overline}
-                initial={{ width: 0 }}
-                whileInView={{ width: "100%" }}
-                viewport={{ once: true }}
-                transition={{ duration: 1, ease: "easeInOut", delay: 0.2 }}
-              >
+              <span className={styles.overline}>
                 {t('aboutHero.label')}
-              </motion.span>
+              </span>
             </div>
-            <h2 className={styles.heading}>{t('aboutHero.title')}
-            <span className={styles.highlightTxt}>{t('aboutHero.highlighted')}</span>{' '}
-            {t('aboutHero.title2')}
+            <h2 className={styles.heading}>{t('aboutHero.title')}{' '}
+              <span className={styles.highlightTxt}>{t('aboutHero.highlighted')}</span>{' '}
+              {t('aboutHero.title2')}
             </h2>
             <p className={styles.subheading}>{t('aboutHero.subtitle')}</p>
-          </motion.div>
+          </div>
 
-        
-          <motion.div variants={itemVariants} className={styles.description}>
+          <div className={styles.description}>
             <p>{t('aboutHero.description')}</p>
-            <motion.div
-              className={styles.highlight}
-              initial={{ width: 0 }}
-              whileInView={{ width: "100%" }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.2, ease: "easeInOut", delay: 0.5 }}
-            />
-          </motion.div>
+            <div className={styles.highlight} />
+          </div>
 
           <div className={styles.pillarsContainer}>
-            {pillars.map((pillar, index) => (
-              <motion.div 
+            {pillars.map((pillar) => (
+              <div 
                 key={pillar.id}
                 className={styles.pillarCard}
-                custom={index}
-                variants={cardVariants}
-                whileHover="hover"
               >
                 <div className={styles.pillarHeader}>
                   <span className={styles.pillarId}>{pillar.id}</span>
@@ -137,20 +67,17 @@ export default function AboutPreview() {
                 <h3 className={styles.pillarTitle}>{pillar.title}</h3>
                 <p className={styles.pillarDescription}>{pillar.description}</p>
                 <div className={styles.pillarGlow} />
-              </motion.div>
+              </div>
             ))}
           </div>
 
-          <motion.div 
-            className={styles.ctaContainer}
-            variants={itemVariants}
-          >
+          <div className={styles.ctaContainer}>
             <Link href={`/${locale}/about`} className={styles.aboutCta}>
               <span>{t('aboutHero.learnMore')}</span>
               <ArrowUpRight className={styles.ctaIcon} size={18} />
             </Link>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );

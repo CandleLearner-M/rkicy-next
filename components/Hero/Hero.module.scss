@@ -20,6 +20,7 @@ $premium-border-dark: rgba(45, 55, 72, 0.8);
   position: relative;
   overflow: hidden;
   padding: 10rem 0 6rem;
+  padding-bottom: 4rem;
   min-height: 85vh;
   display: flex;
   flex-direction: column;
@@ -31,6 +32,7 @@ $premium-border-dark: rgba(45, 55, 72, 0.8);
   
   @media (max-width: $breakpoint-md) {
     padding: 6rem 0 4rem;
+    padding-bottom: 3rem;
     min-height: 90vh;
   }
 }

@@ -246,8 +246,6 @@ $transition-standard: cubic-bezier(0.23, 1, 0.32, 1);
     }
     
 
-  
-  
   @media (max-width: $breakpoint-md) {
     padding: 2.5rem;
   }
@@ -512,7 +510,7 @@ $transition-standard: cubic-bezier(0.23, 1, 0.32, 1);
   &.active {
     width: 24px;
     border-radius: 4px;
-    background: var(--accent-color);
+    background: #134cca;
   }
 }
 
