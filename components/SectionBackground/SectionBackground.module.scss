@@ -16,14 +16,14 @@ $bg-dark-subtle: #111111;
   width: 100%;
   overflow: hidden;
   z-index: 1;
-  padding: 7rem 0;
+  padding: 4rem 0;
   
   @media (max-width: $breakpoint-md) {
-    padding: 5rem 0;
+    padding: 2.5rem 0;
   }
   
   @media (max-width: $breakpoint-sm) {
-    padding: 4rem 0;
+    padding: 2rem 0;
   }
 }
 
