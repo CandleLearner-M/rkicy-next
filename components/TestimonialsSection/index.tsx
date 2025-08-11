@@ -251,7 +251,6 @@ const testimonials = [
             
             <div className={styles.organizationsList}>
               {[
-                'Bank Al-Maghrib', 
                 'Office Chérifien des Phosphates', 
                 'Maroc Telecom', 
                 'Royal Air Maroc', 

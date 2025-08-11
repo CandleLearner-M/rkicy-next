@@ -14,16 +14,16 @@ $transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
 
 .partnersSection {
   width: 100%;
-  padding: 8rem 0;
+  padding: 4rem 0;
   position: relative;
   overflow: hidden;
   
   @media (max-width: $breakpoint-md) {
-    padding: 6rem 0;
+    padding: 2.5rem 0;
   }
   
   @media (max-width: $breakpoint-sm) {
-    padding: 4rem 0;
+    padding: 2rem 0;
   }
 }
 

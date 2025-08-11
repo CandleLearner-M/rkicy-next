@@ -15,16 +15,16 @@ $transition-standard: cubic-bezier(0.23, 1, 0.32, 1);
 // Section styling
 .testimonialsSection {
   width: 100%;
-  padding: 8rem 0;
+  padding: 4rem 0;
   position: relative;
   overflow: hidden;
   
   @media (max-width: $breakpoint-md) {
-    padding: 6rem 0;
+    padding: 2.5rem 0;
   }
   
   @media (max-width: $breakpoint-sm) {
-    padding: 4rem 0;
+    padding: 2rem 0;
   }
 }
 
@@ -78,30 +78,13 @@ $transition-standard: cubic-bezier(0.23, 1, 0.32, 1);
   display: inline-block;
   font-size: 1rem;
   font-weight: 600;
-  color: $premium-primary;
+  color: $primary;
   margin: 0 0 1rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  padding: 0.5rem 1.25rem;
-  border-radius: 100px;
-  background: linear-gradient(
-    to right,
-    rgba($premium-gradient-start, 0.08),
-    rgba($premium-gradient-end, 0.12)
-  );
   
   [data-theme="dark"] & {
-    color: lighten($premium-gradient-start, 15%);
-    background: linear-gradient(
-      to right,
-      rgba($premium-gradient-start, 0.15),
-      rgba($premium-gradient-end, 0.2)
-    );
-  }
-  
-  @media (max-width: $breakpoint-md) {
-    font-size: 0.85rem;
-    padding: 0.45rem 1rem;
+    color: $primary-light;
   }
 }
 
