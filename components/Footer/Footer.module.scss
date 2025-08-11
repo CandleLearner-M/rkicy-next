@@ -3,10 +3,32 @@
   background-color: #0a0a0a; // Deep dark background
   color: #f8f9fa;
   overflow: hidden;
+
+   &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      linear-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+      linear-gradient(to right, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: -1;
+    opacity: 0.5;
+    
+    [data-theme="dark"] & {
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      opacity: 0.3;
+    }
+  }
   
   // Keep dark background in both themes
   [data-theme="dark"] & {
-    background-color: #111827; // Slightly different shade for dark mode
+    background-color: #111111; // Slightly different shade for dark mode
   }
 }
 

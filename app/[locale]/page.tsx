@@ -5,7 +5,6 @@ import PartnersPreview from "@/components/PartnersPreview";
 import SectionBackground from "@/components/SectionBackground/SectionBackground";
 import ServicesPreview from "@/components/ServicesPreview/ServicesPreview";
 import TestimonialsSection from "@/components/TestimonialsSection";
-import { Section } from "lucide-react";
 
 
 export default function Home() {
