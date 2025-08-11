@@ -456,8 +456,8 @@ $transition-standard: cubic-bezier(0.23, 1, 0.32, 1);
   
   &:hover {
     background: rgba(var(--accent-color), 0.1);
-    border-color: rgba(var(--accent-color), 0.3);
-    color: var(--accent-color);
+    border-color: rgba($premium-secondary, 0.3);
+    color: $premium-secondary;
     transform: translateY(-2px);
     
     [data-theme="light"] & {

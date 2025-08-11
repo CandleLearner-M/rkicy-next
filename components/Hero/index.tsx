@@ -1,29 +1,26 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import MobileHero from "./MobileHero";
 import DesktopHero from "./DesktopHero";
+import { useScreenSize } from "@/utils/useScreenSize";
+import styles from './Hero.module.scss';
 
 export default function Hero() {
-  const [isMounted, setIsMounted] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const { isDesktop, isMobile, isTablet, isMounted } = useScreenSize();
   
-  useEffect(() => {
-    setIsMounted(true);
-    
-    const checkDevice = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    
-    checkDevice();
-    window.addEventListener('resize', checkDevice);
-    
-    return () => {
-      window.removeEventListener('resize', checkDevice);
-    };
-  }, []);
+  // Show a placeholder with similar height during mounting
+  if (!isMounted) {
+    return <div className={styles.hero} aria-hidden="true">
+      <div className={styles.backgroundElements}>
+        <div className={styles.gridOverlay}></div>
+      </div>
+    </div>;
+  }
   
-  if (!isMounted) return null;
-  
-  return isMobile ? <MobileHero /> : <DesktopHero />;
+  return (
+    <>
+      {(isMobile || isTablet) && <MobileHero />}
+      {isDesktop && <DesktopHero />}
+    </>
+  );
 }

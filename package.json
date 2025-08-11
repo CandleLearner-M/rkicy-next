@@ -23,6 +23,7 @@
     "nextjs-toploader": "^3.8.16",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+    "react-responsive": "^10.0.1",
     "sass": "^1.89.2",
     "sharp": "^0.34.3",
     "three": "^0.178.0"

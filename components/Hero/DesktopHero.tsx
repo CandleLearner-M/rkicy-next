@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import { useLocale, useTranslations } from 'next-intl';
-import styles from "./Hero.module.scss";
+import styles from "./DesktopHero.module.scss";
 import PartnerLogos from "./PartnerLogos";
 
 export default function DesktopHero() {
@@ -37,43 +37,12 @@ export default function DesktopHero() {
     },
   };
   
-  const shapeVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: (i) => ({
-      opacity: 1,
-      scale: 1,
-      transition: {
-        delay: i * 0.2 + 0.3,
-        duration: 0.8,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    }),
-  };
 
   return (
     <section className={styles.heroSection} ref={ref}>
+      
       <div className={styles.backgroundElements}>
-        <motion.div 
-          className={styles.backgroundShape1}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          custom={0}
-          variants={shapeVariants}
-        />
-        <motion.div 
-          className={styles.backgroundShape2}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          custom={1}
-          variants={shapeVariants}
-        />
-        <motion.div 
-          className={styles.backgroundShape3}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          custom={2}
-          variants={shapeVariants}
-        />
+        <div className={styles.gridOverlay}></div>
       </div>
       
       <div className={styles.contentContainer}>

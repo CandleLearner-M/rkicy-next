@@ -12,43 +12,8 @@ export default function ServicesPreview() {
   const t = useTranslations('duplicate');
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: 'spring',
-        stiffness: 100,
-        damping: 15
-      }
-    }
-  };
-
+  // Only keeping hover animation variant
   const serviceCardVariants = {
-    hidden: { y: 30, opacity: 0 },
-    visible: (i: number) => ({
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: 'spring',
-        stiffness: 80,
-        damping: 20,
-        delay: 0.2 + (i * 0.1),
-      }
-    }),
     hover: {
       y: -5,
       transition: {
@@ -89,24 +54,12 @@ export default function ServicesPreview() {
   return (
     <section className={styles.servicesSection} ref={containerRef}>
       <div className={styles.container}>
-        <motion.div
-          className={styles.contentWrapper}
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          <motion.div className={styles.headingWrapper} variants={itemVariants}>
+        <div className={styles.contentWrapper}>
+          <div className={styles.headingWrapper}>
             <div className={styles.labelWrapper}>
-              <motion.span 
-                className={styles.overline}
-                initial={{ width: 0 }}
-                whileInView={{ width: "100%" }}
-                viewport={{ once: true }}
-                transition={{ duration: 1, ease: "easeInOut", delay: 0.2 }}
-              >
+              <span className={styles.overline}>
                 {t('services.label')}
-              </motion.span>
+              </span>
             </div>
             <h2 className={styles.heading}>
               {t('services.title')}{' '}
@@ -114,19 +67,15 @@ export default function ServicesPreview() {
               {t('services.title2')}
             </h2>
             <p className={styles.subheading}>{t('services.subtitle')}</p>
-          </motion.div>
+          </div>
 
           <div className={styles.servicesContainer}>
             {services.map((service, index) => (
               <motion.div 
                 key={service.id}
                 className={styles.serviceCard}
-                custom={index}
                 variants={serviceCardVariants}
-                initial="hidden"
-                whileInView="visible"
                 whileHover="hover"
-                viewport={{ once: true, margin: "-50px" }}
               >
                 <div className={styles.serviceHeader}>
                   {service.icon}
@@ -138,16 +87,13 @@ export default function ServicesPreview() {
             ))}
           </div>
 
-          <motion.div 
-            className={styles.ctaContainer}
-            variants={itemVariants}
-          >
+          <div className={styles.ctaContainer}>
             <Link href={`/${locale}/services`} className={styles.servicesCta}>
               <span>{t('services.exploreAll')}</span>
               <ArrowUpRight className={styles.ctaIcon} size={18} />
             </Link>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );
