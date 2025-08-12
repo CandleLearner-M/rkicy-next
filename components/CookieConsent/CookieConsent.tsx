@@ -7,6 +7,7 @@ import { X, CheckCircle, Info, Shield, ChartBar, Target } from 'lucide-react';
 import styles from './CookieConsent.module.scss';
 
 export default function CookieConsent() {
+  const t = useTranslations('cookies');
   const locale = useLocale();
   const [showConsent, setShowConsent] = useState(false);
   const [activeTab, setActiveTab] = useState('overview');
@@ -85,11 +86,11 @@ export default function CookieConsent() {
     <div className={styles.cookieConsentOverlay}>
       <div className={styles.cookieConsentModal}>
         <div className={styles.modalHeader}>
-          <h3>Paramètres de confidentialité</h3>
+          <h3>{t('modal.title')}</h3>
           <button 
             className={styles.closeButton} 
             onClick={() => savePreferences()}
-            aria-label="Close"
+            aria-label={t('actions.close')}
           >
             <X size={20} />
           </button>
@@ -100,13 +101,13 @@ export default function CookieConsent() {
             className={`${styles.tabButton} ${activeTab === 'overview' ? styles.active : ''}`}
             onClick={() => setActiveTab('overview')}
           >
-            Aperçu
+            {t('tabs.overview')}
           </button>
           <button 
             className={`${styles.tabButton} ${activeTab === 'details' ? styles.active : ''}`}
             onClick={() => setActiveTab('details')}
           >
-            Détails et préférences
+            {t('tabs.details')}
           </button>
         </div>
         
@@ -117,36 +118,32 @@ export default function CookieConsent() {
                 <Shield size={40} className={styles.shieldIcon} />
               </div>
               
-              <h4>Nous respectons votre vie privée</h4>
+              <h4>{t('overview.title')}</h4>
               
               <p>
-                Nous utilisons des cookies pour améliorer votre expérience de navigation, 
-                personnaliser le contenu et les publicités, fournir des fonctionnalités de 
-                médias sociaux et analyser notre trafic. Nous partageons également des informations 
-                sur votre utilisation de notre site avec nos partenaires de médias sociaux, 
-                de publicité et d'analyse.
+                {t('overview.description')}
               </p>
               
               <p className={styles.essentialNote}>
                 <Info size={16} />
-                <span>Les cookies essentiels sont toujours actifs car ils sont nécessaires au fonctionnement du site.</span>
+                <span>{t('overview.essentialNote')}</span>
               </p>
               
               <div className={styles.overviewActions}>
                 <button className={styles.secondaryButton} onClick={() => setActiveTab('details')}>
-                  Personnaliser
+                  {t('actions.customize')}
                 </button>
                 <button className={styles.primaryButton} onClick={acceptAll}>
-                  Tout accepter
+                  {t('actions.acceptAll')}
                 </button>
               </div>
               
               <div className={styles.legalLinks}>
-                <Link href={`/${locale}/cookies`}>Politique de cookies</Link>
+                <Link href={`/${locale}/cookies`}>{t('links.cookiePolicy')}</Link>
                 <span className={styles.dot}>•</span>
-                <Link href={`/${locale}/privacy`}>Politique de confidentialité</Link>
+                <Link href={`/${locale}/privacy`}>{t('links.privacyPolicy')}</Link>
                 <span className={styles.dot}>•</span>
-                <Link href={`/${locale}/terms`}>Conditions d'utilisation</Link>
+                <Link href={`/${locale}/terms`}>{t('links.terms')}</Link>
               </div>
             </div>
           ) : (
@@ -156,20 +153,20 @@ export default function CookieConsent() {
                   <div className={styles.categoryHeader}>
                     <div className={styles.categoryInfo}>
                       <Shield size={20} className={styles.categoryIcon} />
-                      <h4>Cookies essentiels</h4>
+                      <h4>{t('categories.essential.title')}</h4>
                     </div>
                     <div className={`${styles.toggle} ${styles.disabled}`}>
                       <div className={styles.toggleSlider}></div>
                     </div>
                   </div>
-                  <p>Nécessaires au fonctionnement du site. Ils ne peuvent pas être désactivés.</p>
+                  <p>{t('categories.essential.description')}</p>
                 </div>
                 
                 <div className={styles.cookieCategory}>
                   <div className={styles.categoryHeader}>
                     <div className={styles.categoryInfo}>
                       <ChartBar size={20} className={styles.categoryIcon} />
-                      <h4>Cookies de performance</h4>
+                      <h4>{t('categories.performance.title')}</h4>
                     </div>
                     <button
                       className={`${styles.toggle} ${preferences.performance ? styles.active : ''}`}
@@ -179,14 +176,14 @@ export default function CookieConsent() {
                       <div className={styles.toggleSlider}></div>
                     </button>
                   </div>
-                  <p>Nous aident à comprendre comment les visiteurs interagissent avec notre site, à mesurer les performances et à améliorer l'expérience utilisateur.</p>
+                  <p>{t('categories.performance.description')}</p>
                 </div>
                 
                 <div className={styles.cookieCategory}>
                   <div className={styles.categoryHeader}>
                     <div className={styles.categoryInfo}>
                       <Target size={20} className={styles.categoryIcon} />
-                      <h4>Cookies de marketing</h4>
+                      <h4>{t('categories.marketing.title')}</h4>
                     </div>
                     <button
                       className={`${styles.toggle} ${preferences.marketing ? styles.active : ''}`}
@@ -196,16 +193,16 @@ export default function CookieConsent() {
                       <div className={styles.toggleSlider}></div>
                     </button>
                   </div>
-                  <p>Utilisés pour vous présenter des publicités pertinentes sur d'autres sites web et pour mesurer l'efficacité de nos campagnes promotionnelles.</p>
+                  <p>{t('categories.marketing.description')}</p>
                 </div>
               </div>
               
               <div className={styles.detailsActions}>
                 <button className={styles.secondaryButton} onClick={() => savePreferences()}>
-                  Enregistrer les préférences
+                  {t('actions.savePreferences')}
                 </button>
                 <button className={styles.primaryButton} onClick={acceptAll}>
-                  Tout accepter
+                  {t('actions.acceptAll')}
                 </button>
               </div>
             </div>
@@ -215,7 +212,7 @@ export default function CookieConsent() {
         {saved && (
           <div className={styles.savedConfirmation}>
             <CheckCircle size={18} />
-            <span>Préférences enregistrées</span>
+            <span>{t('notifications.saved')}</span>
           </div>
         )}
       </div>

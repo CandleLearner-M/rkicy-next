@@ -694,6 +694,49 @@
           "content": "We may update this Cookie Policy from time to time to reflect changes in technology, regulation, or our business practices."
         }
       }
+      
+    }
+  },
+  "cookies": {
+    "modal": {
+      "title": "Privacy Settings"
+    },
+    "tabs": {
+      "overview": "Overview",
+      "details": "Details & Preferences"
+    },
+    "overview": {
+      "title": "We Respect Your Privacy",
+      "description": "We use cookies to enhance your browsing experience, personalize content and ads, provide social media features, and analyze our traffic. We also share information about your site usage with our social media, advertising, and analytics partners.",
+      "essentialNote": "Essential cookies are always active as they are necessary for the website to function."
+    },
+    "categories": {
+      "essential": {
+        "title": "Essential Cookies",
+        "description": "Necessary for the website to function. They cannot be disabled."
+      },
+      "performance": {
+        "title": "Performance Cookies",
+        "description": "Help us understand how visitors interact with our site, measure performance, and improve the user experience."
+      },
+      "marketing": {
+        "title": "Marketing Cookies",
+        "description": "Used to display relevant advertisements on other websites and to measure the effectiveness of our promotional campaigns."
+      }
+    },
+    "actions": {
+      "customize": "Customize",
+      "acceptAll": "Accept All",
+      "savePreferences": "Save Preferences",
+      "close": "Close"
+    },
+    "links": {
+      "cookiePolicy": "Cookie Policy",
+      "privacyPolicy": "Privacy Policy",
+      "terms": "Terms of Service"
+    },
+    "notifications": {
+      "saved": "Preferences saved"
     }
   }
   

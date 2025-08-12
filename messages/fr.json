@@ -573,5 +573,47 @@
         }
       }
     }
+  },
+  "cookies": {
+    "modal": {
+      "title": "Paramètres de confidentialité"
+    },
+    "tabs": {
+      "overview": "Aperçu",
+      "details": "Détails et préférences"
+    },
+    "overview": {
+      "title": "Nous respectons votre vie privée",
+      "description": "Nous utilisons des cookies pour améliorer votre expérience de navigation, personnaliser le contenu et les publicités, fournir des fonctionnalités de médias sociaux et analyser notre trafic. Nous partageons également des informations sur votre utilisation de notre site avec nos partenaires de médias sociaux, de publicité et d'analyse.",
+      "essentialNote": "Les cookies essentiels sont toujours actifs car ils sont nécessaires au fonctionnement du site."
+    },
+    "categories": {
+      "essential": {
+        "title": "Cookies essentiels",
+        "description": "Nécessaires au fonctionnement du site. Ils ne peuvent pas être désactivés."
+      },
+      "performance": {
+        "title": "Cookies de performance",
+        "description": "Nous aident à comprendre comment les visiteurs interagissent avec notre site, à mesurer les performances et à améliorer l'expérience utilisateur."
+      },
+      "marketing": {
+        "title": "Cookies de marketing",
+        "description": "Utilisés pour vous présenter des publicités pertinentes sur d'autres sites web et pour mesurer l'efficacité de nos campagnes promotionnelles."
+      }
+    },
+    "actions": {
+      "customize": "Personnaliser",
+      "acceptAll": "Tout accepter",
+      "savePreferences": "Enregistrer les préférences",
+      "close": "Fermer"
+    },
+    "links": {
+      "cookiePolicy": "Politique de cookies",
+      "privacyPolicy": "Politique de confidentialité",
+      "terms": "Conditions d'utilisation"
+    },
+    "notifications": {
+      "saved": "Préférences enregistrées"
+    }
   }
 }
