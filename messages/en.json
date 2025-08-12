@@ -554,6 +554,147 @@
           "karim": "The enterprise hardware solutions provided by Rkicy have revolutionized our port operations. As Zebra Technologies partners, they delivered premium equipment with local support that's been invaluable. Their understanding of our complex workflows made implementation seamless."
         }
       }
+  },
+    "footer": {
+    "company": {
+      "description": "Leading Morocco's digital transformation with enterprise-grade IT solutions, from AI to hardware. Empowering businesses across Morocco and beyond.",
+      "contact": {
+        "phone": "+212 6 88 18 32 10",
+        "email": "contact@rkicy.tech",
+        "location": "Rabat, Morocco"
+      }
+    },
+    "links": {
+      "company": {
+        "title": "Company",
+        "about": "About Us",
+        "projects": "Projects",
+        "contact": "Contact"
+      },
+      "services": {
+        "title": "Services",
+        "ai": "AI Solutions",
+        "enterprise": "Enterprise IT",
+        "webMobile": "Web & Mobile Development",
+        "sap": "SAP & IT Consulting",
+        "hardware": "Hardware"
+      },
+      "resources": {
+        "title": "Resources",
+        "caseStudies": "Case Studies (coming soon)",
+        "partners": "Partners",
+        "testimonials": "Testimonials"
+      }
+    },
+    "newsletter": {
+      "title": "Subscribe to Our Newsletter",
+      "description": "Stay updated with our latest news, insights, and tech innovations.",
+      "placeholder": "Your email address",
+      "success": "Thank you for subscribing!",
+      "error": "Please enter a valid email address."
+    },
+    "certifications": {
+      "iso": {
+        "prefix": "ISO",
+        "value": "27001"
+      },
+      "cmmi": {
+        "prefix": "CMMI",
+        "value": "Level 3"
+      }
+    },
+    "partners": {
+      "title": "Trusted by Industry Leaders"
+    },
+    "bottom": {
+      "copyright": "© {year} Rkicy Technology. All rights reserved.",
+      "terms": "Terms of Service",
+      "privacy": "Privacy Policy",
+      "cookies": "Cookies"
+    }
+  },
+  "legal": {
+    "terms": {
+      "title": "Terms of Service",
+      "lastUpdated": "Last Updated: August 12, 2025",
+      "introduction": "Welcome to Rkicy Technology. By accessing our website or using our services, you agree to these Terms of Service.",
+      "sections": {
+        "acceptance": {
+          "title": "1. Acceptance of Terms",
+          "content": "By accessing and using Rkicy Technology's website, products, or services, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service."
+        },
+        "services": {
+          "title": "2. Services Description",
+          "content": "Rkicy Technology provides various IT solutions including AI, web development, SAP consulting, and hardware solutions. We reserve the right to modify, suspend, or discontinue any aspect of our services at any time."
+        },
+        "intellectualProperty": {
+          "title": "3. Intellectual Property",
+          "content": "All content on this website, including but not limited to text, graphics, logos, icons, images, audio clips, digital downloads, and software, is the property of Rkicy Technology and is protected by international copyright laws."
+        },
+        "limitation": {
+          "title": "4. Limitation of Liability",
+          "content": "Rkicy Technology shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use or inability to use our services."
+        },
+        "governing": {
+          "title": "5. Governing Law",
+          "content": "These Terms shall be governed by the laws of Morocco without regard to its conflict of law provisions."
+        }
+      }
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "lastUpdated": "Last Updated: August 12, 2025",
+      "introduction": "This Privacy Policy describes how Rkicy Technology collects, uses, and discloses your information when you use our website or services.",
+      "sections": {
+        "information": {
+          "title": "1. Information We Collect",
+          "content": "We may collect personal information such as your name, email address, phone number, and company information when you interact with our website or services."
+        },
+        "usage": {
+          "title": "2. How We Use Your Information",
+          "content": "We use your information to provide and improve our services, communicate with you, and comply with legal obligations."
+        },
+        "sharing": {
+          "title": "3. Information Sharing",
+          "content": "We do not sell your personal information. We may share your information with service providers who help us operate our business and deliver services to you."
+        },
+        "security": {
+          "title": "4. Data Security",
+          "content": "We implement appropriate security measures to protect your personal information from unauthorized access, alteration, disclosure, or destruction."
+        },
+        "rights": {
+          "title": "5. Your Rights",
+          "content": "Depending on your location, you may have the right to access, correct, delete, or export your personal information."
+        }
+      }
+    },
+    "cookies": {
+      "title": "Cookie Policy",
+      "lastUpdated": "Last Updated: August 12, 2025",
+      "introduction": "This Cookie Policy explains how Rkicy Technology uses cookies and similar technologies on our website.",
+      "sections": {
+        "what": {
+          "title": "1. What Are Cookies",
+          "content": "Cookies are small text files that are stored on your device when you visit a website. They are widely used to make websites work more efficiently and provide information to the website owners."
+        },
+        "types": {
+          "title": "2. Types of Cookies We Use",
+          "content": "We use essential cookies necessary for the website to function, performance cookies to analyze site usage, and marketing cookies to track visitors across websites."
+        },
+        "control": {
+          "title": "3. How to Control Cookies",
+          "content": "Most web browsers allow you to control cookies through their settings. You can delete existing cookies, allow or block all cookies, or block cookies from particular websites."
+        },
+        "thirdParty": {
+          "title": "4. Third-Party Cookies",
+          "content": "Our website may use third-party services that set their own cookies, such as Google Analytics or social media sharing buttons."
+        },
+        "updates": {
+          "title": "5. Updates to This Policy",
+          "content": "We may update this Cookie Policy from time to time to reflect changes in technology, regulation, or our business practices."
+        }
+      }
+    }
   }
   
 }

@@ -432,5 +432,146 @@
         "karim": "Les solutions matérielles d'entreprise fournies par Rkicy ont révolutionné nos opérations portuaires. En tant que partenaires de Zebra Technologies, ils ont livré des équipements premium avec un support local inestimable. Leur compréhension de nos flux de travail complexes a rendu l'implémentation transparente."
       }
     }
-  } 
+  },
+    "footer": {
+    "company": {
+      "description": "Leader de la transformation numérique au Maroc avec des solutions informatiques de niveau entreprise, de l'IA au matériel. Nous accompagnons les entreprises à travers le Maroc et au-delà.",
+      "contact": {
+        "phone": "+212 6 88 18 32 10",
+        "email": "contact@rkicy.tech",
+        "location": "Rabat, Maroc"
+      }
+    },
+    "links": {
+      "company": {
+        "title": "Entreprise",
+        "about": "À propos de nous",
+        "projects": "Projets",
+        "contact": "Contact"
+      },
+      "services": {
+        "title": "Services",
+        "ai": "Solutions d'IA",
+        "enterprise": "Informatique d'entreprise",
+        "webMobile": "Développement Web & Mobile",
+        "sap": "SAP & Conseil IT",
+        "hardware": "Matériel informatique"
+      },
+      "resources": {
+        "title": "Ressources",
+        "caseStudies": "Études de cas (à venir)",
+        "partners": "Partenaires",
+        "testimonials": "Témoignages"
+      }
+    },
+    "newsletter": {
+      "title": "Abonnez-vous à notre newsletter",
+      "description": "Restez informé de nos dernières actualités, insights et innovations technologiques.",
+      "placeholder": "Votre adresse e-mail",
+      "success": "Merci pour votre abonnement !",
+      "error": "Veuillez saisir une adresse e-mail valide."
+    },
+    "certifications": {
+      "iso": {
+        "prefix": "ISO",
+        "value": "27001"
+      },
+      "cmmi": {
+        "prefix": "CMMI",
+        "value": "Niveau 3"
+      }
+    },
+    "partners": {
+      "title": "Reconnu par les leaders de l'industrie"
+    },
+    "bottom": {
+      "copyright": "© {year} Rkicy Technology. Tous droits réservés.",
+      "terms": "Conditions d'utilisation",
+      "privacy": "Politique de confidentialité",
+      "cookies": "Cookies"
+    }
+  },
+  "legal": {
+    "terms": {
+      "title": "Conditions d'utilisation",
+      "lastUpdated": "Dernière mise à jour : 12 août 2025",
+      "introduction": "Bienvenue chez Rkicy Technology. En accédant à notre site web ou en utilisant nos services, vous acceptez ces Conditions d'utilisation.",
+      "sections": {
+        "acceptance": {
+          "title": "1. Acceptation des conditions",
+          "content": "En accédant et en utilisant le site web, les produits ou les services de Rkicy Technology, vous reconnaissez avoir lu, compris et accepté d'être lié par ces Conditions d'utilisation."
+        },
+        "services": {
+          "title": "2. Description des services",
+          "content": "Rkicy Technology fournit diverses solutions informatiques, notamment dans l'IA, le développement web, le conseil SAP et les solutions matérielles. Nous nous réservons le droit de modifier, suspendre ou interrompre tout aspect de nos services à tout moment."
+        },
+        "intellectualProperty": {
+          "title": "3. Propriété intellectuelle",
+          "content": "Tout le contenu de ce site web, y compris, mais sans s'y limiter, les textes, graphiques, logos, icônes, images, clips audio, téléchargements numériques et logiciels, est la propriété de Rkicy Technology et est protégé par les lois internationales sur le droit d'auteur."
+        },
+        "limitation": {
+          "title": "4. Limitation de responsabilité",
+          "content": "Rkicy Technology ne sera pas responsable des dommages indirects, accessoires, spéciaux, consécutifs ou punitifs résultant de votre utilisation ou de votre incapacité à utiliser nos services."
+        },
+        "governing": {
+          "title": "5. Loi applicable",
+          "content": "Ces conditions sont régies par les lois du Maroc, sans tenir compte de ses dispositions en matière de conflit de lois."
+        }
+      }
+    },
+    "privacy": {
+      "title": "Politique de confidentialité",
+      "lastUpdated": "Dernière mise à jour : 12 août 2025",
+      "introduction": "Cette politique de confidentialité décrit comment Rkicy Technology collecte, utilise et divulgue vos informations lorsque vous utilisez notre site web ou nos services.",
+      "sections": {
+        "information": {
+          "title": "1. Informations que nous collectons",
+          "content": "Nous pouvons collecter des informations personnelles telles que votre nom, adresse e-mail, numéro de téléphone et informations d'entreprise lorsque vous interagissez avec notre site web ou nos services."
+        },
+        "usage": {
+          "title": "2. Comment nous utilisons vos informations",
+          "content": "Nous utilisons vos informations pour fournir et améliorer nos services, communiquer avec vous et nous conformer aux obligations légales."
+        },
+        "sharing": {
+          "title": "3. Partage d'informations",
+          "content": "Nous ne vendons pas vos informations personnelles. Nous pouvons partager vos informations avec des prestataires de services qui nous aident à exploiter notre entreprise et à vous fournir des services."
+        },
+        "security": {
+          "title": "4. Sécurité des données",
+          "content": "Nous mettons en œuvre des mesures de sécurité appropriées pour protéger vos informations personnelles contre tout accès, altération, divulgation ou destruction non autorisés."
+        },
+        "rights": {
+          "title": "5. Vos droits",
+          "content": "Selon votre emplacement, vous pouvez avoir le droit d'accéder, de corriger, de supprimer ou d'exporter vos informations personnelles."
+        }
+      }
+    },
+    "cookies": {
+      "title": "Politique de cookies",
+      "lastUpdated": "Dernière mise à jour : 12 août 2025",
+      "introduction": "Cette politique de cookies explique comment Rkicy Technology utilise les cookies et technologies similaires sur notre site web.",
+      "sections": {
+        "what": {
+          "title": "1. Que sont les cookies",
+          "content": "Les cookies sont de petits fichiers texte qui sont stockés sur votre appareil lorsque vous visitez un site web. Ils sont largement utilisés pour faire fonctionner les sites web plus efficacement et fournir des informations aux propriétaires du site."
+        },
+        "types": {
+          "title": "2. Types de cookies que nous utilisons",
+          "content": "Nous utilisons des cookies essentiels nécessaires au fonctionnement du site web, des cookies de performance pour analyser l'utilisation du site et des cookies marketing pour suivre les visiteurs sur les sites web."
+        },
+        "control": {
+          "title": "3. Comment contrôler les cookies",
+          "content": "La plupart des navigateurs web vous permettent de contrôler les cookies via leurs paramètres. Vous pouvez supprimer les cookies existants, autoriser ou bloquer tous les cookies, ou bloquer les cookies de sites particuliers."
+        },
+        "thirdParty": {
+          "title": "4. Cookies tiers",
+          "content": "Notre site web peut utiliser des services tiers qui définissent leurs propres cookies, tels que Google Analytics ou les boutons de partage sur les réseaux sociaux."
+        },
+        "updates": {
+          "title": "5. Mises à jour de cette politique",
+          "content": "Nous pouvons mettre à jour cette politique de cookies de temps à autre pour refléter les changements technologiques, réglementaires ou de nos pratiques commerciales."
+        }
+      }
+    }
+  }
 }

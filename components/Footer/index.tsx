@@ -12,21 +12,20 @@ import {
   Instagram, 
   Facebook,
   ChevronRight,
-  ArrowRight,
-  ArrowUp
+  ArrowRight
 } from 'lucide-react';
+import { useTranslations, useLocale } from 'next-intl';
 import styles from './Footer.module.scss';
-import Logo from '../Navbar/Logo';
 
 const Footer = () => {
+  const t = useTranslations('footer');
+  const locale = useLocale();
   const [email, setEmail] = useState('');
-  const [subscribeStatus, setSubscribeStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [subscribeStatus, setSubscribeStatus] = useState('idle');
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubscribe = (e) => {
     e.preventDefault();
     if (email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      // Here you would implement API call to subscribe
-      console.log('Subscribing:', email);
       setSubscribeStatus('success');
       setTimeout(() => setSubscribeStatus('idle'), 3000);
       setEmail('');
@@ -47,22 +46,10 @@ const Footer = () => {
 
   return (
     <footer className={styles.footer}>
-      
-      
-      {/* Main content */}
       <div className={styles.container}>
         <div className={styles.topSection}>
           {/* Company info */}
           <div className={styles.companyInfo}>
-            {/* <div className={styles.logoWrapper}>
-              <Image 
-                src="/icons/logo.svg" 
-                alt="Rkicy Technology"
-                width={140}
-                height={40}
-                className={styles.logo}
-              />
-            </div> */}
             <div className={styles.logo}>
               <Image
                 src="/rkicy-logo.svg"
@@ -75,22 +62,21 @@ const Footer = () => {
               <span className={styles.logospan}>Tech</span>
             </div>
             <p className={styles.companyDescription}>
-              Leading Morocco's digital transformation with enterprise-grade IT solutions,
-              from AI to hardware. Empowering businesses across Morocco and beyond.
+              {t('company.description')}
             </p>
             
             <div className={styles.contactInfo}>
               <div className={styles.contactItem}>
                 <Phone size={18} className={styles.contactIcon} />
-                <span>+212 6 88 18 32 10</span>
+                <span>{t('company.contact.phone')}</span>
               </div>
               <div className={styles.contactItem}>
                 <Mail size={18} className={styles.contactIcon} />
-                <span>contact@rkicy.tech</span>
+                <span>{t('company.contact.email')}</span>
               </div>
               <div className={styles.contactItem}>
                 <MapPin size={18} className={styles.contactIcon} />
-                <span>Rabat, Morocco</span>
+                <span>{t('company.contact.location')}</span>
               </div>
             </div>
             
@@ -114,66 +100,65 @@ const Footer = () => {
           <div className={styles.linksSection}>
             {/* Company links */}
             <div className={styles.linkColumn}>
-              <h3 className={styles.linkHeader}>Company</h3>
+              <h3 className={styles.linkHeader}>{t('links.company.title')}</h3>
               <ul className={styles.linkList}>
                 <li>
                   <ChevronRight size={16} className={styles.linkIcon} />
-                  <Link href="/about">About Us</Link>
+                  <Link href={`/${locale}/about`}>{t('links.company.about')}</Link>
                 </li>
                 <li>
                   <ChevronRight size={16} className={styles.linkIcon} />
-                  <Link href="/news">Projects</Link>
+                  <Link href={`/${locale}/projects`}>{t('links.company.projects')}</Link>
                 </li>
                 <li>
                   <ChevronRight size={16} className={styles.linkIcon} />
-                  <Link href="/contact">Contact</Link>
+                  <Link href={`/${locale}/contact`}>{t('links.company.contact')}</Link>
                 </li>
               </ul>
             </div>
             
             {/* Services links */}
             <div className={styles.linkColumn}>
-              <h3 className={styles.linkHeader}>Services</h3>
+              <h3 className={styles.linkHeader}>{t('links.services.title')}</h3>
               <ul className={styles.linkList}>
                 <li>
                   <ChevronRight size={16} className={styles.linkIcon} />
-                  <Link href="/services">AI Solutions</Link>
+                  <Link href={`/${locale}/services`}>{t('links.services.ai')}</Link>
                 </li>
                 <li>
                   <ChevronRight size={16} className={styles.linkIcon} />
-                  <Link href="/services">Enterprise IT</Link>
+                  <Link href={`/${locale}/services`}>{t('links.services.enterprise')}</Link>
                 </li>
                 <li>
                   <ChevronRight size={16} className={styles.linkIcon} />
-                  <Link href="/services">Web & Mobile Development</Link>
-
+                  <Link href={`/${locale}/services`}>{t('links.services.webMobile')}</Link>
                 </li>
                 <li>
                   <ChevronRight size={16} className={styles.linkIcon} />
-                  <Link href="/services/">SAP & IT Consulting</Link>
+                  <Link href={`/${locale}/services`}>{t('links.services.sap')}</Link>
                 </li>
                 <li>
                   <ChevronRight size={16} className={styles.linkIcon} />
-                  <Link href="/hardware">Hardware</Link>
+                  <Link href={`/${locale}/hardware`}>{t('links.services.hardware')}</Link>
                 </li>
               </ul>
             </div>
             
             {/* Resources links */}
             <div className={styles.linkColumn}>
-              <h3 className={styles.linkHeader}>Resources</h3>
+              <h3 className={styles.linkHeader}>{t('links.resources.title')}</h3>
               <ul className={styles.linkList}>
                 <li>
                   <ChevronRight size={16} className={styles.linkIcon} />
-                  <Link href='#'>Case Studies (coming soon)</Link>
+                  <Link href="#">{t('links.resources.caseStudies')}</Link>
                 </li>
                 <li>
                   <ChevronRight size={16} className={styles.linkIcon} />
-                  <Link href="#partners">Partners</Link>
+                  <Link href={`/${locale}/#partners`}>{t('links.resources.partners')}</Link>
                 </li>
                 <li>
                   <ChevronRight size={16} className={styles.linkIcon} />
-                  <Link href="#testimonials">Testimonials</Link>
+                  <Link href={`/${locale}/#testimonials`}>{t('links.resources.testimonials')}</Link>
                 </li>
               </ul>
             </div>
@@ -181,9 +166,9 @@ const Footer = () => {
           
           {/* Newsletter section */}
           <div className={styles.newsletterSection}>
-            <h3 className={styles.newsletterHeader}>Subscribe to Our Newsletter</h3>
+            <h3 className={styles.newsletterHeader}>{t('newsletter.title')}</h3>
             <p className={styles.newsletterText}>
-              Stay updated with our latest news, insights, and tech innovations.
+              {t('newsletter.description')}
             </p>
             
             <form onSubmit={handleSubscribe} className={styles.subscribeForm}>
@@ -192,7 +177,7 @@ const Footer = () => {
                   type="email" 
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Your email address" 
+                  placeholder={t('newsletter.placeholder')} 
                   className={styles.emailInput}
                   required 
                 />
@@ -203,13 +188,13 @@ const Footer = () => {
               
               {subscribeStatus === 'success' && (
                 <p className={styles.statusMessage + ' ' + styles.success}>
-                  Thank you for subscribing!
+                  {t('newsletter.success')}
                 </p>
               )}
               
               {subscribeStatus === 'error' && (
                 <p className={styles.statusMessage + ' ' + styles.error}>
-                  Please enter a valid email address.
+                  {t('newsletter.error')}
                 </p>
               )}
             </form>
@@ -217,14 +202,14 @@ const Footer = () => {
             <div className={styles.certifications}>
               <div className={styles.certBadge}>
                 <div className={styles.certContent}>
-                  <span>ISO</span>
-                  27001
+                  <span>{t('certifications.iso.prefix')}</span>
+                  {t('certifications.iso.value')}
                 </div>
               </div>
               <div className={styles.certBadge}>
                 <div className={styles.certContent}>
-                  <span>CMMI</span>
-                  Level 3
+                  <span>{t('certifications.cmmi.prefix')}</span>
+                  {t('certifications.cmmi.value')}
                 </div>
               </div>
             </div>
@@ -233,12 +218,11 @@ const Footer = () => {
         
         {/* Partners section */}
         <div className={styles.partnersSection}>
-          <h3 className={styles.partnerHeader}>Trusted by Industry Leaders</h3>
+          <h3 className={styles.partnerHeader}>{t('partners.title')}</h3>
           <div className={styles.partnerLogos}>
             <Image src="/icons/zebra.svg" alt="Zebra" width={120} height={40} />
             <Image src="/icons/openai.svg" alt="OpenAI" width={120} height={40} />
             <Image src="/icons/sap.svg" alt="SAP" width={120} height={40} />
-            {/* <Image src="/icons/microsoft.svg" alt="Microsoft" width={120} height={40} /> */}
           </div>
         </div>
         
@@ -247,18 +231,16 @@ const Footer = () => {
         {/* Bottom section */}
         <div className={styles.bottomSection}>
           <div className={styles.copyright}>
-            © {currentYear} Rkicy Technology. All rights reserved.
+            {t.rich('bottom.copyright', { year: currentYear })}
           </div>
           
           <div className={styles.legalLinks}>
-            <Link href="/terms">Terms of Service</Link>
+            <Link href={`/${locale}/terms`}>{t('bottom.terms')}</Link>
             <span className={styles.dot}>•</span>
-            <Link href="/privacy">Privacy Policy</Link>
+            <Link href={`/${locale}/privacy`}>{t('bottom.privacy')}</Link>
             <span className={styles.dot}>•</span>
-            <Link href="/cookies">Cookies</Link>
+            <Link href={`/${locale}/cookies`}>{t('bottom.cookies')}</Link>
           </div>
-          
-          
         </div>
       </div>
     </footer>

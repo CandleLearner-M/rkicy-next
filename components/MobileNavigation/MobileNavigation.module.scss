@@ -27,7 +27,6 @@ $premium-gradient-end: #8b5cf6;
   display: flex;
   height: $nav-height;
   background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(10px);
   box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.06);
   position: relative;
   z-index: 100;
@@ -200,7 +199,6 @@ $premium-gradient-end: #8b5cf6;
 // Expanded menu content
 .expandedMenu {
   background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(10px);
   padding: 16px;
   display: flex;
   flex-direction: column;
