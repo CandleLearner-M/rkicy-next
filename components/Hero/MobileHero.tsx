@@ -7,7 +7,6 @@ import { ChevronRight, Star } from "lucide-react";
 import { useLocale, useTranslations } from 'next-intl';
 import { useTheme } from 'next-themes';
 import styles from "./MobileHero.module.scss";
-import PartnerLogos from "./PartnerLogos";
 
 export default function MobileHero() {
   const ref = useRef(null);
