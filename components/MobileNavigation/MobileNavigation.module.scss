@@ -5,6 +5,8 @@ $nav-height: 64px;
 $nav-item-size: 50px;
 $nav-center-button-size: 58px;
 $expanded-menu-item-height: 56px;
+$premium-gradient-start: #2563eb;
+$premium-gradient-end: #8b5cf6;
 
 // Main container for mobile navigation
 .mobileNavigation {
@@ -144,7 +146,12 @@ $expanded-menu-item-height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, $primary, darken($primary, 15%));
+  // background: linear-gradient(135deg, $primary, darken($primary, 15%));
+   background: linear-gradient(
+    135deg,
+    $premium-gradient-start 0%,
+    $premium-gradient-end 100%
+  );
   color: white;
   box-shadow: 0 8px 25px rgba($primary, 0.4);
   transform-origin: center;
@@ -164,7 +171,13 @@ $expanded-menu-item-height: 56px;
   }
   
   .centerButton.active & {
-    background: darken($primary, 10%);
+    
+    background: linear-gradient(
+    135deg,
+    $premium-gradient-start 0%,
+    $premium-gradient-end 100%
+  );
+
   }
 }
 
