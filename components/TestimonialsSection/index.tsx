@@ -142,7 +142,7 @@ const testimonials = [
   };
 
   return (
-    <section className={styles.testimonialsSection} ref={containerRef}>
+    <section className={styles.testimonialsSection} ref={containerRef} id='testimonials'>
       <div className={styles.container}>
         <div className={styles.contentWrapper}>
           <div className={styles.headingWrapper}>

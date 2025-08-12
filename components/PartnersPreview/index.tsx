@@ -38,7 +38,7 @@ export default function PartnersSection() {
   ];
 
   return (
-    <section className={styles.partnersSection} ref={containerRef}>
+    <section className={styles.partnersSection} ref={containerRef} id='partners'>
       <div className={styles.container}>
         <div className={styles.contentWrapper}>
           <div className={styles.headingWrapper}>

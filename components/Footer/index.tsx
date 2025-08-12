@@ -82,7 +82,7 @@ const Footer = () => {
             <div className={styles.contactInfo}>
               <div className={styles.contactItem}>
                 <Phone size={18} className={styles.contactIcon} />
-                <span>+212 522 123 456</span>
+                <span>+212 6 88 18 32 10</span>
               </div>
               <div className={styles.contactItem}>
                 <Mail size={18} className={styles.contactIcon} />
@@ -90,7 +90,7 @@ const Footer = () => {
               </div>
               <div className={styles.contactItem}>
                 <MapPin size={18} className={styles.contactIcon} />
-                <span>Casablanca, Morocco</span>
+                <span>Rabat, Morocco</span>
               </div>
             </div>
             
@@ -122,15 +122,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <ChevronRight size={16} className={styles.linkIcon} />
-                  <Link href="/team">Our Team</Link>
-                </li>
-                <li>
-                  <ChevronRight size={16} className={styles.linkIcon} />
-                  <Link href="/careers">Careers</Link>
-                </li>
-                <li>
-                  <ChevronRight size={16} className={styles.linkIcon} />
-                  <Link href="/news">News</Link>
+                  <Link href="/news">Projects</Link>
                 </li>
                 <li>
                   <ChevronRight size={16} className={styles.linkIcon} />
@@ -145,23 +137,24 @@ const Footer = () => {
               <ul className={styles.linkList}>
                 <li>
                   <ChevronRight size={16} className={styles.linkIcon} />
-                  <Link href="/services/ai-solutions">AI Solutions</Link>
+                  <Link href="/services">AI Solutions</Link>
                 </li>
                 <li>
                   <ChevronRight size={16} className={styles.linkIcon} />
-                  <Link href="/services/enterprise-it">Enterprise IT</Link>
+                  <Link href="/services">Enterprise IT</Link>
                 </li>
                 <li>
                   <ChevronRight size={16} className={styles.linkIcon} />
-                  <Link href="/services/cloud-solutions">Cloud Solutions</Link>
+                  <Link href="/services">Web & Mobile Development</Link>
+
                 </li>
                 <li>
                   <ChevronRight size={16} className={styles.linkIcon} />
-                  <Link href="/services/digital-transformation">Digital Transformation</Link>
+                  <Link href="/services/">SAP & IT Consulting</Link>
                 </li>
                 <li>
                   <ChevronRight size={16} className={styles.linkIcon} />
-                  <Link href="/services/hardware">Hardware</Link>
+                  <Link href="/hardware">Hardware</Link>
                 </li>
               </ul>
             </div>
@@ -172,23 +165,15 @@ const Footer = () => {
               <ul className={styles.linkList}>
                 <li>
                   <ChevronRight size={16} className={styles.linkIcon} />
-                  <Link href="/blog">Blog</Link>
+                  <Link href='#'>Case Studies (coming soon)</Link>
                 </li>
                 <li>
                   <ChevronRight size={16} className={styles.linkIcon} />
-                  <Link href="/case-studies">Case Studies</Link>
+                  <Link href="#partners">Partners</Link>
                 </li>
                 <li>
                   <ChevronRight size={16} className={styles.linkIcon} />
-                  <Link href="/whitepapers">Whitepapers</Link>
-                </li>
-                <li>
-                  <ChevronRight size={16} className={styles.linkIcon} />
-                  <Link href="/partners">Partners</Link>
-                </li>
-                <li>
-                  <ChevronRight size={16} className={styles.linkIcon} />
-                  <Link href="/testimonials">Testimonials</Link>
+                  <Link href="#testimonials">Testimonials</Link>
                 </li>
               </ul>
             </div>
@@ -253,7 +238,7 @@ const Footer = () => {
             <Image src="/icons/zebra.svg" alt="Zebra" width={120} height={40} />
             <Image src="/icons/openai.svg" alt="OpenAI" width={120} height={40} />
             <Image src="/icons/sap.svg" alt="SAP" width={120} height={40} />
-            <Image src="/icons/microsoft.svg" alt="Microsoft" width={120} height={40} />
+            {/* <Image src="/icons/microsoft.svg" alt="Microsoft" width={120} height={40} /> */}
           </div>
         </div>
         

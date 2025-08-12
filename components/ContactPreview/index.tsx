@@ -74,24 +74,24 @@ export default function ContactPreview() {
               animate={{ opacity: isInView ? 1 : 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
             >
-              <Link href="tel:+212522000000" className={styles.contactCard}>
+              <Link href="tel:+212688183210" className={styles.contactCard}>
                 <div className={styles.cardIcon}>
                   <PhoneCall size={22} />
                 </div>
                 <div className={styles.cardContent}>
                   <h3>Call Us</h3>
-                  <p>+212 5XX-XXXXXX</p>
+                  <p>+212 6 88 18 32 10</p>
                 </div>
                 <ChevronRight size={18} className={styles.cardArrow} />
               </Link>
               
-              <Link href="mailto:info@rkicy.com" className={styles.contactCard}>
+              <Link href="mailto:contact@rkicy.com" className={styles.contactCard}>
                 <div className={styles.cardIcon}>
                   <Mail size={22} />
                 </div>
                 <div className={styles.cardContent}>
                   <h3>Email Us</h3>
-                  <p>info@rkicy.com</p>
+                  <p>contact@rkicy.com</p>
                 </div>
                 <ChevronRight size={18} className={styles.cardArrow} />
               </Link>

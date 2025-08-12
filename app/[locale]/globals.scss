@@ -6,6 +6,7 @@
 
 html, body, *, input {
   font-family: var(--font-outfit) !important;
+  scroll-behavior: smooth;
 }
 
 body {
