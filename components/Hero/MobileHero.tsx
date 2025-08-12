@@ -1,9 +1,9 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
-import { ChevronRight, Star } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { useLocale, useTranslations } from 'next-intl';
 import { useTheme } from 'next-themes';
 import styles from "./MobileHero.module.scss";
@@ -15,6 +15,22 @@ export default function MobileHero() {
   const tCommon = useTranslations('common');
   const locale = useLocale();
   const { theme } = useTheme();
+  const [isMounted, setIsMounted] = useState(false);
+
+  // Force layout recalculation after mount to fix mobile browser inconsistencies
+  useEffect(() => {
+    setIsMounted(true);
+    
+    // This timeout helps ensure proper layout after hydration
+    const timer = setTimeout(() => {
+      if (ref.current) {
+        // Force layout recalculation by accessing offsetHeight
+        const height = ref.current.offsetHeight;
+      }
+    }, 100);
+    
+    return () => clearTimeout(timer);
+  }, []);
 
   const textVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -30,10 +46,13 @@ export default function MobileHero() {
   };
 
   return (
-    <section className={styles.mobileHero} ref={ref} data-theme={theme}>
+    <section 
+      className={`${styles.mobileHero} ${isMounted ? styles.mounted : ''}`} 
+      ref={ref} 
+      data-theme={theme}
+    >
       {/* Background Elements */}
       <div className={styles.backgroundElements}>
-        
         <div className={styles.gridOverlay}></div>
       </div>
       
@@ -75,47 +94,47 @@ export default function MobileHero() {
         </motion.p>
       </div>
       
-      {/* Stats Section */}
-      <motion.div 
-        className={styles.statsContainer}
-        custom={3}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-        variants={textVariants}
-      >
-        <div className={styles.statBox}>
-          <span className={styles.statValue}>98%</span>
-          <span className={styles.statLabel}>{t('satisfactionRate')}</span>
-        </div>
-        <div className={styles.statBox}>
-          <span className={styles.statValue}>10+</span>
-          <span className={styles.statLabel}>{t('yearsOfExperience')}</span>
-        </div>
-        <div className={styles.statBox}>
-          <span className={styles.statValue}>200+</span>
-          <span className={styles.statLabel}>{t('clientsServed')}</span>
-        </div>
-      </motion.div>
-      
-      {/* CTA Buttons */}
-      <motion.div 
-        className={styles.ctaContainer}
-        custom={4}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-        variants={textVariants}
-      >
-        <Link href={`/${locale}/services`} className={styles.primaryCta}>
-          <span>{tCommon('actions.exploreServices')}</span>
-          <ChevronRight className={styles.ctaIcon} />
-        </Link>
+      <div className={styles.bottomContentWrapper}>
+        {/* Stats Section */}
+        <motion.div 
+          className={styles.statsContainer}
+          custom={3}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          variants={textVariants}
+        >
+          <div className={styles.statBox}>
+            <span className={styles.statValue}>98%</span>
+            <span className={styles.statLabel}>{t('satisfactionRate')}</span>
+          </div>
+          <div className={styles.statBox}>
+            <span className={styles.statValue}>10+</span>
+            <span className={styles.statLabel}>{t('yearsOfExperience')}</span>
+          </div>
+          <div className={styles.statBox}>
+            <span className={styles.statValue}>200+</span>
+            <span className={styles.statLabel}>{t('clientsServed')}</span>
+          </div>
+        </motion.div>
         
-        <Link href={`/${locale}/contact`} className={styles.secondaryCta}>
-          <span>{tCommon('actions.contactUs')}</span>
-        </Link>
-      </motion.div>
-      
-   
+        {/* CTA Buttons */}
+        <motion.div 
+          className={styles.ctaContainer}
+          custom={4}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          variants={textVariants}
+        >
+          <Link href={`/${locale}/services`} className={styles.primaryCta}>
+            <span>{tCommon('actions.exploreServices')}</span>
+            <ChevronRight className={styles.ctaIcon} />
+          </Link>
+          
+          <Link href={`/${locale}/contact`} className={styles.secondaryCta}>
+            <span>{tCommon('actions.contactUs')}</span>
+          </Link>
+        </motion.div>
+      </div>
     </section>
   );
 }
