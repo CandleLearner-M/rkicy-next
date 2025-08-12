@@ -65,7 +65,7 @@ const Footer = () => {
             </div> */}
             <div className={styles.logo}>
               <Image
-                src="/logo.svg"
+                src="/rkicy-logo.svg"
                 alt="Rkicy Technology"
                 width={120}
                 height={40}
