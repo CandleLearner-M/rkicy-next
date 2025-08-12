@@ -14,6 +14,7 @@ import {notFound} from 'next/navigation';
 import {routing} from '@/i18n/routing';
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import UnifiedNavbar from "@/components/Navbar/UnifiedNavbar";
+import CookieConsent from "@/components/CookieConsent/CookieConsent";
 
 
 const outfit = Outfit({
@@ -47,8 +48,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider>
           <ThemeProvider attribute="data-theme" defaultTheme="system" enableSystem>
             <NextTopLoader showSpinner={false} />
-            {/* <Navbar /> */}
-            {/* <HeroNav /> */}
+            <CookieConsent />
             <UnifiedNavbar />
             <FixedBackground />
             {children}
