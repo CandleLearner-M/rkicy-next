@@ -33,7 +33,7 @@ export default function TestimonialsSection() {
 const testimonials = [
     {
       id: '01',
-      name: 'Karim Idrissi',
+      name: 'Karim Ben Said',
       title: t('testimonials.roles.operations'),
       company: 'Tanger Med Port',
       location: 'Tanger',
@@ -43,7 +43,7 @@ const testimonials = [
     },
     {
       id: '02',
-      name: 'Amina Berrada',
+      name: 'Amina El-Khadim',
       title: t('testimonials.roles.it'),
       company: 'Banque Centrale du Maroc',
       location: 'Rabat',
@@ -53,7 +53,7 @@ const testimonials = [
     },
     {
       id: '03',
-      name: 'Mohammed Benjelloun',
+      name: 'Mohammed El Hajjouji',
       title: t('testimonials.roles.cto'),
       company: 'AtlasMed Technologies',
       location: 'Casablanca',
@@ -63,7 +63,7 @@ const testimonials = [
     },
     {
       id: '04',
-      name: 'Leila Tazi',
+      name: 'Leila El Bouraqadi',
       title: t('testimonials.roles.director'),
       company: 'Maroc Digital Ventures',
       location: 'Marrakech',
@@ -73,7 +73,7 @@ const testimonials = [
     },
     {
       id: '05',
-      name: 'Omar El Fassi',
+      name: 'Omar El Bouhati',
       title: t('testimonials.roles.ceo'),
       company: 'Casablanca Logistics',
       location: 'Casablanca',
