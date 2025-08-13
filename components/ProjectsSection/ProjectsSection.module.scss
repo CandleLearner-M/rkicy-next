@@ -1,0 +1,335 @@
+@import "@/styles/variables.scss";
+@import "@/styles/mixins.scss";
+
+.projectsSection {
+  position: relative;
+  padding: 8rem 0;
+  background-color: #0a0c10;
+  overflow: hidden;
+  
+  [data-theme="light"] & {
+    background-color: #f8fafc;
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.2;
+    z-index: 0;
+    
+    [data-theme="light"] & {
+      background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+      opacity: 0.15;
+    }
+  }
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+// Header styling
+.sectionHeader {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 5rem;
+  
+  @media (max-width: $breakpoint-md) {
+    margin-bottom: 3rem;
+  }
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  background: linear-gradient(
+    to right,
+    rgba(59, 130, 246, 0.15),
+    rgba(139, 92, 246, 0.2)
+  );
+  color: #3b82f6;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 100px;
+  margin-bottom: 1.5rem;
+  
+  [data-theme="light"] & {
+    background: linear-gradient(
+      to right,
+      rgba(59, 130, 246, 0.08),
+      rgba(139, 92, 246, 0.12)
+    );
+  }
+}
+
+.title {
+  font-size: 3.25rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  
+  [data-theme="light"] & {
+    color: #0f172a;
+  }
+  
+  @media (max-width: $breakpoint-md) {
+    font-size: 2.5rem;
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    font-size: 2rem;
+  }
+}
+
+.highlight {
+  background: linear-gradient(
+    90deg, 
+    #3b82f6 0%, 
+    #8b5cf6 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  display: inline-block;
+  
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(
+      90deg, 
+      #3b82f6 0%, 
+      #8b5cf6 100%
+    );
+    border-radius: 3px;
+    opacity: 0.7;
+    
+    @media (max-width: $breakpoint-md) {
+      height: 3px;
+      bottom: -3px;
+    }
+  }
+}
+
+.description {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: #94a3b8;
+  max-width: 650px;
+  margin: 0 auto;
+  
+  [data-theme="light"] & {
+    color: #475569;
+  }
+  
+  @media (max-width: $breakpoint-md) {
+    font-size: 1rem;
+  }
+}
+
+// Projects grid layout
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Project card styling
+.projectCard {
+  background-color: rgba(16, 24, 40, 0.6);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    
+    .cardLink {
+      background-color: rgba(59, 130, 246, 0.15);
+    }
+  }
+  
+  [data-theme="light"] & {
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    
+    &:hover {
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+.cardHeader {
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  
+  [data-theme="light"] & {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+}
+
+.projectNumber {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #3b82f6;
+  
+  [data-theme="light"] & {
+    color: #3b82f6;
+  }
+}
+
+.projectIcon {
+  color: #3b82f6;
+  
+  [data-theme="light"] & {
+    color: #3b82f6;
+  }
+}
+
+.cardContent {
+  padding: 1.5rem;
+  flex: 1;
+}
+
+.projectTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: white;
+  
+  [data-theme="light"] & {
+    color: #0f172a;
+  }
+}
+
+.projectDescription {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #94a3b8;
+  margin-bottom: 1.5rem;
+  
+  [data-theme="light"] & {
+    color: #475569;
+  }
+}
+
+.projectTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 100px;
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+  
+  [data-theme="light"] & {
+    background: rgba(59, 130, 246, 0.08);
+  }
+}
+
+.cardLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  color: #e2e8f0;
+  background-color: rgba(255, 255, 255, 0.03);
+  font-weight: 500;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    svg {
+      transform: translateX(3px) translateY(-3px);
+    }
+  }
+  
+  svg {
+    transition: transform 0.2s ease;
+  }
+  
+  [data-theme="light"] & {
+    background-color: rgba(0, 0, 0, 0.02);
+    color: #0f172a;
+  }
+}
+
+// "View all projects" button
+.moreProjectsWrapper {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+
+.moreProjectsButton {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  color: white;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.25);
+    
+    svg {
+      transform: translateX(3px) translateY(-3px);
+    }
+  }
+  
+  svg {
+    transition: transform 0.2s ease;
+  }
+}
+
+// Export component
+.export {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
