@@ -418,16 +418,16 @@
       "viewAllProjects": "Explorer tous les projets",
       "projects": {
         "paycov": {
-          "description": "Une plateforme complète de traitement des paiements développée pour une entreprise fintech marocaine de premier plan, facilitant les transactions en ligne sécurisées."
+          "description": "Une plateforme de paiement numérique marocaine, offrant des transactions instantanées, sécurisées et interopérables pour particuliers et entreprises."
         },
         "finish3": {
-          "description": "Un système avancé de gestion de la fabrication qui rationalise les processus de production, la gestion des stocks et le contrôle qualité pour un client industriel majeur."
+          "description": "Une application minimaliste de gestion de tâches, aidant les utilisateurs à accomplir leurs 3 priorités quotidiennes grâce à un design clair et une synchronisation fluide."
         },
         "bato": {
-          "description": "Une place de marché e-commerce riche en fonctionnalités connectant les détaillants marocains avec des clients à l'échelle nationale, avec traitement des paiements intégré."
+          "description": "Une plateforme marocaine de location de bateaux et yachts, offrant une expérience de réservation sécurisée et fluide pour propriétaires et clients."
         },
         "nounours": {
-          "description": "Une solution e-commerce moderne pour une marque premium de vêtements pour enfants, offrant une expérience d'achat intuitive et une gestion robuste des stocks."
+          "description": "Une boutique en ligne moderne pour peluches et figurines premium, offrant une expérience d'achat fluide et une gestion efficace du catalogue."
         }
       },
       "tags": {

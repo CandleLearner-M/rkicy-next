@@ -540,16 +540,16 @@
         "viewAllProjects": "Explore all projects",
         "projects": {
           "paycov": {
-            "description": "A comprehensive payment processing platform developed for a leading Moroccan fintech company, facilitating secure online transactions for businesses of all sizes."
+            "description": "A Moroccan digital payment platform, delivering instant, secure, and interoperable transactions for individuals and businesses."
           },
           "finish3": {
-            "description": "An advanced manufacturing management system that streamlines production processes, inventory management, and quality control for a major industrial client."
+            "description": "A minimalist task management app helping users complete their 3 daily priorities with a clean design and seamless sync."
           },
           "bato": {
-            "description": "A feature-rich e-commerce marketplace connecting Moroccan retailers with customers nationwide, complete with integrated payment processing and logistics."
+            "description": "A Moroccan boat and yacht rental platform, delivering a secure and seamless booking experience for owners and clients."
           },
           "nounours": {
-            "description": "A modern e-commerce solution for a premium children's clothing brand, featuring an intuitive shopping experience and robust inventory management."
+            "description": "A modern e-commerce store for premium plush toys and figurines, delivering a smooth shopping experience and efficient catalog management."
           }
         },
         "tags": {
