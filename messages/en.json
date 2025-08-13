@@ -775,6 +775,35 @@
     "notifications": {
       "saved": "Preferences saved"
     }
+  },
+  "contact": {
+    "preview": {
+      "title": "Ready to",
+      "highlighted": "transform",
+      "title2": "your business?",
+      "subtitle": "Let's discuss how Rkicy Technology can help your organization thrive in the digital age",
+      "getInTouch": "Get in Touch",
+      "phoneNumber": "+212688183210",
+      "emailAddress": "contact@rkicy.com",
+      "cards": {
+        "call": {
+          "title": "Call Us",
+          "text": "+212 6 88 18 32 10"
+        },
+        "email": {
+          "title": "Email Us",
+          "text": "contact@rkicy.com"
+        },
+        "chat": {
+          "title": "Live Chat",
+          "text": "Chat with our team"
+        },
+        "schedule": {
+          "title": "Schedule a Call",
+          "text": "Book a consultation"
+        }
+      }
+    }
   }
   
 }

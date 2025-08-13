@@ -169,6 +169,7 @@
   &:hover {
     gap: 1rem;
     box-shadow: 0 15px 30px rgba($primary, 0.4);
+    transform: translateY(-1);
   }
   
   [data-theme="dark"] & {

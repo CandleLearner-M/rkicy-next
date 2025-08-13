@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import { 
   PhoneCall, 
@@ -11,17 +11,57 @@ import {
   ArrowRight, 
   ChevronRight 
 } from "lucide-react";
+import { useTranslations, useLocale } from 'next-intl';
 import styles from "./ContactPreview.module.scss";
 
 export default function ContactPreview() {
-  const [isInView, setIsInView] = useState(false);
+  const ref = useRef(null);
+  const isInView = useInView(ref, {
+    once: false,
+    margin: "-100px",
+  });
   
-  useEffect(() => {
-    setIsInView(true);
-  }, []);
+  const t = useTranslations('contact');
+  const locale = useLocale();
+
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.1,
+        duration: 0.6,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    }),
+  };
+
+  const staggerCards = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.3,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+  };
 
   return (
-    <section className={styles.contactPreview}>
+    <section className={styles.contactPreview} ref={ref}>
       <div className={styles.container}>
         <div className={styles.decorCircle1}></div>
         <div className={styles.decorCircle2}></div>
@@ -29,39 +69,37 @@ export default function ContactPreview() {
         
         <motion.div 
           className={styles.contentWrapper}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: isInView ? 1 : 0 }}
-          transition={{ duration: 0.6 }}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          variants={fadeInUp}
         >
           <div className={styles.textContent}>
             <motion.h2 
               className={styles.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 30 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              custom={0}
+              variants={fadeInUp}
             >
-              Ready to <span className={styles.highlight}>transform</span> your business?
+              {t('preview.title')}{' '}
+              <span className={styles.highlight}>{t('preview.highlighted')}</span>{' '}
+              {t('preview.title2')}
             </motion.h2>
             
             <motion.p 
               className={styles.subtitle}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 30 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              custom={1}
+              variants={fadeInUp}
             >
-              Let's discuss how Rkicy Technology can help your organization thrive in the digital age
+              {t('preview.subtitle')}
             </motion.p>
             
             <motion.div 
               className={styles.ctaButton}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 30 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              whileHover={{ scale: 1.03 }}
+              custom={2}
+              variants={fadeInUp}
               whileTap={{ scale: 0.98 }}
             >
-              <Link href="/contact" className={styles.primaryButton}>
-                <span>Get in Touch</span>
+              <Link href={`/${locale}/contact`} className={styles.primaryButton}>
+                <span>{t('preview.getInTouch')}</span>
                 <ArrowRight size={18} />
               </Link>
             </motion.div>
@@ -70,53 +108,59 @@ export default function ContactPreview() {
           <div className={styles.contactOptions}>
             <motion.div 
               className={styles.optionsGrid}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: isInView ? 1 : 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
+              variants={staggerCards}
             >
-              <Link href="tel:+212688183210" className={styles.contactCard}>
-                <div className={styles.cardIcon}>
-                  <PhoneCall size={22} />
-                </div>
-                <div className={styles.cardContent}>
-                  <h3>Call Us</h3>
-                  <p>+212 6 88 18 32 10</p>
-                </div>
-                <ChevronRight size={18} className={styles.cardArrow} />
-              </Link>
+              <motion.div variants={cardVariants}>
+                <Link href={`tel:${t('preview.phoneNumber')}`} className={styles.contactCard}>
+                  <div className={styles.cardIcon}>
+                    <PhoneCall size={22} />
+                  </div>
+                  <div className={styles.cardContent}>
+                    <h3>{t('preview.cards.call.title')}</h3>
+                    <p>{t('preview.cards.call.text')}</p>
+                  </div>
+                  <ChevronRight size={18} className={styles.cardArrow} />
+                </Link>
+              </motion.div>
               
-              <Link href="mailto:contact@rkicy.com" className={styles.contactCard}>
-                <div className={styles.cardIcon}>
-                  <Mail size={22} />
-                </div>
-                <div className={styles.cardContent}>
-                  <h3>Email Us</h3>
-                  <p>contact@rkicy.com</p>
-                </div>
-                <ChevronRight size={18} className={styles.cardArrow} />
-              </Link>
+              <motion.div variants={cardVariants}>
+                <Link href={`mailto:${t('preview.emailAddress')}`} className={styles.contactCard}>
+                  <div className={styles.cardIcon}>
+                    <Mail size={22} />
+                  </div>
+                  <div className={styles.cardContent}>
+                    <h3>{t('preview.cards.email.title')}</h3>
+                    <p>{t('preview.cards.email.text')}</p>
+                  </div>
+                  <ChevronRight size={18} className={styles.cardArrow} />
+                </Link>
+              </motion.div>
               
-              <Link href="/contact#chat" className={styles.contactCard}>
-                <div className={styles.cardIcon}>
-                  <MessageSquare size={22} />
-                </div>
-                <div className={styles.cardContent}>
-                  <h3>Live Chat</h3>
-                  <p>Chat with our team</p>
-                </div>
-                <ChevronRight size={18} className={styles.cardArrow} />
-              </Link>
+              <motion.div variants={cardVariants}>
+                <Link href={`/${locale}/contact#chat`} className={styles.contactCard}>
+                  <div className={styles.cardIcon}>
+                    <MessageSquare size={22} />
+                  </div>
+                  <div className={styles.cardContent}>
+                    <h3>{t('preview.cards.chat.title')}</h3>
+                    <p>{t('preview.cards.chat.text')}</p>
+                  </div>
+                  <ChevronRight size={18} className={styles.cardArrow} />
+                </Link>
+              </motion.div>
               
-              <Link href="/contact#schedule" className={styles.contactCard}>
-                <div className={styles.cardIcon}>
-                  <Calendar size={22} />
-                </div>
-                <div className={styles.cardContent}>
-                  <h3>Schedule a Call</h3>
-                  <p>Book a consultation</p>
-                </div>
-                <ChevronRight size={18} className={styles.cardArrow} />
-              </Link>
+              <motion.div variants={cardVariants}>
+                <Link href={`/${locale}/contact#schedule`} className={styles.contactCard}>
+                  <div className={styles.cardIcon}>
+                    <Calendar size={22} />
+                  </div>
+                  <div className={styles.cardContent}>
+                    <h3>{t('preview.cards.schedule.title')}</h3>
+                    <p>{t('preview.cards.schedule.text')}</p>
+                  </div>
+                  <ChevronRight size={18} className={styles.cardArrow} />
+                </Link>
+              </motion.div>
             </motion.div>
           </div>
         </motion.div>

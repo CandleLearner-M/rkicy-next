@@ -651,5 +651,34 @@
     "notifications": {
       "saved": "Préférences enregistrées"
     }
+  },
+  "contact": {
+    "preview": {
+      "title": "Prêt à ",
+      "highlighted": "transformer",
+      "title2": " votre entreprise ?",
+      "subtitle": "Discutons comment Rkicy Technology peut aider votre organisation à prospérer à l'ère numérique",
+      "getInTouch": "Contactez-nous",
+      "phoneNumber": "+212688183210",
+      "emailAddress": "contact@rkicy.com",
+      "cards": {
+        "call": {
+          "title": "Appelez-nous",
+          "text": "+212 6 88 18 32 10"
+        },
+        "email": {
+          "title": "Écrivez-nous",
+          "text": "contact@rkicy.com"
+        },
+        "chat": {
+          "title": "Chat en direct",
+          "text": "Discutez avec notre équipe"
+        },
+        "schedule": {
+          "title": "Planifier un appel",
+          "text": "Réserver une consultation"
+        }
+      }
+    }
   }
 }
