@@ -1,179 +1,122 @@
-"use client";
+'use client';
 
 import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
-import { useTranslations } from 'next-intl';
-import { ArrowUpRight, Globe, ShoppingCart, CreditCard, Boxes, Shirt } from 'lucide-react';
-import Image from 'next/image';
 import Link from 'next/link';
+import { useLocale, useTranslations } from 'next-intl';
+import { motion } from 'framer-motion';
+import { ArrowUpRight, CreditCard, Boxes, ShoppingCart, Shirt } from 'lucide-react';
 import styles from './ProjectsSection.module.scss';
 
-const ProjectsSection = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, threshold: 0.1 });
-  const t = useTranslations('home.projects');
-  
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
+export default function ProjectsSection() {
+  const locale = useLocale();
+  const t = useTranslations('duplicate.projects');
+  const containerRef = useRef(null);
+
+  // Hover animation variant
+  const projectCardVariants = {
+    hover: {
+      y: -5,
       transition: {
-        staggerChildren: 0.2,
-      },
-    },
+        type: 'spring',
+        stiffness: 400,
+        damping: 20
+      }
+    }
   };
-  
-  const itemVariants = {
-    hidden: { y: 30, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.7,
-        ease: [0.22, 1, 0.36, 1],
-      },
+
+  const projects = [
+    {
+      id: '01',
+      title: 'Paycov',
+      description: t('projects.paycov.description'),
+      icon: <CreditCard className={styles.projectIcon} />,
+      tags: [t('tags.fintech'), t('tags.payments')],
+      link: '/projects/paycov'
     },
-  };
+    {
+      id: '02',
+      title: 'Finish3',
+      description: t('projects.finish3.description'),
+      icon: <Boxes className={styles.projectIcon} />,
+      tags: [t('tags.manufacturing'), t('tags.logistics')],
+      link: '/projects/finish3'
+    },
+    {
+      id: '03',
+      title: 'Bato.ma',
+      description: t('projects.bato.description'),
+      icon: <ShoppingCart className={styles.projectIcon} />,
+      tags: [t('tags.ecommerce'), t('tags.marketplace')],
+      link: '/projects/bato'
+    },
+    {
+      id: '04',
+      title: 'Nounours',
+      description: t('projects.nounours.description'),
+      icon: <Shirt className={styles.projectIcon} />,
+      tags: [t('tags.ecommerce'), t('tags.retail')],
+      link: 'https://nounours.ma/'
+    }
+  ];
 
   return (
-    <section className={styles.projectsSection} ref={ref}>
+    <section className={styles.projectsSection} ref={containerRef}>
       <div className={styles.container}>
-        <div className={styles.sectionHeader}>
-          <motion.div 
-            className={styles.badge}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-            variants={itemVariants}
-          >
-            {t('badge')}
-          </motion.div>
-          
-          <motion.h2 
-            className={styles.title}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-            variants={itemVariants}
-          >
-            {t.rich('title', {
-              highlight: (chunks) => <span className={styles.highlight}>{chunks}</span>
-            })}
-          </motion.h2>
-          
-          <motion.p 
-            className={styles.description}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-            variants={itemVariants}
-          >
-            {t('description')}
-          </motion.p>
-        </div>
+        <div className={styles.contentWrapper}>
+          <div className={styles.headingWrapper}>
+            <div className={styles.labelWrapper}>
+              <span className={styles.overline}>
+                {t('badge')}
+              </span>
+            </div>
+            <h2 className={styles.heading}>
+              {t.rich('title', {
+                highlight: (chunks) => <span className={styles.highlightTxt}>{chunks}</span>
+              })}
+            </h2>
+            <p className={styles.subheading}>{t('description')}</p>
+          </div>
 
-        <motion.div 
-          className={styles.projectsGrid}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          variants={containerVariants}
-        >
-          {/* Project 1 */}
-          <motion.div className={styles.projectCard} variants={itemVariants}>
-            <div className={styles.cardHeader}>
-              <span className={styles.projectNumber}>01</span>
-              <CreditCard className={styles.projectIcon} />
-            </div>
-            <div className={styles.cardContent}>
-              <h3 className={styles.projectTitle}>Paycov</h3>
-              <p className={styles.projectDescription}>
-                {t('projects.paycov.description')}
-              </p>
-              <div className={styles.projectTags}>
-                <span className={styles.tag}>{t('tags.fintech')}</span>
-                <span className={styles.tag}>{t('tags.payments')}</span>
-              </div>
-            </div>
-            <Link href="/projects/paycov" className={styles.cardLink}>
-              <span>{t('viewProject')}</span>
-              <ArrowUpRight size={16} />
-            </Link>
-          </motion.div>
-          
-          {/* Project 2 */}
-          <motion.div className={styles.projectCard} variants={itemVariants}>
-            <div className={styles.cardHeader}>
-              <span className={styles.projectNumber}>02</span>
-              <Boxes className={styles.projectIcon} />
-            </div>
-            <div className={styles.cardContent}>
-              <h3 className={styles.projectTitle}>Finish3</h3>
-              <p className={styles.projectDescription}>
-                {t('projects.finish3.description')}
-              </p>
-              <div className={styles.projectTags}>
-                <span className={styles.tag}>{t('tags.manufacturing')}</span>
-                <span className={styles.tag}>{t('tags.logistics')}</span>
-              </div>
-            </div>
-            <Link href="/projects/finish3" className={styles.cardLink}>
-              <span>{t('viewProject')}</span>
-              <ArrowUpRight size={16} />
-            </Link>
-          </motion.div>
-          
-          {/* Project 3 */}
-          <motion.div className={styles.projectCard} variants={itemVariants}>
-            <div className={styles.cardHeader}>
-              <span className={styles.projectNumber}>03</span>
-              <ShoppingCart className={styles.projectIcon} />
-            </div>
-            <div className={styles.cardContent}>
-              <h3 className={styles.projectTitle}>Bato.ma</h3>
-              <p className={styles.projectDescription}>
-                {t('projects.bato.description')}
-              </p>
-              <div className={styles.projectTags}>
-                <span className={styles.tag}>{t('tags.ecommerce')}</span>
-                <span className={styles.tag}>{t('tags.marketplace')}</span>
-              </div>
-            </div>
-            <Link href="/projects/bato" className={styles.cardLink}>
-              <span>{t('viewProject')}</span>
-              <ArrowUpRight size={16} />
-            </Link>
-          </motion.div>
-          
-          {/* Project 4 */}
-          <motion.div className={styles.projectCard} variants={itemVariants}>
-            <div className={styles.cardHeader}>
-              <span className={styles.projectNumber}>04</span>
-              <Shirt className={styles.projectIcon} />
-            </div>
-            <div className={styles.cardContent}>
-              <h3 className={styles.projectTitle}>Nounours</h3>
-              <p className={styles.projectDescription}>
-                {t('projects.nounours.description')}
-              </p>
-              <div className={styles.projectTags}>
-                <span className={styles.tag}>{t('tags.ecommerce')}</span>
-                <span className={styles.tag}>{t('tags.retail')}</span>
-              </div>
-            </div>
-            <Link href="https://nounours.ma/" target="_blank" rel="noopener noreferrer" className={styles.cardLink}>
-              <span>{t('visitSite')}</span>
-              <Globe size={16} />
-            </Link>
-          </motion.div>
-          
-          {/* More Projects Button */}
-          <motion.div className={styles.moreProjectsWrapper} variants={itemVariants}>
-            <Link href="/projects" className={styles.moreProjectsButton}>
+          <div className={styles.projectsContainer}>
+            {projects.map((project) => (
+              <motion.div 
+                key={project.id}
+                className={styles.projectCard}
+                variants={projectCardVariants}
+                whileHover="hover"
+              >
+                <div className={styles.projectHeader}>
+                  {project.icon}
+                </div>
+                <h3 className={styles.projectTitle}>{project.title}</h3>
+                <p className={styles.projectDescription}>{project.description}</p>
+                <div className={styles.projectTags}>
+                  {project.tags.map((tag, index) => (
+                    <span key={index} className={styles.tag}>{tag}</span>
+                  ))}
+                </div>
+                <Link 
+                  href={project.link} 
+                  className={styles.projectLink}
+                  target={project.link.startsWith('http') ? '_blank' : '_self'} 
+                  rel={project.link.startsWith('http') ? 'noopener noreferrer' : ''}
+                >
+                  <span>{project.link.startsWith('http') ? t('visitSite') : t('viewProject')}</span>
+                  <ArrowUpRight className={styles.linkIcon} size={16} />
+                </Link>
+                <div className={styles.projectGlow} />
+              </motion.div>
+            ))}
+          </div>
+
+          <div className={styles.ctaContainer}>
+            <Link href={`/${locale}/projects`} className={styles.projectsCta}>
               <span>{t('viewAllProjects')}</span>
-              <ArrowUpRight size={18} />
+              <ArrowUpRight className={styles.ctaIcon} size={18} />
             </Link>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );
-};
-
-export default ProjectsSection;
+}

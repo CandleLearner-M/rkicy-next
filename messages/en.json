@@ -529,6 +529,38 @@
           "description": "Expert implementation and support for SAP solutions, helping businesses streamline operations and achieve digital transformation."
         }
       },
+        "projects": {
+        "badge": "RECENT WORK",
+        "title": "Innovative Solutions for {highlight}Business Challenges",
+        "description": "We've helped businesses across Morocco transform their operations with custom digital solutions. Here are some of our featured projects.",
+        "viewProject": "View details",
+        "visitSite": "Visit website",
+        "viewAllProjects": "Explore all projects",
+        "projects": {
+          "paycov": {
+            "description": "A comprehensive payment processing platform developed for a leading Moroccan fintech company, facilitating secure online transactions for businesses of all sizes."
+          },
+          "finish3": {
+            "description": "An advanced manufacturing management system that streamlines production processes, inventory management, and quality control for a major industrial client."
+          },
+          "bato": {
+            "description": "A feature-rich e-commerce marketplace connecting Moroccan retailers with customers nationwide, complete with integrated payment processing and logistics."
+          },
+          "nounours": {
+            "description": "A modern e-commerce solution for a premium children's clothing brand, featuring an intuitive shopping experience and robust inventory management."
+          }
+        },
+        "tags": {
+          "fintech": "Fintech",
+          "payments": "Payments",
+          "manufacturing": "Manufacturing",
+          "logistics": "Logistics",
+          "ecommerce": "E-commerce",
+          "marketplace": "Marketplace",
+          "retail": "Retail"
+        }
+      }
+      ,
       "testimonials": {
         "label": "Client Stories",
         "title": "What Our",

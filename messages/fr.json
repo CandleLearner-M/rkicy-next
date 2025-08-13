@@ -407,6 +407,37 @@
         "description": "Implémentation et support expert pour les solutions SAP, aidant les entreprises à optimiser leurs opérations et à réaliser leur transformation numérique."
       }
     },
+    "projects": {
+      "badge": "TRAVAUX RÉCENTS",
+      "title": "Solutions Innovantes pour des {highlight}Défis d'Entreprise",
+      "description": "Nous avons aidé des entreprises à travers le Maroc à transformer leurs opérations avec des solutions numériques sur mesure. Voici quelques-uns de nos projets phares.",
+      "viewProject": "Voir détails",
+      "visitSite": "Visiter le site",
+      "viewAllProjects": "Explorer tous les projets",
+      "projects": {
+        "paycov": {
+          "description": "Une plateforme complète de traitement des paiements développée pour une entreprise fintech marocaine de premier plan, facilitant les transactions en ligne sécurisées."
+        },
+        "finish3": {
+          "description": "Un système avancé de gestion de la fabrication qui rationalise les processus de production, la gestion des stocks et le contrôle qualité pour un client industriel majeur."
+        },
+        "bato": {
+          "description": "Une place de marché e-commerce riche en fonctionnalités connectant les détaillants marocains avec des clients à l'échelle nationale, avec traitement des paiements intégré."
+        },
+        "nounours": {
+          "description": "Une solution e-commerce moderne pour une marque premium de vêtements pour enfants, offrant une expérience d'achat intuitive et une gestion robuste des stocks."
+        }
+      },
+      "tags": {
+        "fintech": "Fintech",
+        "payments": "Paiements",
+        "manufacturing": "Fabrication",
+        "logistics": "Logistique",
+        "ecommerce": "E-commerce",
+        "marketplace": "Place de marché",
+        "retail": "Commerce de détail"
+      }
+    },
     "testimonials": {
       "label": "Témoignages Clients",
       "title": "Ce Que Nos",

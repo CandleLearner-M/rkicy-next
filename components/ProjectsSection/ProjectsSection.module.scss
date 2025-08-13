@@ -1,249 +1,389 @@
 @import "@/styles/variables.scss";
 @import "@/styles/mixins.scss";
 
+// Premium color variables
+$premium-primary: #2563eb;
+$premium-secondary: #134cca;
+$premium-accent: #8b5cf6;
+$premium-gradient-start: #2563eb;
+$premium-gradient-end: #8b5cf6;
+
+// Transitions
+$transition-smooth: cubic-bezier(0.23, 1, 0.32, 1);
+$transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
+
 .projectsSection {
+  width: 100%;
+  padding: 0 0;
   position: relative;
-  padding: 8rem 0;
-  background-color: #0a0c10;
   overflow: hidden;
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 2rem;
   
-  [data-theme="light"] & {
-    background-color: #f8fafc;
+  @media (max-width: $breakpoint-md) {
+    padding: 0 1.5rem;
   }
   
-  &::before {
+  @media (max-width: $breakpoint-sm) {
+    padding: 0 1rem;
+  }
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+  
+  @media (max-width: $breakpoint-md) {
+    gap: 3rem;
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    gap: 2.5rem;
+  }
+}
+
+.headingWrapper {
+  text-align: center;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.labelWrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.overline {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 600;
+  color: $primary;
+  margin: 0 0 1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  
+  [data-theme="dark"] & {
+    color: $primary-light;
+  }
+}
+
+.heading {
+  font-size: 2.75rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0 0 1.5rem;
+  color: $text-primary;
+  
+  [data-theme="dark"] & {
+    color: $text-primary-dark;
+  }
+  
+  @media (max-width: $breakpoint-md) {
+    font-size: 2.25rem;
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    font-size: 1.85rem;
+  }
+}
+
+.highlightTxt {
+  background: linear-gradient(90deg, $premium-primary 0%, $premium-accent 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  position: relative;
+  display: inline-block;
+  
+  &::after {
     content: '';
     position: absolute;
-    top: 0;
+    bottom: 5px;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: 
-      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-    background-size: 50px 50px;
-    opacity: 0.2;
-    z-index: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, rgba($premium-primary, 0.2) 0%, rgba($premium-accent, 0.2) 100%);
+    border-radius: 3px;
+    z-index: -1;
+  }
+  
+  [data-theme="dark"] & {
+    background: linear-gradient(90deg, lighten($premium-primary, 15%) 0%, lighten($premium-accent, 10%) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
     
+    &::after {
+      background: linear-gradient(90deg, rgba($premium-primary, 0.3) 0%, rgba($premium-accent, 0.3) 100%);
+    }
+  }
+}
+
+.subheading {
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: rgba($text-primary, 0.7);
+  max-width: 650px;
+  line-height: 1.6;
+  margin: 0.5rem 0 0;
+  
+  [data-theme="dark"] & {
+    color: rgba($text-primary-dark, 0.7);
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    font-size: 1rem;
+  }
+}
+
+.projectsContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
+  width: 100%;
+  
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.projectCard {
+  position: relative;
+  border-radius: 16px;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba($premium-primary, 0.05);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.03);
+  backdrop-filter: blur(10px);
+  z-index: 1;
+  overflow: hidden;
+  height: 100%;
+  transition: transform 0.5s $transition-smooth, 
+              box-shadow 0.5s $transition-smooth,
+              border-color 0.5s $transition-smooth;
+  
+  // Remove backdrop-filter on mobile/tablet and replace with solid background
+  @media (max-width: $breakpoint-lg) {
+    backdrop-filter: none;
+    background: rgba(255, 255, 255, 0.01);
+    border-width: 1px;
+    
+    // Light theme on mobile - use solid subtle background
     [data-theme="light"] & {
-      background-image: 
-        linear-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+      background-color: white;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+    }
+    
+    // Dark theme on mobile - use solid subtle background
+    [data-theme="dark"] & {
+      background-color: rgba(20, 24, 34, 0.95);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+  }
+  
+  [data-theme="dark"] & {
+    background: rgba(30, 30, 40, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  }
+  
+  &:hover {
+    border-color: rgba($premium-primary, 0.2);
+    box-shadow: 0 20px 30px rgba($premium-primary, 0.04),
+                0 10px 20px rgba(0, 0, 0, 0.03);
+                
+    [data-theme="dark"] & {
+      border-color: rgba($premium-primary, 0.3);
+      box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15),
+                  0 10px 20px rgba($premium-primary, 0.05);
+    }
+    
+    .projectGlow {
+      opacity: 0.6;
+      transform: translate(-30%, -30%) scale(1.3);
+    }
+    
+    .projectIcon {
+      transform: translateY(-2px);
+      color: $premium-accent;
+      
+      [data-theme="dark"] & {
+        color: lighten($premium-accent, 15%);
+      }
+    }
+    
+    .projectLink {
+      color: $premium-accent;
+      
+      [data-theme="dark"] & {
+        color: lighten($premium-accent, 15%);
+      }
+      
+      .linkIcon {
+        transform: translate(2px, -2px);
+      }
+    }
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    padding: 2rem;
+  }
+}
+
+// Enhance the card border on mobile to compensate for lost blur effect
+@media (max-width: $breakpoint-lg) {
+  .projectCard {
+    // Create a subtle gradient border instead of blur effect
+    border: 1px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 15px; // 1px less than the card
+      margin: -1px;
+      background: linear-gradient(135deg, 
+                 rgba($premium-primary, 0.2),
+                 rgba($premium-accent, 0.1),
+                 rgba($premium-primary, 0.05));
+      z-index: -1;
+      pointer-events: none;
+      opacity: 0.15;
+      
+      [data-theme="dark"] & {
+        opacity: 0.2;
+      }
+    }
+    
+    // Add subtle top highlight for depth
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 10%;
+      right: 10%;
+      height: 1px;
+      background: linear-gradient(
+        to right,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+      );
+      
+      [data-theme="dark"] & {
+        background: linear-gradient(
+          to right,
+          transparent,
+          rgba(255, 255, 255, 0.15),
+          transparent
+        );
+      }
+    }
+  }
+}
+
+.projectGlow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba($premium-primary, 0.1),
+    rgba($premium-accent, 0.05),
+    transparent 70%
+  );
+  opacity: 0.15;
+  transform: translate(-50%, -50%) scale(1);
+  transition: opacity 0.6s $transition-smooth, transform 1s $transition-smooth;
+  z-index: -1;
+  
+  [data-theme="dark"] & {
+    opacity: 0.1;
+    background: radial-gradient(
+      circle,
+      rgba($premium-primary, 0.15),
+      rgba($premium-accent, 0.08),
+      transparent 70%
+    );
+  }
+  
+  // On mobile, make glow more visible to compensate for removed blur
+  @media (max-width: $breakpoint-lg) {
+    width: 240px;
+    height: 240px;
+    opacity: 0.2;
+    
+    [data-theme="dark"] & {
       opacity: 0.15;
     }
   }
 }
 
-.container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-  position: relative;
-  z-index: 1;
-}
-
-// Header styling
-.sectionHeader {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto 5rem;
-  
-  @media (max-width: $breakpoint-md) {
-    margin-bottom: 3rem;
-  }
-}
-
-.badge {
-  display: inline-block;
-  padding: 0.5rem 1.25rem;
-  background: linear-gradient(
-    to right,
-    rgba(59, 130, 246, 0.15),
-    rgba(139, 92, 246, 0.2)
-  );
-  color: #3b82f6;
-  font-size: 0.875rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  border-radius: 100px;
-  margin-bottom: 1.5rem;
-  
-  [data-theme="light"] & {
-    background: linear-gradient(
-      to right,
-      rgba(59, 130, 246, 0.08),
-      rgba(139, 92, 246, 0.12)
-    );
-  }
-}
-
-.title {
-  font-size: 3.25rem;
-  font-weight: 800;
-  color: white;
-  margin-bottom: 1.5rem;
-  line-height: 1.2;
-  
-  [data-theme="light"] & {
-    color: #0f172a;
-  }
-  
-  @media (max-width: $breakpoint-md) {
-    font-size: 2.5rem;
-  }
-  
-  @media (max-width: $breakpoint-sm) {
-    font-size: 2rem;
-  }
-}
-
-.highlight {
-  background: linear-gradient(
-    90deg, 
-    #3b82f6 0%, 
-    #8b5cf6 100%
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  position: relative;
-  display: inline-block;
-  
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(
-      90deg, 
-      #3b82f6 0%, 
-      #8b5cf6 100%
-    );
-    border-radius: 3px;
-    opacity: 0.7;
-    
-    @media (max-width: $breakpoint-md) {
-      height: 3px;
-      bottom: -3px;
-    }
-  }
-}
-
-.description {
-  font-size: 1.125rem;
-  line-height: 1.7;
-  color: #94a3b8;
-  max-width: 650px;
-  margin: 0 auto;
-  
-  [data-theme="light"] & {
-    color: #475569;
-  }
-  
-  @media (max-width: $breakpoint-md) {
-    font-size: 1rem;
-  }
-}
-
-// Projects grid layout
-.projectsGrid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  
-  @media (max-width: 1024px) {
-    grid-template-columns: 1fr;
-  }
-}
-
-// Project card styling
-.projectCard {
-  background-color: rgba(16, 24, 40, 0.6);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  height: 100%;
-  
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    
-    .cardLink {
-      background-color: rgba(59, 130, 246, 0.15);
-    }
-  }
-  
-  [data-theme="light"] & {
-    background-color: white;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    
-    &:hover {
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    }
-  }
-}
-
-.cardHeader {
-  padding: 1.5rem;
+.projectHeader {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  
-  [data-theme="light"] & {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  }
-}
-
-.projectNumber {
-  font-size: 1.125rem;
-  font-weight: 700;
-  color: #3b82f6;
-  
-  [data-theme="light"] & {
-    color: #3b82f6;
-  }
+  margin-bottom: 1.5rem;
 }
 
 .projectIcon {
-  color: #3b82f6;
+  color: $premium-primary;
+  width: 32px;
+  height: 32px;
+  opacity: 0.9;
+  stroke-width: 1.75;
+  transition: all 0.3s $transition-standard;
   
-  [data-theme="light"] & {
-    color: #3b82f6;
+  [data-theme="dark"] & {
+    color: lighten($premium-primary, 15%);
+    opacity: 0.8;
   }
-}
-
-.cardContent {
-  padding: 1.5rem;
-  flex: 1;
+  
+  // Make icon slightly more vibrant on mobile
+  @media (max-width: $breakpoint-lg) {
+    opacity: 1;
+  }
 }
 
 .projectTitle {
   font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 0.75rem;
-  color: white;
+  font-weight: 600;
+  margin: 0 0 1rem;
+  color: $text-primary;
   
-  [data-theme="light"] & {
-    color: #0f172a;
+  [data-theme="dark"] & {
+    color: $text-primary-dark;
   }
 }
 
 .projectDescription {
   font-size: 1rem;
   line-height: 1.6;
-  color: #94a3b8;
-  margin-bottom: 1.5rem;
+  color: rgba($text-primary, 0.75);
+  margin: 0 0 1.25rem;
   
-  [data-theme="light"] & {
-    color: #475569;
+  [data-theme="dark"] & {
+    color: rgba($text-primary-dark, 0.75);
   }
 }
 
@@ -251,7 +391,8 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-top: auto;
+  margin-bottom: 1.5rem;
 }
 
 .tag {
@@ -260,76 +401,107 @@
   font-size: 0.75rem;
   font-weight: 500;
   border-radius: 100px;
-  background: rgba(59, 130, 246, 0.1);
-  color: #3b82f6;
+  background: rgba($premium-primary, 0.07);
+  color: $premium-primary;
   
-  [data-theme="light"] & {
-    background: rgba(59, 130, 246, 0.08);
+  [data-theme="dark"] & {
+    background: rgba($premium-primary, 0.1);
+    color: lighten($premium-primary, 20%);
   }
-}
-
-.cardLink {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 1.5rem;
-  color: #e2e8f0;
-  background-color: rgba(255, 255, 255, 0.03);
-  font-weight: 500;
-  transition: all 0.2s ease;
   
-  &:hover {
-    svg {
-      transform: translateX(3px) translateY(-3px);
+  // Make tags slightly more vibrant on mobile
+  @media (max-width: $breakpoint-lg) {
+    background: rgba($premium-primary, 0.08);
+    
+    [data-theme="dark"] & {
+      background: rgba($premium-primary, 0.12);
     }
   }
+}
+
+.projectLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: $premium-primary;
+  margin-top: auto;
+  transition: color 0.3s $transition-standard;
   
-  svg {
-    transition: transform 0.2s ease;
+  [data-theme="dark"] & {
+    color: lighten($premium-primary, 15%);
   }
   
-  [data-theme="light"] & {
-    background-color: rgba(0, 0, 0, 0.02);
-    color: #0f172a;
+  .linkIcon {
+    transition: transform 0.3s $transition-standard;
   }
 }
 
-// "View all projects" button
-.moreProjectsWrapper {
-  grid-column: 1 / -1;
+.ctaContainer {
+  margin-top: 1rem;
   display: flex;
   justify-content: center;
-  margin-top: 2.5rem;
 }
 
-.moreProjectsButton {
+.projectsCta {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 1rem 2rem;
-  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-  color: white;
+  gap: 0.5rem;
+  font-size: 1rem;
   font-weight: 600;
+  color: $premium-primary;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
   border-radius: 8px;
-  transition: all 0.3s ease;
+  border: 1px solid rgba($premium-primary, 0.15);
+  background: linear-gradient(
+    135deg,
+    rgba($premium-primary, 0.05) 0%,
+    rgba($premium-accent, 0.08) 100%
+  );
+  transition: all 0.3s $transition-standard;
+  
+  [data-theme="dark"] & {
+    color: lighten($premium-primary, 20%);
+    background: linear-gradient(
+      135deg,
+      rgba($premium-primary, 0.08) 0%,
+      rgba($premium-accent, 0.12) 100%
+    );
+    border-color: rgba($premium-primary, 0.25);
+  }
   
   &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.25);
+    background: linear-gradient(
+      135deg,
+      rgba($premium-primary, 0.1) 0%,
+      rgba($premium-accent, 0.15) 100%
+    );
+    transform: translateY(-2px);
+    border-color: rgba($premium-primary, 0.4);
+    box-shadow: 0 4px 12px rgba($premium-primary, 0.15);
     
-    svg {
-      transform: translateX(3px) translateY(-3px);
+    [data-theme="dark"] & {
+      background: linear-gradient(
+        135deg,
+        rgba($premium-primary, 0.15) 0%,
+        rgba($premium-accent, 0.2) 100%
+      );
+      border-color: rgba($premium-primary, 0.5);
+      box-shadow: 0 4px 15px rgba($premium-primary, 0.2);
+    }
+    
+    .ctaIcon {
+      transform: translate(2px, -2px);
     }
   }
   
-  svg {
-    transition: transform 0.2s ease;
+  &:active {
+    transform: translateY(0);
   }
 }
 
-// Export component
-.export {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
+.ctaIcon {
+  transition: transform 0.3s $transition-standard;
 }
