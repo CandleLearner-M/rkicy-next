@@ -166,12 +166,34 @@ $transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba($premium-primary, 0.05);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.03);
-  backdrop-filter: blur(10px);
   z-index: 1;
   overflow: hidden;
   transition: transform 0.5s $transition-smooth, 
               box-shadow 0.5s $transition-smooth,
               border-color 0.5s $transition-smooth;
+  
+  // Apply backdrop-filter only on desktop
+  @media (min-width: $breakpoint-lg) {
+    backdrop-filter: blur(10px);
+  }
+  
+  // Alternative styling for mobile/tablet
+  @media (max-width: $breakpoint-lg) {
+    background: rgba(255, 255, 255, 0.9);
+    border-width: 1px;
+    
+    // Light theme on mobile - use solid subtle background
+    [data-theme="light"] & {
+      background-color: white;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+    }
+    
+    // Dark theme on mobile - use solid subtle background
+    [data-theme="dark"] & {
+      background-color: rgba(20, 24, 34, 0.95);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+  }
   
   [data-theme="dark"] & {
     background: rgba(30, 30, 40, 0.25);
@@ -180,6 +202,7 @@ $transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
   }
   
   &:hover {
+    transform: translateY(-5px);
     border-color: rgba($premium-primary, 0.2);
     box-shadow: 0 20px 30px rgba($premium-primary, 0.04),
                 0 10px 20px rgba(0, 0, 0, 0.03);
@@ -237,6 +260,17 @@ $transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
       transparent 70%
     );
   }
+  
+  // Make glow more visible on mobile to compensate for removed blur
+  @media (max-width: $breakpoint-lg) {
+    width: 240px;
+    height: 240px;
+    opacity: 0.2;
+    
+    [data-theme="dark"] & {
+      opacity: 0.15;
+    }
+  }
 }
 
 .serviceHeader {
@@ -256,6 +290,11 @@ $transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
   [data-theme="dark"] & {
     color: lighten($premium-primary, 15%);
     opacity: 0.8;
+  }
+  
+  // Make icon slightly more vibrant on mobile
+  @media (max-width: $breakpoint-lg) {
+    opacity: 1;
   }
 }
 
