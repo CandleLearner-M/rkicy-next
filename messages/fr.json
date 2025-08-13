@@ -433,10 +433,13 @@
       "tags": {
         "fintech": "Fintech",
         "payments": "Paiements",
-        "manufacturing": "Fabrication",
-        "logistics": "Logistique",
+        "productivity": "Productivité",
+        "task": "Gestion des Tâches",
         "ecommerce": "E-commerce",
         "marketplace": "Place de marché",
+        "tourism": "Tourisme",
+        "rentals": "Locations",
+        "toys": "Jouets",
         "retail": "Commerce de détail"
       }
     },

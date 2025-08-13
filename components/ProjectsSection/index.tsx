@@ -58,7 +58,7 @@ export default function ProjectsSection() {
         </svg>
       ),
       logo: '/projects/finish3.png',
-      tags: [t('tags.manufacturing'), t('tags.logistics')],
+      tags: [t('tags.productivity'), t('tags.task')],
       link: '/projects/finish3'
     },
     {
@@ -75,7 +75,7 @@ export default function ProjectsSection() {
         </svg>
       ),
       logo: '/projects/bato.png',
-      tags: [t('tags.ecommerce'), t('tags.marketplace')],
+      tags: [t('tags.rentals'), t('tags.tourism')],
       link: '/projects/bato'
     },
     {
@@ -90,7 +90,7 @@ export default function ProjectsSection() {
         </svg>
       ),
       logo: '/projects/nounours.png',
-      tags: [t('tags.ecommerce'), t('tags.retail')],
+      tags: [t('tags.ecommerce'), t('tags.retail'), t('tags.toys')],
       link: 'https://nounours.ma/'
     }
   ];
@@ -128,6 +128,7 @@ export default function ProjectsSection() {
                     width={48}
                     height={48}
                     className={styles.projectLogo}
+                    draggable='false'
                   />
                 )}
                 <div className={styles.projectHeader}>

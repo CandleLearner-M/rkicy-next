@@ -555,10 +555,13 @@
         "tags": {
           "fintech": "Fintech",
           "payments": "Payments",
-          "manufacturing": "Manufacturing",
-          "logistics": "Logistics",
+          "productivity": "Productivity",
+          "task": "Task Management",
           "ecommerce": "E-commerce",
           "marketplace": "Marketplace",
+          "tourism": "Tourism",
+          "rentals": "Rentals",
+          "toys": "Toys",
           "retail": "Retail"
         }
       }
