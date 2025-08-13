@@ -3,6 +3,7 @@
     "title": "Rkicy Tech",
     "description": "Propulser l'Avenir Numérique du Maroc",
     "navigation": {
+      "mainNavigation": "Navigation Principale",
       "home": "Accueil",
       "about": "À propos",
       "services": "Services",
@@ -17,6 +18,7 @@
       "exploreServices": "Explorer nos services"
     },
     "language": {
+      "switch": "Changer de langue",
       "english": "English",
       "french": "Français",
       "arabic": "العربية"
@@ -334,15 +336,135 @@
         "clients": "Plus de 200 Clients"
       }
     },
-        "partners": {
-          "title": "Approuvé par les Leaders de l'Industrie",
-          "logos": {
-            "zebra": "Logo Zebra",
-            "openai": "Logo OpenAI",
-            "sap": "Logo SAP",
-            "microsoft": "Logo Microsoft"
+    "partners": {
+      "title": "Approuvé par les Leaders de l'Industrie",
+      "logos": {
+        "zebra": "Logo Zebra",
+        "openai": "Logo OpenAI",
+        "sap": "Logo SAP",
+        "microsoft": "Logo Microsoft"
+      }
+    }
+  },
+  "projects": {
+    "hero": {
+      "badge": "Notre Portfolio",
+      "title": "Découvrez nos {highlight}projets impactants{/highlight}",
+      "subtitle": "Explorez notre gamme diversifiée d'implémentations technologiques réussies dans différentes industries et secteurs"
+    },
+    "featuredWork": "Travaux Phares",
+    "featuredWorkSubtitle": "Mise en avant de nos projets les plus impactants et innovants",
+    "allProjects": "Tous les Projets",
+    "allProjectsSubtitle": "Parcourez notre portefeuille complet d'implémentations réussies",
+    "viewProject": "Voir le Projet",
+    "viewDetails": "Voir les Détails",
+    "paycov": {
+      "subtitle": "Plateforme fintech révolutionnaire pour le Maroc",
+      "shortDescription": "Une solution de paiement complète apportant des transactions sans espèces modernes aux entreprises et consommateurs marocains.",
+      "title": "Paycov",
+      "description": "Une plateforme fintech révolutionnaire apportant des paiements modernes au Maroc et au-delà",
+      "backToProjects": "Retour aux Projets",
+      "visitWebsite": "Visiter le Site Web",
+      "learnMore": "En Savoir Plus",
+      "tabs": {
+        "overview": "Aperçu",
+        "features": "Fonctionnalités",
+        "technology": "Technologie",
+        "journey": "Parcours"
+      },
+      "overview": {
+        "title": "Révolutionner les Paiements au Maroc",
+        "description1": "Paycov est une plateforme de paiement complète conçue spécifiquement pour le marché marocain, permettant une véritable inclusion financière et des paiements numériques pour tous. Des transferts de pair à pair aux paiements QR & NFC, aux transactions basées sur le chat et à la gestion multi-cartes, Paycov offre une expérience sans espèces complète.",
+        "description2": "Notre solution comble le fossé entre les systèmes bancaires traditionnels et les paiements numériques modernes, rendant les services financiers accessibles à tous au Maroc, qu'ils disposent ou non d'un compte bancaire.",
+        "keyPoints": {
+          "point1": "Première plateforme de paiement véritablement complète construite pour le Maroc",
+          "point2": "Accessible aux populations bancarisées et non bancarisées",
+          "point3": "Sécurité de niveau bancaire avec conformité réglementaire"
+        }
+      },
+      "founder": {
+        "name": "Mehdi Alaoui",
+        "title": "Fondateur & PDG",
+        "quote": "J'ai fondé Paycov après être retourné au Maroc et avoir expérimenté de première main les défis des paiements numériques ici. Notre mission est de rendre les transactions sans espèces accessibles à chaque Marocain, indépendamment de son statut bancaire."
+      },
+      "gallery": {
+        "dashboard": "Interface du Tableau de Bord Paycov",
+        "payments": "Interface de Traitement des Paiements",
+        "chat": "Interface de Paiement Basée sur le Chat"
+      },
+      "featuresSection": {
+        "title": "Fonctionnalités Clés",
+        "subtitle": "Fonctionnalités puissantes conçues pour le marché marocain"
+      },
+      "features": {
+        "p2p": {
+          "title": "Transferts de pair à pair",
+          "description": "Envoyez et recevez de l'argent instantanément avec n'importe qui—aucun compte bancaire requis."
+        },
+        "qr": {
+          "title": "Paiements QR & NFC",
+          "description": "Payez les taxis, les courses, les achats et plus encore avec juste votre téléphone. Fini l'argent liquide—scannez simplement un QR ou tapez pour payer instantanément et en toute sécurité."
+        },
+        "chat": {
+          "title": "Paiements basés sur le chat",
+          "description": "Demandez ou envoyez des paiements directement dans vos conversations—rapide et intuitif."
+        },
+        "card": {
+          "title": "Gestion instantanée des cartes",
+          "description": "Ajoutez, gérez et utilisez plusieurs cartes en toute sécurité de n'importe quelle banque marocaine ou internationale."
+        }
+      },
+      "security": {
+        "title": "Votre Argent, Sécurisé",
+        "description": "Sécurité de niveau bancaire et conformité réglementaire complète—votre tranquillité d'esprit est notre priorité.",
+        "features": {
+          "encryption": "Chiffrement de bout en bout pour toutes les transactions",
+          "fraud": "Détection et prévention avancées des fraudes",
+          "regulatory": "Conformité totale avec les réglementations de Bank Al-Maghrib"
+        }
+      },
+      "technology": {
+        "title": "Stack Technologique",
+        "subtitle": "Les technologies puissantes derrière Paycov",
+        "categories": {
+          "frontend": "Frontend",
+          "backend": "Backend",
+          "devops": "DevOps & Infrastructure"
+        },
+        "architecture": {
+          "title": "Architecture Système",
+          "description": "Paycov est construit sur une architecture moderne et évolutive conçue pour la sécurité, la performance et la fiabilité. Le système utilise des microservices pour plus de flexibilité et utilise un traitement des données en temps réel pour garantir des transactions instantanées."
+        }
+      },
+      "journey": {
+        "title": "Le Parcours de Paycov",
+        "subtitle": "Du concept à une plateforme fintech révolutionnaire",
+        "nextSteps": {
+          "title": "La Suite pour Paycov",
+          "description": "Notre feuille de route pour étendre la portée et les capacités de Paycov",
+          "items": {
+            "launch": {
+              "title": "Lancement Public",
+              "description": "Lancement officiel à travers le Maroc avec ensemble complet de fonctionnalités"
+            },
+            "expansion": {
+              "title": "Expansion du Marché",
+              "description": "Élargissement des partenariats avec les commerçants et prestataires de services"
+            },
+            "international": {
+              "title": "Expansion Internationale",
+              "description": "Début de l'expansion vers les pays voisins d'Afrique du Nord"
+            }
           }
         }
+      },
+      "cta": {
+        "title": "Prêt à expérimenter l'avenir des paiements ?",
+        "description": "Rejoignez des milliers de Marocains qui attendent déjà le lancement de Paycov",
+        "primaryButton": "Rejoindre la Liste d'Attente",
+        "secondaryButton": "Contacter pour Plus d'Informations"
+      }
+    }
   },
   "aboutHero": {
     "label": "Votre Partenaire IT de Confiance",
@@ -461,15 +583,15 @@
         "operations": "Responsable Production"
       },
       "quotes": {
-        "mohammed": "Nous craignions que la migration vers un nouvel ERP ne bloque nos opérations pendant des semaines. L’équipe de Rkicy a planifié le processus dans les moindres détails : zéro interruption, formation claire, et un suivi régulier. Trois mois plus tard, nos cycles de facturation sont passés de 10 jours à 6.",
-        "leila": "Avant Rkicy, nous comptions nos stocks manuellement chaque fin de mois, et les écarts étaient fréquents. Avec leurs solutions Zebra, l’inventaire est désormais en temps réel. En six mois, nous avons réduit les erreurs de stock de 15% et économisé l’équivalent d’un poste à temps plein.",
-        "omar": "Notre ancien site plantait à chaque période de soldes. Rkicy a reconstruit notre plateforme avec un système capable de gérer cinq fois plus de connexions simultanées. Résultat : zéro panne pendant les soldes d’hiver et +38% de chiffre d’affaires en ligne.",
-        "amina": "Avant, nous passions des heures à compiler des fichiers Excel pour nos réunions. Avec les tableaux de bord BI créés par Rkicy, toutes les données sont centralisées et mises à jour automatiquement. Nous avons réduit nos réunions hebdomadaires de 2h30 à moins d’une heure.",
-        "karim": "Nous pensions que l’IA nécessitait des mois de développement. Rkicy nous a livré un modèle prédictif opérationnel en 5 semaines, capable d’anticiper nos besoins en matières premières. Nous avons déjà évité deux ruptures de stock critiques."
+        "mohammed": "Nous craignions que la migration vers un nouvel ERP ne bloque nos opérations pendant des semaines. L'équipe de Rkicy a planifié le processus dans les moindres détails : zéro interruption, formation claire, et un suivi régulier. Trois mois plus tard, nos cycles de facturation sont passés de 10 jours à 6.",
+        "leila": "Avant Rkicy, nous comptions nos stocks manuellement chaque fin de mois, et les écarts étaient fréquents. Avec leurs solutions Zebra, l'inventaire est désormais en temps réel. En six mois, nous avons réduit les erreurs de stock de 15% et économisé l'équivalent d'un poste à temps plein.",
+        "omar": "Notre ancien site plantait à chaque période de soldes. Rkicy a reconstruit notre plateforme avec un système capable de gérer cinq fois plus de connexions simultanées. Résultat : zéro panne pendant les soldes d'hiver et +38% de chiffre d'affaires en ligne.",
+        "amina": "Avant, nous passions des heures à compiler des fichiers Excel pour nos réunions. Avec les tableaux de bord BI créés par Rkicy, toutes les données sont centralisées et mises à jour automatiquement. Nous avons réduit nos réunions hebdomadaires de 2h30 à moins d'une heure.",
+        "karim": "Nous pensions que l'IA nécessitait des mois de développement. Rkicy nous a livré un modèle prédictif opérationnel en 5 semaines, capable d'anticiper nos besoins en matières premières. Nous avons déjà évité deux ruptures de stock critiques."
       }
     }
   },
-    "footer": {
+  "footer": {
     "company": {
       "description": "Leader de la transformation numérique au Maroc avec des solutions informatiques de niveau entreprise, de l'IA au matériel. Nous accompagnons les entreprises à travers le Maroc et au-delà.",
       "contact": {

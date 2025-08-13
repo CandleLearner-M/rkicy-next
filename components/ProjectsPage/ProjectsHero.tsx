@@ -42,9 +42,10 @@ export default function ProjectsHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            {t.rich('title', {
+            {t('title')}
+            {/* {t.rich('title', {
               highlight: (chunks) => <span className={styles.highlight}>{chunks}</span>
-            })}
+            })} */}
           </motion.h1>
           
           <motion.p 

@@ -3,6 +3,7 @@
       "title": "Rkicy Tech",
       "description": "Empowering Morocco's Digital Future",
       "navigation": {
+        "mainNavigation": "Main Navigation",
         "home": "Home",
         "about": "About",
         "services": "Services",
@@ -17,6 +18,7 @@
         "exploreServices": "Explore Our Services"
       },
       "language": {
+        "switch": "Switch Language",
         "english": "English",
         "french": "Français",
         "arabic": "العربية"
@@ -348,7 +350,7 @@
   "projects": {
     "hero": {
       "badge": "Our Portfolio",
-      "title": "Discover our {highlight}impactful projects{/highlight}",
+      "title": "Discover our impactful projects",
       "subtitle": "Explore our diverse range of successful technology implementations across different industries and sectors"
     },
     "featuredWork": "Featured Work",

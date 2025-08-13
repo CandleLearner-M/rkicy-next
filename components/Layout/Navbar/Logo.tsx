@@ -4,7 +4,7 @@ import styles from './Logo.module.scss';
 
 function Logo() {
   return (
-         <Link href="/" className={styles.logo}>
+         <div className={styles.logo}>
           <Image
             src="/rkicy-logo.svg"
             alt="Rkicy Technology"
@@ -13,7 +13,7 @@ function Logo() {
             draggable={false}
             className={styles.logoImage}
           />
-        </Link>   
+        </div>   
   )
 }
 export default Logo

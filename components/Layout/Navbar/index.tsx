@@ -13,6 +13,88 @@ import LanguageSwitcher from '../../Common/LanguageSwitcher';
 import { useSmartScroll } from './hooks/useSmartScroll';
 import ThemeSwitcher from '../../Common/ThemeSwitcher';
 
+  // Motion variants with entrance animation
+  const navbarVariants = {
+    initial: {
+      y: -30,
+      opacity: 0,
+    },
+    hero: {
+      y: 0,
+      opacity: 1,
+      boxShadow: 'none',
+    },
+    floating: {
+      y: 0,
+      opacity: 1,
+    },
+    hidden: {
+      y: -20,
+      opacity: 0,
+    },
+  } as const;
+
+  // Logo variants for entrance animation
+  const logoVariants = {
+    initial: { opacity: 0, y: -10 },
+    animate: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { 
+        duration: 0.5, 
+        ease: [0.23, 1, 0.32, 1] 
+      }
+    }
+  } as const;
+
+  // Navigation links staggered entrance
+  const navLinksContainerVariants = {
+    initial: { opacity: 0 },
+    animate: { 
+      opacity: 1,
+      transition: { 
+        staggerChildren: 0.05,
+        delayChildren: 0.2,
+      }
+    }
+  } as const;
+
+  const navLinkItemVariants = {
+    initial: { opacity: 0, y: -10 },
+    animate: { 
+      opacity: 1, 
+      y: 0,
+      transition: { 
+        duration: 0.4, 
+        ease: [0.23, 1, 0.32, 1] 
+      }
+    }
+  } as const;
+
+  // Actions container variants
+  const navActionsVariants = {
+    initial: { opacity: 0 },
+    animate: { 
+      opacity: 1,
+      transition: { 
+        staggerChildren: 0.1,
+        delayChildren: 0.3,
+      }
+    }
+  } as const;
+
+  const navActionItemVariants = {
+    initial: { opacity: 0, scale: 0.9 },
+    animate: { 
+      opacity: 1, 
+      scale: 1,
+      transition: { 
+        duration: 0.4, 
+        ease: [0.23, 1, 0.32, 1] 
+      }
+    }
+  } as const;
+
 interface NavLink {
   name: string;
   href: string;
@@ -54,87 +136,7 @@ export default function UnifiedNavbar(): JSX.Element | null {
     { name: t('navigation.contact'), href: `/${locale}/contact` },
   ];
 
-  // Motion variants with entrance animation
-  const navbarVariants = {
-    initial: {
-      y: -30,
-      opacity: 0,
-    },
-    hero: {
-      y: 0,
-      opacity: 1,
-      boxShadow: 'none',
-    },
-    floating: {
-      y: 0,
-      opacity: 1,
-    },
-    hidden: {
-      y: -20,
-      opacity: 0,
-    },
-  } as const;
 
-  // Logo variants for entrance animation
-  const logoVariants = {
-    initial: { opacity: 0, y: -10 },
-    animate: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { 
-        duration: 0.5, 
-        ease: [0.23, 1, 0.32, 1] 
-      }
-    }
-  };
-
-  // Navigation links staggered entrance
-  const navLinksContainerVariants = {
-    initial: { opacity: 0 },
-    animate: { 
-      opacity: 1,
-      transition: { 
-        staggerChildren: 0.05,
-        delayChildren: 0.2,
-      }
-    }
-  };
-
-  const navLinkItemVariants = {
-    initial: { opacity: 0, y: -10 },
-    animate: { 
-      opacity: 1, 
-      y: 0,
-      transition: { 
-        duration: 0.4, 
-        ease: [0.23, 1, 0.32, 1] 
-      }
-    }
-  };
-
-  // Actions container variants
-  const navActionsVariants = {
-    initial: { opacity: 0 },
-    animate: { 
-      opacity: 1,
-      transition: { 
-        staggerChildren: 0.1,
-        delayChildren: 0.3,
-      }
-    }
-  };
-
-  const navActionItemVariants = {
-    initial: { opacity: 0, scale: 0.9 },
-    animate: { 
-      opacity: 1, 
-      scale: 1,
-      transition: { 
-        duration: 0.4, 
-        ease: [0.23, 1, 0.32, 1] 
-      }
-    }
-  };
 
   const currentVariant = atTop ? 'hero' : visible ? 'floating' : 'hidden';
 
