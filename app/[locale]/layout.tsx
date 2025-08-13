@@ -7,13 +7,11 @@ import FixedBackground from "@/components/FixedBackground";
 import NextTopLoader from "nextjs-toploader";
 import AiChatAssistant from "@/components/AiChatAssistant";
 import MobileNavigation from "@/components/MobileNavigation";
-import HeroNav from "@/components/Navbar/HeroNav";
 import Navbar from "@/components/Navbar";
 import {NextIntlClientProvider, hasLocale} from 'next-intl';
 import {notFound} from 'next/navigation';
 import {routing} from '@/i18n/routing';
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import UnifiedNavbar from "@/components/Navbar/UnifiedNavbar";
 import CookieConsent from "@/components/CookieConsent/CookieConsent";
 
 
@@ -49,7 +47,7 @@ export default async function LocaleLayout({
           <ThemeProvider attribute="data-theme" defaultTheme="system" enableSystem>
             <NextTopLoader showSpinner={false} />
             <CookieConsent />
-            <UnifiedNavbar />
+            <Navbar />
             <FixedBackground />
             {children}
             {/* <AiChatAssistant /> */}
