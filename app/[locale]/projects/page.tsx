@@ -7,6 +7,7 @@ import ProjectsHero from '@/components/ProjectsPage/ProjectsHero';
 import FeaturedProject from '@/components/ProjectsPage/FeaturedProject';
 import ProjectCard from '@/components/ProjectsPage/ProjectCard';
 import styles from './Projects.module.scss';
+import PageHeader from '@/components/Layout/PageHeader';
 
 export default function ProjectsPage() {
   const t = useTranslations('projects');
@@ -31,8 +32,17 @@ export default function ProjectsPage() {
   
   return (
     <main className={styles.projectsPage}>
-      <ProjectsHero />
-      
+      <PageHeader 
+        titleKey="title"
+        subtitleKey="subtitle"
+        badgeKey="badge"
+        namespace="projects"
+        highlightKey="title"
+        breadcrumbs={[
+          { labelKey: "home", href: "/" },
+          { labelKey: "page", href: "/projects", active: true }
+        ]}
+      />
       <section className={styles.projectsContainer}>
         <div className={styles.container}>
           <motion.div 
