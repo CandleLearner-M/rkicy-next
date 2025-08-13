@@ -409,7 +409,9 @@
     },
     "projects": {
       "badge": "TRAVAUX RÉCENTS",
-      "title": "Solutions Innovantes pour des {highlight}Défis d'Entreprise",
+      "title": "Solutions ",
+      "highlighted": "Innovantes",
+      "title2": " pour des Défis d'Entreprise",
       "description": "Nous avons aidé des entreprises à travers le Maroc à transformer leurs opérations avec des solutions numériques sur mesure. Voici quelques-uns de nos projets phares.",
       "viewProject": "Voir détails",
       "visitSite": "Visiter le site",
