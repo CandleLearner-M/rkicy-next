@@ -18,7 +18,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./page.module.scss";
-import PageHeader from "@/components/PageHeader";
+import PageHeader from "@/components/Layout/PageHeader";
 
 export default function AboutPage() {
   const [selectedLeader, setSelectedLeader] = useState<number | null>(null);

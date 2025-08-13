@@ -25,7 +25,7 @@ import {
 import { useTranslations } from 'next-intl';
 import { useLocale } from 'next-intl';
 import styles from "./page.module.scss";
-import PageHeader from "@/components/PageHeader";
+import PageHeader from "@/components/Layout/PageHeader";
 
 export default function ServicesPage() {
   const t = useTranslations('services');

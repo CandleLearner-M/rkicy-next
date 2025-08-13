@@ -1,11 +1,11 @@
-import AboutPreview from "@/components/AboutPreview";
-import ContactPreview from "@/components/ContactPreview";
-import Hero from "@/components/Hero";
-import PartnersPreview from "@/components/PartnersPreview";
-import ProjectsSection from "@/components/ProjectsSection";
-import SectionBackground from "@/components/SectionBackground/SectionBackground";
-import ServicesPreview from "@/components/ServicesPreview/ServicesPreview";
-import TestimonialsSection from "@/components/TestimonialsSection";
+import AboutPreview from "@/components/Home/AboutPreview";
+import ContactPreview from "@/components/Home/ContactPreview";
+import Hero from "@/components/Home/Hero";
+import PartnersPreview from "@/components/Home/PartnersPreview";
+import ProjectsSection from "@/components/Home/ProjectsSection";
+import SectionBackground from "@/components/Layout/SectionBackground/SectionBackground";
+import ServicesPreview from "@/components/Home/ServicesPreview/ServicesPreview";
+import TestimonialsSection from "@/components/Home/TestimonialsSection";
 
 
 export default function Home() {

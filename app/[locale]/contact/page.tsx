@@ -21,7 +21,7 @@ import {
   Monitor
 } from "lucide-react";
 import Link from "next/link";
-import PageHeader from "@/components/PageHeader";
+import PageHeader from "@/components/Layout/PageHeader";
 import styles from "./contact.module.scss";
 
 // Service options with icons for visual selection
