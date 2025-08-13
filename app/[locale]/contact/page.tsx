@@ -161,11 +161,14 @@ export default function ContactPage() {
     <main className={styles.contactPage}>
       {/* Page header */}
       <PageHeader 
-        title="Contact Us" 
-        subtitle="Let's collaborate on your next digital transformation project"
+        titleKey="title"
+        subtitleKey="subtitle"
+        badgeKey="badge"
+        namespace="contact"
+        highlightKey="title"
         breadcrumbs={[
-          { label: "Home", href: "/" },
-          { label: "Contact", href: "/contact", active: true }
+          { labelKey: "home", href: "/" },
+          { labelKey: "page", href: "/contact", active: true }
         ]}
       />
       
