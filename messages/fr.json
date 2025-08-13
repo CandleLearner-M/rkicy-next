@@ -802,5 +802,46 @@
         }
       }
     }
+  },
+  "pageHeader": {
+    "about": {
+      "page": "À Propos",
+      "home": "Accueil",
+      "badge": "À Propos de Nous",
+      "title": "Premier <highlight>Fournisseur de Solutions</highlight> IT au Maroc",
+      "subtitle": "Renforçons les entreprises avec des solutions technologiques innovantes et des services d'experts depuis 2023"
+    },
+    
+    "services": {
+      "page": "Services",
+      "home": "Accueil",
+      "badge": "Nos Services",
+      "title": "<highlight>Solutions Technologiques</highlight> Complètes",
+      "subtitle": "Des services cloud à l'implémentation d'IA, nous fournissons des solutions de bout en bout pour les entreprises modernes"
+    },
+    
+    "hardware": {
+      "page": "Matériel",
+      "home": "Accueil",
+      "badge": "Solutions Matérielles",
+      "title": "Technologie <highlight>Matérielle</highlight> de Niveau Entreprise",
+      "subtitle": "Distributeur officiel de solutions matérielles technologiques premium pour les entreprises d'Afrique du Nord"
+    },
+    
+    "projects": {
+      "page": "Projets",
+      "home": "Accueil",
+      "badge": "Notre Portfolio",
+      "title": "Découvrez nos <highlight>projets impactants</highlight>",
+      "subtitle": "Explorez notre gamme diversifiée d'implémentations technologiques réussies dans différentes industries et secteurs"
+    },
+    
+    "contact": {
+      "page": "Contact",
+      "home": "Accueil",
+      "badge": "Contactez-Nous",
+      "title": "Construisons Votre <highlight>Avenir Technologique</highlight>",
+      "subtitle": "Connectez-vous avec notre équipe d'experts pour discuter des besoins technologiques de votre entreprise"
+    }
   }
 }

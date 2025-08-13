@@ -806,6 +806,48 @@
         }
       }
     }
+  },
+
+  "pageHeader": {
+      "about": {
+      "page": "About",
+      "home": "Home",
+      "badge": "About Us",
+      "title": "Morocco's <highlight>Leading IT</highlight> Solutions Provider",
+      "subtitle": "Empowering businesses with innovative technology solutions and expert services since 2023"
+    },
+    
+    "services": {
+      "page": "Services",
+      "home": "Home",
+      "badge": "Our Services",
+      "title": "Comprehensive <highlight>Technology Solutions</highlight>",
+      "subtitle": "From Software services to AI implementation, we provide end-to-end solutions for modern businesses"
+    },
+    
+    "hardware": {
+      "page": "Hardware",
+      "home": "Home",
+      "badge": "Hardware Solutions",
+      "title": "Enterprise-Grade <highlight>Hardware</highlight> Technology",
+      "subtitle": "Official distributor of premium Zebra technology hardware solutions for businesses across North Africa"
+    },
+    
+    "projects": {
+      "page": "Projects",
+      "home": "Home",
+      "badge": "Our Portfolio",
+      "title": "Discover our <highlight>impactful projects</highlight>",
+      "subtitle": "Explore our diverse range of successful technology implementations across different industries and sectors"
+    },
+    
+    "contact": {
+      "page": "Contact",
+      "home": "Home",
+      "badge": "Get In Touch",
+      "title": "Let's Build Your <highlight>Technology Future</highlight>",
+      "subtitle": "Connect with our expert team to discuss your business requirements and technology needs"
+    }
   }
   
 }

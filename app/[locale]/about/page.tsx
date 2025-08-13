@@ -130,30 +130,16 @@ export default function AboutPage() {
   return (
     <main className={styles.aboutPage}>
       {/* Page header */}
-      {/* <PageHeader 
-        titleKey="title"
-        subtitleKey="subtitle"
-        breadcrumbs={[
-          { labelKey: "navigation.home", href: "/" },
-          { labelKey: "navigation.about", href: "/about", active: true }
-        ]}
-        namespace="about"
-      /> */}
       <PageHeader 
         titleKey="title"
         subtitleKey="subtitle"
-        badgeKey="About us"
-        align="center"
-        size="large"
-        titleHighlight={{
-          text: "impactful projects",
-          position: "middle"
-        }}
-        breadcrumbs={[
-          { labelKey: "navigation.home", href: "/" },
-          { labelKey: "navigation.about", href: "/projects", active: true }
-        ]}
+        badgeKey="badge"
         namespace="about"
+        highlightKey="title"
+        breadcrumbs={[
+          { labelKey: "home", href: "/" },
+          { labelKey: "page", href: "/about", active: true }
+        ]}
       />
       
       <div className={styles.container}>

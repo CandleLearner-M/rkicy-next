@@ -1,8 +1,8 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { useLocale, useTranslations } from "next-intl";
 import { ChevronRight } from "lucide-react";
 import styles from "./PageHeader.module.scss";
@@ -31,25 +31,8 @@ const PageHeader: React.FC<PageHeaderProps> = ({
   highlightKey,
 }) => {
   const [isLoaded, setIsLoaded] = useState(false);
-  const heroRef = useRef<HTMLDivElement>(null);
   const locale = useLocale();
-  const t = useTranslations(namespace);
-
-  // Set up scroll animations with parallax effects
-  const { scrollY } = useScroll();
-  const backgroundY = useTransform(scrollY, [0, 300], [0, 100]);
-  const patternY = useTransform(scrollY, [0, 300], [0, 50]);
-  const contentOpacity = useTransform(scrollY, [0, 200], [1, 0.6]);
-  
-  // Additional scroll effects
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"],
-  });
-  
-  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.8], [1, 0.95]);
-  const y = useTransform(scrollYProgress, [0, 0.8], [0, 100]);
+  const t = useTranslations(`pageHeader.${namespace}`);
   
   // Trigger animations after component mounts
   useEffect(() => {
@@ -69,7 +52,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
   };
 
   return (
-    <div className={styles.heroWrapper} ref={heroRef}>
+    <div className={styles.heroWrapper}>
       {/* Background elements covering the full hero */}
       <div className={styles.background}>
         <motion.div 
@@ -77,7 +60,6 @@ const PageHeader: React.FC<PageHeaderProps> = ({
           initial={{ opacity: 0 }}
           animate={{ opacity: isLoaded ? 1 : 0 }}
           transition={{ duration: 1.2 }}
-          style={{ y: backgroundY }}
         ></motion.div>
         
         <motion.div 
@@ -85,7 +67,6 @@ const PageHeader: React.FC<PageHeaderProps> = ({
           initial={{ opacity: 0, scale: 1.1 }}
           animate={{ opacity: isLoaded ? 0.8 : 0, scale: isLoaded ? 1 : 1.1 }}
           transition={{ duration: 1.5 }}
-          style={{ y: patternY }}
         >
           <motion.div 
             className={styles.patternInner}
@@ -109,13 +90,10 @@ const PageHeader: React.FC<PageHeaderProps> = ({
         />
       </div>
 
-      <motion.div 
-        className={styles.heroContent}
-        style={{ opacity, scale, y, opacity: contentOpacity }}
-      >
+      <motion.div className={styles.heroContent}>
         <div className={styles.container}>
           {/* Breadcrumbs Navigation */}
-          <nav className={styles.breadcrumbs} aria-label={t('accessibility.breadcrumbs')}>
+          <nav className={styles.breadcrumbs} aria-label="breadcrumb">
             <ol>
               {breadcrumbs.map((crumb, index) => (
                 <motion.li 
@@ -129,17 +107,13 @@ const PageHeader: React.FC<PageHeaderProps> = ({
                   }}
                 >
                   {crumb.active ? (
-                    <motion.span 
-                      className={styles.activeCrumb}
-                    >
+                    <span className={styles.activeCrumb}>
                       {t(crumb.labelKey)}
-                    </motion.span>
+                    </span>
                   ) : (
-                    <motion.div>
-                      <Link href={`/${locale}${crumb.href}`}>
-                        {t(crumb.labelKey)}
-                      </Link>
-                    </motion.div>
+                    <Link href={`/${locale}${crumb.href}`}>
+                      {t(crumb.labelKey)}
+                    </Link>
                   )}
                   {index < breadcrumbs.length - 1 && (
                     <span className={styles.separator}>

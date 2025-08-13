@@ -91,13 +91,15 @@ export default function ServicesPage() {
   return (
     <section className={styles.servicesSection}>
        <PageHeader 
-          titleKey="page.title" 
-          subtitleKey="page.subtitle"
-          breadcrumbs={[
-            { labelKey: "navigation.home", href: "/" },
-            { labelKey: "navigation.services", href: "/services", active: true }
-          ]}
+          titleKey="title"
+          subtitleKey="subtitle"
+          badgeKey="badge"
           namespace="services"
+          highlightKey="title"
+          breadcrumbs={[
+            { labelKey: "home", href: "/" },
+            { labelKey: "page", href: "/services", active: true }
+          ]}
         />
       <div className={styles.container}>
         {/* Decorative elements */}
