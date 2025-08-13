@@ -456,16 +456,16 @@
       "roles": {
         "cto": "Directeur Technique",
         "ceo": "Directeur Général",
-        "director": "Directeur Informatique",
-        "it": "Responsable Infrastructure IT",
-        "operations": "Directeur des Opérations"
+        "director": "Directrice",
+        "it": "Directrice Générale",
+        "operations": "Responsable Production"
       },
       "quotes": {
         "mohammed": "Nous craignions que la migration vers un nouvel ERP ne bloque nos opérations pendant des semaines. L’équipe de Rkicy a planifié le processus dans les moindres détails : zéro interruption, formation claire, et un suivi régulier. Trois mois plus tard, nos cycles de facturation sont passés de 10 jours à 6.",
         "leila": "Avant Rkicy, nous comptions nos stocks manuellement chaque fin de mois, et les écarts étaient fréquents. Avec leurs solutions Zebra, l’inventaire est désormais en temps réel. En six mois, nous avons réduit les erreurs de stock de 15% et économisé l’équivalent d’un poste à temps plein.",
-        "omar": "S'associer à Rkicy pour notre système de gestion logistique a été l'une de nos meilleures décisions. Leur solution mobile personnalisée permet le suivi en temps réel et a considérablement amélioré nos délais de livraison. Leur équipe de support est réactive et toujours disponible quand nécessaire.",
-        "amina": "En tant qu'institution financière, la sécurité et la fiabilité sont primordiales. Rkicy Technology nous a fourni des solutions matérielles d'entreprise qui répondaient non seulement à nos exigences strictes mais amélioraient également les performances de notre système. Leur attention aux détails et leur support après-vente ont été exceptionnels.",
-        "karim": "Les solutions matérielles d'entreprise fournies par Rkicy ont révolutionné nos opérations portuaires. En tant que partenaires de Zebra Technologies, ils ont livré des équipements premium avec un support local inestimable. Leur compréhension de nos flux de travail complexes a rendu l'implémentation transparente."
+        "omar": "Notre ancien site plantait à chaque période de soldes. Rkicy a reconstruit notre plateforme avec un système capable de gérer cinq fois plus de connexions simultanées. Résultat : zéro panne pendant les soldes d’hiver et +38% de chiffre d’affaires en ligne.",
+        "amina": "Avant, nous passions des heures à compiler des fichiers Excel pour nos réunions. Avec les tableaux de bord BI créés par Rkicy, toutes les données sont centralisées et mises à jour automatiquement. Nous avons réduit nos réunions hebdomadaires de 2h30 à moins d’une heure.",
+        "karim": "Nous pensions que l’IA nécessitait des mois de développement. Rkicy nous a livré un modèle prédictif opérationnel en 5 semaines, capable d’anticiper nos besoins en matières premières. Nous avons déjà évité deux ruptures de stock critiques."
       }
     }
   },

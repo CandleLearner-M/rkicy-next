@@ -579,16 +579,16 @@
         "roles": {
           "cto": "Chief Technology Officer",
           "ceo": "Chief Executive Officer",
-          "director": "IT Director",
-          "it": "Head of IT Infrastructure",
-          "operations": "Operations Director"
+          "director": "Director",
+          "it": "General Manager",
+          "operations": "Production Manager"
         },
         "quotes": {
           "mohammed": "We were worried that switching to a new ERP would paralyze our operations for weeks. The Rkicy team planned the process down to the last detail: zero downtime, clear training, and regular follow-up. Three months later, our billing cycles dropped from 10 days to 6.",
           "leila": "Before Rkicy, we did manual stock counts at the end of each month, and discrepancies were common. With their Zebra solutions, inventory is now real-time. In six months, we cut stock errors by 15% and saved the equivalent of one full-time position.",
-          "omar": "Partnering with Rkicy for our logistics management system was one of our best decisions. Their custom mobile solution allows real-time tracking and has drastically improved our delivery times. Their support team is responsive and always available when needed.",
-          "amina": "As a financial institution, security and reliability are paramount. Rkicy Technology provided us with enterprise hardware solutions that not only met our strict requirements but also improved our system performance. Their attention to detail and follow-up support has been exceptional.",
-          "karim": "The enterprise hardware solutions provided by Rkicy have revolutionized our port operations. As Zebra Technologies partners, they delivered premium equipment with local support that's been invaluable. Their understanding of our complex workflows made implementation seamless."
+          "omar": "Our old site would crash every sales season. Rkicy rebuilt our platform with a system that can handle five times more simultaneous connections. Result: zero downtime during winter sales and +38% online revenue.",
+          "amina": "Before, we spent hours compiling Excel files for our meetings. With the BI dashboards created by Rkicy, all data is centralized and updated automatically. We cut our weekly management meetings from 2h30 to under an hour.",
+          "karim": "We thought AI would take months to develop. Rkicy delivered an operational predictive model in 5 weeks, able to forecast our raw material needs. We’ve already avoided two critical stock shortages."
         }
       }
   },

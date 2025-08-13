@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Quote, Star } from 'lucide-react';
 import styles from './TestimonialsSection.module.scss';
+import { useScreenSize } from '@/utils/useScreenSize';
 
 
  // Animation variants removed for scroll triggers
@@ -30,13 +31,15 @@ export default function TestimonialsSection() {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [isAutoplay, setIsAutoplay] = useState(true);
   const autoplayRef = useRef<NodeJS.Timeout | null>(null);
+  const {isDesktop} = useScreenSize();
+
 const testimonials = [
     {
       id: '01',
       name: 'Karim Ben Said',
       title: t('testimonials.roles.operations'),
-      company: 'Tanger Med Port',
-      location: 'Tanger',
+      company: 'IndusTech Maroc',
+      location: 'Tangier',
       accentColor: '#4f46e5',
       quote: t('testimonials.quotes.karim'),
       rating: 5,
@@ -45,7 +48,7 @@ const testimonials = [
       id: '02',
       name: 'Amina El-Khadim',
       title: t('testimonials.roles.it'),
-      company: 'Banque Centrale du Maroc',
+      company: 'LogiMaroc',
       location: 'Rabat',
       accentColor: '#8b5cf6',
       quote: t('testimonials.quotes.amina'),
@@ -65,7 +68,7 @@ const testimonials = [
       id: '04',
       name: 'Leila El Bouraqadi',
       title: t('testimonials.roles.director'),
-      company: 'Maroc Digital Ventures',
+      company: 'Chamal Retail Solutions',
       location: 'Marrakech',
       accentColor: '#06b6d4',
       quote: t('testimonials.quotes.leila'),
@@ -75,7 +78,7 @@ const testimonials = [
       id: '05',
       name: 'Omar El Bouhati',
       title: t('testimonials.roles.ceo'),
-      company: 'Casablanca Logistics',
+      company: 'Casablanca Luxe',
       location: 'Casablanca',
       accentColor: '#0ea5e9',
       quote: t('testimonials.quotes.omar'),
@@ -242,7 +245,7 @@ const testimonials = [
             </div>
           </div>
 
-          <div className={styles.trustedBySection}>
+          {/* {isDesktop && <div className={styles.trustedBySection}>
             <div className={styles.trustedLine}>
               <div className={styles.trustedLineBefore} />
               <h3 className={styles.trustedTitle}>{t('testimonials.trustedBy')}</h3>
@@ -265,7 +268,7 @@ const testimonials = [
                 </div>
               ))}
             </div>
-          </div>
+          </div> } */}
         </div>
       </div>
     </section>
