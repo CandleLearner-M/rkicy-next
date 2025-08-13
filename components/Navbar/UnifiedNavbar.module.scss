@@ -201,10 +201,7 @@ $z-index: (
     transform: scale(0.98);
   }
 
-  @media (max-width: 768px) {
-    // Adjust logo size for small screens
-      height: 80% !important;
-  }
+ 
 }
 
 // Desktop Navigation

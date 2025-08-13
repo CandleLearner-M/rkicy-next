@@ -11,6 +11,9 @@
 
 .logoImage {
   height: 2.5rem;
+  @media (max-width: 768px) {
+    height: 2.4rem
+  }
   width: auto;
   transition: filter 0.3s ease;
 
