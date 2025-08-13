@@ -193,9 +193,28 @@ $transition-standard: cubic-bezier(0.23, 1, 0.32, 1);
   );
   border: 1px solid rgba($premium-primary, 0.07);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
-  backdrop-filter: blur(10px);
   z-index: 1;
   overflow: hidden;
+  
+  // Apply backdrop-filter only on desktop
+  @media (min-width: 1024px) {
+    backdrop-filter: blur(10px);
+  }
+  
+  // Alternative styling for mobile/tablet
+  @media (max-width: 1023px) {
+    background: rgba(255, 255, 255, 0.9);
+    
+    [data-theme="light"] & {
+      background-color: white;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    }
+    
+    [data-theme="dark"] & {
+      background-color: rgba(20, 24, 34, 0.95);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+  }
   
   [data-theme="dark"] & {
     background: linear-gradient(

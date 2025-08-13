@@ -70,9 +70,9 @@ export default function ProjectsSection() {
               </span>
             </div>
             <h2 className={styles.heading}>
-              {t.rich('title', {
-                highlight: (chunks) => <span className={styles.highlightTxt}>{chunks}</span>
-              })}
+              {t('title')}{' '}
+              <span className={styles.highlightTxt}>{t('highlighted')}</span>{' '}
+              {t('title2')}
             </h2>
             <p className={styles.subheading}>{t('description')}</p>
           </div>

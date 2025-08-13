@@ -531,7 +531,9 @@
       },
         "projects": {
         "badge": "RECENT WORK",
-        "title": "Innovative Solutions for {highlight}Business Challenges",
+        "title": "",
+        "highlighted": "Innovative ",
+        "title2": "Solutions for {highlight}Business Challenges",
         "description": "We've helped businesses across Morocco transform their operations with custom digital solutions. Here are some of our featured projects.",
         "viewProject": "View details",
         "visitSite": "Visit website",
