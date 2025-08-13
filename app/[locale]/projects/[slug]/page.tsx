@@ -7,10 +7,10 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslations, useLocale } from 'next-intl';
 import { ArrowLeft, ExternalLink, ChevronRight } from 'lucide-react';
-import ProjectTabs from '@/components/projects/ProjectTabs';
-import ProjectTimeline from '@/components/projects/ProjectTimeline';
-import ProjectGallery from '@/components/projects/ProjectGallery';
-import ProjectTestimonial from '@/components/projects/ProjectTestimonial';
+import ProjectTabs from '@/components/ProjectsPage/ProjectTabs';
+import ProjectTimeline from '@/components/ProjectsPage/ProjectTimeline';
+import ProjectGallery from '@/components/ProjectsPage/ProjectGallery';
+import ProjectTestimonial from '@/components/ProjectsPage/ProjectTestimonial';
 import styles from './ProjectDetail.module.scss';
 
 export default function ProjectDetailPage() {

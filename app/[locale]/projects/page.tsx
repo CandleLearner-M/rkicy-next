@@ -3,9 +3,9 @@
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import ProjectsHero from '@/components/projects/ProjectsHero';
-import FeaturedProject from '@/components/projects/FeaturedProject';
-import ProjectCard from '@/components/projects/ProjectCard';
+import ProjectsHero from '@/components/ProjectsPage/ProjectsHero';
+import FeaturedProject from '@/components/ProjectsPage/FeaturedProject';
+import ProjectCard from '@/components/ProjectsPage/ProjectCard';
 import styles from './Projects.module.scss';
 
 export default function ProjectsPage() {

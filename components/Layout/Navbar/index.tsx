@@ -9,7 +9,7 @@ import { useLocale, useTranslations } from 'next-intl';
 import { useTheme } from 'next-themes';
 import Logo from './Logo';
 import styles from './UnifiedNavbar.module.scss';
-import LanguageSwitcher from '../../LanguageSwitcher';
+import LanguageSwitcher from '../../Common/LanguageSwitcher';
 import { useSmartScroll } from './hooks/useSmartScroll';
 import ThemeSwitcher from '../../Common/ThemeSwitcher';
 
