@@ -12,6 +12,7 @@ import styles from './UnifiedNavbar.module.scss';
 import LanguageSwitcher from '../../Common/LanguageSwitcher';
 import { useSmartScroll } from './hooks/useSmartScroll';
 import ThemeSwitcher from '../../Common/ThemeSwitcher';
+import { transform } from 'next/dist/build/swc/generated-native';
 
   // Motion variants with entrance animation
   const navbarVariants = {
@@ -56,10 +57,10 @@ import ThemeSwitcher from '../../Common/ThemeSwitcher';
   } as const;
 
   const navLinkItemVariants = {
-    initial: { opacity: 0, y: -10 },
+    initial: { opacity: 0, transform: "translateY(-10px)" },
     animate: { 
       opacity: 1, 
-      y: 0,
+      transform: "translateY(0)",
       transition: { 
         duration: 0.4, 
         ease: [0.23, 1, 0.32, 1] 
