@@ -9,72 +9,72 @@ type Options = {
 };
 
 export function useSmartScroll({
-  threshold = 80,
-  upTolerance = 6,
-  downTolerance = 10,
-  topEpsilon = 8,
-  initiallyVisible = false,
-}: Options = {}) {
-  const [atTop, setAtTop] = useState(true);
+  threshold = 100,
+  upTolerance = 10,
+  downTolerance = 20,
+  initiallyVisible = true,
+  topEpsilon = 5
+}: Options) {
   const [visible, setVisible] = useState(initiallyVisible);
-
-  const lastY = useRef(0);
-  const ticking = useRef(false);
-  const prevAtTop = useRef<boolean>(true);
-  const prevVisible = useRef<boolean>(initiallyVisible);
-
+  const [atTop, setAtTop] = useState(true);
+  
   useEffect(() => {
-    const update = () => {
-      ticking.current = false;
-
-      const y = window.scrollY;
-      const delta = y - lastY.current;
-      const dirDown = delta > 0;
-
-      // compute atTop
-      const nextAtTop = y <= topEpsilon;
-
-      let nextVisible = prevVisible.current;
-
-      if (nextAtTop) {
-        // when near top, always hide floating navbar
-        nextVisible = false;
-      } else if (dirDown && Math.abs(delta) > downTolerance) {
-        // scrolling down: hide
-        nextVisible = false;
-      } else if (!dirDown && Math.abs(delta) > upTolerance && y > threshold) {
-        // scrolling up after passing threshold: show
-        nextVisible = true;
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+    let upDistance = 0;
+    let downDistance = 0;
+    
+    const updateScrollDirection = () => {
+      ticking = false;
+      const currentScrollY = window.scrollY;
+      
+      // Always show navbar at top of page
+      if (currentScrollY <= topEpsilon) {
+        setAtTop(true);
+        setVisible(true);
+        lastScrollY = currentScrollY;
+        return;
+      } else {
+        setAtTop(false);
       }
-
-      lastY.current = y;
-
-      if (nextAtTop !== prevAtTop.current) {
-        prevAtTop.current = nextAtTop;
-        setAtTop(nextAtTop);
+      
+      // Calculate scroll direction and distance
+      const isScrollingDown = currentScrollY > lastScrollY;
+      const scrollDifference = Math.abs(currentScrollY - lastScrollY);
+      
+      // Reset counters when direction changes
+      if (isScrollingDown) {
+        upDistance = 0;
+        downDistance += scrollDifference;
+      } else {
+        downDistance = 0;
+        upDistance += scrollDifference;
       }
-      if (nextVisible !== prevVisible.current) {
-        prevVisible.current = nextVisible;
-        setVisible(nextVisible);
+      
+      // Update visibility based on accumulated scroll distance
+      if (downDistance > downTolerance && currentScrollY > threshold) {
+        setVisible(false);
+      } else if (upDistance > upTolerance) {
+        setVisible(true);
       }
+      
+      lastScrollY = currentScrollY;
     };
-
+    
     const onScroll = () => {
-      if (!ticking.current) {
-        ticking.current = true;
-        window.requestAnimationFrame(update);
+      if (!ticking) {
+        window.requestAnimationFrame(updateScrollDirection);
+        ticking = true;
       }
     };
-
-    // initialize
-    lastY.current = window.scrollY;
-    prevAtTop.current = window.scrollY <= topEpsilon;
-    setAtTop(prevAtTop.current);
-    setVisible(initiallyVisible);
-
+    
+    // Passive true improves scroll performance
     window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, [downTolerance, upTolerance, threshold, topEpsilon, initiallyVisible]);
-
-  return { atTop, visible };
+    
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, [threshold, upTolerance, downTolerance, topEpsilon]);
+  
+  return { visible, atTop };
 }
