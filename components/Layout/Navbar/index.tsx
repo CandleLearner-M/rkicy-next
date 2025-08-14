@@ -12,31 +12,34 @@ import styles from './UnifiedNavbar.module.scss';
 import LanguageSwitcher from '../../Common/LanguageSwitcher';
 import { useSmartScroll } from './hooks/useSmartScroll';
 import ThemeSwitcher from '../../Common/ThemeSwitcher';
-import { transform } from 'next/dist/build/swc/generated-native';
 
   // Motion variants with entrance animation
   const navbarVariants = {
-  initial: {
-    transform: "translateY(0)",
-  },
-  hero: {
-    transform: "translateY(0)",
-    boxShadow: 'none',
-  },
-  floating: {
-    transform: "translateY(0)",
-  },
-  hidden: {
-    transform: "translateY(-115%)",
-  },
-} as const;
+    initial: {
+      y: -30,
+      opacity: 0,
+    },
+    hero: {
+      y: 0,
+      opacity: 1,
+      boxShadow: 'none',
+    },
+    floating: {
+      y: 0,
+      opacity: 1,
+    },
+    hidden: {
+      y: -20,
+      opacity: 0,
+    },
+  } as const;
 
   // Logo variants for entrance animation
   const logoVariants = {
-    initial: { opacity: 0, transform: "translateY(-10px)" },
+    initial: { opacity: 0, y: -10 },
     animate: { 
       opacity: 1, 
-      transform: "translateY(0)", 
+      y: 0, 
       transition: { 
         duration: 0.5, 
         ease: [0.23, 1, 0.32, 1] 
@@ -57,10 +60,10 @@ import { transform } from 'next/dist/build/swc/generated-native';
   } as const;
 
   const navLinkItemVariants = {
-    initial: { opacity: 0, transform: "translateY(-10px)" },
+    initial: { opacity: 0, y: -10 },
     animate: { 
       opacity: 1, 
-      transform: "translateY(0)",
+      y: 0,
       transition: { 
         duration: 0.4, 
         ease: [0.23, 1, 0.32, 1] 
@@ -147,12 +150,10 @@ export default function UnifiedNavbar(): JSX.Element | null {
               initial="initial"
               animate={currentVariant}
               variants={navbarVariants}
-              transition={{ type: 'tween', duration: 0.4, ease: [0.23, 1, 0.32, 1], delay: 0.05 }}
+              transition={{ type: 'tween', duration: 0.35, ease: [0.23, 1, 0.32, 1] }}
               role="navigation"
               aria-label={t('navigation.mainNavigation')}
-              style={{
-                willChange: "transform", // Hint for browser optimization
-              }}
+              style={{ transform: 'translateZ(0)' }}
             >
               <motion.div 
                 className={styles.logoContainer}
