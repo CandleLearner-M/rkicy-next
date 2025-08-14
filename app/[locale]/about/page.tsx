@@ -19,6 +19,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./page.module.scss";
 import PageHeader from "@/components/Layout/PageHeader";
+import ContactPreview from "@/components/HomePage/ContactPreview";
 
 export default function AboutPage() {
   const [selectedLeader, setSelectedLeader] = useState<number | null>(null);
@@ -470,27 +471,8 @@ export default function AboutPage() {
         </section>
         
         {/* Call to Action */}
-        <section className={styles.ctaSection}>
-          <motion.div 
-            className={styles.ctaContent}
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true, margin: "-50px" }}
-          >
-            <h2 className={styles.ctaTitle}>{t('cta.title')}</h2>
-            <p className={styles.ctaText}>{t('cta.description')}</p>
-            <div className={styles.ctaButtons}>
-              <Link href="/contact" className={styles.ctaPrimaryButton}>
-                {tCommon('actions.contactUs')}
-              </Link>
-              <Link href="/services" className={styles.ctaSecondaryButton}>
-                {tCommon('actions.exploreServices')}
-              </Link>
-            </div>
-          </motion.div>
-        </section>
       </div>
+      <ContactPreview />
       
       {/* Video Modal */}
       <AnimatePresence>

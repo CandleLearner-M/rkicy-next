@@ -1,3 +1,4 @@
+import ContactPreview from "@/components/HomePage/ContactPreview"
 import PageHeader from "@/components/Layout/PageHeader"
 
 function HardwarePage() {
@@ -14,6 +15,7 @@ function HardwarePage() {
           { labelKey: "page", href: "/hardware", active: true }
         ]}
       />
+      <ContactPreview />
     </main>
   )
 }
