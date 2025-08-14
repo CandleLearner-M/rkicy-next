@@ -19,8 +19,8 @@ export default function Hero() {
   
   return (
     <>
-      {(isMobile || isTablet) && <MobileHero />}
-      {isDesktop && <DesktopHero />}
+      {(isMobile) && <MobileHero />}
+      {(isDesktop || isTablet) && <DesktopHero />}
     </>
   );
 }
