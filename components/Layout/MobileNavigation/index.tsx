@@ -109,9 +109,9 @@ export default function MobileNavigation() {
     <motion.nav 
       className={styles.mobileNavigation}
       initial={{ transform: "translateY(0)" }}
-      animate={{ transform: visible ? "translateY(0)" : "translateY(100%)" }}
+      animate={{ transform: visible ? "translateY(0)" : "translateY(114%)" }}
       transition={{ 
-        duration: 0.3,
+        duration: 0.5,
         ease: [0.23, 1, 0.32, 1],
         type: "tween"
        }}
