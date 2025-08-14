@@ -837,7 +837,7 @@
       "page": "Projects",
       "home": "Home",
       "badge": "Our Portfolio",
-      "title": "Discover our <highlight>impactful projects</highlight>",
+      "title": "Discover our <highlight>impactful</highlight> projects",
       "subtitle": "Explore our diverse range of successful technology implementations across different industries and sectors"
     },
     
@@ -845,7 +845,7 @@
       "page": "Contact",
       "home": "Home",
       "badge": "Get In Touch",
-      "title": "Let's Build Your <highlight>Technology Future</highlight>",
+      "title": "Let's Build Your Technology <highlight>Future</highlight>",
       "subtitle": "Connect with our expert team to discuss your business requirements and technology needs"
     }
   }

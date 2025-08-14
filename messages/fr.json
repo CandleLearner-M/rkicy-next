@@ -832,7 +832,7 @@
       "page": "Projets",
       "home": "Accueil",
       "badge": "Notre Portfolio",
-      "title": "Découvrez nos <highlight>projets impactants</highlight>",
+      "title": "Découvrez nos projets <highlight>impactants</highlight>",
       "subtitle": "Explorez notre gamme diversifiée d'implémentations technologiques réussies dans différentes industries et secteurs"
     },
     
@@ -840,7 +840,7 @@
       "page": "Contact",
       "home": "Accueil",
       "badge": "Contactez-Nous",
-      "title": "Construisons Votre <highlight>Avenir Technologique</highlight>",
+      "title": "Construisons Votre <highlight>Avenir</highlight> Technologique",
       "subtitle": "Connectez-vous avec notre équipe d'experts pour discuter des besoins technologiques de votre entreprise"
     }
   }
