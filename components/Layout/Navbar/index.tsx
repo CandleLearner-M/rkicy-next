@@ -15,20 +15,20 @@ import ThemeSwitcher from '../../Common/ThemeSwitcher';
 
   // Motion variants with entrance animation
   const navbarVariants = {
-  initial: {
-    transform: "translateY(-115%)",
-  },
-  hero: {
-    transform: "translateY(0)",
-    boxShadow: 'none',
-  },
-  floating: {
-    transform: "translateY(0)",
-  },
-  hidden: {
-    transform: "translateY(-115%)",
-  },
-} as const;
+    initial: {
+      y: -100,
+    },
+    hero: {
+      y: 0,
+      boxShadow: 'none',
+    },
+    floating: {
+      y: 0,
+    },
+    hidden: {
+      y: -100,
+    },
+  } as const;
 
   // Logo variants for entrance animation
   const logoVariants = {
@@ -146,15 +146,10 @@ export default function UnifiedNavbar(): JSX.Element | null {
               initial="initial"
               animate={currentVariant}
               variants={navbarVariants}
-              transition={{ 
-                duration: 0.5,
-                ease: [0.23, 1, 0.32, 1],
-                type: "tween"
-              }}
+              transition={{ type: 'tween', duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
               role="navigation"
               aria-label={t('navigation.mainNavigation')}
-              //  style={{ transform: 'translateZ(0)' }}
-              style={{ willChange: "transform" }}
+              style={{ transform: 'translateZ(0)' }}
             >
               <motion.div 
                 className={styles.logoContainer}
