@@ -54,33 +54,46 @@ export default function MobileNavigation() {
 
   // Handle scroll behavior to hide/show nav bar
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollPos = window.scrollY;
-      const scrollThreshold = 10;
-      
-      // If at top of page, always show
-      if (currentScrollPos < 50) {
-        setVisible(true);
-        return;
-      }
-      
-      // If menu is expanded, don't hide
-      if (isExpanded) {
-        return;
-      }
-      
-      const isScrollingDown = prevScrollPos < currentScrollPos;
-      const scrollDifference = Math.abs(prevScrollPos - currentScrollPos);
-      
-      if (scrollDifference > scrollThreshold) {
-        setVisible(!isScrollingDown);
-        setPrevScrollPos(currentScrollPos);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [prevScrollPos, isExpanded]);
+  let ticking = false;
+  let lastScrollY = window.scrollY;
+  
+  const updateNavVisibility = () => {
+    ticking = false;
+    const currentScrollY = window.scrollY;
+    
+    // If at top of page, always show
+    if (currentScrollY < 50) {
+      setVisible(true);
+      lastScrollY = currentScrollY;
+      return;
+    }
+    
+    // If menu is expanded, don't hide
+    if (isExpanded) {
+      lastScrollY = currentScrollY;
+      return;
+    }
+    
+    const isScrollingDown = lastScrollY < currentScrollY;
+    const scrollDifference = Math.abs(lastScrollY - currentScrollY);
+    
+    if (scrollDifference > 10) {
+      setVisible(!isScrollingDown);
+      lastScrollY = currentScrollY;
+    }
+  };
+  
+  const handleScroll = () => {
+    if (!ticking) {
+      // Use requestAnimationFrame to limit updates
+      window.requestAnimationFrame(updateNavVisibility);
+      ticking = true;
+    }
+  };
+  
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  return () => window.removeEventListener('scroll', handleScroll);
+}, [isExpanded]);
 
   // Toggle expanded menu
   const toggleExpanded = () => {
@@ -95,9 +108,14 @@ export default function MobileNavigation() {
   return (
     <motion.nav 
       className={styles.mobileNavigation}
-      initial={{ y: 0 }}
-      animate={{ y: visible ? 0 : 100 }}
-      transition={{ duration: 0.3, ease: "easeInOut" }}
+      initial={{ transform: "translateY(0)" }}
+      animate={{ transform: visible ? "translateY(0)" : "translateY(100%)" }}
+      transition={{ 
+        duration: 0.3,
+        ease: [0.23, 1, 0.32, 1],
+        type: "tween"
+       }}
+       style={{ willChange: "transform" }}
     >
       <div className={styles.primaryNav}>
         <div className={styles.leftSection}>
