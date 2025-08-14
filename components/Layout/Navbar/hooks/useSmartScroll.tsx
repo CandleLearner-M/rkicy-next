@@ -1,80 +1,98 @@
-import { useEffect, useRef, useState } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
+import { throttle } from 'lodash-es';
 
-type Options = {
-  threshold?: number;        // how far down before floating can appear
-  upTolerance?: number;      // pixels you must scroll up before showing
-  downTolerance?: number;    // pixels you must scroll down before hiding
-  topEpsilon?: number;       // y <= topEpsilon counts as "at top"
-  initiallyVisible?: boolean;
-};
+interface UseSmartScrollOptions {
+  threshold?: number;         // How far to scroll before navbar can hide
+  topEpsilon?: number;        // How far from top to still consider "at top"
+  throttleDelay?: number;     // Throttle delay in ms
+  animationDuration?: number; // Duration of navbar animations
+}
 
+/**
+ * Custom hook that handles smart scroll behavior
+ * Shows/hides UI elements based on scroll direction with improved performance
+ */
 export function useSmartScroll({
-  threshold = 100,
-  upTolerance = 20,
-  downTolerance = 30,
-  initiallyVisible = true,
-  topEpsilon = 10
-}: Options) {
-  const [visible, setVisible] = useState(initiallyVisible);
-  const [atTop, setAtTop] = useState(true);
+  threshold = 80,
+  topEpsilon = 10,
+  throttleDelay = 150,
+  animationDuration = 400,
+}: UseSmartScrollOptions = {}) {
+  const [visible, setVisible] = useState<boolean>(true);
+  const [atTop, setAtTop] = useState<boolean>(true);
+  const lastChangeTimeRef = useRef<number>(0);
   
-  useEffect(() => {
-    let lastScrollY = window.scrollY;
-    let ticking = false;
-    let upDistance = 0;
-    let downDistance = 0;
-    
-    const updateScrollDirection = () => {
-      ticking = false;
+  // Track accumulated scroll distance to prevent sensitivity issues
+  const upScrollDistanceRef = useRef<number>(0);
+  const downScrollDistanceRef = useRef<number>(0);
+  const lastScrollYRef = useRef<number>(0);
+  
+  // Constants for scroll tolerance
+  const upTolerance = 30;   // How far to scroll up before showing navbar
+  const downTolerance = 40; // How far to scroll down before hiding navbar
+  
+  const handleScroll = useCallback(
+    throttle(() => {
       const currentScrollY = window.scrollY;
+      const currentTime = Date.now();
+      const isScrollingDown = currentScrollY > lastScrollYRef.current;
+      const scrollDifference = Math.abs(currentScrollY - lastScrollYRef.current);
+      
+      // Don't allow state changes if animation is in progress
+      if (currentTime - lastChangeTimeRef.current < animationDuration) {
+        lastScrollYRef.current = currentScrollY;
+        return;
+      }
       
       // Always show navbar at top of page
       if (currentScrollY <= topEpsilon) {
         setAtTop(true);
         setVisible(true);
-        lastScrollY = currentScrollY;
+        lastChangeTimeRef.current = currentTime;
+        lastScrollYRef.current = currentScrollY;
         return;
       } else {
         setAtTop(false);
       }
       
-      // Calculate scroll direction and distance
-      const isScrollingDown = currentScrollY > lastScrollY;
-      const scrollDifference = Math.abs(currentScrollY - lastScrollY);
-      
       // Reset counters when direction changes
       if (isScrollingDown) {
-        upDistance = 0;
-        downDistance += scrollDifference;
+        upScrollDistanceRef.current = 0;
+        downScrollDistanceRef.current += scrollDifference;
       } else {
-        downDistance = 0;
-        upDistance += scrollDifference;
+        downScrollDistanceRef.current = 0;
+        upScrollDistanceRef.current += scrollDifference;
       }
       
-      // Update visibility based on accumulated scroll distance
-      if (downDistance > downTolerance && currentScrollY > threshold) {
+      // Update visibility based on accumulated distance
+      if (downScrollDistanceRef.current > downTolerance && currentScrollY > threshold) {
         setVisible(false);
-      } else if (upDistance > upTolerance) {
+        lastChangeTimeRef.current = currentTime;
+      } else if (upScrollDistanceRef.current > upTolerance) {
         setVisible(true);
+        lastChangeTimeRef.current = currentTime;
       }
       
-      lastScrollY = currentScrollY;
-    };
+      lastScrollYRef.current = currentScrollY;
+    }, throttleDelay),
+    [threshold, topEpsilon, animationDuration, throttleDelay]
+  );
+  
+  useEffect(() => {
+    // Initialize last scroll position
+    lastScrollYRef.current = window.scrollY;
     
-    const onScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(updateScrollDirection);
-        ticking = true;
-      }
-    };
+    // Initial state
+    setAtTop(window.scrollY <= topEpsilon);
     
-    // Passive true improves scroll performance
-    window.addEventListener('scroll', onScroll, { passive: true });
+    // Add event listener
+    window.addEventListener('scroll', handleScroll, { passive: true });
     
     return () => {
-      window.removeEventListener('scroll', onScroll);
+      handleScroll.cancel(); // Cancel any pending throttled calls
+      window.removeEventListener('scroll', handleScroll);
     };
-  }, [threshold, upTolerance, downTolerance, topEpsilon]);
+  }, [handleScroll, topEpsilon]);
   
   return { visible, atTop };
 }
