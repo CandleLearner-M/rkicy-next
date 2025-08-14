@@ -150,7 +150,6 @@ export default function UnifiedNavbar(): JSX.Element | null {
               transition={{ type: 'tween', duration: 0.4, ease: [0.23, 1, 0.32, 1], delay: 0.05 }}
               role="navigation"
               aria-label={t('navigation.mainNavigation')}
-              // style={{ transform: 'translateZ(0)' }}
               style={{
                 willChange: "transform", // Hint for browser optimization
               }}
