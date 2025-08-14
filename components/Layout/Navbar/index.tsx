@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, JSX } from 'react';
 import { motion, LayoutGroup, AnimatePresence } from 'framer-motion';
 import { Globe } from 'lucide-react';
 import Link from 'next/link';
