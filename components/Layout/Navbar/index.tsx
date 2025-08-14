@@ -147,7 +147,7 @@ export default function UnifiedNavbar(): JSX.Element | null {
               initial="initial"
               animate={currentVariant}
               variants={navbarVariants}
-              transition={{ type: 'tween', duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
+              transition={{ type: 'tween', duration: 0.4, ease: [0.23, 1, 0.32, 1], delay: 0.05 }}
               role="navigation"
               aria-label={t('navigation.mainNavigation')}
               // style={{ transform: 'translateZ(0)' }}

@@ -10,10 +10,10 @@ type Options = {
 
 export function useSmartScroll({
   threshold = 100,
-  upTolerance = 10,
-  downTolerance = 20,
+  upTolerance = 20,
+  downTolerance = 30,
   initiallyVisible = true,
-  topEpsilon = 5
+  topEpsilon = 10
 }: Options) {
   const [visible, setVisible] = useState(initiallyVisible);
   const [atTop, setAtTop] = useState(true);
