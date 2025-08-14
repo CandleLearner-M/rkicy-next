@@ -32,10 +32,10 @@ import ThemeSwitcher from '../../Common/ThemeSwitcher';
 
   // Logo variants for entrance animation
   const logoVariants = {
-    initial: { opacity: 0, y: -10 },
+    initial: { opacity: 0, transform: "translateY(-10px)" },
     animate: { 
       opacity: 1, 
-      y: 0, 
+      transform: "translateY(0)", 
       transition: { 
         duration: 0.5, 
         ease: [0.23, 1, 0.32, 1] 
