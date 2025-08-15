@@ -1,0 +1,400 @@
+@import "@/styles/variables.scss";
+@import "@/styles/mixins.scss";
+
+.overviewSection {
+  position: relative;
+  padding: 4rem 0;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+      rgba($primary, 0), 
+      rgba($primary, 0.15), 
+      rgba($primary, 0));
+    
+    [data-theme="dark"] & {
+      background: linear-gradient(90deg, 
+        rgba($primary, 0), 
+        rgba($primary, 0.25), 
+        rgba($primary, 0));
+    }
+  }
+  
+  @media (max-width: $breakpoint-md) {
+    padding: 2.5rem 0;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: 2rem 0;
+  }
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  
+  @media (max-width: $breakpoint-lg) {
+    flex-direction: column;
+    gap: 3rem;
+  }
+}
+
+.textContent {
+  flex: 1;
+  max-width: 600px;
+  
+  @media (max-width: $breakpoint-lg) {
+    max-width: 100%;
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.overline {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 600;
+  color: $primary;
+  margin: 0 0 1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  
+  [data-theme="dark"] & {
+    color: $primary;
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    text-align: center;
+  }
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1.75rem;
+  color: $text-primary;
+  
+  [data-theme="dark"] & {
+    color: $text-primary-dark;
+  }
+  
+  @media (max-width: $breakpoint-md) {
+    font-size: 2rem;
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    text-align: center;
+  }
+}
+
+.highlightTxt {
+  background: linear-gradient(90deg, $primary 0%, $accent 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  position: relative;
+  display: inline-block;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, rgba($primary, 0.2) 0%, rgba($accent, 0.2) 100%);
+    border-radius: 3px;
+    z-index: -1;
+  }
+}
+.description {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: $text-secondary;
+  margin-bottom: 1.5rem;
+  
+  [data-theme="dark"] & {
+    color: $text-secondary-dark;
+  }
+  
+  &:last-of-type {
+    margin-bottom: 2.5rem;
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    text-align: center;
+  }
+}
+
+.statsContainer {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  
+  @media (max-width: $breakpoint-sm) {
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    width: 100%;
+  }
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  
+  @media (max-width: $breakpoint-sm) {
+    align-items: center;
+  }
+}
+
+.statNumber {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: $primary;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  
+  [data-theme="dark"] & {
+    color: $primary-light;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    font-size: 2.2rem;
+  }
+}
+
+.statLabel {
+  font-size: 1rem;
+  color: $text-secondary;
+  font-weight: 500;
+  
+  [data-theme="dark"] & {
+    color: $text-secondary-dark;
+  }
+}
+
+.statDivider {
+  width: 1px;
+  height: 3rem;
+  background: rgba(0, 0, 0, 0.1);
+  
+  [data-theme="dark"] & {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+}
+
+.visualElement {
+  
+  @media (min-width: $breakpoint-lg) {
+    flex: 1;
+  }
+  position: relative;
+  height: 450px;
+  
+  @media (max-width: $breakpoint-lg) {
+    width: 100%;
+  //   height: 380px;
+  }
+  
+  // @media (max-width: $breakpoint-md) {
+  //   height: 320px;
+  // }
+}
+
+.colorBlock {
+  position: absolute;
+  top: 30px;
+  right: 20px;
+  width: 280px;
+  height: 280px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, $primary, $accent);
+  opacity: 0.1;
+  z-index: 1;
+  
+  [data-theme="dark"] & {
+    opacity: 0.2;
+  }
+  
+  @media (max-width: $breakpoint-md) {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+.patternBlock {
+  position: absolute;
+  top: 80px;
+  left: 40px;
+  width: 200px;
+  height: 200px;
+  background-image: 
+    linear-gradient(rgba($primary, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba($primary, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  z-index: 1;
+  border-radius: 16px;
+  
+  [data-theme="dark"] & {
+    background-image: 
+      linear-gradient(rgba($primary, 0.2) 1px, transparent 1px),
+      linear-gradient(90deg, rgba($primary, 0.2) 1px, transparent 1px);
+  }
+  
+  @media (max-width: $breakpoint-md) {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+.gradientCircle {
+  position: absolute;
+  bottom: 40px;
+  left: 30px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba($accent, 0.1) 0%, rgba($accent, 0) 70%);
+  
+  [data-theme="dark"] & {
+    background: radial-gradient(circle, rgba($accent, 0.2) 0%, rgba($accent, 0) 70%);
+  }
+  
+  @media (max-width: $breakpoint-md) {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+.outlineBox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 60%;
+  border: 2px solid rgba($primary, 0.15);
+  border-radius: 16px;
+  z-index: 2;
+  
+  [data-theme="dark"] & {
+    border-color: rgba($primary, 0.25);
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    width: 80px;
+    height: 80px;
+    border-top: 2px solid rgba($primary, 0.15);
+    border-left: 2px solid rgba($primary, 0.15);
+    border-radius: 8px 0 0 0;
+    
+    [data-theme="dark"] & {
+      border-color: rgba($primary, 0.25);
+    }
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    right: -15px;
+    width: 80px;
+    height: 80px;
+    border-bottom: 2px solid rgba($primary, 0.15);
+    border-right: 2px solid rgba($primary, 0.15);
+    border-radius: 0 0 8px 0;
+    
+    [data-theme="dark"] & {
+      border-color: rgba($primary, 0.25);
+    }
+  }
+}
+
+.innerContent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 75%;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1.5rem;
+  
+  [data-theme="dark"] & {
+    background-color: $bg-secondary-dark;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  }
+}
+
+.valueProposition {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.valueNumber {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: $primary;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  
+  [data-theme="dark"] & {
+    color: $primary-light;
+  }
+}
+
+.valueText {
+  font-size: 0.95rem;
+  color: $text-secondary;
+  font-weight: 500;
+  
+  [data-theme="dark"] & {
+    color: $text-secondary-dark;
+  }
+}
+
+.accentBar {
+  width: 40px;
+  height: 4px;
+  background: linear-gradient(to right, $primary, $accent);
+  border-radius: 2px;
+  
+  @media (max-width: $breakpoint-sm) {
+    margin: 0 auto;
+  }
+}

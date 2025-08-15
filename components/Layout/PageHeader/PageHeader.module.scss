@@ -2,7 +2,7 @@
 @import '@/styles/mixins.scss';
 
 // Background gradients
-$highlight-bg-light: linear-gradient(135deg, rgba($primary-light, 0.05), rgba($accent, 0.05));
+$highlight-bg-light: linear-gradient(135deg, rgba($primary-light, 0.08), rgba($accent, 0.12));
 $highlight-bg-dark: linear-gradient(135deg, rgba($primary, 0.04), rgba($accent, 0.05));
 
 .heroWrapper {
