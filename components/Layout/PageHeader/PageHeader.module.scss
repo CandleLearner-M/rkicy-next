@@ -1,7 +1,7 @@
 @import '@/styles/variables.scss';
 @import '@/styles/mixins.scss';
 
-// Premium background gradients
+// Background gradients
 $highlight-bg-light: linear-gradient(135deg, rgba($primary-light, 0.05), rgba($accent, 0.05));
 $highlight-bg-dark: linear-gradient(135deg, rgba($primary, 0.04), rgba($accent, 0.05));
 
@@ -15,14 +15,42 @@ $highlight-bg-dark: linear-gradient(135deg, rgba($primary, 0.04), rgba($accent, 
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: $highlight-bg-light;
+  background: white;
   
   [data-theme="dark"] & {
-    background: $highlight-bg-dark;
+    background: #0a0a0a;
   }
   
   @media (max-width: $breakpoint-md) {
     min-height: 500px;
+  }
+}
+
+// Minimalist background gradient animation
+.backgroundGradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: $highlight-bg-light;
+  z-index: 1;
+  
+  // Initial reveal animation using clip path
+  clip-path: circle(0% at 50% 50%);
+  animation: revealGradient 1.5s ease-out forwards;
+  
+  [data-theme="dark"] & {
+    background: $highlight-bg-dark;
+  }
+}
+
+@keyframes revealGradient {
+  0% {
+    clip-path: circle(0% at 50% 50%);
+  }
+  100% {
+    clip-path: circle(150% at 50% 50%);
   }
 }
 
@@ -39,7 +67,7 @@ $highlight-bg-dark: linear-gradient(135deg, rgba($primary, 0.04), rgba($accent, 
   margin: 0 auto;
 }
 
-// Breadcrumbs styling - unchanged
+// Breadcrumbs styling
 .breadcrumbs {
   margin-bottom: 2rem;
   display: flex;
@@ -259,329 +287,6 @@ $highlight-bg-dark: linear-gradient(135deg, rgba($primary, 0.04), rgba($accent, 
   }
 }
 
-/* New Premium Background Animation */
-.background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  overflow: hidden;
-  
-  .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 120%;
-    background: $highlight-bg-light;
-    
-    [data-theme="dark"] & {
-      background: $highlight-bg-dark;
-    }
-  }
-  
-  /* Wave background */
-  .waveContainer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    opacity: 0.5;
-  }
-  
-  .wave {
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    opacity: 0.15;
-    border-radius: 40%;
-    
-    &:nth-child(1) {
-      background: rgba($primary, 0.2);
-      bottom: 15%;
-      left: -50%;
-      animation: wave 20s linear infinite;
-    }
-    
-    &:nth-child(2) {
-      background: rgba($accent, 0.15);
-      bottom: 10%;
-      left: -30%;
-      animation: wave 30s linear infinite reverse;
-      animation-delay: -5s;
-    }
-    
-    &:nth-child(3) {
-      background: rgba($primary, 0.1);
-      bottom: 5%;
-      left: -20%;
-      animation: wave 40s linear infinite;
-      animation-delay: -2s;
-      opacity: 0.1;
-    }
-    
-    [data-theme="dark"] & {
-      &:nth-child(1) {
-        background: rgba($primary, 0.08);
-      }
-      
-      &:nth-child(2) {
-        background: rgba($accent, 0.05);
-      }
-      
-      &:nth-child(3) {
-        background: rgba($primary, 0.04);
-      }
-    }
-  }
-  
-  /* Floating shapes */
-  .shapes {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: -1;
-  }
-  
-  .shape {
-    position: absolute;
-    opacity: 0.05;
-    
-    [data-theme="dark"] & {
-      opacity: 0.03;
-    }
-    
-    &:nth-child(1) {
-      top: 20%;
-      left: 15%;
-      width: 120px;
-      height: 120px;
-      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-      background: linear-gradient(-45deg, $primary-light, rgba($primary, 0.5));
-      animation: float1 20s ease-in-out infinite alternate;
-    }
-    
-    &:nth-child(2) {
-      top: 60%;
-      right: 20%;
-      width: 180px;
-      height: 180px;
-      border-radius: 58% 42% 38% 62% / 42% 55% 45% 58%;
-      background: linear-gradient(45deg, $accent, rgba($accent, 0.5));
-      animation: float2 25s ease-in-out infinite alternate;
-    }
-    
-    &:nth-child(3) {
-      bottom: 30%;
-      left: 30%;
-      width: 160px;
-      height: 160px;
-      border-radius: 41% 59% 52% 48% / 59% 52% 48% 41%;
-      background: linear-gradient(135deg, $primary, rgba($accent, 0.5));
-      animation: float3 30s ease-in-out infinite alternate;
-    }
-  }
-  
-  /* Gradient mesh */
-  .mesh {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.7;
-    z-index: -2;
-    transform-origin: center;
-    animation: rotateMesh 180s linear infinite;
-  }
-  
-  .meshGradient {
-    width: 150%;
-    height: 150%;
-    background: radial-gradient(
-      ellipse at center,
-      rgba($primary, 0.03) 0%,
-      rgba($accent, 0.02) 50%,
-      rgba($primary, 0.01) 100%
-    );
-    position: absolute;
-    top: -25%;
-    left: -25%;
-    opacity: 0.3;
-    
-    [data-theme="dark"] & {
-      background: radial-gradient(
-        ellipse at center,
-        rgba($primary, 0.04) 0%,
-        rgba($accent, 0.02) 50%,
-        rgba($primary, 0.01) 100%
-      );
-    }
-    
-    &:nth-child(1) {
-      animation: meshPulse 15s ease-in-out infinite;
-    }
-    
-    &:nth-child(2) {
-      animation: meshPulse 20s ease-in-out infinite reverse;
-      animation-delay: -5s;
-    }
-  }
-  
-  /* Light streaks */
-  .streaks {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-  }
-  
-  .streak {
-    position: absolute;
-    background: linear-gradient(
-      90deg, 
-      transparent, 
-      rgba($primary, 0.1),
-      rgba($accent, 0.1),
-      transparent
-    );
-    height: 1px;
-    width: 200px;
-    opacity: 0;
-    
-    &:nth-child(1) {
-      top: 20%;
-      left: -200px;
-      animation: streak 8s ease-in-out infinite;
-      animation-delay: 0s;
-    }
-    
-    &:nth-child(2) {
-      top: 50%;
-      left: -200px;
-      animation: streak 12s ease-in-out infinite;
-      animation-delay: 3s;
-    }
-    
-    &:nth-child(3) {
-      top: 70%;
-      left: -200px;
-      animation: streak 9s ease-in-out infinite;
-      animation-delay: 6s;
-    }
-    
-    [data-theme="dark"] & {
-      background: linear-gradient(
-        90deg, 
-        transparent, 
-        rgba($primary, 0.06),
-        rgba($accent, 0.06),
-        transparent
-      );
-    }
-  }
-}
-
-/* Animation Keyframes */
-@keyframes wave {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes float1 {
-  0%, 100% {
-    transform: translate(0, 0) rotate(0deg) scale(1);
-  }
-  25% {
-    transform: translate(10px, -15px) rotate(5deg) scale(1.05);
-  }
-  50% {
-    transform: translate(-5px, 20px) rotate(-3deg) scale(0.95);
-  }
-  75% {
-    transform: translate(-15px, 5px) rotate(10deg) scale(1);
-  }
-}
-
-@keyframes float2 {
-  0%, 100% {
-    transform: translate(0, 0) rotate(0deg);
-  }
-  33% {
-    transform: translate(-20px, -10px) rotate(-5deg);
-  }
-  66% {
-    transform: translate(15px, 20px) rotate(5deg);
-  }
-}
-
-@keyframes float3 {
-  0%, 100% {
-    transform: translate(0, 0) rotate(0deg) scale(1);
-  }
-  20% {
-    transform: translate(-15px, 10px) rotate(5deg) scale(1.1);
-  }
-  40% {
-    transform: translate(10px, -15px) rotate(-8deg) scale(0.95);
-  }
-  60% {
-    transform: translate(20px, 10px) rotate(3deg) scale(1.05);
-  }
-  80% {
-    transform: translate(-10px, -5px) rotate(-3deg) scale(1);
-  }
-}
-
-@keyframes rotateMesh {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes meshPulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 0.3;
-  }
-  50% {
-    transform: scale(1.2);
-    opacity: 0.5;
-  }
-}
-
-@keyframes streak {
-  0% {
-    transform: translateX(0) scaleY(1);
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(calc(100vw + 400px)) scaleY(1);
-    opacity: 0;
-  }
-}
-
 // RTL Support
 [dir="rtl"] {
   .breadcrumbs {
@@ -599,34 +304,9 @@ $highlight-bg-dark: linear-gradient(135deg, rgba($primary, 0.04), rgba($accent, 
     animation: highlightRevealRTL 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     animation-delay: 1.2s;
   }
-  
-  .streak {
-    &:nth-child(1), &:nth-child(2), &:nth-child(3) {
-      right: -200px;
-      left: auto;
-      animation-name: streakRTL;
-    }
-  }
 }
 
 @keyframes highlightRevealRTL {
   0% { transform: rotate(-1deg) scaleX(0); }
   100% { transform: rotate(-1deg) scaleX(1); }
-}
-
-@keyframes streakRTL {
-  0% {
-    transform: translateX(0) scaleY(1);
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(calc(-100vw - 400px)) scaleY(1);
-    opacity: 0;
-  }
 }

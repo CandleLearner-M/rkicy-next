@@ -227,14 +227,15 @@
     border-radius: 0 0 4px 0;
     transition: height 0.3s ease;
   }
+  &::before {
+      height: 40px;
+    }
   
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
     
-    &::before {
-      height: 40px;
-    }
+    
     
     .cardArrow {
       transform: translateX(3px);
@@ -243,7 +244,11 @@
   }
   
   [data-theme="dark"] & {
-    background: $bg-primary-dark;
+    // background: $bg-primary-dark;
+    background: #0e0e0e;
+    border: 1px solid rgba($primary, 0.2);
+
+
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     
     &:hover {

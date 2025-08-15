@@ -53,8 +53,13 @@ const PageHeader: React.FC<PageHeaderProps> = ({
 
   return (
     <div className={styles.heroWrapper}>
-      {/* Background elements covering the full hero */}
-      
+      {/* Background gradient animation */}
+      <motion.div 
+        className={styles.backgroundGradient}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.2, ease: "easeOut" }}
+      />
 
       <motion.div className={styles.heroContent}>
         <div className={styles.container}>

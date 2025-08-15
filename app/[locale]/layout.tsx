@@ -45,7 +45,7 @@ export default async function LocaleLayout({
       <body className={outfit.variable}>
         <NextIntlClientProvider>
           <ThemeProvider attribute="data-theme" defaultTheme="system" enableSystem>
-            <NextTopLoader showSpinner={false} />
+            <NextTopLoader showSpinner={false} color="#FFC107" />
             <CookieConsent />
             <Navbar />
             <FixedBackground />
