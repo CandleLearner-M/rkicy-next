@@ -26,6 +26,7 @@ import { useTranslations } from 'next-intl';
 import { useLocale } from 'next-intl';
 import styles from "./page.module.scss";
 import PageHeader from "@/components/Layout/PageHeader";
+import ContactPreview from "@/components/HomePage/ContactPreview";
 
 export default function ServicesPage() {
   const t = useTranslations('services');
@@ -89,7 +90,7 @@ export default function ServicesPage() {
   ];
 
   return (
-    <section className={styles.servicesSection}>
+    <main className={styles.servicesSection}>
        <PageHeader 
           titleKey="title"
           subtitleKey="subtitle"
@@ -255,21 +256,8 @@ export default function ServicesPage() {
         </div>
         
         {/* CTA section */}
-        <div className={styles.ctaSection}>
-          <h3 className={styles.ctaTitle}>{t('cta.title')}</h3>
-          <p className={styles.ctaDescription}>
-            {t('cta.description')}
-          </p>
-          <div className={styles.ctaButtons}>
-            <Link href={`/${locale}/services`} className={styles.ctaPrimaryButton}>
-              {t('cta.primaryButton')}
-            </Link>
-            <Link href={`/${locale}/contact`} className={styles.ctaSecondaryButton}>
-              {t('cta.secondaryButton')}
-            </Link>
-          </div>
-        </div>
       </div>
-    </section>
+        <ContactPreview />
+    </main>
   );
 }

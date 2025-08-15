@@ -8,6 +8,7 @@ import FeaturedProject from '@/components/ProjectsPage/FeaturedProject';
 import ProjectCard from '@/components/ProjectsPage/ProjectCard';
 import styles from './Projects.module.scss';
 import PageHeader from '@/components/Layout/PageHeader';
+import ContactPreview from '@/components/HomePage/ContactPreview';
 
 export default function ProjectsPage() {
   const t = useTranslations('projects');
@@ -88,6 +89,7 @@ export default function ProjectsPage() {
           </div>
         </section>
       )}
+      <ContactPreview />
     </main>
   );
 }
