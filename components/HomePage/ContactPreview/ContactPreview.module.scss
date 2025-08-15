@@ -27,7 +27,7 @@
   width: 400px;
   height: 400px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, rgba(59, 130, 246, 0) 70%);
+  background: radial-gradient(circle, rgba($primary, 0.08) 0%, rgba($primary, 0) 70%);
   opacity: 0.6;
   z-index: 0;
   
@@ -43,7 +43,7 @@
   width: 350px;
   height: 350px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(79, 70, 229, 0.06) 0%, rgba(79, 70, 229, 0) 70%);
+  background: radial-gradient(circle, rgba($accent, 0.06) 0%, rgba($accent, 0) 70%);
   opacity: 0.7;
   z-index: 0;
   
@@ -58,8 +58,8 @@
   right: 50px;
   width: 200px;
   height: 200px;
-  background-image: linear-gradient(rgba(59, 130, 246, 0.08) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(59, 130, 246, 0.08) 1px, transparent 1px);
+  background-image: linear-gradient(rgba($primary, 0.08) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba($primary, 0.08) 1px, transparent 1px);
   background-size: 20px 20px;
   opacity: 0.4;
   transform: rotate(15deg);
@@ -169,7 +169,7 @@
   &:hover {
     gap: 1rem;
     box-shadow: 0 15px 30px rgba($primary, 0.4);
-    transform: translateY(-1);
+    transform: translateY(-1px); /* Fixed: was missing 'px' unit */
   }
   
   [data-theme="dark"] & {
@@ -243,7 +243,7 @@
   }
   
   [data-theme="dark"] & {
-    background: $bg-secondary-dark;
+    background: $bg-primary-dark;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     
     &:hover {

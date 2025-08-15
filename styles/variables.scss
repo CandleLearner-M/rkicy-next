@@ -17,6 +17,11 @@ $text-secondary-dark: #d1d5db;
 $text-muted: #9ca3af;
 $text-muted-dark: #6b7280;
 
+
+$transition-smooth: cubic-bezier(0.23, 1, 0.32, 1); // Professional easing
+$transition-standard: cubic-bezier(0.4, 0, 0.2, 1); // Material standard
+$transition-decelerate: cubic-bezier(0, 0, 0.2, 1);
+
 // Background Colors
 $bg-primary: #ffffff;
 $bg-primary-dark: #111827;

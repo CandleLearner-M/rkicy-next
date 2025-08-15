@@ -1,16 +1,8 @@
 @import "@/styles/variables.scss";
 @import "@/styles/mixins.scss";
 
-// Premium color variables
-$premium-primary: #2563eb;
-$premium-secondary: #134cca;
-$premium-accent: #8b5cf6;
-$premium-gradient-start: #2563eb;
-$premium-gradient-end: #8b5cf6;
-
-// Transitions
+// Transitions (these should be moved to variables.scss)
 $transition-premium: cubic-bezier(0.22, 1, 0.36, 1);
-$transition-standard: cubic-bezier(0.23, 1, 0.32, 1);
 
 // Section styling
 .testimonialsSection {
@@ -109,7 +101,7 @@ $transition-standard: cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .highlightTxt {
-  background: linear-gradient(90deg, $premium-primary 0%, $premium-accent 100%);
+  background: linear-gradient(90deg, $primary 0%, $accent 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -123,19 +115,9 @@ $transition-standard: cubic-bezier(0.23, 1, 0.32, 1);
     left: 0;
     width: 100%;
     height: 6px;
-    background: linear-gradient(90deg, rgba($premium-primary, 0.2) 0%, rgba($premium-accent, 0.2) 100%);
+    background: linear-gradient(90deg, rgba($primary, 0.2) 0%, rgba($accent, 0.2) 100%);
     border-radius: 3px;
     z-index: -1;
-  }
-  
-  [data-theme="dark"] & {
-    background: linear-gradient(90deg, lighten($premium-primary, 15%) 0%, lighten($premium-accent, 10%) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    
-    &::after {
-      background: linear-gradient(90deg, rgba($premium-primary, 0.3) 0%, rgba($premium-accent, 0.3) 100%);
-    }
   }
 }
 
@@ -191,7 +173,7 @@ $transition-standard: cubic-bezier(0.23, 1, 0.32, 1);
     rgba(255, 255, 255, 0.05) 0%,
     rgba(255, 255, 255, 0.02) 100%
   );
-  border: 1px solid rgba($premium-primary, 0.07);
+  border: 1px solid rgba($primary, 0.07);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
   z-index: 1;
   overflow: hidden;
@@ -237,16 +219,18 @@ $transition-standard: cubic-bezier(0.23, 1, 0.32, 1);
     border-radius: 0 0 4px 0;
   }
   
-    border-color: rgba($premium-primary, 0.2);
-    box-shadow: 0 20px 30px rgba($premium-primary, 0.04),
+  /* Fixed: This was outside of any rule block */
+  &:hover {
+    border-color: rgba($primary, 0.2);
+    box-shadow: 0 20px 30px rgba($primary, 0.04),
                 0 10px 20px rgba(0, 0, 0, 0.03);
                 
     [data-theme="dark"] & {
-      border-color: rgba($premium-primary, 0.3);
+      border-color: rgba($primary, 0.3);
       box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15),
-                  0 10px 20px rgba($premium-primary, 0.05);
+                  0 10px 20px rgba($primary, 0.05);
     }
-    
+  }
 
   @media (max-width: $breakpoint-md) {
     padding: 2.5rem;
@@ -413,14 +397,14 @@ $transition-standard: cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .starIcon {
-  color: #FFC107;
+  color: $warning; // Using warning color variable which should be set to amber
   
   &:not(.filled) {
     color: rgba(255, 255, 255, 0.15);
   }
   
   [data-theme="light"] & {
-    color: #F59E0B;
+    color: $warning; // Using warning color variable
     
     &:not(.filled) {
       color: rgba(0, 0, 0, 0.1);
@@ -475,8 +459,8 @@ $transition-standard: cubic-bezier(0.23, 1, 0.32, 1);
   
   &:hover {
     background: rgba(var(--accent-color), 0.1);
-    border-color: rgba($premium-secondary, 0.3);
-    color: $premium-secondary;
+    border-color: rgba($primary-dark, 0.3);
+    color: $primary-dark;
     transform: translateY(-2px);
     
     [data-theme="light"] & {
@@ -512,7 +496,7 @@ $transition-standard: cubic-bezier(0.23, 1, 0.32, 1);
   &.active {
     width: 24px;
     border-radius: 4px;
-    background: #134cca;
+    background: $primary-dark; // Changed from hardcoded #134cca
   }
 }
 
@@ -618,7 +602,7 @@ $transition-standard: cubic-bezier(0.23, 1, 0.32, 1);
     background: linear-gradient(
       to right,
       transparent,
-      rgba($premium-primary, 0.4),
+      rgba($primary, 0.4),
       transparent
     );
     opacity: 0;
@@ -641,7 +625,7 @@ $transition-standard: cubic-bezier(0.23, 1, 0.32, 1);
       background: linear-gradient(
         to right,
         transparent,
-        rgba($premium-primary, 0.6),
+        rgba($primary, 0.6),
         transparent
       );
     }

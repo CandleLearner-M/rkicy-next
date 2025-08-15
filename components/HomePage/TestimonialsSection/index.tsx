@@ -40,7 +40,7 @@ const testimonials = [
       title: t('testimonials.roles.operations'),
       company: 'IndusTech Maroc',
       location: 'Tangier',
-      accentColor: '#4f46e5',
+      accentColor: '#E53935', // Primary red
       quote: t('testimonials.quotes.karim'),
       rating: 5,
     },
@@ -50,7 +50,7 @@ const testimonials = [
       title: t('testimonials.roles.it'),
       company: 'LogiMaroc',
       location: 'Rabat',
-      accentColor: '#8b5cf6',
+      accentColor: '#FFC107', // Accent amber
       quote: t('testimonials.quotes.amina'),
       rating: 5,
     },
@@ -60,7 +60,7 @@ const testimonials = [
       title: t('testimonials.roles.cto'),
       company: 'AtlasMed Technologies',
       location: 'Casablanca',
-      accentColor: '#2563eb',
+      accentColor: '#C62828', // Darker red
       quote: t('testimonials.quotes.mohammed'),
       rating: 5,
     },
@@ -70,7 +70,7 @@ const testimonials = [
       title: t('testimonials.roles.director'),
       company: 'Chamal Retail Solutions',
       location: 'Marrakech',
-      accentColor: '#06b6d4',
+      accentColor: '#EF5350', // Lighter red variation
       quote: t('testimonials.quotes.leila'),
       rating: 5,
     },
@@ -80,7 +80,7 @@ const testimonials = [
       title: t('testimonials.roles.ceo'),
       company: 'Casablanca Luxe',
       location: 'Casablanca',
-      accentColor: '#0ea5e9',
+      accentColor: '#FFB300', // Darker amber variation
       quote: t('testimonials.quotes.omar'),
       rating: 5,
     }

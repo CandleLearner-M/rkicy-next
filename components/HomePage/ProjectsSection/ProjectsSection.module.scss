@@ -1,16 +1,7 @@
 @import "@/styles/variables.scss";
 @import "@/styles/mixins.scss";
 
-// Premium color variables
-$premium-primary: #2563eb;
-$premium-secondary: #134cca;
-$premium-accent: #8b5cf6;
-$premium-gradient-start: #2563eb;
-$premium-gradient-end: #8b5cf6;
-
-// Transitions
-$transition-smooth: cubic-bezier(0.23, 1, 0.32, 1);
-$transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
+// Transitions are now in the global variables.scss
 
 .projectsSection {
   width: 100%;
@@ -99,7 +90,7 @@ $transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .highlightTxt {
-  background: linear-gradient(90deg, $premium-primary 0%, $premium-accent 100%);
+  background: linear-gradient(90deg, $primary 0%, $accent 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -113,22 +104,11 @@ $transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
     left: 0;
     width: 100%;
     height: 6px;
-    background: linear-gradient(90deg, rgba($premium-primary, 0.2) 0%, rgba($premium-accent, 0.2) 100%);
+    background: linear-gradient(90deg, rgba($primary, 0.2) 0%, rgba($accent, 0.2) 100%);
     border-radius: 3px;
     z-index: -1;
   }
-  
-  [data-theme="dark"] & {
-    background: linear-gradient(90deg, lighten($premium-primary, 15%) 0%, lighten($premium-accent, 10%) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    
-    &::after {
-      background: linear-gradient(90deg, rgba($premium-primary, 0.3) 0%, rgba($premium-accent, 0.3) 100%);
-    }
-  }
 }
-
 .subheading {
   font-size: 1.15rem;
   font-weight: 400;
@@ -178,7 +158,7 @@ $transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
   // For light mode
   [data-theme="light"] & {
     background: white;
-    border: 1px solid rgba($premium-primary, 0.05);
+    border: 1px solid rgba($primary, 0.05);
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.03);
   }
   
@@ -196,14 +176,14 @@ $transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
   }
   
   &:hover {
-    border-color: rgba($premium-primary, 0.2);
+    border-color: rgba($primary, 0.2);
     box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2),
-                0 10px 20px rgba($premium-primary, 0.05);
+                0 10px 20px rgba($primary, 0.05);
     transform: translateY(-5px);
                 
     [data-theme="light"] & {
-      border-color: rgba($premium-primary, 0.2);
-      box-shadow: 0 20px 30px rgba($premium-primary, 0.04),
+      border-color: rgba($primary, 0.2);
+      box-shadow: 0 20px 30px rgba($primary, 0.04),
                   0 10px 20px rgba(0, 0, 0, 0.03);
     }
     
@@ -214,18 +194,18 @@ $transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
     
     .projectIcon {
       transform: translateY(-2px);
-      color: #5e91f8;
+      color: lighten($primary, 10%); // Lighter version of primary for dark mode
       
       [data-theme="light"] & {
-        color: $premium-accent;
+        color: $accent;
       }
     }
     
     .projectLink {
-      color: #5e91f8;
+      color: lighten($primary, 10%);
       
       [data-theme="light"] & {
-        color: $premium-accent;
+        color: $accent;
       }
       
       .linkIcon {
@@ -261,9 +241,9 @@ $transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
       border-radius: 15px; // 1px less than the card
       margin: -1px;
       background: linear-gradient(135deg, 
-                 rgba($premium-primary, 0.2),
-                 rgba($premium-accent, 0.1),
-                 rgba($premium-primary, 0.05));
+                 rgba($primary, 0.2),
+                 rgba($accent, 0.1),
+                 rgba($primary, 0.05));
       z-index: -1;
       pointer-events: none;
       opacity: 0.2;
@@ -309,8 +289,8 @@ $transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    rgba($premium-primary, 0.15),
-    rgba($premium-accent, 0.08),
+    rgba($primary, 0.15),
+    rgba($accent, 0.08),
     transparent 70%
   );
   opacity: 0.15;
@@ -322,8 +302,8 @@ $transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
     opacity: 0.1;
     background: radial-gradient(
       circle,
-      rgba($premium-primary, 0.1),
-      rgba($premium-accent, 0.05),
+      rgba($primary, 0.1),
+      rgba($accent, 0.05),
       transparent 70%
     );
   }
@@ -375,7 +355,7 @@ $transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .projectIcon {
-  color: #3b82f6; // Matches the blue color in the image
+  color: $primary; // Replaced hardcoded blue
   width: 28px;
   height: 28px;
   opacity: 0.95;
@@ -383,7 +363,7 @@ $transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
   transition: all 0.3s $transition-standard;
   
   [data-theme="dark"] & {
-    color: #5e91f8; // Slightly lighter blue for dark mode
+    color: lighten($primary, 10%); // Slightly lighter for dark mode
     opacity: 0.95;
   }
   
@@ -429,20 +409,20 @@ $transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
   font-size: 0.75rem;
   font-weight: 500;
   border-radius: 100px;
-  background: rgba(59, 130, 246, 0.15); // Slightly transparent blue
-  color: #5e91f8; // Light blue text
+  background: rgba($primary, 0.15); // Slightly transparent blue
+  color: lighten($primary, 10%); // Light blue text
   
   [data-theme="light"] & {
-    background: rgba($premium-primary, 0.08);
-    color: $premium-primary;
+    background: rgba($primary, 0.08);
+    color: $primary;
   }
   
   // Make tags slightly more vibrant on mobile
   @media (max-width: $breakpoint-lg) {
-    background: rgba($premium-primary, 0.15);
+    background: rgba($primary, 0.15);
     
     [data-theme="light"] & {
-      background: rgba($premium-primary, 0.08);
+      background: rgba($primary, 0.08);
     }
   }
 }
@@ -453,12 +433,12 @@ $transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
   gap: 0.5rem;
   font-size: 0.9rem;
   font-weight: 600;
-  color: #5e91f8; // Light blue
+  color: lighten($primary, 10%); // Light blue
   margin-top: auto;
   transition: all 0.3s $transition-standard;
   
   [data-theme="light"] & {
-    color: $premium-primary;
+    color: $primary;
   }
   
   &:hover {
@@ -482,46 +462,46 @@ $transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
   gap: 0.5rem;
   font-size: 1rem;
   font-weight: 600;
-  color: $premium-primary;
+  color: $primary;
   text-decoration: none;
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
-  border: 1px solid rgba($premium-primary, 0.15);
+  border: 1px solid rgba($primary, 0.15);
   background: linear-gradient(
     135deg,
-    rgba($premium-primary, 0.05) 0%,
-    rgba($premium-accent, 0.08) 100%
+    rgba($primary, 0.05) 0%,
+    rgba($accent, 0.08) 100%
   );
   transition: all 0.3s $transition-standard;
   
   [data-theme="dark"] & {
-    color: lighten($premium-primary, 20%);
+    color: lighten($primary, 20%);
     background: linear-gradient(
       135deg,
-      rgba($premium-primary, 0.08) 0%,
-      rgba($premium-accent, 0.12) 100%
+      rgba($primary, 0.08) 0%,
+      rgba($accent, 0.12) 100%
     );
-    border-color: rgba($premium-primary, 0.25);
+    border-color: rgba($primary, 0.25);
   }
   
   &:hover {
     background: linear-gradient(
       135deg,
-      rgba($premium-primary, 0.1) 0%,
-      rgba($premium-accent, 0.15) 100%
+      rgba($primary, 0.1) 0%,
+      rgba($accent, 0.15) 100%
     );
     transform: translateY(-2px);
-    border-color: rgba($premium-primary, 0.4);
-    box-shadow: 0 4px 12px rgba($premium-primary, 0.15);
+    border-color: rgba($primary, 0.4);
+    box-shadow: 0 4px 12px rgba($primary, 0.15);
     
     [data-theme="dark"] & {
       background: linear-gradient(
         135deg,
-        rgba($premium-primary, 0.15) 0%,
-        rgba($premium-accent, 0.2) 100%
+        rgba($primary, 0.15) 0%,
+        rgba($accent, 0.2) 100%
       );
-      border-color: rgba($premium-primary, 0.5);
-      box-shadow: 0 4px 15px rgba($premium-primary, 0.2);
+      border-color: rgba($primary, 0.5);
+      box-shadow: 0 4px 15px rgba($primary, 0.2);
     }
     
     .ctaIcon {

@@ -1,16 +1,7 @@
 @import "@/styles/variables.scss";
 @import "@/styles/mixins.scss";
 
-// Premium color variables
-$premium-primary: #2563eb;
-$premium-secondary: #134cca;
-$premium-accent: #8b5cf6;
-$premium-gradient-start: #2563eb;
-$premium-gradient-end: #8b5cf6;
-
-// Transitions
-$transition-smooth: cubic-bezier(0.23, 1, 0.32, 1);
-$transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
+// Transitions are now in the global variables.scss
 
 .partnersSection {
   width: 100%;
@@ -107,7 +98,7 @@ $transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .highlightTxt {
-  background: linear-gradient(90deg, $premium-primary 0%, $premium-accent 100%);
+  background: linear-gradient(90deg, $primary 0%, $accent 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -121,19 +112,9 @@ $transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
     left: 0;
     width: 100%;
     height: 6px;
-    background: linear-gradient(90deg, rgba($premium-primary, 0.2) 0%, rgba($premium-accent, 0.2) 100%);
+    background: linear-gradient(90deg, rgba($primary, 0.2) 0%, rgba($accent, 0.2) 100%);
     border-radius: 3px;
     z-index: -1;
-  }
-  
-  [data-theme="dark"] & {
-    background: linear-gradient(90deg, lighten($premium-primary, 15%) 0%, lighten($premium-accent, 10%) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    
-    &::after {
-      background: linear-gradient(90deg, rgba($premium-primary, 0.3) 0%, rgba($premium-accent, 0.3) 100%);
-    }
   }
 }
 
@@ -184,7 +165,7 @@ $transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
   background: linear-gradient(
     90deg,
     transparent 0%,
-    $premium-gradient-start 50%,
+    $primary 50%,
     transparent 100%
   );
   opacity: 0.5;
@@ -194,7 +175,7 @@ $transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
     background: linear-gradient(
       90deg,
       transparent 0%,
-      lighten($premium-gradient-start, 10%) 50%,
+      lighten($primary, 10%) 50%,
       transparent 100%
     );
   }
@@ -217,7 +198,7 @@ $transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
     rgba(255, 255, 255, 0.05) 0%,
     rgba(255, 255, 255, 0.02) 100%
   );
-  border: 1px solid rgba($premium-primary, 0.07);
+  border: 1px solid rgba($primary, 0.07);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
   z-index: 1;
   overflow: hidden;
@@ -274,8 +255,8 @@ $transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    rgba($premium-primary, 0.15),
-    rgba($premium-accent, 0.08),
+    rgba($primary, 0.15),
+    rgba($accent, 0.08),
     transparent 70%
   );
   opacity: 0.3;
@@ -286,8 +267,8 @@ $transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
     opacity: 0.2;
     background: radial-gradient(
       circle,
-      rgba($premium-primary, 0.2),
-      rgba($premium-accent, 0.12),
+      rgba($primary, 0.2),
+      rgba($accent, 0.12),
       transparent 70%
     );
   }
@@ -312,18 +293,18 @@ $transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 100px;
   background: linear-gradient(
     90deg,
-    rgba($premium-primary, 0.1) 0%,
-    rgba($premium-accent, 0.15) 100%
+    rgba($primary, 0.1) 0%,
+    rgba($accent, 0.15) 100%
   );
-  color: $premium-primary;
+  color: $primary;
   
   [data-theme="dark"] & {
     background: linear-gradient(
       90deg,
-      rgba($premium-primary, 0.15) 0%,
-      rgba($premium-accent, 0.2) 100%
+      rgba($primary, 0.15) 0%,
+      rgba($accent, 0.2) 100%
     );
-    color: lighten($premium-primary, 15%);
+    color: lighten($primary, 15%);
   }
 }
 
@@ -468,7 +449,7 @@ $transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
   inset: 0;
   background: radial-gradient(
     circle at center,
-    rgba($premium-primary, 0.05) 0%,
+    rgba($primary, 0.05) 0%,
     transparent 70%
   );
   opacity: 0.2;
@@ -479,7 +460,7 @@ $transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
   [data-theme="dark"] & {
     background: radial-gradient(
       circle at center,
-      rgba($premium-primary, 0.1) 0%,
+      rgba($primary, 0.1) 0%,
       transparent 70%
     );
   }

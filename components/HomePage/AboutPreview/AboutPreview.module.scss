@@ -1,16 +1,7 @@
 @import "@/styles/variables.scss";
 @import "@/styles/mixins.scss";
 
-// Premium color variables
-$premium-primary: #E53935;    // Material Red
-$premium-secondary: #C62828;  // Darker Red
-$premium-accent: #FFC107;     // Amber
-$premium-gradient-start: #E53935;
-$premium-gradient-end: #FFC107;
-
-
-
-// Transitions
+// Transitions - These could be added to variables.scss
 $transition-smooth: cubic-bezier(0.23, 1, 0.32, 1);
 $transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -29,8 +20,8 @@ $transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
     left: 0;
     background: radial-gradient(
       circle at 70% 30%,
-      rgba($premium-gradient-start, 0.08) 0%,
-      rgba($premium-gradient-end, 0.03) 30%,
+      rgba($primary, 0.08) 0%,
+      rgba($accent, 0.03) 30%,
       transparent 70%
     );
     opacity: 0.7;
@@ -39,8 +30,8 @@ $transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
     [data-theme="dark"] & {
       background: radial-gradient(
         circle at 70% 30%,
-        rgba($premium-gradient-start, 0.12) 0%,
-        rgba($premium-gradient-end, 0.05) 30%,
+        rgba($primary, 0.12) 0%,
+        rgba($accent, 0.05) 30%,
         transparent 70%
       );
       opacity: 0.5;
@@ -103,18 +94,18 @@ $transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 100px;
   background: linear-gradient(
     to right,
-    rgba($premium-gradient-start, 0.08),
-    rgba($premium-gradient-end, 0.12)
+    rgba($primary, 0.08),
+    rgba($accent, 0.12)
   );
-  color: $premium-gradient-start;
+  color: $primary;
   
   [data-theme="dark"] & {
     background: linear-gradient(
       to right,
-      rgba($premium-gradient-start, 0.15),
-      rgba($premium-gradient-end, 0.2)
+      rgba($primary, 0.15),
+      rgba($accent, 0.2)
     );
-    color: lighten($premium-gradient-start, 15%);
+    color: lighten($primary, 15%);
   }
   
   @media (max-width: $breakpoint-md) {
@@ -130,8 +121,6 @@ $transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
   align-items: center;
   overflow: hidden;
 }
-
-
 
 .heading {
   font-size: 2.75rem;
@@ -177,13 +166,13 @@ $transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
   display: inline-block;
   font-size: 1rem;
   font-weight: 600;
-  color: $premium-primary;
+  color: $primary;
   margin: 0 0 1rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   
   [data-theme="dark"] & {
-    color: $premium-primary;
+    color: $primary;
   }
 }
 
@@ -204,7 +193,7 @@ $transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .highlightTxt {
-  background: linear-gradient(90deg, $premium-primary 0%, $premium-accent 100%);
+  background: linear-gradient(90deg, $primary 0%, $accent 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -218,12 +207,11 @@ $transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
     left: 0;
     width: 100%;
     height: 6px;
-    background: linear-gradient(90deg, rgba($premium-primary, 0.2) 0%, rgba($premium-accent, 0.2) 100%);
+    background: linear-gradient(90deg, rgba($primary, 0.2) 0%, rgba($accent, 0.2) 100%);
     border-radius: 3px;
     z-index: -1;
   }
 }
-
 
 .subheading {
   font-size: 1.15rem;
@@ -273,7 +261,7 @@ $transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
   background: linear-gradient(
     90deg,
     transparent 0%,
-    $premium-gradient-start 50%,
+    $primary 50%,
     transparent 100%
   );
   opacity: 0.5;
@@ -283,7 +271,7 @@ $transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
     background: linear-gradient(
       90deg,
       transparent 0%,
-      lighten($premium-gradient-start, 10%) 50%,
+      lighten($primary, 10%) 50%,
       transparent 100%
     );
   }
@@ -329,12 +317,12 @@ $transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
   }
   
   &:hover {
-    box-shadow: 0 20px 30px rgba($premium-gradient-start, 0.05),
+    box-shadow: 0 20px 30px rgba($primary, 0.05),
                 0 10px 20px rgba(0, 0, 0, 0.04);
                 
     [data-theme="dark"] & {
       box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2),
-                  0 10px 20px rgba($premium-gradient-start, 0.08);
+                  0 10px 20px rgba($primary, 0.08);
     }
     
     .pillarGlow {
@@ -357,8 +345,8 @@ $transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    rgba($premium-gradient-start, 0.2),
-    rgba($premium-gradient-end, 0.1),
+    rgba($primary, 0.2),
+    rgba($accent, 0.1),
     transparent 70%
   );
   opacity: 0.2;
@@ -370,8 +358,8 @@ $transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
     opacity: 0.15;
     background: radial-gradient(
       circle,
-      rgba($premium-gradient-start, 0.25),
-      rgba($premium-gradient-end, 0.15),
+      rgba($primary, 0.25),
+      rgba($accent, 0.15),
       transparent 70%
     );
   }
@@ -388,25 +376,25 @@ $transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
   font-family: monospace;
   font-size: 1rem;
   font-weight: 600;
-  color: $premium-gradient-start;
+  color: $primary;
   letter-spacing: -0.02em;
   opacity: 0.9;
   
   [data-theme="dark"] & {
-    color: lighten($premium-gradient-start, 20%);
+    color: lighten($primary, 20%);
     opacity: 0.8;
   }
 }
 
 .pillarIcon {
-  color: $premium-gradient-start;
+  color: $primary;
   width: 24px;
   height: 24px;
   opacity: 0.9;
   stroke-width: 2;
   
   [data-theme="dark"] & {
-    color: lighten($premium-gradient-start, 20%);
+    color: lighten($primary, 20%);
     opacity: 0.8;
   }
 }
@@ -446,46 +434,46 @@ $transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
   gap: 0.5rem;
   font-size: 1rem;
   font-weight: 600;
-  color: $premium-gradient-start;
+  color: $primary;
   text-decoration: none;
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
-  border: 1px solid rgba($premium-gradient-start, 0.15);
+  border: 1px solid rgba($primary, 0.15);
   background: linear-gradient(
     135deg,
-    rgba($premium-gradient-start, 0.05) 0%,
-    rgba($premium-gradient-end, 0.08) 100%
+    rgba($primary, 0.05) 0%,
+    rgba($accent, 0.08) 100%
   );
   transition: all 0.3s $transition-standard;
   
   [data-theme="dark"] & {
-    color: lighten($premium-gradient-start, 20%);
+    color: lighten($primary, 20%);
     background: linear-gradient(
       135deg,
-      rgba($premium-gradient-start, 0.08) 0%,
-      rgba($premium-gradient-end, 0.12) 100%
+      rgba($primary, 0.08) 0%,
+      rgba($accent, 0.12) 100%
     );
-    border-color: rgba($premium-gradient-start, 0.25);
+    border-color: rgba($primary, 0.25);
   }
   
   &:hover {
     background: linear-gradient(
       135deg,
-      rgba($premium-gradient-start, 0.1) 0%,
-      rgba($premium-gradient-end, 0.15) 100%
+      rgba($primary, 0.1) 0%,
+      rgba($accent, 0.15) 100%
     );
     transform: translateY(-2px);
-    border-color: rgba($premium-gradient-start, 0.4);
-    box-shadow: 0 4px 12px rgba($premium-gradient-start, 0.15);
+    border-color: rgba($primary, 0.4);
+    box-shadow: 0 4px 12px rgba($primary, 0.15);
     
     [data-theme="dark"] & {
       background: linear-gradient(
         135deg,
-        rgba($premium-gradient-start, 0.15) 0%,
-        rgba($premium-gradient-end, 0.2) 100%
+        rgba($primary, 0.15) 0%,
+        rgba($accent, 0.2) 100%
       );
-      border-color: rgba($premium-gradient-start, 0.5);
-      box-shadow: 0 4px 15px rgba($premium-gradient-start, 0.2);
+      border-color: rgba($primary, 0.5);
+      box-shadow: 0 4px 15px rgba($primary, 0.2);
     }
     
     .ctaIcon {
