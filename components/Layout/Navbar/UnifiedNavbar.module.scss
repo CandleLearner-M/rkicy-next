@@ -1,13 +1,6 @@
 @import "@/styles/variables.scss";
 @import "@/styles/mixins.scss";
 
-// Premium color variables - Blue-Purple scheme
-$premium-primary: #2563eb;
-$premium-secondary: #134cca;
-$premium-accent: #8b5cf6;
-$premium-gradient-start: #2563eb;
-$premium-gradient-end: #8b5cf6;
-
 // Professional transition curves
 $transition-smooth: cubic-bezier(0.23, 1, 0.32, 1); // Professional easing
 $transition-standard: cubic-bezier(0.4, 0, 0.2, 1); // Material standard
@@ -283,8 +276,8 @@ $z-index: (
       height: 2px;
       background: linear-gradient(
         90deg, 
-        $premium-gradient-start 0%, 
-        $premium-gradient-end 100%
+        $primary 0%, 
+        $accent 100%
       );
       border-radius: 2px;
       opacity: 0;
@@ -296,8 +289,8 @@ $z-index: (
       [data-theme='dark'] & {
         background: linear-gradient(
           90deg, 
-          lighten($premium-gradient-start, 10%) 0%, 
-          lighten($premium-gradient-end, 10%) 100%
+          lighten($primary, 10%) 0%, 
+          lighten($accent, 10%) 100%
         );
       }
     }
@@ -331,10 +324,10 @@ $z-index: (
   }
   
   &:hover {
-    color: $premium-gradient-start;
+    color: $primary;
     
     [data-theme='dark'] & {
-      color: lighten($premium-gradient-start, 15%);
+      color: lighten($primary, 15%);
     }
   }
   
@@ -345,18 +338,18 @@ $z-index: (
     transition: all 0.25s $transition-standard;
     
     &:hover {
-      background-color: rgba($premium-gradient-start, 0.04);
+      background-color: rgba($primary, 0.04);
       
       [data-theme="dark"] & {
-        background-color: rgba($premium-gradient-end, 0.08);
+        background-color: rgba($accent, 0.08);
       }
     }
     
     &.active {
       background: linear-gradient(
         90deg, 
-        $premium-gradient-start 0%, 
-        $premium-gradient-end 100%
+        $primary 0%, 
+        $accent 100%
       );
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -366,8 +359,8 @@ $z-index: (
       [data-theme='dark'] & {
         background: linear-gradient(
           90deg, 
-          lighten($premium-gradient-start, 10%) 0%, 
-          lighten($premium-gradient-end, 10%) 100%
+          lighten($primary, 10%) 0%, 
+          lighten($accent, 10%) 100%
         );
         -webkit-background-clip: text;
         background-clip: text;
@@ -387,33 +380,33 @@ $z-index: (
     &:hover {
       background: linear-gradient(
         135deg,
-        rgba($premium-gradient-start, 0.05) 0%,
-        rgba($premium-gradient-end, 0.08) 100%
+        rgba($primary, 0.05) 0%,
+        rgba($accent, 0.08) 100%
       );
       
       [data-theme="dark"] & {
         background: linear-gradient(
           135deg,
-          rgba($premium-gradient-start, 0.08) 0%,
-          rgba($premium-gradient-end, 0.12) 100%
+          rgba($primary, 0.08) 0%,
+          rgba($accent, 0.12) 100%
         );
       }
     }
     
     &.active {
-      color: $premium-primary;
+      color: $primary;
       background: linear-gradient(
         135deg,
-        rgba($premium-gradient-start, 0.08) 0%,
-        rgba($premium-gradient-end, 0.12) 100%
+        rgba($primary, 0.08) 0%,
+        rgba($accent, 0.12) 100%
       );
       
       [data-theme="dark"] & {
-        color: lighten($premium-primary, 25%);
+        color: lighten($primary, 25%);
         background: linear-gradient(
           135deg,
-          rgba($premium-gradient-start, 0.12) 0%,
-          rgba($premium-gradient-end, 0.18) 100%
+          rgba($primary, 0.12) 0%,
+          rgba($accent, 0.18) 100%
         );
       }
     }
@@ -432,9 +425,9 @@ $z-index: (
   left: 0;
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, #4f46e5, #818cf8);
+  background: linear-gradient(90deg, $primary, $primary-light);
   border-radius: 4px;
-  box-shadow: 0 0 8px rgba(79, 70, 229, 0.3);
+  box-shadow: 0 0 8px rgba($primary, 0.3);
   z-index: map-get($z-index, 'indicator');
   
   .heroNavbar & {
@@ -442,8 +435,8 @@ $z-index: (
   }
   
   [data-theme="dark"] & {
-    background: linear-gradient(90deg, #818cf8, #c7d2fe);
-    box-shadow: 0 0 10px rgba(129, 140, 248, 0.4);
+    background: linear-gradient(90deg, $primary-light, lighten($primary-light, 15%));
+    box-shadow: 0 0 10px rgba($primary-light, 0.4);
   }
 }
 
@@ -527,38 +520,38 @@ $z-index: (
   height: 42px;
   padding: 0 1rem;
   border-radius: 10px;
-  background: rgba($premium-gradient-start, 0.04);
-  border: 1px solid rgba($premium-gradient-start, 0.15);
+  background: rgba($primary, 0.04);
+  border: 1px solid rgba($primary, 0.15);
   cursor: pointer;
-  color: $premium-gradient-start;
+  color: $primary;
   font-size: 0.9rem;
   font-weight: 600;
   transition: all 0.3s $transition-standard;
   
   [data-theme='dark'] & {
-    color: lighten($premium-gradient-start, 15%);
-    background: rgba($premium-gradient-end, 0.06);
-    border-color: rgba($premium-gradient-start, 0.25);
+    color: lighten($primary, 15%);
+    background: rgba($accent, 0.06);
+    border-color: rgba($primary, 0.25);
   }
   
   &:hover {
-    border-color: rgba($premium-gradient-start, 0.4);
+    border-color: rgba($primary, 0.4);
     background: linear-gradient(
       135deg,
-      rgba($premium-gradient-start, 0.06) 0%,
-      rgba($premium-gradient-end, 0.09) 100%
+      rgba($primary, 0.06) 0%,
+      rgba($accent, 0.09) 100%
     );
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba($premium-gradient-start, 0.1);
+    box-shadow: 0 4px 12px rgba($primary, 0.1);
     
     [data-theme='dark'] & {
       background: linear-gradient(
         135deg,
-        rgba($premium-gradient-start, 0.1) 0%,
-        rgba($premium-gradient-end, 0.15) 100%
+        rgba($primary, 0.1) 0%,
+        rgba($accent, 0.15) 100%
       );
-      border-color: rgba($premium-gradient-start, 0.5);
-      box-shadow: 0 4px 12px rgba($premium-gradient-start, 0.15);
+      border-color: rgba($primary, 0.5);
+      box-shadow: 0 4px 12px rgba($primary, 0.15);
     }
   }
   
@@ -617,10 +610,10 @@ $z-index: (
   width: 42px;
   height: 42px;
   border-radius: 10px;
-  background: rgba($premium-gradient-start, 0.04);
-  border: 1px solid rgba($premium-gradient-start, 0.15);
+  background: rgba($primary, 0.04);
+  border: 1px solid rgba($primary, 0.15);
   cursor: pointer;
-  color: $premium-gradient-start;
+  color: $primary;
   transition: all 0.3s $transition-standard;
   overflow: hidden;
   
@@ -637,10 +630,10 @@ $z-index: (
   }
   
   &:hover {
-    border-color: rgba($premium-gradient-start, 0.4);
-    background: rgba($premium-gradient-start, 0.05);
+    border-color: rgba($primary, 0.4);
+    background: rgba($primary, 0.05);
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba($premium-gradient-start, 0.1);
+    box-shadow: 0 4px 12px rgba($primary, 0.1);
     
     [data-theme='dark'] & {
       background: rgba(255, 215, 0, 0.08);
@@ -667,8 +660,8 @@ $z-index: (
     height: 100%;
     background: linear-gradient(
       135deg,
-      rgba($premium-gradient-start, 0.1) 0%,
-      rgba($premium-gradient-end, 0.15) 70%
+      rgba($primary, 0.1) 0%,
+      rgba($accent, 0.15) 70%
     );
     opacity: 0;
     transition: opacity 0.4s $transition-standard;

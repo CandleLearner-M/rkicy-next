@@ -1,13 +1,13 @@
-// Brand Colors
-$primary: #2563eb;
-$primary-light: #60a5fa;
-$primary-dark: #1d4ed8;
-$secondary: #10b981;
+// Brand Colors - Updated with Material Red theme
+$primary: #E53935;            // Material Red
+$primary-light: #F44336;      // Lighter Red
+$primary-dark: #C62828;       // Darker Red
+$secondary: #10b981;          // Keeping original teal for contrast
 $secondary-light: #34d399;
 $secondary-dark: #059669;
-$accent: #8b5cf6;
-$accent-light: #a78bfa;
-$accent-dark: #7c3aed;
+$accent: #FFC107;             // Amber
+$accent-light: #FFD54F;       // Light Amber
+$accent-dark: #FFA000;        // Dark Amber
 
 // Text Colors
 $text-primary: #1a1a1a;
@@ -27,9 +27,9 @@ $bg-tertiary-dark: #374151;
 
 // Status Colors
 $success: #10b981;
-$warning: #f59e0b;
-$error: #ef4444;
-$info: #3b82f6;
+$warning: #FFC107;            // Updated to match accent
+$error: #E53935;              // Updated to match primary
+$info: #2196F3;               // Adjusted to complement the new scheme
 
 // Shadows
 $shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -120,10 +120,11 @@ $line-height-normal: 1.5;
 $line-height-relaxed: 1.625;
 $line-height-loose: 2;
 
-$hero-gradient-start: #3c5edc;
-$hero-gradient-end: #4980e6;
-$hero-accent: #36d1dc;
+// Hero-specific variables
+$hero-gradient-start: #E53935;
+$hero-gradient-end: #FFC107;
+$hero-accent: #FFD54F;
 $hero-card-bg-light: rgba(255, 255, 255, 0.8);
 $hero-card-bg-dark: rgba(31, 41, 55, 0.85);
-$hero-glow-light: rgba(60, 94, 220, 0.35);
-$hero-glow-dark: rgba(66, 153, 225, 0.25);
+$hero-glow-light: rgba(229, 57, 53, 0.35);  // Based on Material Red
+$hero-glow-dark: rgba(255, 193, 7, 0.25);   // Based on Amber

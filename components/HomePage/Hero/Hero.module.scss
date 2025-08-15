@@ -2,11 +2,11 @@
 @import "@/styles/mixins.scss";
 
 // Premium color variables - Updated with blue-purple scheme
-$premium-primary: #2563eb;
-$premium-secondary: #134cca;
-$premium-accent: #8b5cf6;
-$premium-gradient-start: #2563eb;
-$premium-gradient-end: #8b5cf6;
+$premium-primary: #E53935;    // Material Red
+$premium-secondary: #C62828;  // Darker Red
+$premium-accent: #FFC107;     // Amber
+$premium-gradient-start: #E53935;
+$premium-gradient-end: #FFC107;
 $premium-bg-light: #f8f9fc;
 $premium-bg-dark: #0a0c10;
 $premium-text-primary-light: #1a202c;

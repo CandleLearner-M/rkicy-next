@@ -2,11 +2,13 @@
 @import "@/styles/mixins.scss";
 
 // Premium color variables
-$premium-primary: #2563eb;
-$premium-secondary: #134cca;
-$premium-accent: #8b5cf6;
-$premium-gradient-start: #2563eb;
-$premium-gradient-end: #8b5cf6;
+$premium-primary: #E53935;    // Material Red
+$premium-secondary: #C62828;  // Darker Red
+$premium-accent: #FFC107;     // Amber
+$premium-gradient-start: #E53935;
+$premium-gradient-end: #FFC107;
+
+
 
 // Transitions
 $transition-smooth: cubic-bezier(0.23, 1, 0.32, 1);
@@ -175,13 +177,13 @@ $transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
   display: inline-block;
   font-size: 1rem;
   font-weight: 600;
-  color: $primary;
+  color: $premium-primary;
   margin: 0 0 1rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   
   [data-theme="dark"] & {
-    color: $primary-light;
+    color: $premium-primary;
   }
 }
 
@@ -202,7 +204,7 @@ $transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .highlightTxt {
-  background: linear-gradient(90deg, $primary 0%, $accent 100%);
+  background: linear-gradient(90deg, $premium-primary 0%, $premium-accent 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -216,7 +218,7 @@ $transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
     left: 0;
     width: 100%;
     height: 6px;
-    background: linear-gradient(90deg, rgba($primary, 0.2) 0%, rgba($accent, 0.2) 100%);
+    background: linear-gradient(90deg, rgba($premium-primary, 0.2) 0%, rgba($premium-accent, 0.2) 100%);
     border-radius: 3px;
     z-index: -1;
   }
