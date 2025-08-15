@@ -23,6 +23,8 @@ import ContactPreview from "@/components/HomePage/ContactPreview";
 import VisionMission from "@/components/AboutPage/VisionMission";
 import CompanyOverview from "@/components/AboutPage/CompanyOverview";
 import SectionBackground from "@/components/Layout/SectionBackground/SectionBackground";
+import CoreValues from "@/components/AboutPage/CoreValues";
+import CompanyTimeline from "@/components/AboutPage/CompanyTimeline";
 
 const leadershipTeam = [
   {
@@ -145,11 +147,14 @@ export default function AboutPage() {
       />
 
       <CompanyOverview />
-      <ContactPreview />
 
       <SectionBackground style="subtle" >
-              {/* <ServicesPreview /> */}
+        <CoreValues />
       </SectionBackground>
+
+      <CompanyTimeline />
+
+      <ContactPreview />
     </main>
   );
 }

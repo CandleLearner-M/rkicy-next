@@ -78,6 +78,67 @@
           },
           "clientRetention": "Client Retention Rate",
           "techPartners": "Technology Partners"
+        },
+        "values": {
+          "badge": "Core Values",
+          "title": {
+            "start": "The Principles That ",
+            "highlight": "Define Us"
+          },
+          "description": "At Rkicy Technology, we're guided by a set of core principles that shape our approach to business and technology. These values drive our decision-making process and reflect our commitment to excellence and client success.",
+          "items": {
+            "expertise": {
+              "title": "Expertise",
+              "description": "Our team brings years of experience in IT solutions, AI development, and enterprise hardware, ensuring exceptional results for businesses across Morocco."
+            },
+            "innovation": {
+              "title": "Innovation",
+              "description": "We stay at the cutting edge of technology to offer forward-thinking solutions that address our clients' current and future digital challenges."
+            },
+            "partnership": {
+              "title": "Partnership",
+              "description": "We build lasting relationships with our clients, becoming a true extension of their team throughout their digital transformation journey."
+            }
+          }
+        },
+        "timeline": {
+          "badge": "Our Journey",
+          "title": {
+            "highlight": "The Rkicy",
+            "end": "Story"
+          },
+          "description": "Since our founding in 2023, we've been on a mission to transform the Moroccan technology landscape. Here are some key milestones from our journey so far.",
+          "events": {
+            "founding": {
+              "date": "January 2023",
+              "title": "Foundation",
+              "description": "Rkicy Technology was established in Rabat with a vision to bring enterprise-grade IT solutions to the Moroccan market."
+            },
+            "firstClient": {
+              "date": "March 2023",
+              "title": "First Major Client",
+              "description": "Partnered with a leading financial institution to implement a comprehensive digital transformation strategy."
+            },
+            "expansion": {
+              "date": "August 2023",
+              "title": "Team Expansion",
+              "description": "Grew to a team of 15 certified professionals across AI, cloud infrastructure, and hardware solutions."
+            },
+            "award": {
+              "date": "November 2023",
+              "title": "Industry Recognition",
+              "description": "Received the 'Tech Innovator of the Year' award at the Morocco Digital Summit."
+            },
+            "growth": {
+              "date": "April 2024",
+              "title": "Strategic Growth",
+              "description": "Expanded service offerings and formed key partnerships with global technology leaders."
+            }
+          },
+          "future": {
+            "title": "Looking to the Future",
+            "description": "As we continue to grow, our mission remains the same: to empower Moroccan businesses with the technology and expertise they need to compete in the global digital economy."
+          }
         }
       },
   "services": {

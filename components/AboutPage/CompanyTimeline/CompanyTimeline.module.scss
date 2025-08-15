@@ -1,0 +1,350 @@
+@import "@/styles/variables.scss";
+@import "@/styles/mixins.scss";
+
+.timelineSection {
+  position: relative;
+  padding: 4rem 0;
+  overflow: hidden;
+  
+  @media (max-width: $breakpoint-md) {
+    padding: 2.5rem 0;
+  }
+
+  @media (max-width: 768px) {
+    padding: 2rem 0;
+  }
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+}
+
+.sectionHeader {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 4rem;
+}
+
+.sectionBadge {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  background: linear-gradient(to right, rgba($primary, 0.15), rgba($accent, 0.15));
+  color: $primary;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 100px;
+  margin-bottom: 1.5rem;
+  
+  [data-theme="dark"] & {
+    background: linear-gradient(to right, rgba($primary, 0.2), rgba($accent, 0.2));
+    color: $primary-light;
+  }
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  color: $text-primary;
+  
+  [data-theme="dark"] & {
+    color: $text-primary-dark;
+  }
+  
+  @media (max-width: $breakpoint-md) {
+    font-size: 2rem;
+  }
+}
+
+.highlight {
+  color: $primary;
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: rgba($primary, 0.15);
+    z-index: -1;
+    border-radius: 10px;
+  }
+  
+  [data-theme="dark"] & {
+    color: $primary-light;
+    
+    &::after {
+      background: rgba($primary, 0.25);
+    }
+  }
+}
+
+.sectionDescription {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: $text-secondary;
+  
+  [data-theme="dark"] & {
+    color: $text-secondary-dark;
+  }
+}
+
+// Timeline container and line
+.timelineContainer {
+  position: relative;
+  padding: 2rem 0;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.timelineLine {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, 
+    rgba($primary, 0.3),
+    rgba($primary, 0.6),
+    rgba($accent, 0.6),
+    rgba($accent, 0.3)
+  );
+  transform: translateX(-50%);
+  
+  @media (max-width: $breakpoint-md) {
+    left: 20px;
+  }
+}
+
+// Timeline events
+.timelineEvent {
+  position: relative;
+  margin-bottom: 4rem;
+  display: flex;
+  align-items: flex-start;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+  
+  @media (max-width: $breakpoint-md) {
+    padding-left: 45px;
+  }
+}
+
+.eventRight {
+  flex-direction: row-reverse;
+  
+  .eventCard {
+    margin-right: 2rem;
+    margin-left: 0;
+    
+    &::before {
+      left: auto;
+      right: -10px;
+      transform: translateY(-50%) rotate(45deg);
+    }
+  }
+  
+  @media (max-width: $breakpoint-md) {
+    flex-direction: row;
+    padding-left: 45px;
+    
+    .eventCard {
+      margin-right: 0;
+      margin-left: 2rem;
+      
+      &::before {
+        left: -10px;
+        right: auto;
+        transform: translateY(-50%) rotate(-45deg);
+      }
+    }
+  }
+}
+
+.eventIconContainer {
+  flex: 0 0 50px;
+  height: 50px;
+  margin: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  @media (max-width: $breakpoint-md) {
+    display: none;
+  }
+}
+
+.eventIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, $primary, $accent);
+  color: white;
+}
+
+.eventDot {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border: 4px solid $primary;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  box-shadow: 0 0 0 4px rgba($primary, 0.2);
+  
+  [data-theme="dark"] & {
+    background: $bg-secondary-dark;
+    border-color: $primary-light;
+    box-shadow: 0 0 0 4px rgba($primary, 0.3);
+  }
+  
+  @media (max-width: $breakpoint-md) {
+    left: 20px;
+  }
+}
+
+.eventCard {
+  flex: 0 0 calc(50% - 60px);
+  background-color: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  position: relative;
+  margin-left: 2rem;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: -10px;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    transform: translateY(-50%) rotate(-45deg);
+    box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.03);
+  }
+  
+  [data-theme="dark"] & {
+    background-color: $bg-secondary-dark;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    
+    &::before {
+      background-color: $bg-secondary-dark;
+      box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.1);
+    }
+  }
+  
+  @media (max-width: $breakpoint-md) {
+    flex: 1;
+    max-width: 100%;
+  }
+}
+
+.eventDate {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  background: rgba($primary, 0.1);
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: $primary;
+  margin-bottom: 1rem;
+  
+  [data-theme="dark"] & {
+    background: rgba($primary, 0.15);
+    color: $primary-light;
+  }
+}
+
+.eventTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: $text-primary;
+  
+  [data-theme="dark"] & {
+    color: $text-primary-dark;
+  }
+}
+
+.eventDescription {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: $text-secondary;
+  margin: 0;
+  
+  [data-theme="dark"] & {
+    color: $text-secondary-dark;
+  }
+}
+
+// Future section
+.futureBox {
+  position: relative;
+  max-width: 700px;
+  margin: 4rem auto 0;
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba($primary, 0.05), rgba($accent, 0.05));
+  border-radius: 16px;
+  border: 1px dashed rgba($primary, 0.2);
+  text-align: center;
+  
+  [data-theme="dark"] & {
+    background: linear-gradient(135deg, rgba($primary, 0.1), rgba($accent, 0.1));
+    border-color: rgba($primary, 0.3);
+  }
+}
+
+.futureContent {
+  position: relative;
+  z-index: 1;
+}
+
+.futureTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: $text-primary;
+  
+  [data-theme="dark"] & {
+    color: $text-primary-dark;
+  }
+}
+
+.futureDescription {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: $text-secondary;
+  
+  [data-theme="dark"] & {
+    color: $text-secondary-dark;
+  }
+}
+
+.futureDecor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba($primary, 0.05) 0, rgba($primary, 0) 50px),
+    radial-gradient(circle at 80% 70%, rgba($accent, 0.05) 0, rgba($accent, 0) 50px);
+  z-index: 0;
+}
