@@ -1,25 +1,9 @@
 @import "@/styles/variables.scss";
 @import "@/styles/mixins.scss";
 
-// Premium color variables - Blue-Purple scheme
-$premium-primary: #E53935;    // Material Red
-$premium-secondary: #C62828;  // Darker Red
-$premium-accent: #FFC107;     // Amber
-$premium-gradient-start: #E53935;
-$premium-gradient-end: #FFC107;
-
-// Dark mode variables
-$premium-bg-dark: #0a0c10;
-$premium-text-primary-dark: #f1f5f9;
-$premium-text-secondary-dark: #94a3b8;
-$premium-border-dark: rgba(45, 55, 72, 0.8);
+// Additional component-specific variables
+// These could be moved to global variables.scss in the future if needed
 $premium-box-bg-dark: rgba(16, 20, 35, 0.6);
-
-// Light mode variables
-$premium-bg-light: #f8fafc;
-$premium-text-primary-light: #0f172a;
-$premium-text-secondary-light: #475569;
-$premium-border-light: rgba(226, 232, 240, 0.8);
 $premium-box-bg-light: rgba(240, 245, 255, 0.6);
 
 .mobileHero {
@@ -28,13 +12,13 @@ $premium-box-bg-light: rgba(240, 245, 255, 0.6);
   max-height: 950px !important;
   overflow: hidden;
   padding: 6rem 1.5rem 2rem;
-  background-color: $premium-bg-dark;
+  background-color: $hero-bg-dark;
   display: flex;
   flex-direction: column;
   transition: background-color 0.3s ease;
   
   [data-theme="light"] & {
-    background-color: $premium-bg-light;
+    background-color: $hero-bg-light;
   }
   
   // Only show on mobile
@@ -95,10 +79,10 @@ $premium-box-bg-light: rgba(240, 245, 255, 0.6);
   padding: 0.5rem 1.25rem;
   background: linear-gradient(
     to right,
-    rgba($premium-gradient-start, 0.15),
-    rgba($premium-gradient-end, 0.2)
+    rgba($primary, 0.15),
+    rgba($accent, 0.2)
   );
-  color: lighten($premium-gradient-start, 15%);
+  color: lighten($primary, 15%);
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -111,10 +95,10 @@ $premium-box-bg-light: rgba(240, 245, 255, 0.6);
   [data-theme="light"] & {
     background: linear-gradient(
       to right,
-      rgba($premium-gradient-start, 0.08),
-      rgba($premium-gradient-end, 0.12)
+      rgba($primary, 0.08),
+      rgba($accent, 0.12)
     );
-    color: $premium-gradient-start;
+    color: $primary;
   }
 }
 
@@ -125,20 +109,20 @@ $premium-box-bg-light: rgba(240, 245, 255, 0.6);
   line-height: 1.1;
   font-weight: 800;
   margin-bottom: 1.25rem;
-  color: $premium-text-primary-dark;
+  color: $text-primary-dark;
   letter-spacing: -0.03em;
   transition: color 0.3s ease;
   
   [data-theme="light"] & {
-    color: $premium-text-primary-light;
+    color: $text-primary;
   }
 }
 
 .highlight {
   background: linear-gradient(
     90deg, 
-    $premium-gradient-start 0%, 
-    $premium-gradient-end 100%
+    $primary 0%, 
+    $accent 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -155,8 +139,8 @@ $premium-box-bg-light: rgba(240, 245, 255, 0.6);
     height: 3px;
     background: linear-gradient(
       90deg, 
-      $premium-gradient-start 0%, 
-      $premium-gradient-end 100%
+      $primary 0%, 
+      $accent 100%
     );
     border-radius: 3px;
     opacity: 0.7;
@@ -166,8 +150,8 @@ $premium-box-bg-light: rgba(240, 245, 255, 0.6);
   [data-theme="light"] & {
     background: linear-gradient(
       90deg, 
-      darken($premium-gradient-start, 5%) 0%, 
-      darken($premium-gradient-end, 5%) 100%
+      darken($primary, 5%) 0%, 
+      darken($accent, 5%) 100%
     );
     -webkit-background-clip: text;
     background-clip: text;
@@ -183,13 +167,13 @@ $premium-box-bg-light: rgba(240, 245, 255, 0.6);
   text-align: center;
   font-size: 1rem;
   line-height: 1.6;
-  color: $premium-text-secondary-dark;
+  color: $text-secondary-dark;
   margin-bottom: 2rem;
   max-width: 330px;
   transition: color 0.3s ease;
   
   [data-theme="light"] & {
-    color: $premium-text-secondary-light;
+    color: $text-secondary;
   }
 }
 
@@ -233,8 +217,8 @@ $premium-box-bg-light: rgba(240, 245, 255, 0.6);
   line-height: 1;
   background: linear-gradient(
     90deg, 
-    lighten($premium-gradient-start, 10%) 0%, 
-    lighten($premium-gradient-end, 10%) 100%
+    lighten($primary, 10%) 0%, 
+    lighten($accent, 10%) 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -245,8 +229,8 @@ $premium-box-bg-light: rgba(240, 245, 255, 0.6);
   [data-theme="light"] & {
     background: linear-gradient(
       90deg, 
-      $premium-gradient-start 0%, 
-      $premium-gradient-end 100%
+      $primary 0%, 
+      $accent 100%
     );
     -webkit-background-clip: text;
     background-clip: text;
@@ -255,14 +239,14 @@ $premium-box-bg-light: rgba(240, 245, 255, 0.6);
 
 .statLabel {
   font-size: 0.7rem;
-  color: $premium-text-secondary-dark;
+  color: $text-secondary-dark;
   font-weight: 500;
   text-align: center;
   opacity: 0.9;
   transition: color 0.3s ease;
   
   [data-theme="light"] & {
-    color: $premium-text-secondary-light;
+    color: $text-secondary;
   }
 }
 
@@ -311,8 +295,8 @@ $premium-box-bg-light: rgba(240, 245, 255, 0.6);
   padding: 1rem 1.25rem;
   background: linear-gradient(
     90deg,
-    $premium-gradient-start 0%,
-    $premium-gradient-end 100%
+    $primary 0%,
+    $accent 100%
   );
   color: white;
   font-weight: 600;
@@ -325,7 +309,7 @@ $premium-box-bg-light: rgba(240, 245, 255, 0.6);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   
   [data-theme="light"] & {
-    box-shadow: 0 8px 20px rgba($premium-gradient-start, 0.2);
+    box-shadow: 0 8px 20px rgba($primary, 0.2);
   }
   
   &:active {
@@ -333,7 +317,7 @@ $premium-box-bg-light: rgba(240, 245, 255, 0.6);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     
     [data-theme="light"] & {
-      box-shadow: 0 4px 10px rgba($premium-gradient-start, 0.1);
+      box-shadow: 0 4px 10px rgba($primary, 0.1);
     }
   }
   
@@ -376,7 +360,7 @@ $premium-box-bg-light: rgba(240, 245, 255, 0.6);
   padding: 1rem 1.25rem;
   background-color: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  color: $premium-text-primary-dark;
+  color: $text-primary-dark;
   font-weight: 600;
   font-size: 1rem;
   border-radius: 8px;
@@ -386,7 +370,7 @@ $premium-box-bg-light: rgba(240, 245, 255, 0.6);
   [data-theme="light"] & {
     background-color: rgba(0, 0, 0, 0.02);
     border: 1px solid rgba(0, 0, 0, 0.08);
-    color: $premium-text-primary-light;
+    color: $text-primary;
   }
   
   &:active {

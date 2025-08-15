@@ -25,6 +25,10 @@ $bg-secondary-dark: #1f2937;
 $bg-tertiary: #f3f4f6;
 $bg-tertiary-dark: #374151;
 
+// Hero-specific backgrounds
+$hero-bg-light: #f8f9fc;      // Premium background for hero sections
+$hero-bg-dark: #0a0c10;       // Premium dark background for hero sections
+
 // Status Colors
 $success: #10b981;
 $warning: #FFC107;            // Updated to match accent
@@ -64,6 +68,7 @@ $radius-md: 0.5rem;
 $radius-lg: 1rem;
 $radius-xl: 1.5rem;
 $radius-full: 9999px;
+
 
 // Animation
 $transition-fast: 0.15s ease;

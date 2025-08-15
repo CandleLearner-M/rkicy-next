@@ -1,21 +1,6 @@
 @import "@/styles/variables.scss";
 @import "@/styles/mixins.scss";
 
-// Premium color variables - Updated with electric cyan + neon magenta scheme
-$premium-primary: #E53935;    // Material Red
-$premium-secondary: #C62828;  // Darker Red
-$premium-accent: #FFC107;     // Amber
-$premium-gradient-start: #E53935;
-$premium-gradient-end: #FFC107;
-$premium-bg-light: #f8f9fc;
-$premium-bg-dark: #0a0c10;
-$premium-text-primary-light: #1a202c;
-$premium-text-secondary-light: #4a5568;
-$premium-text-primary-dark: #f0f4f8;
-$premium-text-secondary-dark: #a0aec0;
-$premium-border-light: rgba(226, 232, 240, 0.8);
-$premium-border-dark: rgba(45, 55, 72, 0.8);
-
 .heroSection {
   position: relative;
   overflow: hidden;
@@ -24,10 +9,10 @@ $premium-border-dark: rgba(45, 55, 72, 0.8);
   min-height: 85vh;
   display: flex;
   flex-direction: column;
-  background-color: $premium-bg-light;
+  background-color: $hero-bg-light;
   
   [data-theme="dark"] & {
-    background-color: $premium-bg-dark;
+    background-color: $hero-bg-dark;
   }
   
   @media (max-width: $breakpoint-md) {
@@ -114,18 +99,18 @@ $premium-border-dark: rgba(45, 55, 72, 0.8);
   border-radius: 100px;
   background: linear-gradient(
     to right,
-    rgba($premium-gradient-start, 0.08),
-    rgba($premium-gradient-end, 0.12)
+    rgba($primary, 0.08),
+    rgba($accent, 0.12)
   );
-  color: $premium-gradient-start;
+  color: $primary;
   
   [data-theme="dark"] & {
     background: linear-gradient(
       to right,
-      rgba($premium-gradient-start, 0.15),
-      rgba($premium-gradient-end, 0.2)
+      rgba($primary, 0.15),
+      rgba($accent, 0.2)
     );
-    color: lighten($premium-gradient-start, 15%);
+    color: lighten($primary, 15%);
   }
   
   @media (max-width: $breakpoint-md) {
@@ -140,10 +125,10 @@ $premium-border-dark: rgba(45, 55, 72, 0.8);
   font-weight: 800;
   letter-spacing: -0.03em;
   margin-bottom: 1.5rem;
-  color: $premium-text-primary-light;
+  color: $text-primary;
   
   [data-theme="dark"] & {
-    color: $premium-text-primary-dark;
+    color: $text-primary-dark;
   }
   
   @media (max-width: $breakpoint-lg) {
@@ -162,8 +147,8 @@ $premium-border-dark: rgba(45, 55, 72, 0.8);
   .highlight {
     background: linear-gradient(
       90deg, 
-      $premium-gradient-start 0%, 
-      $premium-gradient-end 100%
+      $primary 0%, 
+      $accent 100%
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -180,8 +165,8 @@ $premium-border-dark: rgba(45, 55, 72, 0.8);
       height: 4px;
       background: linear-gradient(
         90deg, 
-        $premium-gradient-start 0%, 
-        $premium-gradient-end 100%
+        $primary 0%, 
+        $accent 100%
       );
       border-radius: 4px;
       opacity: 0.7;
@@ -195,8 +180,8 @@ $premium-border-dark: rgba(45, 55, 72, 0.8);
     [data-theme="dark"] & {
       background: linear-gradient(
         90deg, 
-        lighten($premium-gradient-start, 10%) 0%, 
-        lighten($premium-gradient-end, 10%) 100%
+        lighten($primary, 10%) 0%, 
+        lighten($accent, 10%) 100%
       );
       -webkit-background-clip: text;
       background-clip: text;
@@ -204,8 +189,8 @@ $premium-border-dark: rgba(45, 55, 72, 0.8);
       &::after {
         background: linear-gradient(
           90deg, 
-          lighten($premium-gradient-start, 10%) 0%, 
-          lighten($premium-gradient-end, 10%) 100%
+          lighten($primary, 10%) 0%, 
+          lighten($accent, 10%) 100%
         );
       }
     }
@@ -214,13 +199,13 @@ $premium-border-dark: rgba(45, 55, 72, 0.8);
 
 .description {
   font-size: 1.25rem;
-  color: $premium-text-secondary-light;
+  color: $text-secondary;
   max-width: 700px;
   margin: 0 auto 3rem;
   line-height: 1.7;
   
   [data-theme="dark"] & {
-    color: $premium-text-secondary-dark;
+    color: $text-secondary-dark;
   }
   
   @media (max-width: $breakpoint-md) {
@@ -269,8 +254,8 @@ $premium-border-dark: rgba(45, 55, 72, 0.8);
     border-radius: 8px;
     background: linear-gradient(
       90deg,
-      $premium-gradient-start 0%,
-      $premium-gradient-end 100%
+      $primary 0%,
+      $accent 100%
     );
     color: white;
     position: relative;
@@ -332,13 +317,13 @@ $premium-border-dark: rgba(45, 55, 72, 0.8);
     font-weight: 600;
     border-radius: 8px;
     background-color: transparent;
-    color: $premium-text-primary-light;
-    border: 1px solid rgba($premium-gradient-start, 0.3);
-    transition: all 0.3s ease;
+    color: $text-primary;
+    border: 1px solid rgba($primary, 0.3);
+    // transition: all 0.3s ease;
     
     [data-theme="dark"] & {
-      color: $premium-text-primary-dark;
-      border-color: rgba($premium-gradient-start, 0.4);
+      color: $text-primary-dark;
+      border-color: rgba($primary, 0.4);
       background-color: rgba(255, 255, 255, 0.03);
     }
   }
@@ -406,10 +391,10 @@ $premium-border-dark: rgba(45, 55, 72, 0.8);
 .statDivider {
   width: 1px;
   height: 50px;
-  background-color: $premium-border-light;
+  background-color: rgba(226, 232, 240, 0.8);
   
   [data-theme="dark"] & {
-    background-color: $premium-border-dark;
+    background-color: rgba(45, 55, 72, 0.8);
   }
   
   @media (max-width: $breakpoint-sm) {
@@ -423,8 +408,8 @@ $premium-border-dark: rgba(45, 55, 72, 0.8);
   line-height: 1;
   background: linear-gradient(
     90deg, 
-    $premium-gradient-start 0%, 
-    $premium-gradient-end 100%
+    $primary 0%, 
+    $accent 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -433,8 +418,8 @@ $premium-border-dark: rgba(45, 55, 72, 0.8);
   [data-theme="dark"] & {
     background: linear-gradient(
       90deg, 
-      lighten($premium-gradient-start, 10%) 0%, 
-      lighten($premium-gradient-end, 10%) 100%
+      lighten($primary, 10%) 0%, 
+      lighten($accent, 10%) 100%
     );
     -webkit-background-clip: text;
     background-clip: text;
@@ -452,11 +437,11 @@ $premium-border-dark: rgba(45, 55, 72, 0.8);
 .statLabel {
   margin-top: 0.5rem;
   font-size: 0.875rem;
-  color: $premium-text-secondary-light;
+  color: $text-secondary;
   font-weight: 500;
   
   [data-theme="dark"] & {
-    color: $premium-text-secondary-dark;
+    color: $text-secondary-dark;
   }
   
   @media (max-width: $breakpoint-sm) {

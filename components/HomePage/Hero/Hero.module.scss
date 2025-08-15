@@ -1,32 +1,16 @@
 @import "@/styles/variables.scss";
 @import "@/styles/mixins.scss";
 
-// Premium color variables - Updated with blue-purple scheme
-$premium-primary: #E53935;    // Material Red
-$premium-secondary: #C62828;  // Darker Red
-$premium-accent: #FFC107;     // Amber
-$premium-gradient-start: #E53935;
-$premium-gradient-end: #FFC107;
-$premium-bg-light: #f8f9fc;
-$premium-bg-dark: #0a0c10;
-$premium-text-primary-light: #1a202c;
-$premium-text-secondary-light: #4a5568;
-$premium-text-primary-dark: #f0f4f8;
-$premium-text-secondary-dark: #a0aec0;
-$premium-border-light: rgba(226, 232, 240, 0.8);
-$premium-border-dark: rgba(45, 55, 72, 0.8);
-
 .hero {
   min-height: 100vh;
   @media (max-width: 1080px) {
     min-height: calc(100dvh - 64px);
   }
-  background-color: $premium-bg-light;
+  background-color: $hero-bg-light;
   
   [data-theme="dark"] & {
-    background-color: $premium-bg-dark;
+    background-color: $hero-bg-dark;
   }
-  
 }
 
 // Background elements

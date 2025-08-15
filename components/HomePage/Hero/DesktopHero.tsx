@@ -32,8 +32,8 @@ export default function DesktopHero() {
     initial: { scale: 1 },
     hover: { 
       transform: "translateY(-1px)", 
-      boxShadow: "0 10px 25px rgba(66, 153, 225, 0.35)",
-      transition: { duration: 0.2, ease: "easeOut" } 
+      boxShadow: "0 10px 25px rgba(229, 57, 53, 0.35)",
+      transition: { duration: 0.1, ease: "easeOut" } 
     },
   };
   
