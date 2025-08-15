@@ -54,41 +54,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
   return (
     <div className={styles.heroWrapper}>
       {/* Background elements covering the full hero */}
-      <div className={styles.background}>
-        <motion.div 
-          className={styles.overlay}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: isLoaded ? 1 : 0 }}
-          transition={{ duration: 1.2 }}
-        ></motion.div>
-        
-        <motion.div 
-          className={styles.pattern}
-          initial={{ opacity: 0, scale: 1.1 }}
-          animate={{ opacity: isLoaded ? 0.8 : 0, scale: isLoaded ? 1 : 1.1 }}
-          transition={{ duration: 1.5 }}
-        >
-          <motion.div 
-            className={styles.patternInner}
-            animate={{ 
-              backgroundPosition: isLoaded ? "20px 20px" : "0px 0px" 
-            }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          />
-        </motion.div>
-        
-        <motion.div 
-          className={styles.glow}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: isLoaded ? [0, 0.3, 0.1] : 0 }}
-          transition={{ 
-            duration: 3, 
-            times: [0, 0.5, 1], 
-            repeat: Infinity, 
-            repeatType: "reverse" 
-          }}
-        />
-      </div>
+      
 
       <motion.div className={styles.heroContent}>
         <div className={styles.container}>

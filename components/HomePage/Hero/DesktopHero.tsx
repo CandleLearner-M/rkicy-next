@@ -126,12 +126,12 @@ export default function DesktopHero() {
             </div>
             <div className={styles.statDivider} />
             <div className={styles.statItem}>
-              <span className={styles.statValue}>10+</span>
+              <span className={styles.statValue}>3+</span>
               <span className={styles.statLabel}>{t('yearsOfExperience')}</span>
             </div>
             <div className={styles.statDivider} />
             <div className={styles.statItem}>
-              <span className={styles.statValue}>200+</span>
+              <span className={styles.statValue}>20+</span>
               <span className={styles.statLabel}>{t('clientsServed')}</span>
             </div>
           </motion.div>

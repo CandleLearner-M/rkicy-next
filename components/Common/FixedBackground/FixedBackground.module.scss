@@ -1,3 +1,5 @@
+@import '@/styles/variables.scss';
+
 .fixedBackground {
   position: fixed;
   top: 0;
@@ -17,7 +19,7 @@
   }
 }
 
-/* Static gradients */
+/* Static gradients - updated with new color palette */
 .gradient1 {
   position: absolute;
   top: 0;
@@ -27,16 +29,16 @@
   border-radius: 50%;
   background: radial-gradient(
     ellipse at center,
-    rgba(79, 70, 229, 0.05) 0%,
-    rgba(79, 70, 229, 0) 75%
+    rgba($primary, 0.05) 0%,
+    rgba($primary, 0) 75%
   );
   opacity: 0.8;
   
   [data-theme="dark"] & {
     background: radial-gradient(
       ellipse at center,
-      rgba(79, 70, 229, 0.07) 0%,
-      rgba(79, 70, 229, 0) 75%
+      rgba($primary, 0.07) 0%,
+      rgba($primary, 0) 75%
     );
     opacity: 0.6;
   }
@@ -51,16 +53,16 @@
   border-radius: 50%;
   background: radial-gradient(
     circle at center,
-    rgba(59, 130, 246, 0.04) 0%,
-    rgba(59, 130, 246, 0) 75%
+    rgba($accent, 0.04) 0%,
+    rgba($accent, 0) 75%
   );
   opacity: 0.7;
   
   [data-theme="dark"] & {
     background: radial-gradient(
       circle at center,
-      rgba(59, 130, 246, 0.06) 0%,
-      rgba(59, 130, 246, 0) 75%
+      rgba($accent, 0.06) 0%,
+      rgba($accent, 0) 75%
     );
     opacity: 0.5;
   }
@@ -77,23 +79,23 @@
   pointer-events: none;
 }
 
-/* Grid element - similar to the one in the image */
+/* Grid element - updated with new color palette */
 .grid {
   position: absolute;
   top: 0;
   right: 0;
   width: 60%;
   height: 100%;
-  background-image: linear-gradient(rgba(79, 70, 229, 0.08) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(79, 70, 229, 0.08) 1px, transparent 1px);
+  background-image: linear-gradient(rgba($primary, 0.08) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba($primary, 0.08) 1px, transparent 1px);
   background-size: 25px 25px;
   opacity: 0.12;
   transform: rotate(0deg);
   transform-origin: center;
   
   [data-theme="dark"] & {
-    background-image: linear-gradient(rgba(79, 70, 229, 0.1) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(79, 70, 229, 0.1) 1px, transparent 1px);
+    background-image: linear-gradient(rgba($primary, 0.1) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba($primary, 0.1) 1px, transparent 1px);
     opacity: 0.15;
   }
   
@@ -102,7 +104,7 @@
   }
 }
 
-/* Static dots for visual interest */
+/* Static dots for visual interest - updated with new color palette */
 .dotsContainer {
   position: absolute;
   top: 0;
@@ -115,12 +117,12 @@
 .dot {
   position: absolute;
   border-radius: 50%;
-  background-color: #4f46e5;
+  background-color: $primary;
   opacity: 0.3;
   filter: blur(1px);
   
   [data-theme="dark"] & {
-    background-color: #3b82f6;
+    background-color: $accent;
     opacity: 0.25;
   }
 }
