@@ -31,7 +31,7 @@ export default function DesktopHero() {
   const buttonVariants = {
     initial: { scale: 1 },
     hover: { 
-      scale: 1.03, 
+      transform: "translateY(-1px)", 
       boxShadow: "0 10px 25px rgba(66, 153, 225, 0.35)",
       transition: { duration: 0.2, ease: "easeOut" } 
     },
