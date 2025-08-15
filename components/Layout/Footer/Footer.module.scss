@@ -1,3 +1,6 @@
+@import "@/styles/variables.scss";
+@import "@/styles/mixins.scss";
+
 .footer {
   position: relative;
   background-color: #0a0a0a; // Deep dark background
@@ -35,7 +38,6 @@
     background-color: #111111; // Slightly different shade for dark mode
   }
 }
-
 
 .container {
   max-width: 1400px;
@@ -130,7 +132,7 @@
   color: #cbd5e1;
   
   .contactIcon {
-    color: #3b82f6;
+    color: $primary;
   }
 }
 
@@ -154,9 +156,9 @@
     transition: all 0.3s ease;
     
     &:hover {
-      background-color: #3b82f6;
+      background-color: $primary;
       transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+      box-shadow: 0 10px 25px rgba($primary, 0.35);
     }
   }
 }
@@ -201,7 +203,7 @@
       left: 0;
       width: 30px;
       height: 2px;
-      background: linear-gradient(90deg, #3b82f6, rgba(59, 130, 246, 0.3));
+      background: linear-gradient(90deg, $primary, rgba($primary, 0.3));
       border-radius: 2px;
       
       @media (max-width: 1023px) {
@@ -229,7 +231,7 @@
     margin-bottom: 0.75rem;
     
     .linkIcon {
-      color: #3b82f6;
+      color: $primary;
       margin-right: 0.5rem;
       flex-shrink: 0;
       transition: transform 0.2s ease;
@@ -242,7 +244,7 @@
       transition: color 0.2s ease;
       
       &:hover {
-        color: #3b82f6;
+        color: $primary;
       }
     }
     
@@ -277,7 +279,7 @@
       left: 0;
       width: 30px;
       height: 2px;
-      background: linear-gradient(90deg, #3b82f6, rgba(59, 130, 246, 0.3));
+      background: linear-gradient(90deg, $primary, rgba($primary, 0.3));
       border-radius: 2px;
       
       @media (max-width: 1023px) {
@@ -336,7 +338,7 @@
     
     &:focus {
       outline: none;
-      border-color: #3b82f6;
+      border-color: $primary;
     }
     
     &::placeholder {
@@ -355,7 +357,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #3b82f6;
+    background: linear-gradient(135deg, $primary, $accent);
     color: white;
     border: none;
     border-radius: 0 4px 4px 0;
@@ -363,7 +365,7 @@
     transition: background-color 0.3s ease;
     
     &:hover {
-      background-color: #2563eb;
+      background-color: $primary-dark;
     }
 
     @media (max-width: 1024px) {
@@ -381,11 +383,11 @@
     font-size: 0.875rem;
     
     &.success {
-      color: #10b981;
+      color: $success;
     }
     
     &.error {
-      color: #ef4444;
+      color: $error;
     }
   }
 }
@@ -405,9 +407,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    background: linear-gradient(135deg, $primary, $accent);
     border-radius: 8px;
-    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.25);
+    box-shadow: 0 8px 25px rgba($primary, 0.25);
     
     .certContent {
       display: flex;
@@ -504,7 +506,7 @@
       transition: color 0.2s ease;
       
       &:hover {
-        color: #3b82f6;
+        color: $primary;
         text-decoration: underline;
       }
     }
