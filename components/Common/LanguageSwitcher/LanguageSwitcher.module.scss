@@ -1,11 +1,7 @@
 @import "@/styles/variables";
 
-// Premium color variables - Updated with blue-purple scheme
-$premium-primary: #2563eb;
-$premium-secondary: #134cca;
-$premium-accent: #8b5cf6;
-$premium-gradient-start: #2563eb;
-$premium-gradient-end: #8b5cf6;
+// Additional component-specific variables
+// Note: These could be moved to global variables.scss in the future
 $premium-bg-light: rgba(255, 255, 255, 0.85);
 $premium-bg-dark: rgba(10, 12, 16, 0.85);
 $premium-border-light: rgba(226, 232, 240, 0.8);
@@ -97,13 +93,13 @@ $premium-border-dark: rgba(45, 55, 72, 0.8);
   }
   
   &.activeLanguage {
-    color: $premium-primary;
+    color: $primary;
     font-weight: 600;
-    background: rgba($premium-primary, 0.08);
+    background: rgba($primary, 0.08);
     
     [data-theme='dark'] & {
-      background: rgba($premium-primary, 0.15);
-      color: lighten($premium-primary, 15%);
+      background: rgba($primary, 0.15);
+      color: lighten($primary, 15%);
     }
   }
 }
@@ -142,10 +138,10 @@ $premium-border-dark: rgba(45, 55, 72, 0.8);
     
     &:hover {
       background: rgba(245, 245, 250, 0.7);
-      border-color: rgba($premium-primary, 0.3);
+      border-color: rgba($primary, 0.3);
       transform: translateY(-1px);
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-      color: $premium-primary;
+      color: $primary;
       
       &::before {
         left: 100%;
@@ -168,9 +164,9 @@ $premium-border-dark: rgba(45, 55, 72, 0.8);
       
       &:hover {
         background: rgba(40, 40, 60, 0.7);
-        border-color: rgba($premium-accent, 0.4);
+        border-color: rgba($accent, 0.4);
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        color: lighten($premium-accent, 15%);
+        color: lighten($accent, 15%);
       }
     }
   }
@@ -198,7 +194,7 @@ $premium-border-dark: rgba(45, 55, 72, 0.8);
     padding: 0.6rem 1rem;
     background: rgba(255, 255, 255, 0.06);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba($premium-gradient-start, 0.15);
+    border: 1px solid rgba($primary, 0.15);
     border-radius: 8px;
     cursor: pointer;
     font-size: 0.9rem;
@@ -209,18 +205,18 @@ $premium-border-dark: rgba(45, 55, 72, 0.8);
     [data-theme='dark'] & {
       color: $text-primary-dark;
       background: rgba(255, 255, 255, 0.03);
-      border-color: rgba($premium-gradient-start, 0.25);
+      border-color: rgba($primary, 0.25);
     }
     
     &:hover {
-      border-color: rgba($premium-gradient-start, 0.4);
-      background: rgba($premium-gradient-start, 0.05);
-      box-shadow: 0 4px 15px rgba($premium-gradient-start, 0.1);
+      border-color: rgba($primary, 0.4);
+      background: rgba($primary, 0.05);
+      box-shadow: 0 4px 15px rgba($primary, 0.1);
       
       [data-theme='dark'] & {
-        background: rgba($premium-gradient-start, 0.08);
-        border-color: rgba($premium-gradient-start, 0.5);
-        box-shadow: 0 4px 15px rgba($premium-gradient-start, 0.15);
+        background: rgba($primary, 0.08);
+        border-color: rgba($primary, 0.5);
+        box-shadow: 0 4px 15px rgba($primary, 0.15);
       }
     }
   }
@@ -252,29 +248,29 @@ $premium-border-dark: rgba(45, 55, 72, 0.8);
     transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
     
     &:hover {
-      background: rgba($premium-gradient-start, 0.05);
+      background: rgba($primary, 0.05);
       
       [data-theme='dark'] & {
-        background: rgba($premium-gradient-start, 0.1);
+        background: rgba($primary, 0.1);
       }
     }
     
     &.activeLanguage {
       background: linear-gradient(
         90deg, 
-        rgba($premium-gradient-start, 0.08) 0%, 
-        rgba($premium-gradient-end, 0.08) 100%
+        rgba($primary, 0.08) 0%, 
+        rgba($accent, 0.08) 100%
       );
       font-weight: 600;
-      color: $premium-gradient-start;
+      color: $primary;
       
       [data-theme='dark'] & {
         background: linear-gradient(
           90deg, 
-          rgba($premium-gradient-start, 0.15) 0%, 
-          rgba($premium-gradient-end, 0.15) 100%
+          rgba($primary, 0.15) 0%, 
+          rgba($accent, 0.15) 100%
         );
-        color: lighten($premium-gradient-start, 15%);
+        color: lighten($primary, 15%);
       }
     }
   }
@@ -288,20 +284,20 @@ $premium-border-dark: rgba(45, 55, 72, 0.8);
     width: 100%;
     justify-content: space-between;
     padding: 0.75rem 1.25rem;
-    background: rgba($premium-gradient-start, 0.05);
+    background: rgba($primary, 0.05);
     border-radius: 10px;
-    border: 1px solid rgba($premium-gradient-start, 0.1);
+    border: 1px solid rgba($primary, 0.1);
     
     [data-theme='dark'] & {
-      background: rgba($premium-gradient-start, 0.08);
-      border-color: rgba($premium-gradient-start, 0.2);
+      background: rgba($primary, 0.08);
+      border-color: rgba($primary, 0.2);
     }
     
     &:hover {
-      background: rgba($premium-gradient-start, 0.08);
+      background: rgba($primary, 0.08);
       
       [data-theme='dark'] & {
-        background: rgba($premium-gradient-start, 0.12);
+        background: rgba($primary, 0.12);
       }
     }
   }
@@ -319,15 +315,15 @@ $premium-border-dark: rgba(45, 55, 72, 0.8);
     &.activeLanguage {
       background: linear-gradient(
         90deg, 
-        rgba($premium-gradient-start, 0.1) 0%, 
-        rgba($premium-gradient-end, 0.1) 100%
+        rgba($primary, 0.1) 0%, 
+        rgba($accent, 0.1) 100%
       );
       
       [data-theme='dark'] & {
         background: linear-gradient(
           90deg, 
-          rgba($premium-gradient-start, 0.2) 0%, 
-          rgba($premium-gradient-end, 0.2) 100%
+          rgba($primary, 0.2) 0%, 
+          rgba($accent, 0.2) 100%
         );
       }
     }
