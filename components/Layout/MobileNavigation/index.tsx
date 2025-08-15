@@ -23,7 +23,6 @@ const iconMap = {
   'home': <Home size={18} />,
   'about': <Info size={18} />,
   'services': <LayoutGrid size={18} />,
-  'partners': <Handshake size={18} />,
   'hardware': <HardDrive size={18} />,
   'projects': <Briefcase size={18} />,
   'contact': <PhoneCall size={18} />
@@ -41,16 +40,15 @@ export default function MobileNavigation() {
     { name: 'home', href: '/' },
     { name: 'about', href: '/about' },
     { name: 'services', href: '/services' },
-    { name: 'partners', href: '/partners' },
     { name: 'hardware', href: '/hardware' },
     { name: 'projects', href: '/projects' },
     { name: 'contact', href: '/contact' }
   ];
 
   // First and second half of nav items to show on either side of the center button
-  const leftNavItems = [0, 2]; // Home, Services
-  const rightNavItems = [5, 6]; // Projects, Contact
-  const secondaryNavItems = [1, 3, 4]; // About, Partners, Hardware
+  const leftNavItems = [0, 1]; // Home, Services
+  const rightNavItems = [2, 5]; // Projects, Contact
+  const secondaryNavItems = [4, 3]; // About, Partners, Hardware
 
   // Handle scroll behavior to hide/show nav bar
   useEffect(() => {
@@ -151,7 +149,7 @@ export default function MobileNavigation() {
             <div className={styles.buttonBackground}>
               <motion.div 
                 className={styles.iconContainer}
-                animate={{ rotate: isExpanded ? 45 : 0 }}
+                animate={{ rotate: isExpanded ? 90 : 0 }}
                 transition={{ duration: 0.3 }}
               >
                 {isExpanded ? <X size={20} /> : <Plus size={20} />}
