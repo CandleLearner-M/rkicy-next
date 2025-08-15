@@ -126,7 +126,7 @@
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    background: linear-gradient(90deg, $primary, $accent);
     opacity: 0;
     transform: scaleX(0.6);
     transition: all 0.2s ease;
@@ -205,18 +205,18 @@
   justify-content: center;
   margin-bottom: 1.25rem;
   border-radius: 50%;
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(139, 92, 246, 0.15));
+  background: linear-gradient(135deg, rgba($primary, 0.15), rgba($accent, 0.15));
   
   [data-theme="light"] & {
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+    background: linear-gradient(135deg, rgba($primary, 0.1), rgba($accent, 0.1));
   }
 }
 
 .shieldIcon {
-  color: #3b82f6;
+  color: $primary;
   
   [data-theme="dark"] & {
-    color: lighten(#3b82f6, 10%);
+    color: lighten($primary, 10%);
   }
 }
 
@@ -251,18 +251,18 @@
   gap: 0.5rem;
   font-size: 0.95rem;
   padding: 0.75rem 1.25rem;
-  background: rgba(59, 130, 246, 0.1);
+  background: rgba($primary, 0.1);
   border-radius: 8px;
   color: #94a3b8;
   margin-bottom: 1.5rem;
   
   svg {
-    color: #3b82f6;
+    color: $primary;
     flex-shrink: 0;
   }
   
   [data-theme="light"] & {
-    background: rgba(59, 130, 246, 0.05);
+    background: rgba($primary, 0.05);
     color: #64748b;
   }
 }
@@ -289,7 +289,7 @@
     transition: color 0.2s ease;
     
     &:hover {
-      color: #3b82f6;
+      color: $primary;
       text-decoration: underline;
     }
     
@@ -297,7 +297,7 @@
       color: #64748b;
       
       &:hover {
-        color: #3b82f6;
+        color: $primary;
       }
     }
   }
@@ -382,7 +382,7 @@
 }
 
 .categoryIcon {
-  color: #3b82f6;
+  color: $primary;
 }
 
 // Toggle switch - FIXED IMPLEMENTATION
@@ -400,7 +400,7 @@
   padding: 0 4px;
   
   &.active {
-    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    background: linear-gradient(90deg, $primary, $accent);
     border-color: transparent;
     
     .toggleSlider {
@@ -411,7 +411,7 @@
   &.disabled {
     opacity: 0.5;
     cursor: not-allowed;
-    background-color: rgba(59, 130, 246, 0.2);
+    background-color: rgba($primary, 0.2);
     .toggleSlider {
       transform: translateX(20px);
     }
@@ -473,21 +473,21 @@
 }
 
 .primaryButton {
-  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  background: linear-gradient(90deg, $primary, $accent);
   color: white;
   border: none;
-  box-shadow: 0 6px 15px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 6px 15px rgba($primary, 0.3);
   
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+    box-shadow: 0 10px 25px rgba($primary, 0.4);
   }
   
   [data-theme="light"] & {
-    box-shadow: 0 6px 15px rgba(59, 130, 246, 0.15);
+    box-shadow: 0 6px 15px rgba($primary, 0.15);
     
     &:hover {
-      box-shadow: 0 10px 25px rgba(59, 130, 246, 0.25);
+      box-shadow: 0 10px 25px rgba($primary, 0.25);
     }
   }
 }
