@@ -1,6 +1,8 @@
 @import "@/styles/variables.scss";
 @import "@/styles/mixins.scss";
 
+
+
 .valuesSection {
   position: relative;
   padding: 0 0;
@@ -128,7 +130,7 @@
   }
   
   [data-theme="dark"] & {
-    background-color: $bg-secondary-dark;
+    background: $bg-secondary-dark;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
     
     &:hover {
