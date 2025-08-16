@@ -66,19 +66,15 @@
 
 .sectionBadge {
   display: inline-block;
-  padding: 0.5rem 1.25rem;
-  background: linear-gradient(to right, rgba($primary, 0.15), rgba($accent, 0.15));
-  color: $primary;
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 600;
+  color: $primary;
+  margin: 0 0 1rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  border-radius: 100px;
-  margin-bottom: 1.5rem;
   
   [data-theme="dark"] & {
-    background: linear-gradient(to right, rgba($primary, 0.2), rgba($accent, 0.2));
-    color: $primary-light;
+    color: $primary;
   }
 }
 
@@ -99,29 +95,26 @@
 }
 
 .highlight {
-  color: $primary;
+  background: linear-gradient(90deg, $primary 0%, $accent 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
   position: relative;
+  display: inline-block;
   
   &::after {
     content: '';
     position: absolute;
     bottom: 5px;
     left: 0;
-    right: 0;
-    height: 10px;
-    background: rgba($primary, 0.15);
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, rgba($primary, 0.2) 0%, rgba($accent, 0.2) 100%);
+    border-radius: 3px;
     z-index: -1;
-    border-radius: 10px;
-  }
-  
-  [data-theme="dark"] & {
-    color: $primary-light;
-    
-    &::after {
-      background: rgba($primary, 0.25);
-    }
   }
 }
+
 
 // Vision card
 .visionCard {
