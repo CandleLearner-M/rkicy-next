@@ -77,6 +77,81 @@
         },
         "clientRetention": "Taux de Fidélisation",
         "techPartners": "Partenaires Technologiques"
+      },
+
+      "team": {
+        "badge": "Notre Équipe",
+        "title": {
+          "start": "Rencontrez Les ",
+          "highlight": "Experts"
+        },
+        "description": "Notre équipe est composée de professionnels certifiés possédant une vaste expérience dans divers domaines technologiques. Ensemble, nous apportons une richesse de connaissances et de passion à chaque projet que nous entreprenons.",
+        "members": {
+          "ceo": {
+            "name": "Youssef RKAISSI",
+            "position": "Fondateur & PDG",
+            "bio": "Avec plus de 5 ans d'expérience dans la technologie d'entreprise et l'IA, Youssef dirige la vision et la stratégie de Rkicy pour transformer le paysage technologique marocain."
+          },
+          "cto": {
+            "name": "Amina Benzekri",
+            "position": "Directrice Technique",
+            "bio": "Amina supervise toutes les opérations techniques, apportant son expertise en IA, en architecture cloud et en transformation numérique de ses rôles précédents au sein d'entreprises technologiques mondiales."
+          },
+          "coo": {
+            "name": "Karim Tazi",
+            "position": "Directeur des Opérations",
+            "bio": "Karim assure l'excellence opérationnelle dans tous les projets et partenariats, avec une profonde expérience dans la gestion d'implémentations IT complexes."
+          },
+          "sales": {
+            "name": "Laila Mansouri",
+            "position": "Responsable du Développement Commercial",
+            "bio": "Laila dirige nos efforts d'engagement client et de partenariat, avec plus d'une décennie d'expérience dans les ventes technologiques et la stratégie commerciale."
+          }
+        },
+        "cta": {
+          "text": "Intéressé à rejoindre notre équipe d'experts en technologie?",
+          "button": "Voir les Opportunités de Carrière"
+        }
+      },
+      "vision": {
+        "badge": "Notre Approche",
+        "title": {
+          "start": "Vision & ",
+          "highlight": "Méthodologie"
+        },
+        "vision": {
+          "title": "Notre Vision",
+          "text": "Chez Rkicy Technology, nous envisageons un Maroc où les entreprises de toutes tailles ont accès à des solutions technologiques de classe mondiale qui favorisent la croissance, l'innovation et la compétitivité sur les scènes régionale et mondiale. Nous croyons en la technologie comme moteur du développement économique et du progrès social."
+        },
+        "principles": {
+          "title": "Principes Directeurs",
+          "items": {
+            "first": "Fournir des solutions qui répondent aux défis régionaux spécifiques tout en respectant les normes mondiales.",
+            "second": "Assurer l'accessibilité technologique grâce à des prix compétitifs et des modèles de déploiement flexibles.",
+            "third": "Prioriser le transfert de connaissances pour renforcer les capacités numériques locales.",
+            "fourth": "Favoriser l'innovation qui respecte et améliore l'écosystème d'affaires unique du Maroc."
+          }
+        },
+        "methodology": {
+          "title": "Notre Méthodologie",
+          "intro": "Nous abordons chaque engagement client avec une méthodologie structurée qui garantit une compréhension approfondie, une planification stratégique et une mise en œuvre efficace des solutions technologiques.",
+          "steps": {
+            "discovery": {
+              "title": "Découverte & Analyse",
+              "description": "Nous commençons par comprendre en profondeur vos objectifs commerciaux, vos défis et votre paysage technologique actuel grâce à une évaluation complète et des entretiens avec les parties prenantes."
+            },
+            "strategy": {
+              "title": "Conception de Solution",
+              "description": "Sur la base de nos conclusions, nous développons une stratégie technologique sur mesure et une architecture de solution qui s'alignent sur vos objectifs et contraintes commerciales spécifiques."
+            },
+            "implementation": {
+              "title": "Implémentation & Optimisation",
+              "description": "Nous exécutons le plan avec précision, fournissons une formation complète et optimisons continuellement la solution pour obtenir des résultats commerciaux mesurables."
+            }
+          },
+          "quote": "La technologie est plus puissante lorsqu'elle est conçue autour des besoins humains réels et du contexte local. C'est ce qui guide notre approche chez Rkicy.",
+          "quoteName": "Mohammed Alami, Fondateur & PDG"
+        }
       }
     },
    

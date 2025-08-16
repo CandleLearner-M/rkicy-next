@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import styles from './TeamSection.module.scss';
-import { Linkedin, Mail, ChevronRight } from 'lucide-react';
+import { Linkedin, Mail, ChevronRight, X, BriefcaseBusiness, Calendar } from 'lucide-react';
+import { createPortal } from 'react-dom';
 
 export default function TeamSection() {
   const t = useTranslations('about.team');
+  const [isModalOpen, setIsModalOpen] = useState(false);
   
   const teamMembers = [
     {
@@ -44,6 +46,61 @@ export default function TeamSection() {
       }
     }
   ];
+  
+  const openModal = () => {
+    setIsModalOpen(true);
+    document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+  };
+  
+  const closeModal = () => {
+    setIsModalOpen(false);
+    document.body.style.overflow = 'auto'; // Re-enable scrolling
+  };
+
+  const Modal = () => {
+    return (
+        <>
+          <div className={styles.modalOverlay} onClick={closeModal}></div>
+          <div className={styles.modalContainer} role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <div className={styles.modalHeader}>
+              <h3 id="modal-title" className={styles.modalTitle}>{t('modal.title')}</h3>
+              <button className={styles.closeButton} onClick={closeModal} aria-label="Close modal">
+                <X size={24} />
+              </button>
+            </div>
+            
+            <div className={styles.modalContent}>
+              <div className={styles.emptyState}>
+                <div className={styles.emptyStateIcon}>
+                  <BriefcaseBusiness size={40} />
+                </div>
+                <h4 className={styles.emptyStateTitle}>{t('modal.noOpenings.title')}</h4>
+                <p className={styles.emptyStateText}>{t('modal.noOpenings.message')}</p>
+                
+                <div className={styles.notificationBox}>
+                  <Calendar size={20} />
+                  <div className={styles.notificationText}>
+                    <span>{t('modal.checkBack')}</span>
+                    <p>{t('modal.notification')}</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className={styles.contactInfo}>
+                <p>{t('modal.contact.text')}</p>
+                <a href="mailto:careers@rkicy.com" className={styles.contactEmail}>careers@rkicy.com</a>
+              </div>
+            </div>
+            
+            <div className={styles.modalFooter}>
+              <button className={styles.closeModalButton} onClick={closeModal}>
+                {t('modal.close')}
+              </button>
+            </div>
+          </div>
+        </>
+      )
+  }
   
   return (
     <section className={styles.teamSection}>
@@ -86,9 +143,9 @@ export default function TeamSection() {
         
         <div className={styles.teamCta}>
           <p className={styles.ctaText}>{t('cta.text')}</p>
-          <a href="/careers" className={styles.ctaButton}>
+          <button onClick={openModal} className={styles.ctaButton}>
             {t('cta.button')} <ChevronRight size={16} />
-          </a>
+          </button>
         </div>
         
         <div className={styles.decorElements}>
@@ -97,6 +154,9 @@ export default function TeamSection() {
           <div className={styles.decorGradient}></div>
         </div>
       </div>
+      
+      {/* Career Opportunities Modal */}
+      {isModalOpen && typeof document !== 'undefined' && createPortal(<Modal />, document.body)}
     </section>
   );
 }

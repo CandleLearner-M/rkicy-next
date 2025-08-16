@@ -139,6 +139,93 @@
             "title": "Looking to the Future",
             "description": "As we continue to grow, our mission remains the same: to empower Moroccan businesses with the technology and expertise they need to compete in the global digital economy."
           }
+        },
+        "team": {
+          "badge": "Our Team",
+          "title": {
+            "start": "Meet The ",
+            "highlight": "Experts"
+          },
+          "modal": {
+            "title": "Career Opportunities",
+            "noOpenings": {
+              "title": "No Current Openings",
+              "message": "We don't have any open positions at the moment, but we're always looking for talented professionals to join our team in the future."
+            },
+            "checkBack": "Check Back Soon",
+            "notification": "We regularly update our career opportunities as our company grows.",
+            "contact": {
+              "text": "Interested in future opportunities? Send your resume to:"
+            },
+            "close": "Close"
+          },
+          "description": "Our team consists of certified professionals with extensive experience in various technology domains. Together, we bring a wealth of knowledge and passion to every project we undertake.",
+          "members": {
+            "ceo": {
+              "name": "Youssef RKAISSI",
+              "position": "Founder & CEO",
+              "bio": "With 5+ years of experience in enterprise technology and AI, Mohammed leads Rkicy's vision and strategy to transform the Moroccan technology landscape."
+            },
+            "cto": {
+              "name": "Amina Benzekri",
+              "position": "Chief Technology Officer",
+              "bio": "Amina oversees all technical operations, bringing expertise in AI, cloud architecture, and digital transformation from her previous roles at global tech companies."
+            },
+            "coo": {
+              "name": "Karim Tazi",
+              "position": "Chief Operations Officer",
+              "bio": "Karim ensures operational excellence across all projects and partnerships, with deep experience in managing complex IT implementations."
+            },
+            "sales": {
+              "name": "Laila Mansouri",
+              "position": "Head of Business Development",
+              "bio": "Laila leads our client engagement and partnership efforts, bringing over a decade of experience in technology sales and business strategy."
+            }
+          },
+          "cta": {
+            "text": "Interested in joining our team of technology experts?",
+            "button": "View Career Opportunities"
+          }
+        },
+        "vision": {
+          "badge": "Our Approach",
+          "title": {
+            "start": "Vision & ",
+            "highlight": "Methodology"
+          },
+          "vision": {
+            "title": "Our Vision",
+            "text": "At Rkicy Technology, we envision a Morocco where businesses of all sizes have access to world-class technology solutions that drive growth, innovation, and competitiveness on both regional and global stages. We believe in technology as an enabler of economic development and social progress."
+          },
+          "principles": {
+            "title": "Guiding Principles",
+            "items": {
+              "first": "Deliver solutions that address specific regional challenges while meeting global standards.",
+              "second": "Ensure technology accessibility through competitive pricing and flexible deployment models.",
+              "third": "Prioritize knowledge transfer to strengthen local digital capabilities.",
+              "fourth": "Foster innovation that respects and enhances Morocco's unique business ecosystem."
+            }
+          },
+          "methodology": {
+            "title": "Our Methodology",
+            "intro": "We approach each client engagement with a structured methodology that ensures thorough understanding, strategic planning, and effective implementation of technology solutions.",
+            "steps": {
+              "discovery": {
+                "title": "Discovery & Analysis",
+                "description": "We begin by deeply understanding your business goals, challenges, and current technology landscape through comprehensive assessment and stakeholder interviews."
+              },
+              "strategy": {
+                "title": "Solution Design",
+                "description": "Based on our findings, we develop a tailored technology strategy and solution architecture that aligns with your specific business objectives and constraints."
+              },
+              "implementation": {
+                "title": "Implementation & Optimization",
+                "description": "We execute the plan with precision, provide comprehensive training, and continuously optimize the solution to deliver measurable business outcomes."
+              }
+            },
+            "quote": "Technology is most powerful when it's designed around real human needs and local context. That's what drives our approach at Rkicy.",
+            "quoteName": "Mohammed Alami, Founder & CEO"
+          }
         }
       },
   "services": {

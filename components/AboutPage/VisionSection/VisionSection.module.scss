@@ -3,7 +3,7 @@
 
 .visionSection {
   position: relative;
-  padding: 6rem 0;
+  padding: 4rem 0;
   overflow: hidden;
   
   &::before {
@@ -27,12 +27,16 @@
   }
   
   @media (max-width: $breakpoint-md) {
-    padding: 4rem 0;
+    padding: 2.5rem 0;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: 2rem 0;
   }
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
   padding: 0 2rem;
   position: relative;

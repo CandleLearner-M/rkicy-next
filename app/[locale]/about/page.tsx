@@ -25,6 +25,8 @@ import CompanyOverview from "@/components/AboutPage/CompanyOverview";
 import SectionBackground from "@/components/Layout/SectionBackground/SectionBackground";
 import CoreValues from "@/components/AboutPage/CoreValues";
 import CompanyTimeline from "@/components/AboutPage/CompanyTimeline";
+import TeamSection from "@/components/AboutPage/TeamSection";
+import VisionSection from "@/components/AboutPage/VisionSection";
 
 const leadershipTeam = [
   {
@@ -153,6 +155,12 @@ export default function AboutPage() {
       </SectionBackground>
 
       <CompanyTimeline />
+
+       <SectionBackground style="subtle" >
+        <TeamSection />
+      </SectionBackground>
+
+        <VisionSection />
 
       <ContactPreview />
     </main>

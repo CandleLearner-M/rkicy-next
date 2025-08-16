@@ -3,21 +3,11 @@
 
 .teamSection {
   position: relative;
-  padding: 4rem 0;
-  background-color: rgba(245, 247, 250, 0.5);
+  padding: 0;
   overflow: hidden;
-  
-  [data-theme="dark"] & {
-    background-color: rgba(15, 23, 42, 0.3);
-  }
-  
-  @media (max-width: $breakpoint-md) {
-    padding: 2.5rem 0;
-  }
 
-  @media (max-width: $breakpoint-sm) {
-    padding: 2rem 0;
-  }
+  
+
 }
 
 .container {
@@ -438,5 +428,277 @@
   
   [data-theme="dark"] & {
     background: radial-gradient(circle, rgba($primary, 0.05) 0%, rgba($primary, 0) 70%);
+  }
+}
+
+/* Modal Styles */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+  
+  [data-theme="dark"] & {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+}
+
+.modalContainer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 580px;
+  background-color: white;
+  border-radius: 16px;
+  z-index: 1001;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh;
+  overflow: hidden;
+  
+  [data-theme="dark"] & {
+    background-color: $bg-secondary-dark;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  }
+  
+  @media (max-width: 576px) {
+    width: 95%;
+  }
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  
+  [data-theme="dark"] & {
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.modalTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: $text-primary;
+  margin: 0;
+  
+  [data-theme="dark"] & {
+    color: $text-primary-dark;
+  }
+}
+
+.closeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.05);
+  color: $text-secondary;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    background: rgba(0, 0, 0, 0.1);
+    color: $text-primary;
+  }
+  
+  [data-theme="dark"] & {
+    background: rgba(255, 255, 255, 0.1);
+    color: $text-secondary-dark;
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: $text-primary-dark;
+    }
+  }
+}
+
+.modalContent {
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.emptyStateIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba($primary, 0.08), rgba($accent, 0.08));
+  color: $primary;
+  margin-bottom: 1.5rem;
+  
+  [data-theme="dark"] & {
+    background: linear-gradient(135deg, rgba($primary, 0.12), rgba($accent, 0.12));
+    color: $primary-light;
+  }
+}
+
+.emptyStateTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: $text-primary;
+  
+  [data-theme="dark"] & {
+    color: $text-primary-dark;
+  }
+}
+
+.emptyStateText {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: $text-secondary;
+  max-width: 450px;
+  margin-bottom: 2rem;
+  
+  [data-theme="dark"] & {
+    color: $text-secondary-dark;
+  }
+}
+
+.notificationBox {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: linear-gradient(to right, rgba($primary, 0.03), rgba($accent, 0.03));
+  border: 1px dashed rgba($primary, 0.2);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+  
+  svg {
+    color: $primary;
+    flex-shrink: 0;
+  }
+  
+  [data-theme="dark"] & {
+    background: linear-gradient(to right, rgba($primary, 0.06), rgba($accent, 0.06));
+    border-color: rgba($primary, 0.3);
+    
+    svg {
+      color: $primary-light;
+    }
+  }
+}
+
+.notificationText {
+  text-align: left;
+  
+  span {
+    font-weight: 600;
+    color: $text-primary;
+    display: block;
+    margin-bottom: 0.25rem;
+    
+    [data-theme="dark"] & {
+      color: $text-primary-dark;
+    }
+  }
+  
+  p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: $text-secondary;
+    margin: 0;
+    
+    [data-theme="dark"] & {
+      color: $text-secondary-dark;
+    }
+  }
+}
+
+.contactInfo {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  
+  p {
+    font-size: 1rem;
+    color: $text-secondary;
+    margin-bottom: 0.75rem;
+    
+    [data-theme="dark"] & {
+      color: $text-secondary-dark;
+    }
+  }
+  
+  [data-theme="dark"] & {
+    border-color: rgba(255, 255, 255, 0.06);
+  }
+}
+
+.contactEmail {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: $primary;
+  text-decoration: none;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+  
+  [data-theme="dark"] & {
+    color: $primary-light;
+  }
+}
+
+.modalFooter {
+  padding: 1.5rem 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  display: flex;
+  justify-content: flex-end;
+  
+  [data-theme="dark"] & {
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.closeModalButton {
+  padding: 0.75rem 1.5rem;
+  background: rgba($primary, 0.1);
+  color: $primary;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    background: rgba($primary, 0.15);
+  }
+  
+  [data-theme="dark"] & {
+    background: rgba($primary, 0.15);
+    color: $primary-light;
+    
+    &:hover {
+      background: rgba($primary, 0.2);
+    }
   }
 }
