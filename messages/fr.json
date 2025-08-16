@@ -155,148 +155,123 @@
       }
     },
    
-  "services": {
-    "page": {
-      "title": "Nos Services",
-      "subtitle": "Solutions IT complètes pour les entreprises modernes"
-    },
-    "navigation": {
-      "home": "Accueil",
-      "services": "Services"
-    },
-    "section": {
-      "overline": "Nos Services",
-      "heading": "Solutions IT complètes pour les entreprises modernes",
-      "subheading": "De l'intelligence artificielle à l'infrastructure matérielle, nous offrons des solutions technologiques de bout en bout qui permettent aux entreprises marocaines de prospérer à l'ère numérique."
-    },
-    "featured": {
-      "title": "Solutions d'IA",
-      "description": "Nos solutions d'IA phares utilisent l'apprentissage automatique de pointe, le traitement du langage naturel et la vision par ordinateur pour résoudre des défis commerciaux complexes et débloquer de nouvelles opportunités de croissance.",
-      "features": [
-        "Analyse de données intelligente et modélisation prédictive",
-        "Automatisation des processus basée sur l'IA",
-        "Solutions personnalisées d'apprentissage automatique",
-        "Vision par ordinateur pour le contrôle qualité et la surveillance"
-      ],
-      "learnMore": "En savoir plus sur nos Solutions d'IA",
-      "badge": {
-        "highlighted": "Service",
-        "service": "Phare"
+  "services": {},
+  "hardware": {},
+  "projects": {},
+
+  "contact": {
+    "cards": {
+      "chat": {
+        "title": "Chattez avec nous",
+        "description": "Vous avez une question rapide ? Notre équipe est disponible via chat pendant les heures de bureau.",
+        "action": "Démarrer le chat"
+      },
+      "quote": {
+        "title": "Demander un devis",
+        "description": "Besoin d'une proposition détaillée pour votre projet ? Remplissez notre formulaire de demande de devis.",
+        "action": "Obtenir un devis"
+      },
+      "email": {
+        "title": "Envoyez-nous un email",
+        "description": "Envoyez-nous un e-mail directement et nous vous répondrons dans les 24 heures ouvrables.",
+        "action": "info@rkicy.com"
       }
     },
-    "servicesList": {
-      "ai": {
-        "name": "Solutions d'IA",
-        "description": "Transformer les opérations commerciales avec l'automatisation intelligente, l'analyse de données et des solutions d'apprentissage automatique adaptées aux entreprises marocaines.",
-        "features": [
-          "Traitement du langage naturel",
-          "Analytique prédictive",
-          "Systèmes de vision par ordinateur",
-          "Aide à la décision alimentée par l'IA"
-        ]
-      },
-      "enterpriseIT": {
-        "name": "IT d'Entreprise",
-        "description": "Solutions d'infrastructure IT complètes qui alimentent les entreprises modernes avec des systèmes technologiques évolutifs, sécurisés et efficaces.",
-        "features": [
-          "Conception d'infrastructure IT",
-          "Intégration de systèmes",
-          "Planification des ressources d'entreprise",
-          "Modernisation des systèmes existants"
-        ]
-      },
-      "cloud": {
-        "name": "Solutions Cloud",
-        "description": "Accélérez votre transformation numérique avec nos solutions cloud professionnelles conçues pour l'évolutivité, la sécurité et la performance.",
-        "features": [
-          "Stratégie de migration vers le cloud",
-          "Architecture cloud hybride",
-          "Applications cloud-native",
-          "Informatique serverless"
-        ]
-      },
-      "cybersecurity": {
-        "name": "Cybersécurité",
-        "description": "Protégez votre entreprise avec des solutions de cybersécurité avancées qui protègent vos données, votre infrastructure et vos actifs numériques contre les menaces évolutives.",
-        "features": [
-          "Évaluation de la sécurité",
-          "Détection et réponse aux menaces",
-          "Protection des données",
-          "Gestion de la conformité"
-        ]
-      },
-      "digitalTransformation": {
-        "name": "Transformation Numérique",
-        "description": "Services de transformation numérique stratégiques qui aident les entreprises marocaines à innover, s'adapter et prospérer sur un marché de plus en plus numérique.",
-        "features": [
-          "Conseil en stratégie numérique",
-          "Automatisation des processus",
-          "Conception de l'expérience client",
-          "Habilitation de la main-d'œuvre numérique"
-        ]
-      },
-      "hardware": {
-        "name": "Solutions Matérielles",
-        "description": "Solutions matérielles professionnelles et déploiements d'infrastructure personnalisés pour répondre aux besoins spécifiques de votre organisation.",
-        "features": [
-          "Infrastructure de serveurs",
-          "Équipement réseau",
-          "Informatique utilisateur final",
-          "Gestion des appareils IoT"
-        ]
-      }
-    },
-    "serviceCard": {
-      "explore": "Explorer {serviceName}"
-    },
-    "process": {
-      "title": "Notre Approche de Prestation de Services",
-      "steps": {
-        "1": {
-          "title": "Consultation",
-          "description": "Nous commençons par une consultation approfondie pour comprendre vos besoins, défis et objectifs commerciaux."
+    "form": {
+      "title": "Envoyez-nous un message",
+      "fields": {
+        "name": {
+          "label": "Nom complet",
+          "placeholder": "Entrez votre nom complet"
         },
-        "2": {
-          "title": "Planification Stratégique",
-          "description": "Nos experts développent une stratégie et une feuille de route personnalisées alignées sur vos objectifs commerciaux et vos exigences technologiques."
+        "email": {
+          "label": "Adresse e-mail",
+          "placeholder": "Entrez votre e-mail"
         },
-        "3": {
-          "title": "Mise en Œuvre",
-          "description": "Notre équipe technique livre la solution avec précision, en assurant une perturbation minimale de vos opérations."
+        "company": {
+          "label": "Nom de l'entreprise",
+          "placeholder": "Entrez le nom de votre entreprise"
         },
-        "4": {
-          "title": "Support Continu",
-          "description": "Nous fournissons une surveillance, une maintenance et une optimisation continues pour garantir un succès durable."
+        "phone": {
+          "label": "Numéro de téléphone",
+          "placeholder": "Entrez votre numéro de téléphone"
+        },
+        "service": {
+          "label": "Service d'intérêt"
+        },
+        "message": {
+          "label": "Votre message",
+          "placeholder": "Parlez-nous de votre projet ou demande"
         }
+      },
+      "validation": {
+        "nameRequired": "Le nom est requis",
+        "emailRequired": "L'e-mail est requis",
+        "emailInvalid": "Veuillez entrer une adresse e-mail valide",
+        "serviceRequired": "Veuillez sélectionner un service",
+        "messageRequired": "Le message est requis"
+      },
+      "submit": "Envoyer le message",
+      "sending": "Envoi en cours...",
+      "error": "Une erreur s'est produite lors de l'envoi de votre message. Veuillez réessayer.",
+      "disclaimer": "En soumettant ce formulaire, vous acceptez notre",
+      "privacyPolicy": "Politique de confidentialité",
+      "success": {
+        "title": "Message envoyé avec succès !",
+        "message": "Merci de nous avoir contactés. Notre équipe vous répondra sous peu.",
+        "referenceLabel": "Numéro de référence :",
+        "newMessage": "Envoyer un autre message"
+      },
+      "contactInfo": {
+        "title": "Informations de contact",
+        "visit": {
+          "title": "Visitez-nous",
+          "text": "123 Rue de la Technologie, Rabat, Maroc"
+        },
+        "call": {
+          "title": "Appelez-nous",
+          "text": "+212 6 88 18 32 10"
+        },
+        "email": {
+          "title": "Envoyez-nous un e-mail",
+          "text": "contact@rkicy.com"
+        },
+        "hours": {
+          "title": "Heures d'ouverture",
+          "text": "Lundi - Vendredi : 9h00 - 18h00"
+        },
+        "mapLabel": "Notre emplacement"
       }
     },
-    "custom": {
-      "title": "Besoin d'une Solution Personnalisée ?",
-      "description": "Chaque entreprise est unique. Notre équipe d'experts travaillera avec vous pour développer des solutions technologiques sur mesure qui répondent à vos défis et objectifs spécifiques.",
-      "ctaButton": "Planifier une Consultation",
-      "features": [
-        "Développement Personnalisé",
-        "Consultation Expert",
-        "Implémentation Sécurisée",
-        "Support Continu"
-      ]
+    "services": {
+      "ai-solutions": "Solutions d'IA",
+      "cloud-solutions": "Solutions Cloud",
+      "cybersecurity": "Cybersécurité",
+      "software-development": "Développement logiciel",
+      "enterprise-it": "IT d'entreprise",
+      "hardware-solutions": "Solutions matérielles"
     },
-    "industries": {
-      "title": "Industries que Nous Servons",
-      "finance": "Finance",
-      "healthcare": "Santé",
-      "manufacturing": "Fabrication",
-      "retail": "Commerce de détail",
-      "education": "Éducation",
-      "government": "Gouvernement"
-    },
-    "cta": {
-      "title": "Prêt à transformer votre entreprise ?",
-      "description": "Discutons de la façon dont nos services peuvent aider votre organisation à prospérer à l'ère numérique.",
-      "primaryButton": "Voir Tous les Services",
-      "secondaryButton": "Contactez-nous"
+    "faq": {
+      "title": "Questions fréquemment posées",
+      "q1": {
+        "question": "Quel est votre délai de réponse habituel ?",
+        "answer": "Nous nous efforçons de répondre à toutes les demandes dans les 24 heures ouvrables. Pour les questions urgentes, nous vous recommandons d'inclure \"URGENT\" dans l'objet ou d'utiliser nos canaux de support prioritaires."
+      },
+      "q2": {
+        "question": "Proposez-vous des services en dehors du Maroc ?",
+        "answer": "Oui, bien que notre siège soit au Maroc, nous servons des clients dans toute l'Afrique du Nord et pouvons fournir des services de conseil et d'implémentation à distance dans le monde entier pour certains projets."
+      },
+      "q3": {
+        "question": "Comment puis-je demander un devis ?",
+        "answer": "Vous pouvez demander un devis en remplissant notre formulaire de contact avec les détails de votre projet, en utilisant notre formulaire dédié de demande de devis, ou en nous appelant directement pour une assistance immédiate."
+      },
+      "q4": {
+        "question": "Proposez-vous des services de maintenance ?",
+        "answer": "Oui, nous fournissons une maintenance continue et un support pour toutes nos solutions. Nous proposons divers accords de niveau de service (SLA) pour répondre à vos besoins spécifiques, du support de base à l'assistance premium 24/7."
+      }
     }
   },
+
   "home": {
     "hero": {
       "title": "Propulser l'Avenir {break}Numérique du Maroc",
@@ -323,138 +298,8 @@
       }
     }
   },
-  "projects": {
-    "hero": {
-      "badge": "Notre Portfolio",
-      "title": "Découvrez nos {highlight}projets impactants{/highlight}",
-      "subtitle": "Explorez notre gamme diversifiée d'implémentations technologiques réussies dans différentes industries et secteurs"
-    },
-    "featuredWork": "Travaux Phares",
-    "featuredWorkSubtitle": "Mise en avant de nos projets les plus impactants et innovants",
-    "allProjects": "Tous les Projets",
-    "allProjectsSubtitle": "Parcourez notre portefeuille complet d'implémentations réussies",
-    "viewProject": "Voir le Projet",
-    "viewDetails": "Voir les Détails",
-    "paycov": {
-      "subtitle": "Plateforme fintech révolutionnaire pour le Maroc",
-      "shortDescription": "Une solution de paiement complète apportant des transactions sans espèces modernes aux entreprises et consommateurs marocains.",
-      "title": "Paycov",
-      "description": "Une plateforme fintech révolutionnaire apportant des paiements modernes au Maroc et au-delà",
-      "backToProjects": "Retour aux Projets",
-      "visitWebsite": "Visiter le Site Web",
-      "learnMore": "En Savoir Plus",
-      "tabs": {
-        "overview": "Aperçu",
-        "features": "Fonctionnalités",
-        "technology": "Technologie",
-        "journey": "Parcours"
-      },
-      "overview": {
-        "title": "Révolutionner les Paiements au Maroc",
-        "description1": "Paycov est une plateforme de paiement complète conçue spécifiquement pour le marché marocain, permettant une véritable inclusion financière et des paiements numériques pour tous. Des transferts de pair à pair aux paiements QR & NFC, aux transactions basées sur le chat et à la gestion multi-cartes, Paycov offre une expérience sans espèces complète.",
-        "description2": "Notre solution comble le fossé entre les systèmes bancaires traditionnels et les paiements numériques modernes, rendant les services financiers accessibles à tous au Maroc, qu'ils disposent ou non d'un compte bancaire.",
-        "keyPoints": {
-          "point1": "Première plateforme de paiement véritablement complète construite pour le Maroc",
-          "point2": "Accessible aux populations bancarisées et non bancarisées",
-          "point3": "Sécurité de niveau bancaire avec conformité réglementaire"
-        }
-      },
-      "founder": {
-        "name": "Mehdi Alaoui",
-        "title": "Fondateur & PDG",
-        "quote": "J'ai fondé Paycov après être retourné au Maroc et avoir expérimenté de première main les défis des paiements numériques ici. Notre mission est de rendre les transactions sans espèces accessibles à chaque Marocain, indépendamment de son statut bancaire."
-      },
-      "gallery": {
-        "dashboard": "Interface du Tableau de Bord Paycov",
-        "payments": "Interface de Traitement des Paiements",
-        "chat": "Interface de Paiement Basée sur le Chat"
-      },
-      "featuresSection": {
-        "title": "Fonctionnalités Clés",
-        "subtitle": "Fonctionnalités puissantes conçues pour le marché marocain"
-      },
-      "features": {
-        "p2p": {
-          "title": "Transferts de pair à pair",
-          "description": "Envoyez et recevez de l'argent instantanément avec n'importe qui—aucun compte bancaire requis."
-        },
-        "qr": {
-          "title": "Paiements QR & NFC",
-          "description": "Payez les taxis, les courses, les achats et plus encore avec juste votre téléphone. Fini l'argent liquide—scannez simplement un QR ou tapez pour payer instantanément et en toute sécurité."
-        },
-        "chat": {
-          "title": "Paiements basés sur le chat",
-          "description": "Demandez ou envoyez des paiements directement dans vos conversations—rapide et intuitif."
-        },
-        "card": {
-          "title": "Gestion instantanée des cartes",
-          "description": "Ajoutez, gérez et utilisez plusieurs cartes en toute sécurité de n'importe quelle banque marocaine ou internationale."
-        }
-      },
-      "security": {
-        "title": "Votre Argent, Sécurisé",
-        "description": "Sécurité de niveau bancaire et conformité réglementaire complète—votre tranquillité d'esprit est notre priorité.",
-        "features": {
-          "encryption": "Chiffrement de bout en bout pour toutes les transactions",
-          "fraud": "Détection et prévention avancées des fraudes",
-          "regulatory": "Conformité totale avec les réglementations de Bank Al-Maghrib"
-        }
-      },
-      "technology": {
-        "title": "Stack Technologique",
-        "subtitle": "Les technologies puissantes derrière Paycov",
-        "categories": {
-          "frontend": "Frontend",
-          "backend": "Backend",
-          "devops": "DevOps & Infrastructure"
-        },
-        "architecture": {
-          "title": "Architecture Système",
-          "description": "Paycov est construit sur une architecture moderne et évolutive conçue pour la sécurité, la performance et la fiabilité. Le système utilise des microservices pour plus de flexibilité et utilise un traitement des données en temps réel pour garantir des transactions instantanées."
-        }
-      },
-      "journey": {
-        "title": "Le Parcours de Paycov",
-        "subtitle": "Du concept à une plateforme fintech révolutionnaire",
-        "nextSteps": {
-          "title": "La Suite pour Paycov",
-          "description": "Notre feuille de route pour étendre la portée et les capacités de Paycov",
-          "items": {
-            "launch": {
-              "title": "Lancement Public",
-              "description": "Lancement officiel à travers le Maroc avec ensemble complet de fonctionnalités"
-            },
-            "expansion": {
-              "title": "Expansion du Marché",
-              "description": "Élargissement des partenariats avec les commerçants et prestataires de services"
-            },
-            "international": {
-              "title": "Expansion Internationale",
-              "description": "Début de l'expansion vers les pays voisins d'Afrique du Nord"
-            }
-          }
-        }
-      },
-      "cta": {
-        "title": "Prêt à expérimenter l'avenir des paiements ?",
-        "description": "Rejoignez des milliers de Marocains qui attendent déjà le lancement de Paycov",
-        "primaryButton": "Rejoindre la Liste d'Attente",
-        "secondaryButton": "Contacter pour Plus d'Informations"
-      }
-    }
-  },
-  "aboutHero": {
-    "label": "Votre Partenaire IT de Confiance",
-    "title": "Propulsons Ensemble Votre Transformation ",
-    "highlighted": "Numérique",
-    "title2": "",
-    "subtitle": "Expertise locale, vision globale, impact durable",
-    "description": "Fondée en 2023, Rkicy Technology combine l'innovation technologique avec une connaissance approfondie du marché marocain pour offrir des solutions IT sur mesure, de l'IA au matériel d'entreprise.",
-    "expertise": "Notre équipe apporte des années d'expérience en solutions IT, développement d'IA et matériel d'entreprise, pour garantir des résultats exceptionnels.",
-    "innovation": "Nous restons à la pointe de la technologie pour proposer des solutions avant-gardistes répondant aux défis numériques de nos clients.",
-    "partnership": "Nous construisons des relations durables avec nos clients, devenant une véritable extension de leur équipe dans leur parcours digital.",
-    "learnMore": "Découvrir notre histoire"
-  },
+ 
+
   "duplicate": {
     "services": {
       "label": "Notre Expertise",
@@ -566,6 +411,35 @@
         "amina": "Avant, nous passions des heures à compiler des fichiers Excel pour nos réunions. Avec les tableaux de bord BI créés par Rkicy, toutes les données sont centralisées et mises à jour automatiquement. Nous avons réduit nos réunions hebdomadaires de 2h30 à moins d'une heure.",
         "karim": "Nous pensions que l'IA nécessitait des mois de développement. Rkicy nous a livré un modèle prédictif opérationnel en 5 semaines, capable d'anticiper nos besoins en matières premières. Nous avons déjà évité deux ruptures de stock critiques."
       }
+    },
+     "contact": {
+    "preview": {
+      "title": "Prêt à ",
+      "highlighted": "transformer",
+      "title2": " votre entreprise ?",
+      "subtitle": "Discutons comment Rkicy Technology peut aider votre organisation à prospérer à l'ère numérique",
+      "getInTouch": "Contactez-nous",
+      "phoneNumber": "+212688183210",
+      "emailAddress": "contact@rkicy.com",
+      "cards": {
+        "call": {
+          "title": "Appelez-nous",
+          "text": "+212 6 88 18 32 10"
+        },
+        "email": {
+          "title": "Écrivez-nous",
+          "text": "contact@rkicy.com"
+        },
+        "chat": {
+          "title": "Chat en direct",
+          "text": "Discutez avec notre équipe"
+        },
+        "schedule": {
+          "title": "Planifier un appel",
+          "text": "Réserver une consultation"
+        }
+      }
+    }
     }
   },
   "footer": {
@@ -751,35 +625,7 @@
       "saved": "Préférences enregistrées"
     }
   },
-  "contact": {
-    "preview": {
-      "title": "Prêt à ",
-      "highlighted": "transformer",
-      "title2": " votre entreprise ?",
-      "subtitle": "Discutons comment Rkicy Technology peut aider votre organisation à prospérer à l'ère numérique",
-      "getInTouch": "Contactez-nous",
-      "phoneNumber": "+212688183210",
-      "emailAddress": "contact@rkicy.com",
-      "cards": {
-        "call": {
-          "title": "Appelez-nous",
-          "text": "+212 6 88 18 32 10"
-        },
-        "email": {
-          "title": "Écrivez-nous",
-          "text": "contact@rkicy.com"
-        },
-        "chat": {
-          "title": "Chat en direct",
-          "text": "Discutez avec notre équipe"
-        },
-        "schedule": {
-          "title": "Planifier un appel",
-          "text": "Réserver une consultation"
-        }
-      }
-    }
-  },
+ 
   "pageHeader": {
     "about": {
       "page": "À Propos",

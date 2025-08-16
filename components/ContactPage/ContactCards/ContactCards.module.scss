@@ -1,0 +1,120 @@
+@import "@/styles/variables.scss";
+@import "@/styles/mixins.scss";
+
+.contactCards {
+  display: grid;
+  grid-template-columns: 1fr; /* Start with 1 column on mobile */
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  
+  @media (min-width: 576px) {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+  
+  @media (min-width: 992px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.contactCard {
+  background: white;
+  border-radius: 16px;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    
+    .cardAction {
+      color: $primary-dark;
+      gap: 0.75rem;
+      
+      [data-theme="dark"] & {
+        color: lighten($primary-light, 10%);
+      }
+    }
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 40px;
+    background: linear-gradient(to bottom, $primary, lighten($primary, 20%));
+    border-radius: 0 0 4px 0;
+  }
+  
+  [data-theme="dark"] & {
+    background: $bg-secondary-dark;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    
+    &:hover {
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    }
+  }
+  
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 1.25rem 0 0.75rem;
+    color: $text-primary;
+    
+    [data-theme="dark"] & {
+      color: $text-primary-dark;
+    }
+  }
+  
+  p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: $text-secondary;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+    
+    [data-theme="dark"] & {
+      color: $text-secondary-dark;
+    }
+  }
+}
+
+.cardIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba($primary, 0.1) 0%, rgba($accent, 0.1) 100%);
+  color: $primary;
+  
+  [data-theme="dark"] & {
+    background: linear-gradient(135deg, rgba($primary, 0.15) 0%, rgba($accent, 0.15) 100%);
+    color: $primary-light;
+  }
+}
+
+.cardAction {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: $primary;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  
+  [data-theme="dark"] & {
+    color: $primary-light;
+  }
+}

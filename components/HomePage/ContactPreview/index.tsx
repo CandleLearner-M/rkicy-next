@@ -21,7 +21,7 @@ export default function ContactPreview() {
     margin: "-100px",
   });
   
-  const t = useTranslations('contact');
+  const t = useTranslations('duplicate.contact');
   const locale = useLocale();
 
   const fadeInUp = {
