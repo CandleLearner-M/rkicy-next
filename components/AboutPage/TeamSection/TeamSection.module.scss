@@ -8,8 +8,6 @@
   padding: 0;
   overflow: hidden;
 
-  
-
 }
 
 .container {
@@ -175,6 +173,7 @@
   width: 90px;
   height: 90px;
   border-radius: 50%;
+  
   background: linear-gradient(135deg, rgba($primary, 0.1), rgba($accent, 0.1));
   display: flex;
   align-items: center;
@@ -197,7 +196,7 @@
       color: $primary-light;
     }
     
-    &:hover span {
+     span {
       color: white;
     }
   }
