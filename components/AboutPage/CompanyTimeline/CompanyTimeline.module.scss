@@ -197,14 +197,14 @@
 
 .eventDot {
   position: absolute;
-  top: 20px;
+  top: -0%;
   left: 50%;
   width: 20px;
   height: 20px;
   background: white;
   border: 4px solid $primary;
   border-radius: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(-50%); 
   z-index: 1;
   box-shadow: 0 0 0 4px rgba($primary, 0.2);
   
@@ -216,6 +216,8 @@
   
   @media (max-width: $breakpoint-md) {
     left: 20px;
+    top: 30px; 
+    transform: translateY(0); 
   }
 }
 
@@ -228,10 +230,11 @@
   position: relative;
   margin-left: 2rem;
   
+  
   &::before {
     content: '';
     position: absolute;
-    top: 20px;
+    top: 50%; 
     left: -10px;
     width: 20px;
     height: 20px;
@@ -253,8 +256,13 @@
   @media (max-width: $breakpoint-md) {
     flex: 1;
     max-width: 100%;
+    
+    &::before {
+      top: 30px; 
+    }
   }
 }
+
 
 .eventDate {
   display: inline-block;
@@ -265,6 +273,8 @@
   font-weight: 600;
   color: $primary;
   margin-bottom: 1rem;
+  position: relative; 
+  z-index: 2; 
   
   [data-theme="dark"] & {
     background: rgba($primary, 0.15);

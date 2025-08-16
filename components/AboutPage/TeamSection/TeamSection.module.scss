@@ -1,0 +1,442 @@
+@import "@/styles/variables.scss";
+@import "@/styles/mixins.scss";
+
+.teamSection {
+  position: relative;
+  padding: 4rem 0;
+  background-color: rgba(245, 247, 250, 0.5);
+  overflow: hidden;
+  
+  [data-theme="dark"] & {
+    background-color: rgba(15, 23, 42, 0.3);
+  }
+  
+  @media (max-width: $breakpoint-md) {
+    padding: 2.5rem 0;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: 2rem 0;
+  }
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+}
+
+.sectionHeader {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 4rem;
+  position: relative;
+  z-index: 2;
+}
+
+.sectionBadge {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  background: linear-gradient(to right, rgba($primary, 0.15), rgba($accent, 0.15));
+  color: $primary;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 100px;
+  margin-bottom: 1.5rem;
+  
+  [data-theme="dark"] & {
+    background: linear-gradient(to right, rgba($primary, 0.2), rgba($accent, 0.2));
+    color: $primary-light;
+  }
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  color: $text-primary;
+  
+  [data-theme="dark"] & {
+    color: $text-primary-dark;
+  }
+  
+  @media (max-width: $breakpoint-md) {
+    font-size: 2rem;
+  }
+}
+
+.highlight {
+  color: $primary;
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: rgba($primary, 0.15);
+    z-index: -1;
+    border-radius: 10px;
+  }
+  
+  [data-theme="dark"] & {
+    color: $primary-light;
+    
+    &::after {
+      background: rgba($primary, 0.25);
+    }
+  }
+}
+
+.sectionDescription {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: $text-secondary;
+  
+  [data-theme="dark"] & {
+    color: $text-secondary-dark;
+  }
+}
+
+// Team grid
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  position: relative;
+  z-index: 2;
+  
+  @media (max-width: $breakpoint-lg) {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Team cards
+.teamCard {
+  background-color: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  display: flex;
+  height: 100%;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    
+    .avatarPlaceholder {
+      background: linear-gradient(135deg, $primary, $accent);
+      color: white;
+    }
+    
+    .socialLink {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  [data-theme="dark"] & {
+    background-color: $bg-secondary-dark;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    
+    &:hover {
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    flex-direction: column;
+  }
+}
+
+.memberAvatar {
+  position: relative;
+  flex: 0 0 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba($primary, 0.05), rgba($accent, 0.05));
+  
+  [data-theme="dark"] & {
+    background: linear-gradient(135deg, rgba($primary, 0.1), rgba($accent, 0.1));
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    flex: 0 0 auto;
+    padding: 2rem 1.5rem 1rem;
+  }
+}
+
+.avatarPlaceholder {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba($primary, 0.1), rgba($accent, 0.1));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+  
+  span {
+    font-size: 2rem;
+    font-weight: 600;
+    color: $primary;
+    transition: all 0.3s ease;
+  }
+  
+  [data-theme="dark"] & {
+    background: linear-gradient(135deg, rgba($primary, 0.15), rgba($accent, 0.15));
+    
+    span {
+      color: $primary-light;
+    }
+    
+    &:hover span {
+      color: white;
+    }
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    width: 80px;
+    height: 80px;
+    
+    span {
+      font-size: 1.75rem;
+    }
+  }
+}
+
+.avatarDecor {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 110px;
+  height: 110px;
+  border: 2px dashed rgba($primary, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  
+  [data-theme="dark"] & {
+    border-color: rgba($primary, 0.3);
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.memberInfo {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.memberName {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  color: $text-primary;
+  
+  [data-theme="dark"] & {
+    color: $text-primary-dark;
+  }
+}
+
+.memberPosition {
+  font-size: 0.95rem;
+  color: $primary;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  
+  [data-theme="dark"] & {
+    color: $primary-light;
+  }
+}
+
+.memberBio {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: $text-secondary;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+  
+  [data-theme="dark"] & {
+    color: $text-secondary-dark;
+  }
+}
+
+.memberSocial {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba($primary, 0.05);
+  color: $primary;
+  transition: all 0.3s ease;
+  opacity: 0.8;
+  transform: translateY(5px);
+  
+  &:hover {
+    background: $primary;
+    color: white;
+  }
+  
+  [data-theme="dark"] & {
+    background: rgba($primary, 0.1);
+    color: $primary-light;
+    
+    &:hover {
+      background: $primary;
+      color: white;
+    }
+  }
+}
+
+.teamCta {
+  text-align: center;
+  margin-top: 4rem;
+  padding: 2rem;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba($primary, 0.03), rgba($accent, 0.03));
+  border: 1px dashed rgba($primary, 0.1);
+  position: relative;
+  z-index: 2;
+  
+  [data-theme="dark"] & {
+    background: linear-gradient(135deg, rgba($primary, 0.05), rgba($accent, 0.05));
+    border-color: rgba($primary, 0.15);
+  }
+}
+
+.ctaText {
+  font-size: 1.2rem;
+  color: $text-secondary;
+  margin-bottom: 1.5rem;
+  
+  [data-theme="dark"] & {
+    color: $text-secondary-dark;
+  }
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.75rem;
+  background: linear-gradient(135deg, $primary, $accent);
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba($primary, 0.25);
+  
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba($primary, 0.35);
+    
+    svg {
+      transform: translateX(3px);
+    }
+  }
+  
+  svg {
+    transition: transform 0.3s ease;
+  }
+  
+  [data-theme="dark"] & {
+    box-shadow: 0 8px 20px rgba($primary, 0.35);
+    
+    &:hover {
+      box-shadow: 0 12px 25px rgba($primary, 0.45);
+    }
+  }
+}
+
+// Decorative elements
+.decorElements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.decorPattern1 {
+  position: absolute;
+  top: 10%;
+  right: 5%;
+  width: 200px;
+  height: 200px;
+  background-image: 
+    linear-gradient(rgba($primary, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba($primary, 0.04) 1px, transparent 1px);
+  background-size: 20px 20px;
+  transform: rotate(15deg);
+  opacity: 0.8;
+  
+  [data-theme="dark"] & {
+    background-image: 
+      linear-gradient(rgba($primary, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba($primary, 0.06) 1px, transparent 1px);
+  }
+}
+
+.decorPattern2 {
+  position: absolute;
+  bottom: 15%;
+  left: 5%;
+  width: 150px;
+  height: 150px;
+  background-image: 
+    linear-gradient(rgba($accent, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba($accent, 0.04) 1px, transparent 1px);
+  background-size: 15px 15px;
+  transform: rotate(-10deg);
+  opacity: 0.8;
+  
+  [data-theme="dark"] & {
+    background-image: 
+      linear-gradient(rgba($accent, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba($accent, 0.06) 1px, transparent 1px);
+  }
+}
+
+.decorGradient {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba($primary, 0.03) 0%, rgba($primary, 0) 70%);
+  
+  [data-theme="dark"] & {
+    background: radial-gradient(circle, rgba($primary, 0.05) 0%, rgba($primary, 0) 70%);
+  }
+}
