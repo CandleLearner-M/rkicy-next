@@ -5,5 +5,37 @@
   position: relative;
   min-height: 100vh;
   overflow-x: hidden;
+  
+  // Decorative elements
+  &::before {
+    content: '';
+    position: absolute;
+    top: 30%;
+    left: -10%;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba($primary, 0.03) 0%, rgba($primary, 0) 70%);
+    z-index: -1;
+    
+    [data-theme="dark"] & {
+      background: radial-gradient(circle, rgba($primary, 0.05) 0%, rgba($primary, 0) 70%);
+    }
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 20%;
+    right: -15%;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba($accent, 0.03) 0%, rgba($accent, 0) 70%);
+    z-index: -1;
+    
+    [data-theme="dark"] & {
+      background: radial-gradient(circle, rgba($accent, 0.04) 0%, rgba($accent, 0) 70%);
+    }
+  }
 }
-
