@@ -4,6 +4,7 @@ import ContactPreview from '@/components/HomePage/ContactPreview';
 import PageHeader from '@/components/Layout/PageHeader';
 import { useTranslations } from 'next-intl';
 import styles from './Projects.module.scss';
+import FeaturedProjects from '@/components/ProjectsPage/FeaturedProjects';
 
 export default function ProjectsPage() {
   
@@ -21,6 +22,8 @@ export default function ProjectsPage() {
           { labelKey: "page", href: "/projects", active: true }
         ]}
       />
+
+      <FeaturedProjects />
      
       <ContactPreview />
     </main>

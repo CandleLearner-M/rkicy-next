@@ -29,7 +29,7 @@ import ThemeSwitcher from '../../Common/ThemeSwitcher';
       opacity: 1,
     },
     hidden: {
-      y: -20,
+      y: -70,
       opacity: 0,
     },
   } as const;
