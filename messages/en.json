@@ -323,47 +323,6 @@
           }
         }
       }
-    },
-     "filters": {
-      "title": "Project Filters",
-      "showing": "Showing",
-      "of": "of",
-      "projects": "projects",
-      "clearAll": "Clear all filters",
-      "filterProjects": "Filter Projects",
-      "industry": {
-        "title": "Industry",
-        "all": "All Industries",
-        "retail": "Retail & E-commerce",
-        "healthcare": "Healthcare",
-        "finance": "Finance & Banking",
-        "manufacturing": "Manufacturing",
-        "government": "Government"
-      },
-      "technology": {
-        "title": "Technology",
-        "all": "All Technologies",
-        "ai": "AI & Machine Learning",
-        "hardware": "Hardware Solutions",
-        "enterprise": "Enterprise Software",
-        "cloud": "Cloud & Infrastructure",
-        "mobile": "Mobile & Web"
-      },
-      "type": {
-        "title": "Project Type",
-        "all": "All Types",
-        "implementation": "Implementation",
-        "consulting": "Consulting",
-        "development": "Development",
-        "support": "Support & Maintenance"
-      }
-    },
-    "viewDetails": "View Project",
-    "loadMore": "Load More Projects",
-    "noResults": {
-      "title": "No Projects Found",
-      "message": "No projects match your current filter selections. Please try different filters.",
-      "reset": "Reset All Filters"
     }
   },
 
