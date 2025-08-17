@@ -157,8 +157,77 @@
    
   "services": {},
   "hardware": {},
-  "projects": {},
-
+  
+  "projects": {
+    "featured": {
+      "badge": "Projets Vedettes",
+      "title": "Nos Projets",
+      "highlight": "Phares",
+      "subtitle": "Découvrez quelques-uns de nos récents projets qui mettent en valeur notre expertise et nos solutions innovantes.",
+      "viewProject": "Voir les détails",
+      "inProgressLabel": "En Cours",
+      "comingSoon": "Bientôt Disponible",
+      "projects": {
+        "paycov": {
+          "title": "Plateforme de Paiement Digital Paycov",
+          "description": "Plateforme de paiement numérique marocaine permettant des transactions pair à pair fluides, instantanées et sécurisées, conçue pour s'intégrer à toutes les banques et simplifier les paiements quotidiens.",
+          "category": "Fintech",
+          "stats": {
+            "security": {
+              "value": "Niveau Bancaire",
+              "label": "Chiffrement de bout en bout"
+            },
+            "channels": {
+              "value": "Multi-Canal",
+              "label": "Méthodes d'accès au paiement"
+            },
+            "banks": {
+              "value": "Toutes Banques",
+              "label": "Interopérabilité universelle"
+            }
+          }
+        },
+        "nounours": {
+          "title": "Plateforme E-Commerce Nounours.ma",
+          "description": "Plateforme e-commerce moderne pour peluches premium et figurines de collection, offrant une expérience d'achat fluide avec une gestion efficace du catalogue sur plusieurs lignes de produits.",
+          "category": "E-Commerce",
+          "stats": {
+            "collections": {
+              "value": "5+",
+              "label": "Collections de produits"
+            },
+            "market": {
+              "value": "Maroc",
+              "label": "Couverture du marché"
+            },
+            "payment": {
+              "value": "Multiple",
+              "label": "Méthodes de paiement"
+            }
+          }
+        },
+        "finish3": {
+          "title": "Application de Gestion des Tâches Finish3",
+          "description": "Application de liste de tâches épurée et moderne construite sur un principe inébranlable : 'Terminez vos 3 tâches quotidiennes principales—chaque jour', aidant les utilisateurs à se concentrer sur l'essentiel.",
+          "category": "Productivité",
+          "stats": {
+            "tasks": {
+              "value": "3",
+              "label": "Tâches quotidiennes prioritaires"
+            },
+            "sync": {
+              "value": "Temps Réel",
+              "label": "Synchronisation multiplateforme"
+            },
+            "rollover": {
+              "value": "Quotidien",
+              "label": "Réinitialisation & Report des tâches"
+            }
+          }
+        }
+      }
+    }
+  },
   "contact": {
     "cards": {
       "chat": {

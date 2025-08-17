@@ -7,56 +7,60 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import styles from './FeaturedProjects.module.scss';
 
-// Sample data - in a real implementation this would come from a CMS or API
-const featuredProjects = [
-  {
-    id: "paycov",
-    title: "Paycov Digital Payment Platform",
-    description: "Moroccan-born digital payment platform enabling seamless, instant and secure peer-to-peer transactions, designed to integrate with all banks and simplify daily payments.",
-    image: "/projects/paycov/cover.png",
-    category: "Fintech",
-    technologies: ["Node.js", "PostgreSQL", "React Native", "Mobile"],
-    stats: [
-      { icon: <Shield size={18} />, value: "Bank-Level", label: "End-to-End Encryption" },
-      { icon: <Globe size={18} />, value: "Multi-Channel", label: "Payment Access Methods" },
-      { icon: <Wallet size={18} />, value: "All Banks", label: "Universal Interoperability" }
-    ],
-    slug: "/projects/paycov"
-  },
-  {
-    id: "nounours-ma",
-    title: "Nounours.ma E-Commerce Platform",
-    description: "Modern e-commerce platform for premium plush toys and collectible figurines, offering a seamless shopping experience with efficient catalog management across multiple product lines.",
-    image: "/projects/nounours/cover.png",
-    category: "E-Commerce",
-    technologies: ["Shopify", "Web Development", "Payment Integration", "Inventory Management"],
-    stats: [
-      { icon: <ShoppingBag size={18} />, value: "5+", label: "Product Collections" },
-      { icon: <Users size={18} />, value: "Morocco", label: "Market Coverage" },
-      { icon: <CreditCard size={18} />, value: "Multi", label: "Payment Methods" }
-    ],
-    slug: "/projects/nounours-ma"
-  },
-  {
-    id: "finish3",
-    title: "Finish3 Task Management App",
-    description: "Clean, modern to-do list app built on one unwavering principle: 'Finish your top 3 daily tasks—every day', helping users focus on what's most important.",
-    image: "/images/projects/finish3.jpg",
-    category: "Productivity",
-    technologies: ["React", "Node.js", "Firebase", "Mobile"],
-    stats: [
-      { icon: <CheckCircle size={18} />, value: "3", label: "Daily Focus Tasks" },
-      { icon: <Zap size={18} />, value: "Real-Time", label: "Cross-Platform Sync" },
-      { icon: <Calendar size={18} />, value: "Daily", label: "Reset & Task Rollover" }
-    ],
-    slug: "/projects/finish3"
-  },
-];
-
 export default function FeaturedProjects() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [activeProject, setActiveProject] = useState(0);
   const t = useTranslations('projects');
+
+  // Fetch project data with translations
+  const featuredProjects = [
+    {
+      id: "paycov",
+      titleKey: 'featured.projects.paycov.title',
+      descriptionKey: 'featured.projects.paycov.description',
+      image: "/projects/paycov/cover.png",
+      categoryKey: 'featured.projects.paycov.category',
+      technologies: ["Node.js", "PostgreSQL", "React Native", "Mobile"],
+      stats: [
+        { icon: <Shield size={18} />, valueKey: 'featured.projects.paycov.stats.security.value', labelKey: 'featured.projects.paycov.stats.security.label' },
+        { icon: <Globe size={18} />, valueKey: 'featured.projects.paycov.stats.channels.value', labelKey: 'featured.projects.paycov.stats.channels.label' },
+        { icon: <Wallet size={18} />, valueKey: 'featured.projects.paycov.stats.banks.value', labelKey: 'featured.projects.paycov.stats.banks.label' }
+      ],
+      slug: "/projects/paycov",
+      logo: '/projects/paycov-logo.png',
+    },
+    {
+      id: "nounours-ma",
+      titleKey: 'featured.projects.nounours.title',
+      descriptionKey: 'featured.projects.nounours.description',
+      image: "/projects/nounours/cover.png",
+      categoryKey: 'featured.projects.nounours.category',
+      technologies: ["Shopify", "Web Development", "Payment Integration", "Inventory Management"],
+      stats: [
+        { icon: <ShoppingBag size={18} />, valueKey: 'featured.projects.nounours.stats.collections.value', labelKey: 'featured.projects.nounours.stats.collections.label' },
+        { icon: <Users size={18} />, valueKey: 'featured.projects.nounours.stats.market.value', labelKey: 'featured.projects.nounours.stats.market.label' },
+        { icon: <CreditCard size={18} />, valueKey: 'featured.projects.nounours.stats.payment.value', labelKey: 'featured.projects.nounours.stats.payment.label' }
+      ],
+      slug: "/projects/nounours-ma",
+      logo: '/projects/nounours.png',
+
+    },
+    {
+      id: "finish3",
+      titleKey: 'featured.projects.finish3.title',
+      descriptionKey: 'featured.projects.finish3.description',
+      image: "",
+      logo: '/projects/finish3.png',
+      categoryKey: 'featured.projects.finish3.category',
+      technologies: ["React", "Node.js", "Firebase", "Mobile"],
+      stats: [
+        { icon: <CheckCircle size={18} />, valueKey: 'featured.projects.finish3.stats.tasks.value', labelKey: 'featured.projects.finish3.stats.tasks.label' },
+        { icon: <Zap size={18} />, valueKey: 'featured.projects.finish3.stats.sync.value', labelKey: 'featured.projects.finish3.stats.sync.label' },
+        { icon: <Calendar size={18} />, valueKey: 'featured.projects.finish3.stats.rollover.value', labelKey: 'featured.projects.finish3.stats.rollover.label' }
+      ],
+      slug: "/projects/finish3"
+    },
+  ];
 
   useEffect(() => {
     setIsLoaded(true);
@@ -82,9 +86,20 @@ export default function FeaturedProjects() {
                 onClick={() => setActiveProject(index)}
                 style={{ animationDelay: `${0.1 + index * 0.1}s` }}
               >
+
+                {project.logo && (
+                  <Image 
+                    src={project.logo}
+                    alt={`${project.id} logo`}
+                    width={48}
+                    height={48}
+                    className={styles.projectLogo}
+                    draggable='false'
+                  />
+                )}
                 <div className={styles.selectorContent}>
-                  <h3>{project.title}</h3>
-                  <span className={styles.projectCategory}>{project.category}</span>
+                  <h3>{t(project.titleKey)}</h3>
+                  <span className={styles.projectCategory}>{t(project.categoryKey)}</span>
                   
                   <div className={styles.techTags}>
                     {project.technologies.map((tech, i) => (
@@ -92,9 +107,6 @@ export default function FeaturedProjects() {
                     ))}
                   </div>
                 </div>
-                {activeProject === index && (
-                  <div className={styles.activeIndicator} />
-                )}
               </button>
             ))}
           </div>
@@ -106,20 +118,31 @@ export default function FeaturedProjects() {
                 className={`${styles.projectDetails} ${activeProject === index ? styles.active : ''}`}
               >
                 <div className={styles.projectImageContainer}>
-                  <div className={styles.projectImage}>
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      style={{ objectFit: "cover", objectPosition: "top center" }}
-                    />
-                  </div>
+                  {project.image ? (
+                    <div className={styles.projectImage}>
+                      <Image
+                        src={project.image}
+                        alt={t(project.titleKey)}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        style={{ objectFit: "cover", objectPosition: "top center" }}
+                      />
+                    </div>
+                  ) : (
+                    <div className={`${styles.projectImage} ${styles.inProgress}`}>
+                      <div className={styles.inProgressContent}>
+                        <div className={styles.inProgressBadge}>
+                          <span>{t('featured.inProgressLabel')}</span>
+                        </div>
+                        <h3>{t('featured.comingSoon')}</h3>
+                      </div>
+                    </div>
+                  )}
                 </div>
                 
                 <div className={styles.projectInfo}>
-                  <h2>{project.title}</h2>
-                  <p className={styles.projectDescription}>{project.description}</p>
+                  <h2>{t(project.titleKey)}</h2>
+                  <p className={styles.projectDescription}>{t(project.descriptionKey)}</p>
                   
                   <div className={styles.projectStats}>
                     {project.stats.map((stat, i) => (
@@ -128,8 +151,8 @@ export default function FeaturedProjects() {
                           {stat.icon}
                         </div>
                         <div className={styles.statContent}>
-                          <span className={styles.statValue}>{stat.value}</span>
-                          <span className={styles.statLabel}>{stat.label}</span>
+                          <span className={styles.statValue}>{t(stat.valueKey)}</span>
+                          <span className={styles.statLabel}>{t(stat.labelKey)}</span>
                         </div>
                       </div>
                     ))}

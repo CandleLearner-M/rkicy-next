@@ -35,6 +35,18 @@
   }
 }
 
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
 .featuredSection {
   position: relative;
   padding: 4rem 0;
@@ -186,6 +198,7 @@
   }
 }
 
+/* Fix for hover transform not working */
 .projectSelector {
   position: relative;
   background: white;
@@ -194,16 +207,18 @@
   padding: 1.5rem;
   text-align: left;
   cursor: pointer;
-  transition: all 0.3s ease;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
   opacity: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added explicit transition */
+  will-change: transform; /* Optimizes transform animations */
+  transform: translateX(0); /* Establish initial transform state */
   
   &.loaded {
     animation: fadeInLeft 0.5s ease-out forwards;
   }
   
   &:hover {
-    transform: translateX(5px);
+    transform: translateX(5px); /* This should work now */
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
   }
   
@@ -246,7 +261,7 @@
   }
   
   @media (max-width: $breakpoint-lg) {
-    min-width: 250px;
+    min-width: 300px;
     padding: 1rem;
   }
 }
@@ -272,6 +287,10 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+
+  @media (max-width: 1024px) {
+    max-width: 200px;
+  }
 }
 
 .techTag {
@@ -285,21 +304,6 @@
   [data-theme="dark"] & {
     background: rgba($text-secondary-dark, 0.15);
     color: $text-secondary-dark;
-  }
-}
-
-.activeIndicator {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  background: linear-gradient($primary, $accent);
-  border-radius: 2px;
-  transition: top 0.3s ease, height 0.3s ease;
-  
-  [data-theme="dark"] & {
-    background: linear-gradient($primary-light, $accent);
   }
 }
 
@@ -381,6 +385,59 @@
     height: 40%;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
     z-index: 1;
+  }
+  
+  /* In progress styling */
+  &.inProgress {
+    background: linear-gradient(135deg, rgba($primary, 0.05), rgba($accent, 0.05));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    &::after {
+      display: none; /* Remove gradient overlay */
+    }
+    
+    [data-theme="dark"] & {
+      background: linear-gradient(135deg, rgba($primary, 0.1), rgba($accent, 0.1));
+    }
+  }
+}
+
+.inProgressContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 2;
+  padding: 2rem;
+  
+  h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: $text-primary;
+    margin-top: 1.5rem;
+    
+    [data-theme="dark"] & {
+      color: $text-primary-dark;
+    }
+  }
+}
+
+.inProgressBadge {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, $primary, $accent);
+  border-radius: 30px;
+  color: white;
+  font-weight: 600;
+  animation: pulse 2s infinite ease-in-out;
+  box-shadow: 0 10px 25px rgba($primary, 0.25);
+  
+  span {
+    font-size: 1rem;
+    letter-spacing: 0.5px;
   }
 }
 
@@ -509,5 +566,35 @@
     &:hover {
       box-shadow: 0 10px 20px rgba($primary, 0.35);
     }
+  }
+}
+
+.projectLogo {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 1.5rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  object-fit: contain;
+  background: white;
+  // padding: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+
+  img {
+    width: 100%;
+  }
+  
+  [data-theme="dark"] & {
+    border: none;
+  }
+
+  @media (max-width: 1024px) {
+      width: 36px;
+      height: 36px;
+      top: auto;
+      bottom: 0.5rem;
   }
 }

@@ -255,7 +255,76 @@
           }
         }
   },
-  "projects": {},
+  "projects": {
+    "featured": {
+      "badge": "Featured Projects",
+      "title": "Our Showcase",
+      "highlight": "Projects",
+      "subtitle": "Take a look at some of our recent projects that highlight our expertise and innovative solutions.",
+      "viewProject": "View Details",
+      "inProgressLabel": "In Progress",
+      "comingSoon": "Coming Soon",
+      "projects": {
+        "paycov": {
+          "title": "Paycov Digital Payment Platform",
+          "description": "Moroccan-born digital payment platform enabling seamless, instant and secure peer-to-peer transactions, designed to integrate with all banks and simplify daily payments.",
+          "category": "Fintech",
+          "stats": {
+            "security": {
+              "value": "Bank-Level",
+              "label": "End-to-End Encryption"
+            },
+            "channels": {
+              "value": "Multi-Channel",
+              "label": "Payment Access Methods"
+            },
+            "banks": {
+              "value": "All Banks",
+              "label": "Universal Interoperability"
+            }
+          }
+        },
+        "nounours": {
+          "title": "Nounours.ma E-Commerce Platform",
+          "description": "Modern e-commerce platform for premium plush toys and collectible figurines, offering a seamless shopping experience with efficient catalog management across multiple product lines.",
+          "category": "E-Commerce",
+          "stats": {
+            "collections": {
+              "value": "5+",
+              "label": "Product Collections"
+            },
+            "market": {
+              "value": "Morocco",
+              "label": "Market Coverage"
+            },
+            "payment": {
+              "value": "Multi",
+              "label": "Payment Methods"
+            }
+          }
+        },
+        "finish3": {
+          "title": "Finish3 Task Management App",
+          "description": "Clean, modern to-do list app built on one unwavering principle: 'Finish your top 3 daily tasks—every day', helping users focus on what's most important.",
+          "category": "Productivity",
+          "stats": {
+            "tasks": {
+              "value": "3",
+              "label": "Daily Focus Tasks"
+            },
+            "sync": {
+              "value": "Real-Time",
+              "label": "Cross-Platform Sync"
+            },
+            "rollover": {
+              "value": "Daily",
+              "label": "Reset & Task Rollover"
+            }
+          }
+        }
+      }
+    }
+  },
 
   "contact": {
     "cards": {
@@ -433,7 +502,7 @@
           "description": "Expert implementation and support for SAP solutions, helping businesses streamline operations and achieve digital transformation."
         }
       },
-        "projects": {
+      "projects": {
         "badge": "RECENT WORK",
         "title": "",
         "highlighted": "Innovative ",
@@ -468,8 +537,7 @@
           "toys": "Toys",
           "retail": "Retail"
         }
-      }
-      ,
+      },
       "testimonials": {
         "label": "Client Stories",
         "title": "What Our",

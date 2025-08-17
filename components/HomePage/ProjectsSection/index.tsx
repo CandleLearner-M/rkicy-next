@@ -37,7 +37,7 @@ export default function ProjectsSection() {
           <path d="M7 15H13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
         </svg>
       ),
-      logo: '/projects/paycov-logo.png', // Path to logo image
+      logo: '/projects/paycov-logo.png',
       tags: [t('tags.fintech'), t('tags.payments')],
       link: '/projects/paycov'
     },
