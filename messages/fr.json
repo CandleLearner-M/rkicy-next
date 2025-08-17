@@ -301,6 +301,18 @@
  
 
   "duplicate": {
+    "about": {
+      "label": "VOTRE PARTENAIRE IT DE CONFIANCE",
+      "title": "Construire l'avenir",
+      "highlighted": "Numérique",
+      "title2": "du Maroc ensemble",
+      "subtitle": "Expertise locale, vision globale, impact durable",
+      "description": "Fondée en 2023, Rkicy Technology combine l'innovation technologique avec une connaissance approfondie du marché pour fournir des solutions IT sur mesure, du développement d'IA au matériel d'entreprise.",
+      "expertise": "Notre équipe apporte des années d'expérience dans les solutions informatiques, le développement d'IA et le matériel d'entreprise pour assurer des résultats exceptionnels pour votre entreprise.",
+      "innovation": "Nous restons à la pointe de la technologie pour offrir des solutions avant-gardistes qui répondent aux défis numériques évolutifs de nos clients.",
+      "partnership": "Nous construisons des relations durables avec nos clients, devenant une extension de leur équipe tout au long de leur parcours numérique.",
+      "learnMore": "Découvrez notre histoire"
+    },
     "services": {
       "label": "Notre Expertise",
       "title": "",

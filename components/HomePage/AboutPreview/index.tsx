@@ -8,26 +8,26 @@ import styles from './AboutPreview.module.scss';
 
 export default function AboutPreview() {
   const locale = useLocale();
-  const t = useTranslations('');
+  const t = useTranslations('duplicate.about');
   const containerRef = useRef<HTMLDivElement>(null);
 
   const pillars = [
     {
       id: '01',
       title: 'Expertise',
-      description: t('aboutHero.expertise'),
+      description: t('expertise'),
       icon: <Brain className={styles.pillarIcon} />,
     },
     {
       id: '02',
       title: 'Innovation',
-      description: t('aboutHero.innovation'),
+      description: t('innovation'),
       icon: <Zap className={styles.pillarIcon} />,
     },
     {
       id: '03',
       title: 'Partnership',
-      description: t('aboutHero.partnership'),
+      description: t('partnership'),
       icon: <Users className={styles.pillarIcon} />,
     }
   ];
@@ -39,18 +39,18 @@ export default function AboutPreview() {
           <div className={styles.headingWrapper}>
             <div className={styles.labelWrapper}>
               <span className={styles.overline}>
-                {t('aboutHero.label')}
+                {t('label')}
               </span>
             </div>
-            <h2 className={styles.heading}>{t('aboutHero.title')}{' '}
-              <span className={styles.highlightTxt}>{t('aboutHero.highlighted')}</span>{' '}
-              {t('aboutHero.title2')}
+            <h2 className={styles.heading}>{t('title')}{' '}
+              <span className={styles.highlightTxt}>{t('highlighted')}</span>{' '}
+              {t('title2')}
             </h2>
-            <p className={styles.subheading}>{t('aboutHero.subtitle')}</p>
+            <p className={styles.subheading}>{t('subtitle')}</p>
           </div>
 
           <div className={styles.description}>
-            <p>{t('aboutHero.description')}</p>
+            <p>{t('description')}</p>
             <div className={styles.highlight} />
           </div>
 
@@ -73,7 +73,7 @@ export default function AboutPreview() {
 
           <div className={styles.ctaContainer}>
             <Link href={`/${locale}/about`} className={styles.aboutCta}>
-              <span>{t('aboutHero.learnMore')}</span>
+              <span>{t('learnMore')}</span>
               <ArrowUpRight className={styles.ctaIcon} size={18} />
             </Link>
           </div>

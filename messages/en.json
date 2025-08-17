@@ -371,6 +371,18 @@
   },
 
   "duplicate" : {
+      "about": {
+        "label": "YOUR TRUSTED IT PARTNER",
+        "title": "Driving Morocco's",
+        "highlighted": "Digital",
+        "title2": "Future Together",
+        "subtitle": "Local expertise, global vision, lasting impact",
+        "description": "Founded in 2023, Rkicy Technology combines technological innovation with deep market knowledge to deliver tailored IT solutions from AI development to enterprise hardware.",
+        "expertise": "Our team brings years of experience in IT solutions, AI development, and enterprise hardware to ensure exceptional outcomes for your business.",
+        "innovation": "We stay at the cutting edge of technology to deliver forward-thinking solutions that address our clients' evolving digital challenges.",
+        "partnership": "We build lasting relationships with our clients, becoming an extension of their team throughout their digital journey.",
+        "learnMore": "Discover our story"
+      },
      "services": {
         "label": "Our Expertise",
         "title": "Comprehensive ",
