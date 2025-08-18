@@ -352,7 +352,6 @@ useEffect(() => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.35, ease: 'easeOut' }}
-                whileHover={{ y: -6 }}
               >
                 <div className={styles.cardMedia}>
                   {project.image ? (
