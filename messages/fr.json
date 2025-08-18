@@ -159,7 +159,73 @@
   "hardware": {},
   
   "projects": {
+    "grid": {
+      "badge": "Explorez nos réalisations",
+      "quickViewAriaLabel": "Aperçu rapide",
+      "title": {
+        "start": "Parcourez notre ",
+        "highlight": "portefeuille de projets",
+        "end": ""
+      },
+      "description": "Filtrez et explorez notre large gamme de projets couvrant divers secteurs et technologies.",
+      "filterCategories": {
+        "industry": "Secteur",
+        "technology": "Technologie",
+        "status": "Statut"
+      },
+      "filters": {
+        "all": "Tous",
+        "industry": {
+          "fintech": "Technologie Financière",
+          "ecommerce": "E‑commerce",
+          "productivity": "Productivité",
+          "healthcare": "Santé",
+          "education": "Éducation"
+        },
+        "status": {
+          "completed": "Terminé",
+          "ongoing": "En cours",
+          "upcoming": "À venir"
+        }
+      },
+      "activeFilters": "Filtres actifs :",
+      "noActiveFilters": "Aucun filtre actif",
+      "clearAllFilters": "Tout effacer",
+      "showingResults": "Affichage de {count} projets",
+      "noResults": "Aucun projet ne correspond à vos filtres",
+      "noResultsTitle": "Aucun projet trouvé",
+      "noResultsText": "Essayez de modifier vos critères de filtrage pour voir davantage de projets.",
+      "resetFilters": "Réinitialiser les filtres",
+      "quickView": "Aperçu rapide",
+      "hideDetails": "Masquer les détails",
+      "viewDetails": "Voir les détails",
+      "client": "Client",
+      "duration": "Durée",
+      "teamSize": "Taille de l’équipe",
+      "year": "Année",
+      "people": "personnes",
+      "categories": {
+        "fintech": "FinTech",
+        "ecommerce": "E‑commerce",
+        "productivity": "Productivité"
+      },
+      "status": {
+        "completed": "Terminé",
+        "ongoing": "En cours",
+        "upcoming": "À venir"
+      }
+    },
+    "modal": {
+      "underConstruction": "Projet en Construction",
+      "comingSoon": "Ce projet est actuellement en développement. Plus de détails seront disponibles prochainement.",
+      "complete": "terminé",
+      "close": "Fermer la fenêtre",
+      "technologies": "Technologies Utilisées",
+      "keyMetrics": "Indicateurs Clés",
+      "viewFullDetails": "Voir les Détails Complets du Projet"
+    },
     "featured": {
+      "remainingTechnologies": "+{count} autres technologies",
       "badge": "Projets Vedettes",
       "title": "Nos Projets",
       "highlight": "Phares",

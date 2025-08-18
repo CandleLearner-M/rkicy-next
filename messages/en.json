@@ -256,7 +256,17 @@
         }
   },
   "projects": {
+    "modal": {
+      "underConstruction": "Project Under Construction",
+      "comingSoon": "This project is currently in development. More details will be available soon.",
+      "complete": "complete",
+      "close": "Close modal",
+      "technologies": "Technologies Used",
+      "keyMetrics": "Key Metrics",
+      "viewFullDetails": "View Full Project Details"
+    },
     "featured": {
+      "remainingTechnologies": "+{count} more technologies",
       "badge": "Featured Projects",
       "title": "Our Showcase",
       "highlight": "Projects",
@@ -264,6 +274,7 @@
       "viewProject": "View Details",
       "inProgressLabel": "In Progress",
       "comingSoon": "Coming Soon",
+      
       "projects": {
         "paycov": {
           "title": "Paycov: Revolutionizing Payments in Morocco and Beyond",
@@ -380,6 +391,62 @@
             "3": "Positioning as a differentiated, frictionless alternative to bloated productivity suites."
           }
         }
+      }
+    },
+
+    "grid": {
+      "badge": "Explore our work",
+      "title": {
+        "start": "Browse our ",
+        "highlight": "project portfolio",
+        "end": ""
+      },
+      "description": "Filter and explore our diverse range of projects across various industries and technologies.",
+      "filterCategories": {
+        "industry": "Industry",
+        "technology": "Technology",
+        "status": "Status"
+      },
+      "filters": {
+        "all": "All",
+        "industry": {
+          "fintech": "Financial Technology",
+          "ecommerce": "E-commerce",
+          "productivity": "Productivity",
+          "healthcare": "Healthcare",
+          "education": "Education"
+        },
+        "status": {
+          "completed": "Completed",
+          "ongoing": "In Progress",
+          "upcoming": "Upcoming"
+        }
+      },
+      "activeFilters": "Active Filters:",
+      "noActiveFilters": "No active filters",
+      "clearAllFilters": "Clear All",
+      "showingResults": "Showing {count} projects",
+      "noResults": "No projects match your filters",
+      "noResultsTitle": "No Projects Found",
+      "noResultsText": "Try changing your filter criteria to see more projects.",
+      "resetFilters": "Reset All Filters",
+      "quickView": "Quick View",
+      "hideDetails": "Hide Details",
+      "viewDetails": "View Details",
+      "client": "Client",
+      "duration": "Duration",
+      "teamSize": "Team Size",
+      "year": "Year",
+      "people": "people",
+      "categories": {
+        "fintech": "FinTech",
+        "ecommerce": "E-commerce",
+        "productivity": "Productivity"
+      },
+      "status": {
+        "completed": "Completed",
+        "ongoing": "In Progress",
+        "upcoming": "Upcoming"
       }
     }
   },

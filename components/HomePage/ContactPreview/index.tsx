@@ -26,7 +26,7 @@ export default function ContactPreview() {
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
-    visible: (i) => ({
+    visible: (i: number) => ({
       opacity: 1,
       y: 0,
       transition: {
@@ -35,7 +35,7 @@ export default function ContactPreview() {
         ease: [0.22, 1, 0.36, 1],
       },
     }),
-  };
+  } as const;
 
   const staggerCards = {
     hidden: { opacity: 0 },
@@ -46,7 +46,7 @@ export default function ContactPreview() {
         delayChildren: 0.3,
       },
     },
-  };
+  } as const;
 
   const cardVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -58,7 +58,7 @@ export default function ContactPreview() {
         ease: "easeOut",
       },
     },
-  };
+  } as const;
 
   return (
     <section className={styles.contactPreview} ref={ref}>
