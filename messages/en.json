@@ -395,6 +395,7 @@
     },
 
     "grid": {
+      "quickViewAriaLabel": "Quick view",
       "badge": "Explore our work",
       "title": {
         "start": "Browse our ",
