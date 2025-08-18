@@ -266,60 +266,118 @@
       "comingSoon": "Coming Soon",
       "projects": {
         "paycov": {
-          "title": "Paycov Digital Payment Platform",
-          "description": "Moroccan-born digital payment platform enabling seamless, instant and secure peer-to-peer transactions, designed to integrate with all banks and simplify daily payments.",
-          "category": "Fintech",
+          "title": "Paycov: Revolutionizing Payments in Morocco and Beyond",
+          "description": "A universal, bank‑agnostic digital payment platform enabling instant, secure P2P and merchant transactions—built to bridge Morocco’s financial ecosystem and accelerate open banking adoption.",
+          "detailedDescription": "Executive Summary\nPaycov is a Moroccan-born, globally-ready digital payment platform that delivers seamless, instant, and secure peer‑to‑peer (P2P) and merchant transactions. Operating as a unifying financial layer above traditional banking infrastructure, it connects users, institutions, and fintech innovation. Developed by Rkicy Technology, Paycov is engineered for effortless integration with all banks, simplifying daily payments and positioning Morocco for the open banking era.\n\nVision\nOur mission is to modernize everyday payments for every Moroccan—hanout owners, street vendors, freelancers, retailers, and consumers alike. Aligned with national initiatives such as e-Dirham and the broader shift toward a cashless society, Paycov aspires to become the default application for sending, receiving, and managing money securely and transparently.\n\nKey Features\n• Universal interoperability: Link cards and accounts from any domestic or international bank.\n• Instant payments: Real-time transfers via QR code, phone number, username, or NFC.\n• Security & transparency: Bank-grade encryption, verified identities, multi-factor and biometric access.\n• Multi-channel access: In-person (QR / NFC), remote (phone / username), and B2B/API integrations.\n\nUse Cases\n• Pay for groceries, taxis, restaurants, and neighborhood shops.\n• Send money instantly to friends and family.\n• Get paid as a freelancer or independent vendor.\n• Automate B2B transactions through Paycov’s API.\n• Bridge everyday use with emerging e-Dirham adoption.\n\nWhy Now\n• Digital currency momentum (e-Dirham) requires intuitive user-facing rails.\n• Financial inclusion: Empower unbanked and underbanked users with a portable financial identity.\n• Behavioral shift: Younger generations demand speed, transparency, and control.\n\nTechnology Stack\n• Backend: Node.js + PostgreSQL\n• Mobile: React Native (iOS & Android)\n• Security: End-to-end encryption, 2FA, biometric authentication\n• Scalability: Architected for millions of daily transactions\n\nStrategic Advantage\n• Led by seasoned banking and fintech leaders (including former Bank Populaire leadership).\n• Compliant with Moroccan regulations yet architected for international scale.\n• Community-driven, transparent product evolution guided by real user feedback.\n\nRoadmap\n• 2025 Q1: Closed beta launch (Morocco)\n• 2025 Q2: NFC rollout & open banking pilot\n• 2025 Q3: Launch Paycov Business API\n• 2026: Expansion into MENA & francophone Africa\n\nBuilt by Rkicy Technology\nRkicy Technology is a Moroccan deeptech & fintech studio focused on building world-class financial infrastructure for the new African economy. Paycov is our flagship platform—an expression of our technical rigor, user-centric design, and commitment to meaningful impact.\n\nContact\nPartnerships, investment, or media: hello@rkicy.com | rkicy.com | Founder (LinkedIn): Youssef Rkaissi",
+          "category": "FinTech & Digital Payments",
           "stats": {
             "security": {
-              "value": "Bank-Level",
-              "label": "End-to-End Encryption"
+              "value": "E2E encryption • 2FA • Biometric",
+              "label": "Security"
             },
             "channels": {
-              "value": "Multi-Channel",
-              "label": "Payment Access Methods"
+              "value": "QR / NFC / Phone / API",
+              "label": "Channels"
             },
             "banks": {
-              "value": "All Banks",
-              "label": "Universal Interoperability"
+              "value": "All banks + intl cards",
+              "label": "Bank Coverage"
             }
+          },
+          "testimonial": {
+            "quote": "Paycov represents the financial layer Morocco has been missing—simple for users, robust for partners, and future-proof for open banking.",
+            "author": "Youssef Rkaissi",
+            "role": "Founder & CEO, Rkicy Technology"
+          },
+          "challenges": {
+            "1": "Fragmented payment ecosystem lacking universal interoperability across banks and channels.",
+            "2": "High proportion of unbanked or underbanked users needing accessible digital financial identity.",
+            "3": "Requirement for real-time, secure, regulation-ready infrastructure anticipating open banking."
+          },
+          "solutions": {
+            "1": "Unified, bank-agnostic platform enabling instant transfers via QR, NFC, phone number, or username.",
+            "2": "Bank-grade security stack: end-to-end encryption, verified identities, MFA, and biometric access.",
+            "3": "Scalable, modular architecture with API-first design prepared for open banking and regional expansion."
+          },
+          "outcomes": {
+            "1": "Seamless real-time P2P and merchant payments across multiple interaction channels.",
+            "2": "Lower barriers to digital financial participation for underserved demographics.",
+            "3": "Strategic positioning as a foundational layer for e-Dirham adoption and future open banking frameworks."
           }
         },
         "nounours": {
-          "title": "Nounours.ma E-Commerce Platform",
-          "description": "Modern e-commerce platform for premium plush toys and collectible figurines, offering a seamless shopping experience with efficient catalog management across multiple product lines.",
-          "category": "E-Commerce",
+          "title": "Nounours.ma: Premium Plush & Collectibles E‑Commerce",
+          "description": "Modern Shopify-powered platform offering giant plush bears, breathing comfort companions, and designer collectible figurines—curated, gift-ready, and optimized for seamless checkout.",
+          "detailedDescription": "Overview\nNounours.ma is a Morocco-based e‑commerce platform specializing in premium plush toys, giant teddy bears, innovative calming plush (Masolu breathing series), and collectible & designer figurines. Built on Shopify, the store blends emotional gifting, product storytelling, and operational efficiency to deliver a delightful, trustworthy buying experience.\n\nProduct Lines\n• Giant Plush (120–160 cm) – Signature teddy bears in multiple colors and sizes.\n• Standard & Medium Plush – Accessible gift options for all occasions.\n• Masolu Breathing Series – Calming, simulated respiration plush for comfort and relaxation.\n• Licensed & Character Plush – Stitch, Hello Kitty, themed assortments.\n• Collectible Figurines – Pop Mart series (Labubu, Crybaby, Coca-Cola editions) and blind box culture.\n\nCustomer Experience\n• Clear categorization and seasonal promotions.\n• High-quality product imagery with variant emphasis.\n• Gift-centric positioning (romantic, comfort, celebration).\n• Transparent discounting and promotional pricing.\n\nTechnology & Operations\n• Shopify core: secure checkout, inventory management, extensible app ecosystem.\n• Multiple payment methods (local + international readiness).\n• Scalable catalog architecture for rapid line expansion.\n• Mobile-first browsing and cart flow.\n\nMarket Position\nPositioned as a curated destination at the intersection of emotional gifting, comfort wellness, and collectible culture. Differentiation arises from breadth (plush + designer figurines), innovation (Masolu breathing series), and trust signals (pricing clarity, contact visibility, local presence).\n\nPromotions & Merchandising\n• Tiered pricing with promotional markdowns (launch, seasonal, inventory rotation).\n• Emphasis on scarcity and exclusivity for blind box figurines.\n• Highlighted bestsellers and new arrivals to drive repeat engagement.\n\nBrand & Community\nValues: Joy, comfort, gifting connection, quality assurance. Community touchpoints via Instagram, newsletter, and storytelling around companionship & collection.\n\nContact & Support\nDirect phone, email, and policy transparency (refund, privacy, shipping, terms) reinforce credibility and retention.\n\nStrategic Foundation\nNounours.ma establishes a scalable base to layer future personalization, loyalty rewards, bundle logic, and regional expansion—while maintaining a high-trust, emotionally resonant brand narrative.",
+          "category": "E‑commerce & Retail",
           "stats": {
             "collections": {
-              "value": "5+",
-              "label": "Product Collections"
+              "value": "5+ Active Lines",
+              "label": "Collections"
             },
             "market": {
-              "value": "Morocco",
-              "label": "Market Coverage"
+              "value": "Morocco Nationwide",
+              "label": "Market"
             },
             "payment": {
-              "value": "Multi",
-              "label": "Payment Methods"
+              "value": "Multi-Method Checkout",
+              "label": "Payments"
             }
+          },
+          "testimonial": {
+            "quote": "Nounours.ma delivers more than plush—it delivers curated moments of comfort, nostalgia, and collectible delight.",
+            "author": "Operations Lead",
+            "role": "E‑Commerce Operations"
+          },
+          "challenges": {
+            "1": "Balancing diverse product lines (plush, innovation, collectibles) without diluting user journey clarity.",
+            "2": "Maintaining product quality perception and trust in a competitive, price-sensitive gifting market.",
+            "3": "Optimizing checkout conversion while supporting multiple payment methods and promotional logic."
+          },
+          "solutions": {
+            "1": "Structured catalog taxonomy with clear category segmentation and bestseller anchoring.",
+            "2": "High-fidelity visuals, transparent pricing, and emphasis on material quality & comfort benefits.",
+            "3": "Shopify-native optimizations: multi-payment integration, streamlined cart flow, scalable promo framework."
+          },
+          "outcomes": {
+            "1": "Improved browsing clarity and cross-category discovery (plush to collectibles).",
+            "2": "Strengthened trust and perceived value through consistent branding and transparent policies.",
+            "3": "Conversion-ready foundation for future loyalty, personalization, and regional scale."
           }
         },
         "finish3": {
-          "title": "Finish3 Task Management App",
-          "description": "Clean, modern to-do list app built on one unwavering principle: 'Finish your top 3 daily tasks—every day', helping users focus on what's most important.",
-          "category": "Productivity",
+          "title": "Finish3: Focus. Finish. Repeat.",
+          "description": "A minimalist, habit-forming productivity app built around one core principle: finish your 3 most important tasks every day—reset, rollover, and stay consistent.",
+          "detailedDescription": "Overview & Vision\nFinish3 is a clean, modern to‑do and focus app built on a single behavioral pillar: \"Finish your top 3 daily tasks—every day.\" By limiting visible priority, it reduces cognitive load, prevents overwhelm, and reinforces a sustainable habit of daily accomplishment. Each morning the list refreshes; any unfinished items roll forward automatically so nothing is lost.\n\nProduct Summary\nPurpose: Help users consistently finish their 3 most important tasks.\nPlatforms: Web, iOS, Android (multi-device real-time sync).\nIdeal Users: Freelancers, entrepreneurs, focused professionals, makers.\n\nCore Features\n• Minimalist dashboard with intentional constraint.\n• Daily reset + smart rollover of unfinished tasks.\n• Real-time sync across devices.\n• Progress tracking & lightweight analytics.\n• Fast task capture & simple status handling.\n• Team collaboration (coming soon).\n\nPricing & Plans\n• Free: $0 – Up to 50 tasks/month.\n• Pro: $2.99/month – Unlimited tasks + full analytics & insights.\n• Teams (Coming Soon): Shared boards, permissions, admin controls.\n\nTestimonials\n“Finish3 transformed how I plan my day.” – Product Designer\n“These three tasks keep me laser-focused.” – Project Manager\n“Simple and effective.” – Marketing Lead\n\nTechnology & Roadmap\nStack: React, Node.js, Firebase, BI integrations.\nQ3 2025: Team plans launch.\nQ4 2025: AI prioritization + calendar integrations.\n2026: Offline mode + wearable support.\n\nAbout Rkicy Technology\nFounded in 2023 (Casablanca), Rkicy builds productivity software, AI/BI solutions, and ERP/CRM integrations—combining deep technical execution with user-centric design.\n\nCompetitive Position\nFinish3 emphasizes clarity over complexity. It competes with heavier tools (Todoist, ClickUp, Notion) by staying intentionally minimal and habit-focused. Behavioral design drives repeat engagement.\n\nStrengths & Opportunities\nStrengths: Focused UX, seamless sync, affordable pricing.\nOpportunities: Team collaboration, gamification mechanics, AI productivity coaching.\n\nIntegration into rkicy.com\nAdd a \"Finish3 by Rkicy\" case study with visuals, roadmap, and changelog integrations—highlighting in‑house development and product evolution.",
+          "category": "Productivity & Task Management",
           "stats": {
             "tasks": {
-              "value": "3",
-              "label": "Daily Focus Tasks"
+              "value": "Top 3 / Day",
+              "label": "Focus Framework"
             },
             "sync": {
-              "value": "Real-Time",
-              "label": "Cross-Platform Sync"
+              "value": "Real-Time Multi-Device",
+              "label": "Sync"
             },
             "rollover": {
-              "value": "Daily",
-              "label": "Reset & Task Rollover"
+              "value": "Auto Carryover",
+              "label": "Rollover"
             }
+          },
+          "challenges": {
+            "1": "Users experience decision fatigue and overwhelm from unrestricted task lists, hurting daily execution.",
+            "2": "Inconsistent habit formation due to lack of a lightweight, constrained, cross-platform workflow.",
+            "3": "Existing tools are either too complex or lack analytics and behavioral reinforcement for focus."
+          },
+          "solutions": {
+            "1": "Applied the \"Top 3\" daily principle with a minimalist interface and intentional constraint.",
+            "2": "Real-time multi-device sync plus automatic daily reset and intelligent rollover for unfinished tasks.",
+            "3": "Integrated progress analytics and an extensible roadmap (teams, AI prioritization, calendar integration)."
+          },
+          "outcomes": {
+            "1": "Higher daily completion rates through enforced prioritization and reduced cognitive load.",
+            "2": "Formation of a repeatable focus habit supported by reset + rollover mechanics.",
+            "3": "Positioning as a differentiated, frictionless alternative to bloated productivity suites."
           }
         }
       }

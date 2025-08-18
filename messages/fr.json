@@ -169,60 +169,118 @@
       "comingSoon": "Bientôt Disponible",
       "projects": {
         "paycov": {
-          "title": "Plateforme de Paiement Digital Paycov",
-          "description": "Plateforme de paiement numérique marocaine permettant des transactions pair à pair fluides, instantanées et sécurisées, conçue pour s'intégrer à toutes les banques et simplifier les paiements quotidiens.",
-          "category": "Fintech",
+          "title": "Paycov : Révolutionner les paiements au Maroc et au-delà",
+          "description": "Plateforme de paiement numérique universelle, indépendante des banques, offrant des transactions P2P et commerçantes instantanées et sécurisées—un pont vers l’open banking au Maroc.",
+          "detailedDescription": "Résumé Exécutif\nPaycov est une plateforme de paiement numérique née au Maroc et prête pour le monde, offrant des transactions pair-à-pair et commerçantes instantanées, fluides et sécurisées. Elle fonctionne comme une couche financière unificatrice au-dessus de l’infrastructure bancaire traditionnelle, reliant utilisateurs, institutions et innovation fintech. Développée par Rkicy Technology, Paycov est conçue pour s’intégrer aisément à toutes les banques, simplifier les paiements quotidiens et préparer le pays à l’ère de l’open banking.\n\nVision\nNotre mission est de moderniser les paiements du quotidien pour chaque Marocain—du propriétaire de hanout et vendeur ambulant au freelance, détaillant et consommateur. Alignée sur les initiatives nationales telles que l’e-Dirham et la transition vers une économie moins dépendante du cash, Paycov vise à devenir l’application de référence pour envoyer, recevoir et gérer son argent de manière sûre et transparente.\n\nFonctionnalités Clés\n• Interopérabilité universelle : Lier cartes et comptes de toute banque locale ou internationale.\n• Paiements instantanés : Transferts en temps réel via QR code, numéro de téléphone, nom d’utilisateur ou NFC.\n• Sécurité & transparence : Chiffrement de niveau bancaire, identités vérifiées, authentification multifacteur et biométrique.\n• Accès multi-canal : Présentiel (QR / NFC), distant (téléphone / nom utilisateur) et intégrations B2B/API.\n\nCas d’Usage\n• Payer épiceries, taxis, restaurants, hanouts.\n• Envoyer de l’argent instantanément à des proches.\n• Être payé en tant que freelance ou vendeur indépendant.\n• Automatiser des transactions B2B via l’API Paycov.\n• Relier l’usage quotidien à l’adoption émergente de l’e-Dirham.\n\nPourquoi Maintenant\n• Dynamique autour de l’e-Dirham nécessitant des applications intuitives côté utilisateur.\n• Inclusion financière : Offrir une identité financière portable aux non ou sous-bancarisés.\n• Mutation des usages : Générations connectées exigeant rapidité, transparence et contrôle.\n\nPile Technologique\n• Backend : Node.js + PostgreSQL\n• Mobile : React Native (iOS & Android)\n• Sécurité : Chiffrement bout-en-bout, 2FA, authentification biométrique\n• Scalabilité : Architecture pour des millions de transactions quotidiennes\n\nAvantage Stratégique\n• Équipe dirigeante issue de la banque et de la fintech (dont un ex-directeur de Bank Populaire).\n• Conformité locale tout en étant conçue pour l’évolutivité internationale.\n• Développement communautaire et transparent guidé par les retours utilisateurs.\n\nFeuille de Route\n• 2025 T1 : Lancement bêta (Maroc)\n• 2025 T2 : Intégration NFC & pilote open banking\n• 2025 T3 : Lancement de l’API Paycov Business\n• 2026 : Expansion MENA & Afrique francophone\n\nPropulsé par Rkicy Technology\nRkicy Technology est un studio marocain deeptech & fintech dédié à la construction d’infrastructures financières de classe mondiale pour la nouvelle économie africaine. Paycov est notre produit phare—synthèse de notre rigueur technique, de notre design centré utilisateur et de notre engagement pour un impact réel.\n\nContact\nPartenariats, investissement ou presse : hello@rkicy.com | rkicy.com | Fondateur (LinkedIn) : Youssef Rkaissi",
+          "category": "FinTech & Paiements Numériques",
           "stats": {
             "security": {
-              "value": "Niveau Bancaire",
-              "label": "Chiffrement de bout en bout"
+              "value": "Chiffrement E2E • 2FA • Biométrie",
+              "label": "Sécurité"
             },
             "channels": {
-              "value": "Multi-Canal",
-              "label": "Méthodes d'accès au paiement"
+              "value": "QR / NFC / Téléphone / API",
+              "label": "Canaux"
             },
             "banks": {
-              "value": "Toutes Banques",
-              "label": "Interopérabilité universelle"
+              "value": "Toutes banques + cartes intl",
+              "label": "Couverture Bancaire"
             }
+          },
+          "testimonial": {
+            "quote": "Paycov incarne la couche financière qui manquait au Maroc—simple pour l’utilisateur, robuste pour les partenaires et prête pour l’open banking.",
+            "author": "Youssef Rkaissi",
+            "role": "Fondateur & CEO, Rkicy Technology"
+          },
+          "challenges": {
+            "1": "Écosystème de paiements fragmenté sans interopérabilité universelle entre banques et canaux.",
+            "2": "Forte proportion de populations non ou sous-bancarisées nécessitant une identité financière numérique accessible.",
+            "3": "Besoin d’infrastructures temps réel sécurisées et conformes anticipant l’open banking."
+          },
+          "solutions": {
+            "1": "Plateforme unifiée indépendante des banques avec transferts instantanés via QR, NFC, téléphone ou nom d’utilisateur.",
+            "2": "Pile de sécurité de niveau bancaire : chiffrement bout-en-bout, identités vérifiées, MFA et accès biométrique.",
+            "3": "Architecture modulaire et scalable, API-first, prête pour l’open banking et l’expansion régionale."
+          },
+          "outcomes": {
+            "1": "Paiements P2P et commerçants temps réel fluides sur plusieurs canaux.",
+            "2": "Réduction des barrières à la participation financière numérique pour les publics sous-servis.",
+            "3": "Positionnement stratégique comme couche fondatrice pour l’e-Dirham et les futurs cadres d’open banking."
           }
         },
         "nounours": {
-          "title": "Plateforme E-Commerce Nounours.ma",
-          "description": "Plateforme e-commerce moderne pour peluches premium et figurines de collection, offrant une expérience d'achat fluide avec une gestion efficace du catalogue sur plusieurs lignes de produits.",
-          "category": "E-Commerce",
+          "title": "Nounours.ma : Peluches Premium & Figurines de Collection",
+          "description": "Plateforme e‑commerce moderne (Shopify) offrant nounours géants, peluches apaisantes respirantes Masolu et figurines de collection—catalogue soigné, expérience fluide, achats prêts à offrir.",
+          "detailedDescription": "Vue d’Ensemble\nNounours.ma est une plateforme e‑commerce basée au Maroc, spécialisée dans les peluches premium, nounours géants, peluches apaisantes innovantes (série respirante Masolu) et figurines/designers de collection. Propulsé par Shopify, le site allie émotion du cadeau, narration produit et efficacité opérationnelle pour une expérience fiable et engageante.\n\nGammes Produits\n• Nounours Géants (120–160 cm) – Pièces emblématiques multicolores.\n• Peluches Standard & Moyennes – Options accessibles pour toutes occasions.\n• Série Masolu Respirante – Peluches apaisantes simulant la respiration pour confort & relaxation.\n• Peluches Personnages & Sous Licence – Stitch, Hello Kitty, univers thématiques.\n• Figurines de Collection – Séries Pop Mart (Labubu, Crybaby, Coca-Cola) et culture blind box.\n\nExpérience Client\n• Catégorisation claire et promotions saisonnières.\n• Visuels produits haute qualité avec variantes mises en avant.\n• Positionnement cadeau (tendresse, amour, réconfort, célébration).\n• Transparence sur remises et prix promotionnels.\n\nTechnologie & Opérations\n• Cœur Shopify : caisse sécurisée, gestion d’inventaire, extensibilité applicative.\n• Multiples moyens de paiement (locaux + préparation internationale).\n• Architecture catalogue scalable pour expansion rapide.\n• Navigation et panier optimisés mobile-first.\n\nPositionnement Marché\nDestination curatoriale à l’intersection du cadeau émotionnel, du bien-être réconfort et de la collection design. Différenciation via diversité maîtrisée (peluche + figurine), innovation (Masolu) et signaux de confiance (politiques, contact direct, présence locale).\n\nPromotions & Marchandisage\n• Prix différenciés avec remises (lancement, saison, rotation de stock).\n• Accent sur rareté et exclusivité pour figurines blind box.\n• Mise en avant des bestsellers et nouveautés pour stimuler la récurrence.\n\nMarque & Communauté\nValeurs : Joie, confort, partage, qualité. Communauté alimentée par Instagram, newsletter et storytelling autour du lien affectif & de la collection.\n\nContact & Support\nTéléphone direct, email et politiques transparentes (remboursement, confidentialité, expédition, conditions) renforcent crédibilité et fidélisation.\n\nFondation Stratégique\nNounours.ma établit une base évolutive pour ajouter personnalisation, fidélité, bundles intelligents et expansion régionale—tout en conservant une narration émotionnelle cohérente.",
+          "category": "E‑commerce & Vente au Détail",
           "stats": {
             "collections": {
-              "value": "5+",
-              "label": "Collections de produits"
+              "value": "5+ Gammes Actives",
+              "label": "Collections"
             },
             "market": {
-              "value": "Maroc",
-              "label": "Couverture du marché"
+              "value": "Couverture Maroc",
+              "label": "Marché"
             },
             "payment": {
-              "value": "Multiple",
-              "label": "Méthodes de paiement"
+              "value": "Paiements Multiples",
+              "label": "Paiements"
             }
+          },
+          "testimonial": {
+            "quote": "Nounours.ma apporte plus qu’une peluche—il crée des moments de confort, de nostalgie et de collection.",
+            "author": "Responsable Opérations",
+            "role": "Opérations E‑commerce"
+          },
+          "challenges": {
+            "1": "Orchestrer des lignes produits variées sans complexifier le parcours utilisateur.",
+            "2": "Maintenir perception de qualité et confiance dans un marché cadeau sensible au prix.",
+            "3": "Optimiser la conversion tout en supportant divers moyens de paiement et promotions."
+          },
+          "solutions": {
+            "1": "Taxonomie catalogue structurée avec segmentation claire et ancrage par bestsellers.",
+            "2": "Visuels haute fidélité, transparence tarifaire, mise en avant des bénéfices confort & matière.",
+            "3": "Optimisations natives Shopify : intégration multi‑paiements, flux panier simplifié, cadre promo scalable."
+          },
+          "outcomes": {
+            "1": "Découverte améliorée inter‑catégories (peluches vers figurines de collection).",
+            "2": "Renforcement confiance & valeur perçue via branding cohérent et politiques claires.",
+            "3": "Base prête pour fidélisation, personnalisation et montée en échelle régionale."
           }
         },
         "finish3": {
-          "title": "Application de Gestion des Tâches Finish3",
-          "description": "Application de liste de tâches épurée et moderne construite sur un principe inébranlable : 'Terminez vos 3 tâches quotidiennes principales—chaque jour', aidant les utilisateurs à se concentrer sur l'essentiel.",
-          "category": "Productivité",
+          "title": "Finish3 : Se concentrer. Terminer. Recommencer.",
+          "description": "Application de productivité minimaliste fondée sur un principe unique : terminer chaque jour vos 3 tâches les plus importantes—réinitialisation, report automatique et constance durable.",
+          "detailedDescription": "Vue d’Ensemble & Vision\nFinish3 est une application moderne et épurée de tâches et de focus, construite sur un pilier comportemental : « Terminez vos 3 tâches quotidiennes essentielles—chaque jour. » En limitant la priorité visible, elle réduit la charge cognitive, évite la surcharge et renforce une habitude durable d’accomplissement quotidien. Chaque matin, la liste repart à zéro; les tâches non terminées sont intelligemment reportées pour qu’aucune ne se perde.\n\nRésumé Produit\nObjectif : Aider l’utilisateur à terminer systématiquement ses 3 tâches critiques.\nPlateformes : Web, iOS, Android (synchronisation temps réel multi-appareils).\nUtilisateurs Cibles : Freelances, entrepreneurs, professionnels focalisés, créateurs.\n\nFonctionnalités Clés\n• Tableau de bord minimaliste et intentionnel.\n• Réinitialisation quotidienne + report automatique des tâches non achevées.\n• Synchronisation temps réel multi-appareils.\n• Suivi de progression & analytics légers.\n• Gestion rapide et simple des tâches.\n• Collaboration d’équipe (bientôt disponible).\n\nTarification & Plans\n• Gratuit : 0 $ – Jusqu’à 50 tâches / mois.\n• Pro : 2,99 $ / mois – Tâches illimitées + analytics complètes.\n• Équipes (À venir) : Tableaux partagés, permissions, administration.\n\nTémoignages\n« Finish3 a transformé ma manière de planifier ma journée. » – Product Designer\n« Ces trois tâches me gardent ultra-focalisé. » – Chef de Projet\n« Simple et efficace. » – Responsable Marketing\n\nTechnologie & Feuille de Route\nStack : React, Node.js, Firebase, intégrations BI.\nT3 2025 : Lancement offres Équipe.\nT4 2025 : Priorisation IA + intégrations calendrier.\n2026 : Mode hors-ligne + support wearables.\n\nÀ propos de Rkicy Technology\nFondée en 2023 à Casablanca, Rkicy développe logiciels de productivité, solutions IA/BI et intégrations ERP/CRM—alliant excellence technique et design centré utilisateur.\n\nPositionnement Concurrentiel\nFinish3 privilégie la clarté plutôt que la complexité. Il se positionne face à des outils plus lourds (Todoist, ClickUp, Notion) en restant volontairement minimaliste et orienté habitude. La conception comportementale stimule l’engagement récurrent.\n\nForces & Opportunités\nForces : UX focalisée, synchronisation fluide, prix accessible.\nOpportunités : Outils d’équipe, gamification, coaching de productivité par IA.\n\nIntégration sur rkicy.com\nAjouter une étude de cas « Finish3 by Rkicy » avec visuels, feuille de route et changelog—en soulignant le développement interne et l’évolution produit.",
+          "category": "Productivité & Gestion des Tâches",
           "stats": {
             "tasks": {
-              "value": "3",
-              "label": "Tâches quotidiennes prioritaires"
+              "value": "Top 3 / Jour",
+              "label": "Cadre de Focus"
             },
             "sync": {
-              "value": "Temps Réel",
-              "label": "Synchronisation multiplateforme"
+              "value": "Temps Réel Multi-Appareils",
+              "label": "Sync"
             },
             "rollover": {
-              "value": "Quotidien",
-              "label": "Réinitialisation & Report des tâches"
+              "value": "Report Automatique",
+              "label": "Report"
             }
+          },
+          "challenges": {
+            "1": "Surcharge décisionnelle et listes illimitées réduisant l’exécution quotidienne réelle.",
+            "2": "Habitude de focus instable faute d’un flux léger, contraint et multi-plateforme.",
+            "3": "Outils existants trop complexes ou sans analytics comportementales pour encourager la constance."
+          },
+          "solutions": {
+            "1": "Application du principe « Top 3 » quotidien avec interface minimaliste et contrainte intentionnelle.",
+            "2": "Synchronisation temps réel multi-appareils + réinitialisation quotidienne et report intelligent.",
+            "3": "Analytics de progression et feuille de route extensible (équipes, priorisation IA, intégration calendrier)."
+          },
+          "outcomes": {
+            "1": "Taux de complétion quotidien accru grâce à la priorisation forcée et à la réduction de la charge cognitive.",
+            "2": "Formation d’une habitude de focus répétable soutenue par réinitialisation + report.",
+            "3": "Positionnement différencié comme alternative fluide aux suites de productivité surchargées."
           }
         }
       }

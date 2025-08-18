@@ -1,0 +1,234 @@
+@import "@/styles/variables.scss";
+@import "@/styles/mixins.scss";
+
+.filterContainer {
+  position: relative;
+  padding: 1.5rem 0;
+  z-index: 10;
+  transition: all 0.3s ease;
+  
+  &.stickyFilter {
+    position: sticky;
+    top: 0;
+    background: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    z-index: 50;
+    padding: 1rem 0;
+    
+    [data-theme="dark"] & {
+      background: $bg-primary-dark;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  
+  @media (max-width: $breakpoint-md) {
+    padding: 0 1.5rem;
+  }
+}
+
+.filterBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  @media (max-width: $breakpoint-md) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
+.filterStats {
+  display: flex;
+  align-items: center;
+}
+
+.projectCount {
+  font-size: 1.05rem;
+  color: $text-primary;
+  font-weight: 500;
+  
+  [data-theme="dark"] & {
+    color: $text-primary-dark;
+  }
+}
+
+.filterControls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  
+  @media (max-width: $breakpoint-sm) {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+}
+
+.filterDropdowns {
+  display: flex;
+  gap: 0.75rem;
+  
+  @media (max-width: $breakpoint-sm) {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    
+    &::-webkit-scrollbar {
+      height: 4px;
+    }
+    
+    &::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.05);
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background: $primary;
+      border-radius: 2px;
+    }
+  }
+}
+
+.filterDropdown {
+  position: relative;
+}
+
+.dropdownButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: $text-secondary;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    border-color: rgba($primary, 0.3);
+  }
+  
+  &.activeFilter {
+    background: rgba($primary, 0.08);
+    border-color: rgba($primary, 0.3);
+    color: $primary;
+    font-weight: 600;
+  }
+  
+  [data-theme="dark"] & {
+    background: $bg-secondary-dark;
+    border-color: rgba(255, 255, 255, 0.1);
+    color: $text-secondary-dark;
+    
+    &:hover {
+      border-color: rgba($primary, 0.4);
+    }
+    
+    &.activeFilter {
+      background: rgba($primary, 0.15);
+      border-color: rgba($primary, 0.4);
+      color: $primary-light;
+    }
+  }
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  min-width: 180px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  z-index: 10;
+  
+  [data-theme="dark"] & {
+    background: $bg-secondary-dark;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  }
+}
+
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: none;
+  background: transparent;
+  text-align: left;
+  font-size: 0.9rem;
+  color: $text-secondary;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    background: rgba(0, 0, 0, 0.03);
+    color: $text-primary;
+  }
+  
+  &.active {
+    background: rgba($primary, 0.08);
+    color: $primary;
+    font-weight: 600;
+  }
+  
+  [data-theme="dark"] & {
+    color: $text-secondary-dark;
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: $text-primary-dark;
+    }
+    
+    &.active {
+      background: rgba($primary, 0.15);
+      color: $primary-light;
+    }
+  }
+}
+
+.clearFiltersButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  background: rgba($primary, 0.08);
+  border: 1px solid rgba($primary, 0.2);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: $primary;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    background: rgba($primary, 0.12);
+  }
+  
+  [data-theme="dark"] & {
+    background: rgba($primary, 0.12);
+    border-color: rgba($primary, 0.3);
+    color: $primary-light;
+    
+    &:hover {
+      background: rgba($primary, 0.18);
+    }
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    width: 100%;
+    justify-content: center;
+  }
+}
