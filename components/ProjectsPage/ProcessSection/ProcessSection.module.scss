@@ -3,16 +3,9 @@
 
 .processSection {
   position: relative;
-  padding: 4rem 0;
+  padding: 0;
   overflow: hidden;
   
-  @media (max-width: $breakpoint-md) {
-    padding: 2.5rem 0;
-  }
-
-  @media (max-width: $breakpoint-sm) {
-    padding: 2rem 0;
-  }
 }
 
 .container {

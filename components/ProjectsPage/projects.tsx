@@ -51,7 +51,7 @@
         { icon: <Globe size={18} />, valueKey: 'featured.projects.paycov.stats.channels.value', labelKey: 'featured.projects.paycov.stats.channels.label' },
         { icon: <Wallet size={18} />, valueKey: 'featured.projects.paycov.stats.banks.value', labelKey: 'featured.projects.paycov.stats.banks.label' }
       ],
-      slug: "/projects/paycov",
+      slug: "https://www.paycov.com/",
       logo: '/projects/paycov-logo.png',
       client: "PayCov Inc.",
       duration: "8 months",
@@ -100,7 +100,7 @@
         { icon: <Users size={18} />, valueKey: 'featured.projects.nounours.stats.market.value', labelKey: 'featured.projects.nounours.stats.market.label' },
         { icon: <CreditCard size={18} />, valueKey: 'featured.projects.nounours.stats.payment.value', labelKey: 'featured.projects.nounours.stats.payment.label' }
       ],
-      slug: "/projects/nounours-ma",
+      slug: "https://nounours.ma/",
       logo: '/projects/nounours.png',
       client: "Nounours Morocco",
       duration: "3 months",

@@ -58,23 +58,23 @@ export default function ProjectsGrid({ projects, filters, onResetFilters }: Proj
   useEffect(() => setIsLoaded(true), []);
   
   // Update activeFilters when external filters change
-useEffect(() => {
-  if (filters && typeof filters === 'object') { // Add this check
-    const newFilters = {...activeFilters};
-    let changed = false;
-    
-    Object.entries(filters).forEach(([key, value]) => {
-      if (key in activeFilters && activeFilters[key as FilterCategory] !== value) {
-        newFilters[key as FilterCategory] = value;
-        changed = true;
+  useEffect(() => {
+    if (filters && typeof filters === 'object') {
+      const newFilters = {...activeFilters};
+      let changed = false;
+      
+      Object.entries(filters).forEach(([key, value]) => {
+        if (key in activeFilters && activeFilters[key as FilterCategory] !== value) {
+          newFilters[key as FilterCategory] = value;
+          changed = true;
+        }
+      });
+      
+      if (changed) {
+        setActiveFilters(newFilters);
       }
-    });
-    
-    if (changed) {
-      setActiveFilters(newFilters);
     }
-  }
-}, [filters]);
+  }, [filters]);
 
   /* Filtering */
   useEffect(() => {
@@ -416,17 +416,30 @@ useEffect(() => {
                       type="button"
                       className={styles.actionGhost}
                       onClick={() => openProjectModal(project)}
-                      aria-label={t('grid.quickViewAriaLabel', { project: t(project.titleKey) })}
+                      aria-label={t('grid.viewDetailsAriaLabel', { project: t(project.titleKey) })}
                     >
-                      {t('grid.quickView')}
+                      {t('grid.viewDetails')}
                     </button>
-                    <Link
-                      href={project.slug}
-                      className={styles.actionPrimary}
-                    >
-                      <span>{t('grid.viewDetails')}</span>
-                      <ArrowRight size={14} />
-                    </Link>
+                    
+                    {project.status === 'completed' ? (
+                      <Link
+                        href={project.slug}
+                        className={styles.actionPrimary}
+                        target='blank'
+                      >
+                        <span>{t('grid.exploreProject')}</span>
+                        <ArrowRight size={14} />
+                      </Link>
+                    ) : (
+                      <button
+                        className={`${styles.actionPrimary} ${styles.disabled}`}
+                        disabled
+                        title={t('grid.pendingProjectMessage')}
+                      >
+                        <span>{t('grid.comingSoon')}</span>
+                        <Clock size={14} />
+                      </button>
+                    )}
                   </div>
                 </div>
               </motion.div>

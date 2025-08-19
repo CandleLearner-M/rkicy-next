@@ -42,14 +42,11 @@ export default function ProjectsPage() {
       <IndustriesSection />
 
       <SectionBackground style="subtle">
-        <ProjectTimeline />
+        <ProcessSection />
       </SectionBackground>
 
       <TechStackShowcase />
 
-      <SectionBackground style="subtle">
-        <ProcessSection />
-      </SectionBackground>
      
       <ContactPreview />
     </main>

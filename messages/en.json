@@ -395,6 +395,10 @@
     },
 
     "grid": {
+      "exploreProject": "Explore Project",
+      "viewDetailsAriaLabel": "View Project Details",
+      "comingSoon":"Coming Soon",
+      "pendingProjectMessage": "This project is currently pending.",
       "quickViewAriaLabel": "Quick view",
       "badge": "Explore our work",
       "title": {
