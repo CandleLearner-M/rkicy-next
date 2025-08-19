@@ -58,10 +58,10 @@ select,
 textarea,
 a {
   outline: none;
-  -webkit-tap-highlight-color: transparent; /* Removes blue highlight on mobile tap */
+  -webkit-tap-highlight-color: transparent; 
 }
 
-/* Remove default button styles */
+
 button {
   border: none;
   background: none;
@@ -69,17 +69,41 @@ button {
   padding: 0;
   margin: 0;
   
-  /* Remove the annoying blue square/outline */
+  
   &:focus,
   &:active {
     outline: none;
     box-shadow: none;
   }
   
-  /* Remove default button appearance on iOS */
+  
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
 }
 
 
+
+::selection {
+  background: #F6351c; 
+  color: #fff;         
+}
+
+::-moz-selection {
+  background: #F6351c;
+  color: #fff;
+}
+
+
+input::selection,
+textarea::selection,
+[contenteditable="true"]::selection {
+  background: #F6351c;
+  color: #fff;
+}
+input::-moz-selection,
+textarea::-moz-selection,
+[contenteditable="true"]::-moz-selection {
+  background: #F6351c;
+  color: #fff;
+}
