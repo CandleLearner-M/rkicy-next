@@ -350,6 +350,111 @@
           }
         }
       }
+    },
+    "industries": {
+      "badge": "Industries",
+      "title": {
+        "start": "Service de ",
+        "highlight": "Diverses Industries",
+        "end": " avec des Solutions Adaptées"
+      },
+      "description": "Nous fournissons des solutions informatiques spécialisées dans un large éventail de secteurs, chacun avec des défis et des exigences uniques.",
+      "items": {
+        "retail": {
+          "title": "Commerce & E-commerce",
+          "description": "Solutions omnicanal, systèmes de gestion des stocks et plateformes d'expérience client qui stimulent les ventes et rationalisent les opérations."
+        },
+        "healthcare": {
+          "title": "Santé",
+          "description": "Systèmes sécurisés de gestion des patients, plateformes de télémédecine et analyses de santé qui améliorent la prestation des soins tout en maintenant la conformité."
+        },
+        "finance": {
+          "title": "Finance & Banque",
+          "description": "Systèmes de transaction sécurisés, solutions de conformité réglementaire et plateformes destinées aux clients qui modernisent les services financiers."
+        },
+        "education": {
+          "title": "Éducation",
+          "description": "Systèmes de gestion d'apprentissage, plateformes d'information sur les étudiants et technologie éducative qui transforme l'expérience d'enseignement et d'apprentissage."
+        },
+        "corporate": {
+          "title": "Entreprises",
+          "description": "Applications d'entreprise personnalisées, solutions d'intelligence d'affaires et automatisation des flux de travail qui stimulent l'efficacité organisationnelle."
+        },
+        "logistics": {
+          "title": "Logistique & Transport",
+          "description": "Gestion de la chaîne d'approvisionnement, systèmes de suivi de flotte et plateformes d'optimisation logistique qui améliorent l'efficacité opérationnelle."
+        },
+        "government": {
+          "title": "Gouvernement & Secteur Public",
+          "description": "Plateformes de service public sécurisées, solutions d'engagement citoyen et systèmes administratifs qui améliorent la gouvernance."
+        },
+        "manufacturing": {
+          "title": "Industrie Manufacturière",
+          "description": "Gestion de production, systèmes de contrôle qualité et solutions IoT industrielles qui optimisent les processus de fabrication."
+        }
+      }
+    },
+    "timeline": {
+      "badge": "Processus",
+      "title": {
+        "start": "Notre ",
+        "highlight": "Chronologie de Projet",
+        "end": " et Méthodologie"
+      },
+      "description": "Nous suivons une approche structurée pour garantir que votre projet soit livré à temps, dans les limites du budget et selon les normes de qualité les plus élevées.",
+      "steps": {
+        "discovery": {
+          "title": "Découverte & Analyse",
+          "description": "Nous travaillons en étroite collaboration avec vous pour comprendre vos besoins commerciaux, vos défis et vos objectifs afin de définir la portée du projet.",
+          "duration": "1-2 Semaines"
+        },
+        "planning": {
+          "title": "Planification & Conception",
+          "description": "Création de spécifications détaillées, de maquettes et de conceptions architecturales pour établir une feuille de route claire du projet.",
+          "duration": "2-4 Semaines"
+        },
+        "development": {
+          "title": "Développement",
+          "description": "Nos ingénieurs construisent votre solution en utilisant des méthodologies agiles, avec des sprints réguliers et des livraisons incrémentales.",
+          "duration": "4-12 Semaines"
+        },
+        "testing": {
+          "title": "Assurance Qualité",
+          "description": "Tests rigoureux pour garantir que votre solution est sécurisée, robuste et performante dans toutes les conditions.",
+          "duration": "2-3 Semaines"
+        },
+        "deployment": {
+          "title": "Déploiement",
+          "description": "Mise en œuvre soigneuse dans votre environnement de production avec un minimum de perturbation pour vos opérations.",
+          "duration": "1-2 Semaines"
+        },
+        "support": {
+          "title": "Maintenance & Support",
+          "description": "Support continu, surveillance et amélioration continue pour garantir que votre solution reste efficace.",
+          "duration": "Continu"
+        }
+      },
+      "note": "Les durées sont approximatives et peuvent varier en fonction de la complexité du projet et des exigences spécifiques. Nous fournirons un calendrier détaillé pendant la phase de planification."
+    },
+    "techstack": {
+      "badge": "Technologie",
+      "title": {
+        "start": "Notre Expertise en ",
+        "highlight": "Stack Technologique",
+        "end": ""
+      },
+      "description": "Nous utilisons les technologies les plus puissantes et innovantes pour créer des solutions robustes, évolutives et pérennes pour votre entreprise.",
+      "categories": {
+        "frontend": "Frontend",
+        "backend": "Backend",
+        "database": "Base de données",
+        "cloud": "Cloud & Infrastructure",
+        "ai": "IA & Apprentissage automatique",
+        "mobile": "Mobile & Multi-plateforme",
+        "analytics": "Analytique & Intelligence d'affaires",
+        "security": "Sécurité & Conformité"
+      },
+      "caption": "Notre expertise ne se limite pas à ces technologies. Nous évaluons et adoptons continuellement de nouveaux outils qui résolvent au mieux les défis spécifiques de nos clients."
     }
   },
   "contact": {

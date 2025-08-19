@@ -449,6 +449,112 @@
         "ongoing": "In Progress",
         "upcoming": "Upcoming"
       }
+    },
+
+    "industries": {
+      "badge": "Industries",
+      "title": {
+        "start": "Serving ",
+        "highlight": "Diverse Industries",
+        "end": " with Tailored Solutions"
+      },
+      "description": "We deliver specialized IT solutions across a wide range of sectors, each with unique challenges and requirements.",
+      "items": {
+        "retail": {
+          "title": "Retail & E-commerce",
+          "description": "Omnichannel solutions, inventory management systems, and customer experience platforms that boost sales and streamline operations."
+        },
+        "healthcare": {
+          "title": "Healthcare",
+          "description": "Secure patient management systems, telemedicine platforms, and healthcare analytics that improve care delivery while maintaining compliance."
+        },
+        "finance": {
+          "title": "Finance & Banking",
+          "description": "Secure transaction systems, regulatory compliance solutions, and customer-facing platforms that modernize financial services."
+        },
+        "education": {
+          "title": "Education",
+          "description": "Learning management systems, student information platforms, and educational technology that transforms the teaching and learning experience."
+        },
+        "corporate": {
+          "title": "Corporate Enterprise",
+          "description": "Custom enterprise applications, business intelligence solutions, and workflow automation that drive organizational efficiency."
+        },
+        "logistics": {
+          "title": "Logistics & Transportation",
+          "description": "Supply chain management, fleet tracking systems, and logistics optimization platforms that enhance operational efficiency."
+        },
+        "government": {
+          "title": "Government & Public Sector",
+          "description": "Secure public service platforms, citizen engagement solutions, and administrative systems that improve governance."
+        },
+        "manufacturing": {
+          "title": "Manufacturing",
+          "description": "Production management, quality control systems, and industrial IoT solutions that optimize manufacturing processes."
+        }
+      }
+    },
+    "timeline": {
+      "badge": "Process",
+      "title": {
+        "start": "Our ",
+        "highlight": "Project Timeline",
+        "end": " and Methodology"
+      },
+      "description": "We follow a structured approach to ensure your project is delivered on time, within budget, and to the highest quality standards.",
+      "steps": {
+        "discovery": {
+          "title": "Discovery & Analysis",
+          "description": "We work closely with you to understand your business needs, challenges, and objectives to define the project scope.",
+          "duration": "1-2 Weeks"
+        },
+        "planning": {
+          "title": "Planning & Design",
+          "description": "Creating detailed specifications, wireframes, and architectural designs to establish a clear project roadmap.",
+          "duration": "2-4 Weeks"
+        },
+        "development": {
+          "title": "Development",
+          "description": "Our engineers build your solution using agile methodologies, with regular sprints and incremental deliveries.",
+          "duration": "4-12 Weeks"
+        },
+        "testing": {
+          "title": "Quality Assurance",
+          "description": "Rigorous testing to ensure your solution is secure, robust, and performs exceptionally under all conditions.",
+          "duration": "2-3 Weeks"
+        },
+        "deployment": {
+          "title": "Deployment",
+          "description": "Careful implementation into your production environment with minimal disruption to your operations.",
+          "duration": "1-2 Weeks"
+        },
+        "support": {
+          "title": "Maintenance & Support",
+          "description": "Ongoing support, monitoring, and continuous improvement to ensure your solution remains effective.",
+          "duration": "Ongoing"
+        }
+      },
+      "note": "Timeline durations are approximate and may vary based on project complexity and specific requirements. We'll provide a detailed schedule during the planning phase."
+    },
+    "techstack": {
+      "badge": "Technology",
+      "title": {
+        "start": "Our ",
+        "highlight": "Tech Stack",
+        "end": " Expertise"
+      },
+      "description": "We leverage the most powerful and innovative technologies to build robust, scalable, and future-proof solutions for your business.",
+      "categories": {
+        "frontend": "Frontend",
+        "backend": "Backend",
+        "database": "Database",
+        "cloud": "Cloud & Infrastructure",
+        "ai": "AI & Machine Learning",
+        "mobile": "Mobile & Cross-platform",
+        "analytics": "Analytics & Business Intelligence",
+        "security": "Security & Compliance"
+      },
+      "caption": "Our expertise isn't limited to these technologies. We continuously evaluate and adopt new tools that best solve our clients' specific challenges."
     }
   },
 

@@ -46,7 +46,7 @@ export function UnderConstructionDisplay({ percentage = 35 }) {
             className={styles.progressFill}
             initial={{ width: 0 }}
             animate={{ width: `${percentage}%` }}
-            transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           />
         </div>
         <div className={styles.progressPercent}>{percentage}% {t('modal.complete')}</div>
@@ -62,7 +62,17 @@ export default function QuickViewModal({ project, onClose, isOpen }: QuickViewMo
   // Ensure we only mount the portal on client
   useEffect(() => {
     setIsMounted(true);
-  }, []);
+    
+    // Lock body scroll when modal is open
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    }
+    
+    // Cleanup function to reset body scroll
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
   
   // If not mounted or no project, don't render
   if (!isMounted || !project) return null;
@@ -77,20 +87,43 @@ export default function QuickViewModal({ project, onClose, isOpen }: QuickViewMo
     }
   };
 
-  // Animation variants
+  // Simplified animation variants for better performance
   const overlayVariants = {
     hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 0.3 } }
+    visible: { 
+      opacity: 1, 
+      transition: { 
+        duration: 0.25 
+      } 
+    }
   };
   
   const modalVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.19, 1.0, 0.22, 1.0] } },
-    exit: { opacity: 0, y: 20, transition: { duration: 0.3 } }
+    hidden: { 
+      opacity: 0, 
+      scale: 0.98, 
+      y: 10 
+    },
+    visible: { 
+      opacity: 1, 
+      scale: 1, 
+      y: 0, 
+      transition: { 
+        duration: 0.25, 
+        ease: [0.23, 1, 0.32, 1] 
+      } 
+    },
+    exit: { 
+      opacity: 0, 
+      scale: 0.98, 
+      transition: { 
+        duration: 0.2 
+      } 
+    }
   };
 
   const content = (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
       {isOpen && (
         <motion.div 
           className={styles.modalOverlay}
@@ -107,6 +140,9 @@ export default function QuickViewModal({ project, onClose, isOpen }: QuickViewMo
             animate="visible"
             exit="exit"
             onClick={(e) => e.stopPropagation()}
+            style={{ 
+              willChange: "transform, opacity" 
+            }}
           >
             <button className={styles.modalClose} onClick={onClose} aria-label={t('modal.close')}>
               <X size={24} />

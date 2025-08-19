@@ -9,6 +9,10 @@ import ProjectsGrid from '@/components/ProjectsPage/ProjectsGrid';
 import { projects } from '@/components/ProjectsPage/projects';
 import FeaturedProjects from '@/components/ProjectsPage/FeaturedProjects';
 import SectionBackground from '@/components/Layout/SectionBackground/SectionBackground';
+import IndustriesSection from '@/components/ProjectsPage/IndustriesSection';
+import ProjectTimeline from '@/components/ProjectsPage/ProjectTimeline';
+import TechStackShowcase from '@/components/ProjectsPage/TechStackShowcase';
+import ProcessSection from '@/components/ProjectsPage/ProcessSection';
 
 export default function ProjectsPage() {
   const t = useTranslations('projects');
@@ -33,6 +37,18 @@ export default function ProjectsPage() {
         <ProjectsGrid 
           projects={projects}
         />
+      </SectionBackground>
+
+      <IndustriesSection />
+
+      <SectionBackground style="subtle">
+        <ProjectTimeline />
+      </SectionBackground>
+
+      <TechStackShowcase />
+
+      <SectionBackground style="subtle">
+        <ProcessSection />
       </SectionBackground>
      
       <ContactPreview />
