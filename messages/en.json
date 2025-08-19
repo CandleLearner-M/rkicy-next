@@ -555,6 +555,50 @@
         "security": "Security & Compliance"
       },
       "caption": "Our expertise isn't limited to these technologies. We continuously evaluate and adopt new tools that best solve our clients' specific challenges."
+    },
+    "process": {
+      "badge": "Process",
+      "title": {
+        "start": "Our",
+        "highlight": "Development Process",
+        "end": "Framework"
+      },
+      "description": "We follow a proven methodology to transform your ideas into high-quality digital products that meet your business objectives and delight users.",
+      "steps": {
+        "requirements": {
+          "title": "Requirements Gathering",
+          "description": "We begin by thoroughly understanding your business needs, target audience, and project goals. This discovery phase involves stakeholder interviews, market research, and competitive analysis to establish a solid foundation for the project.",
+          "deliverable": "Comprehensive requirements document, project scope, and initial timeline estimation."
+        },
+        "planning": {
+          "title": "Strategic Planning",
+          "description": "With clear requirements in place, we develop a strategic plan that outlines the project roadmap, technology stack, resource allocation, and risk mitigation strategies to ensure smooth execution throughout the development lifecycle.",
+          "deliverable": "Detailed project plan, sprint schedule, and technical architecture documentation."
+        },
+        "design": {
+          "title": "UX/UI Design",
+          "description": "Our design team creates intuitive user experiences and visually appealing interfaces that align with your brand identity. We employ user-centered design principles and iterative processes to refine the design based on feedback.",
+          "deliverable": "Wireframes, interactive prototypes, and finalized UI design assets ready for development."
+        },
+        "development": {
+          "title": "Development & Integration",
+          "description": "Our engineers build your solution using modern development practices, writing clean, maintainable code. We employ agile methodologies with regular sprints, continuous integration, and thorough code reviews to ensure quality.",
+          "deliverable": "Functional application components, API integrations, and incremental builds for review."
+        },
+        "launch": {
+          "title": "Testing & Deployment",
+          "description": "We conduct comprehensive testing across multiple devices and platforms to identify and resolve any issues. Once approved, we handle the deployment process with careful attention to minimize disruption and ensure a smooth transition.",
+          "deliverable": "Fully tested application, deployment documentation, and knowledge transfer materials."
+        },
+        "support": {
+          "title": "Ongoing Support",
+          "description": "Our relationship doesn't end at launch. We provide ongoing technical support, regular maintenance, and continuous monitoring to ensure your solution remains secure, performant, and aligned with your evolving business needs.",
+          "deliverable": "Regular updates, performance reports, and proactive recommendations for improvements."
+        }
+      },
+      "deliverableTitle": "Key Deliverable:",
+      "progressLabel": "Step {current} of {total}",
+      "note": "Each project is unique, and we tailor our process to meet your specific requirements while maintaining our commitment to quality and timely delivery."
     }
   },
 

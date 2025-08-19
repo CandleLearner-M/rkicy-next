@@ -455,6 +455,50 @@
         "security": "Sécurité & Conformité"
       },
       "caption": "Notre expertise ne se limite pas à ces technologies. Nous évaluons et adoptons continuellement de nouveaux outils qui résolvent au mieux les défis spécifiques de nos clients."
+    },
+    "process": {
+      "badge": "Processus",
+      "title": {
+        "start": "Notre",
+        "highlight": "Processus de Développement",
+        "end": ""
+      },
+      "description": "Nous suivons une méthodologie éprouvée pour transformer vos idées en produits numériques de haute qualité qui répondent à vos objectifs commerciaux et ravissent les utilisateurs.",
+      "steps": {
+        "requirements": {
+          "title": "Collecte des Exigences",
+          "description": "Nous commençons par comprendre en profondeur vos besoins commerciaux, votre public cible et les objectifs du projet. Cette phase de découverte implique des entretiens avec les parties prenantes, des études de marché et une analyse concurrentielle pour établir une base solide pour le projet.",
+          "deliverable": "Document complet des exigences, portée du projet et estimation initiale du calendrier."
+        },
+        "planning": {
+          "title": "Planification Stratégique",
+          "description": "Avec des exigences claires en place, nous développons un plan stratégique qui définit la feuille de route du projet, la pile technologique, l'allocation des ressources et les stratégies d'atténuation des risques pour assurer une exécution fluide tout au long du cycle de développement.",
+          "deliverable": "Plan détaillé du projet, calendrier des sprints et documentation de l'architecture technique."
+        },
+        "design": {
+          "title": "Conception UX/UI",
+          "description": "Notre équipe de conception crée des expériences utilisateur intuitives et des interfaces visuellement attrayantes qui s'alignent sur l'identité de votre marque. Nous utilisons des principes de conception centrés sur l'utilisateur et des processus itératifs pour affiner la conception en fonction des retours.",
+          "deliverable": "Maquettes filaires, prototypes interactifs et éléments de conception UI finalisés prêts pour le développement."
+        },
+        "development": {
+          "title": "Développement & Intégration",
+          "description": "Nos ingénieurs construisent votre solution en utilisant des pratiques de développement modernes, en écrivant un code propre et maintenable. Nous employons des méthodologies agiles avec des sprints réguliers, une intégration continue et des revues de code approfondies pour garantir la qualité.",
+          "deliverable": "Composants fonctionnels de l'application, intégrations API et versions incrémentales pour révision."
+        },
+        "launch": {
+          "title": "Tests & Déploiement",
+          "description": "Nous effectuons des tests complets sur plusieurs appareils et plateformes pour identifier et résoudre tout problème. Une fois approuvée, nous gérons le processus de déploiement avec une attention particulière pour minimiser les perturbations et assurer une transition en douceur.",
+          "deliverable": "Application entièrement testée, documentation de déploiement et matériels de transfert de connaissances."
+        },
+        "support": {
+          "title": "Support Continu",
+          "description": "Notre relation ne se termine pas au lancement. Nous fournissons un support technique continu, une maintenance régulière et une surveillance continue pour garantir que votre solution reste sécurisée, performante et alignée avec l'évolution de vos besoins commerciaux.",
+          "deliverable": "Mises à jour régulières, rapports de performance et recommandations proactives pour les améliorations."
+        }
+      },
+      "deliverableTitle": "Livrable Clé :",
+      "progressLabel": "Étape {current} sur {total}",
+      "note": "Chaque projet est unique, et nous adaptons notre processus pour répondre à vos besoins spécifiques tout en maintenant notre engagement envers la qualité et la livraison dans les délais."
     }
   },
   "contact": {

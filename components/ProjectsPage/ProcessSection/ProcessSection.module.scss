@@ -9,6 +9,10 @@
   @media (max-width: $breakpoint-md) {
     padding: 2.5rem 0;
   }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: 2rem 0;
+  }
 }
 
 .container {
@@ -16,16 +20,20 @@
   margin: 0 auto;
   padding: 0 2rem;
   position: relative;
-  z-index: 2;
+  
+  @media (max-width: $breakpoint-md) {
+    padding: 0 1.5rem;
+  }
 }
 
+// Section Header
 .sectionHeader {
   text-align: center;
-  max-width: 700px;
+  max-width: 800px;
   margin: 0 auto 4rem;
   opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(20px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
   
   &.loaded {
     opacity: 1;
@@ -55,7 +63,7 @@
   font-size: 2.5rem;
   font-weight: 800;
   line-height: 1.2;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
   color: $text-primary;
   
   [data-theme="dark"] & {
@@ -98,113 +106,76 @@
   }
 }
 
+// Process Content Layout
 .processContent {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 0.4fr 0.6fr;
   gap: 2rem;
+  margin-bottom: 2.5rem;
   
   @media (max-width: $breakpoint-lg) {
     grid-template-columns: 1fr;
+    gap: 2rem;
   }
 }
 
+// Process Steps List
 .processStepsList {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  
-  @media (max-width: $breakpoint-lg) {
-    flex-direction: row;
-    overflow-x: auto;
-    padding-bottom: 1rem;
-    
-    &::-webkit-scrollbar {
-      height: 4px;
-    }
-    
-    &::-webkit-scrollbar-track {
-      background: rgba($text-secondary, 0.1);
-      border-radius: 2px;
-    }
-    
-    &::-webkit-scrollbar-thumb {
-      background: $primary;
-      border-radius: 2px;
-    }
-  }
 }
 
 .processStepItem {
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: 1rem 1.5rem;
+  padding: 0.85rem 1rem;
   background: white;
   border-radius: 12px;
-  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  border-left: 3px solid transparent;
   
   &:hover {
     transform: translateX(5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    
-    .stepArrow {
-      transform: translateX(3px);
-      opacity: 1;
-    }
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
   }
   
   &.active {
+    border-left: 3px solid $primary;
     background: linear-gradient(135deg, rgba($primary, 0.05), rgba($accent, 0.05));
-    border-left: 4px solid $primary;
+    
+    .stepTitle {
+      color: $primary;
+    }
     
     .stepNumber {
       background: linear-gradient(135deg, $primary, $accent);
       color: white;
     }
     
-    .stepTitle {
-      color: $primary;
-      
-      [data-theme="dark"] & {
-        color: $primary-light;
-      }
-    }
-    
     .stepArrow {
       opacity: 1;
-      transform: translateX(3px);
+      transform: translateX(0);
     }
   }
   
   [data-theme="dark"] & {
     background: $bg-secondary-dark;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     
     &:hover {
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
     }
     
     &.active {
+      border-left: 3px solid $primary-light;
       background: linear-gradient(135deg, rgba($primary, 0.1), rgba($accent, 0.1));
-      border-left: 4px solid $primary-light;
-    }
-  }
-  
-  @media (max-width: $breakpoint-lg) {
-    min-width: 200px;
-    
-    &:hover {
-      transform: translateY(-5px);
-    }
-    
-    &.active {
-      border-left: none;
-      border-bottom: 4px solid $primary;
       
-      [data-theme="dark"] & {
-        border-bottom: 4px solid $primary-light;
+      .stepTitle {
+        color: $primary-light;
       }
     }
   }
@@ -214,32 +185,34 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: rgba($primary, 0.1);
-  color: $primary;
-  font-weight: 600;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 10px;
+  background: rgba($text-secondary, 0.1);
+  color: $text-primary;
+  font-weight: 700;
+  font-size: 1.1rem;
   transition: all 0.3s ease;
   
   [data-theme="dark"] & {
-    background: rgba($primary, 0.2);
-    color: $primary-light;
+    background: rgba($text-secondary-dark, 0.15);
+    color: $text-primary-dark;
   }
 }
 
 .stepInfo {
-  flex: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex: 1;
 }
 
 .stepTitle {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 600;
   color: $text-primary;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease;
   
   [data-theme="dark"] & {
     color: $text-primary-dark;
@@ -248,50 +221,50 @@
 
 .stepArrow {
   opacity: 0;
-  color: $primary;
+  transform: translateX(-10px);
   transition: all 0.3s ease;
+  color: $primary;
   
   [data-theme="dark"] & {
     color: $primary-light;
   }
 }
 
+// Process Detail
 .processDetail {
+  position: relative;
   height: 100%;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  
-  &.active {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .detailCard {
-  height: 100%;
+  position: relative;
   background: white;
   border-radius: 16px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
   overflow: hidden;
+  height: 100%;
   display: flex;
   flex-direction: column;
   
   [data-theme="dark"] & {
     background: $bg-secondary-dark;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
   }
 }
 
 .cardHeader {
+  padding: 1.75rem 2rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   display: flex;
   align-items: center;
   gap: 1.25rem;
-  padding: 1.5rem 2rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   
   [data-theme="dark"] & {
-    border-color: rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  @media (max-width: $breakpoint-md) {
+    padding: 1.5rem;
   }
 }
 
@@ -299,8 +272,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
+  width: 50px;
+  height: 50px;
   border-radius: 12px;
   background: linear-gradient(135deg, rgba($primary, 0.1), rgba($accent, 0.1));
   color: $primary;
@@ -314,6 +287,7 @@
 .detailTitle {
   font-size: 1.4rem;
   font-weight: 700;
+  margin: 0;
   color: $text-primary;
   
   [data-theme="dark"] & {
@@ -322,246 +296,109 @@
 }
 
 .cardContent {
-  flex: 1;
   padding: 2rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  
+  @media (max-width: $breakpoint-md) {
+    padding: 1.5rem;
+  }
 }
 
 .detailDescription {
   font-size: 1.05rem;
   line-height: 1.7;
   color: $text-secondary;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   
   [data-theme="dark"] & {
     color: $text-secondary-dark;
   }
 }
 
-.featuresList {
-  display: flex;
-  flex-direction: column;
-  gap: 0.875rem;
-  margin: 1.5rem 0;
-}
-
-.featureItem {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-  
-  .featureIcon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 24px;
-    height: 24px;
-    min-width: 24px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, $primary, $accent);
-    color: white;
-    margin-top: 0.2rem;
-  }
-  
-  .featureText {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: $text-secondary;
-    
-    [data-theme="dark"] & {
-      color: $text-secondary-dark;
-    }
-  }
-}
-
-.imageContainer {
-  margin: 1.5rem 0;
+.deliverableBox {
+  background: linear-gradient(135deg, rgba($primary, 0.04), rgba($accent, 0.04));
   border-radius: 12px;
-  overflow: hidden;
-  position: relative;
-  height: 220px;
+  padding: 1.5rem;
+  margin-top: auto;
   
-  img {
-    object-fit: cover;
-    transition: transform 0.6s ease;
-  }
-  
-  &:hover img {
-    transform: scale(1.05);
-  }
-  
-  @media (max-width: $breakpoint-sm) {
-    height: 180px;
+  [data-theme="dark"] & {
+    background: linear-gradient(135deg, rgba($primary, 0.08), rgba($accent, 0.08));
   }
 }
 
-.detailFooter {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 2rem;
+.deliverableTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 0.75rem;
+  color: $text-primary;
+  
+  [data-theme="dark"] & {
+    color: $text-primary-dark;
+  }
 }
 
-.techTags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+.deliverableText {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: $text-secondary;
+  margin: 0;
+  
+  [data-theme="dark"] & {
+    color: $text-secondary-dark;
+  }
 }
 
-.techTag {
-  display: inline-block;
-  padding: 0.35rem 0.75rem;
-  background: rgba($text-secondary, 0.08);
-  border-radius: 20px;
-  font-size: 0.8rem;
+.progressBar {
+  height: 4px;
+  background: rgba($text-secondary, 0.1);
+  
+  [data-theme="dark"] & {
+    background: rgba($text-secondary-dark, 0.1);
+  }
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(to right, $primary, $accent);
+  border-radius: 0 2px 2px 0;
+  transition: width 0.5s ease;
+}
+
+.progressLabel {
+  padding: 0.75rem 2rem;
+  text-align: right;
+  font-size: 0.85rem;
   color: $text-secondary;
   
   [data-theme="dark"] & {
-    background: rgba($text-secondary-dark, 0.15);
     color: $text-secondary-dark;
   }
-}
-
-.detailAction {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.25rem;
-  background: linear-gradient(135deg, $primary, $accent);
-  border-radius: 8px;
-  color: white;
-  font-weight: 500;
-  text-decoration: none;
-  transition: all 0.3s ease;
   
-  &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba($primary, 0.25);
-    
-    svg {
-      transform: translateX(3px);
-    }
-  }
-  
-  svg {
-    transition: transform 0.3s ease;
+  @media (max-width: $breakpoint-md) {
+    padding: 0.75rem 1.5rem;
   }
 }
 
-.processNavigation {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 2rem;
+// Process Note
+.processNote {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
   
-  @media (max-width: $breakpoint-lg) {
-    margin-top: 1rem;
-  }
-}
-
-.navButton {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.25rem;
-  border-radius: 8px;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  
-  &.prevButton {
-    background: rgba($text-secondary, 0.1);
-    color: $text-primary;
-    
-    &:hover {
-      background: rgba($text-secondary, 0.15);
-    }
+  p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: $text-secondary;
+    padding: 1rem 1.5rem;
+    background: rgba($text-secondary, 0.05);
+    border-radius: 10px;
+    display: inline-block;
     
     [data-theme="dark"] & {
-      background: rgba($text-secondary-dark, 0.15);
-      color: $text-primary-dark;
-      
-      &:hover {
-        background: rgba($text-secondary-dark, 0.2);
-      }
+      color: $text-secondary-dark;
+      background: rgba($text-secondary-dark, 0.1);
     }
-  }
-  
-  &.nextButton {
-    background: linear-gradient(135deg, $primary, $accent);
-    color: white;
-    
-    &:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba($primary, 0.25);
-    }
-  }
-  
-  &.disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    
-    &:hover {
-      transform: none;
-      box-shadow: none;
-    }
-  }
-}
-
-.decorElements {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.decorCircle {
-  position: absolute;
-  border-radius: 50%;
-  
-  &.circle1 {
-    top: 10%;
-    right: 5%;
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba($primary, 0.06) 0%, rgba($primary, 0) 70%);
-    
-    [data-theme="dark"] & {
-      background: radial-gradient(circle, rgba($primary, 0.08) 0%, rgba($primary, 0) 70%);
-    }
-  }
-  
-  &.circle2 {
-    bottom: 15%;
-    left: 0;
-    width: 250px;
-    height: 250px;
-    background: radial-gradient(circle, rgba($accent, 0.05) 0%, rgba($accent, 0) 70%);
-    
-    [data-theme="dark"] & {
-      background: radial-gradient(circle, rgba($accent, 0.07) 0%, rgba($accent, 0) 70%);
-    }
-  }
-}
-
-.decorPattern {
-  position: absolute;
-  top: 30%;
-  left: 5%;
-  width: 200px;
-  height: 200px;
-  background-image: 
-    linear-gradient(rgba($primary, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba($primary, 0.03) 1px, transparent 1px);
-  background-size: 20px 20px;
-  transform: rotate(10deg);
-  opacity: 0.7;
-  
-  [data-theme="dark"] & {
-    background-image: 
-      linear-gradient(rgba($primary, 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba($primary, 0.05) 1px, transparent 1px);
-    opacity: 0.4;
   }
 }
