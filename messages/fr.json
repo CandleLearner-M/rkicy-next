@@ -160,6 +160,10 @@
   
   "projects": {
     "grid": {
+      "exploreProject": "Explorer le projet",
+      "viewDetailsAriaLabel": "Voir les détails du projet",
+      "comingSoon":"Bientôt disponible",
+      "pendingProjectMessage": "Ce projet est actuellement en attente.",
       "badge": "Explorez nos réalisations",
       "quickViewAriaLabel": "Aperçu rapide",
       "title": {
@@ -222,7 +226,7 @@
       "close": "Fermer la fenêtre",
       "technologies": "Technologies Utilisées",
       "keyMetrics": "Indicateurs Clés",
-      "viewFullDetails": "Voir les Détails Complets du Projet"
+      "viewFullDetails": "Voir le Projet"
     },
     "featured": {
       "remainingTechnologies": "+{count} autres technologies",

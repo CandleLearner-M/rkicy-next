@@ -221,10 +221,22 @@ export default function QuickViewModal({ project, onClose, isOpen }: QuickViewMo
             </div>
             
             <div className={styles.modalFooter}>
-              <Link href={project.slug} className={styles.viewFullButton}>
+              
+              {project.status === 'completed' ? (
+                      <Link href={project.slug} className={styles.viewFullButton} target='blank'>
                 <span>{t('modal.viewFullDetails')}</span>
                 <ArrowRight size={16} className={styles.arrowIcon} />
               </Link>
+                    ) : (
+                      <button
+                        className={`${styles.viewFullButton} ${styles.disabled}`}
+                        disabled
+                        title={t('grid.pendingProjectMessage')}
+                      >
+                        <span>{t('grid.comingSoon')}</span>
+                        <Clock size={14} />
+                      </button>
+                    )}
             </div>
           </motion.div>
         </motion.div>
