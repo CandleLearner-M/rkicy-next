@@ -68,16 +68,77 @@
         "description1": "Fondée en 2023, Rkicy Technology combine l'innovation de pointe avec une connaissance approfondie du marché local pour offrir des solutions IT sur mesure aux entreprises marocaines et nord-africaines de divers secteurs.",
         "description2": "Nous sommes spécialisés dans les technologies d'entreprise, de l'IA au matériel informatique, aidant les organisations de toutes tailles à naviguer dans leur parcours de transformation numérique avec des solutions qui répondent aux défis et opportunités spécifiques de la région.",
         "stats": {
-          "clients": "50+",
+          "clients": "15+",
           "clientsLabel": "Clients Satisfaits",
-          "projects": "100+",
+          "projects": "20+",
           "projectsLabel": "Projets Réalisés",
-          "experts": "25+",
+          "experts": "5+",
           "expertsLabel": "Experts Certifiés"
         },
         "clientRetention": "Taux de Fidélisation",
         "techPartners": "Partenaires Technologiques"
       },
+      "values": {
+  "badge": "Valeurs Fondamentales",
+  "title": {
+    "start": "Les Principes Qui ",
+    "highlight": "Nous Définissent"
+  },
+  "description": "Chez Rkicy Technology, nous sommes guidés par un ensemble de principes fondamentaux qui façonnent notre approche des affaires et de la technologie. Ces valeurs guident notre processus de prise de décision et reflètent notre engagement envers l'excellence et le succès de nos clients.",
+  "items": {
+    "expertise": {
+      "title": "Expertise",
+      "description": "Notre équipe apporte des années d'expérience dans les solutions informatiques, le développement d'IA et le matériel d'entreprise, garantissant des résultats exceptionnels pour les entreprises à travers le Maroc."
+    },
+    "innovation": {
+      "title": "Innovation",
+      "description": "Nous restons à la pointe de la technologie pour offrir des solutions avant-gardistes qui répondent aux défis numériques actuels et futurs de nos clients."
+    },
+    "partnership": {
+      "title": "Partenariat",
+      "description": "Nous construisons des relations durables avec nos clients, devenant une véritable extension de leur équipe tout au long de leur parcours de transformation numérique."
+    }
+  }
+},
+"timeline": {
+  "badge": "Notre Parcours",
+  "title": {
+    "highlight": "L'Histoire",
+    "end": "de Rkicy"
+  },
+  "description": "Depuis notre fondation en 2023, nous nous sommes donné pour mission de transformer le paysage technologique marocain. Voici quelques étapes clés de notre parcours jusqu'à présent.",
+  "events": {
+    "founding": {
+      "date": "Janvier 2023",
+      "title": "Fondation",
+      "description": "Rkicy Technology a été établie à Rabat avec la vision d'apporter des solutions informatiques de niveau entreprise au marché marocain."
+    },
+    "firstClient": {
+      "date": "Mars 2023",
+      "title": "Premier Client Majeur",
+      "description": "Partenariat avec une institution financière de premier plan pour mettre en œuvre une stratégie globale de transformation numérique."
+    },
+    "expansion": {
+      "date": "Août 2023",
+      "title": "Expansion de l'Équipe",
+      "description": "Croissance jusqu'à une équipe de 15 professionnels certifiés dans les domaines de l'IA, de l'infrastructure cloud et des solutions matérielles."
+    },
+    "award": {
+      "date": "Novembre 2023",
+      "title": "Reconnaissance de l'Industrie",
+      "description": "Réception du prix 'Innovateur Technologique de l'Année' au Sommet Numérique du Maroc."
+    },
+    "growth": {
+      "date": "Avril 2024",
+      "title": "Croissance Stratégique",
+      "description": "Élargissement des offres de services et formation de partenariats clés avec des leaders technologiques mondiaux."
+    }
+  },
+  "future": {
+    "title": "Vers l'Avenir",
+    "description": "Alors que nous continuons à croître, notre mission reste la même : permettre aux entreprises marocaines de disposer de la technologie et de l'expertise dont elles ont besoin pour rivaliser dans l'économie numérique mondiale."
+  }
+},
 
       "team": {
         "badge": "Notre Équipe",
