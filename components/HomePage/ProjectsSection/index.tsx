@@ -38,6 +38,8 @@ export default function ProjectsSection() {
         </svg>
       ),
       logo: '/projects/paycov-logo.png',
+      background: "#ffffff",
+      filter: "none",
       tags: [t('tags.fintech'), t('tags.payments')],
       link: '/projects/paycov'
     },
@@ -57,7 +59,9 @@ export default function ProjectsSection() {
           <path d="M6.5 13.5L10.5 17.5" stroke="currentColor" strokeWidth="1.5" />
         </svg>
       ),
-      logo: '/projects/finish3.png',
+      logo: '/projects/finish3.svg',
+      background: "#000000",
+      filter: "invert(100%) sepia(0%) saturate(7491%) hue-rotate(127deg) brightness(102%) contrast(99%)",
       tags: [t('tags.productivity'), t('tags.task')],
       link: '/projects/finish3'
     },
@@ -75,6 +79,8 @@ export default function ProjectsSection() {
         </svg>
       ),
       logo: '/projects/bato.png',
+      background: "#ffffff",
+      filter: "none",
       tags: [t('tags.rentals'), t('tags.tourism')],
       link: '/projects/bato'
     },
@@ -90,6 +96,8 @@ export default function ProjectsSection() {
         </svg>
       ),
       logo: '/projects/nounours.png',
+      background: "#ffffff",
+      filter: "none",
       tags: [t('tags.ecommerce'), t('tags.retail'), t('tags.toys')],
       link: 'https://nounours.ma/'
     }
@@ -120,9 +128,10 @@ export default function ProjectsSection() {
                 className={`${styles.projectCard} ${project.logo ? styles.hasLogo : ''}`}
                 variants={projectCardVariants}
                 whileHover="hover"
-              >
+                >
                 {project.logo && (
                   <Image 
+                  style={{ backgroundColor: project.background }}
                     src={project.logo}
                     alt={`${project.title} logo`}
                     width={48}

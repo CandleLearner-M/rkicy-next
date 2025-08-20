@@ -13,6 +13,7 @@ import IndustriesSection from '@/components/ProjectsPage/IndustriesSection';
 import ProjectTimeline from '@/components/ProjectsPage/ProjectTimeline';
 import TechStackShowcase from '@/components/ProjectsPage/TechStackShowcase';
 import ProcessSection from '@/components/ProjectsPage/ProcessSection';
+import Finish3Feature from '@/components/ProjectsPage/Finish3Feature';
 
 export default function ProjectsPage() {
   const t = useTranslations('projects');
@@ -30,6 +31,8 @@ export default function ProjectsPage() {
           { labelKey: "page", href: "/projects", active: true }
         ]}
       />
+
+        <Finish3Feature />
 
       <FeaturedProjects />
       
