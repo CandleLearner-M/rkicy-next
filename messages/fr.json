@@ -1084,6 +1084,15 @@
       "badge": "Contactez-Nous",
       "title": "Construisons Votre <highlight>Avenir</highlight> Technologique",
       "subtitle": "Connectez-vous avec notre équipe d'experts pour discuter des besoins technologiques de votre entreprise"
+    },
+    
+    "projectDetail": {
+      "project": "Projet",
+      "projects": "Projets",
+      "home": "Accueil",
+      "badge": "Détails du Projet",
+      "title": "Explorez les <highlight>Détails</highlight> du Projet",
+      "subtitle": "Découvrez les détails complets, technologies et résultats de nos implémentations de projets réussies"
     }
   }
 }

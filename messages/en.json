@@ -1098,6 +1098,15 @@
       "badge": "Get In Touch",
       "title": "Let's Build Your Technology <highlight>Future</highlight>",
       "subtitle": "Connect with our expert team to discuss your business requirements and technology needs"
+    },
+    
+    "projectDetail": {
+      "project": "Project",
+      "projects": "Projects",
+      "home": "Home",
+      "badge": "Project Details",
+      "title": "Explore Project <highlight>Details</highlight>",
+      "subtitle": "Discover the comprehensive details, technologies, and outcomes of our successful project implementations"
     }
   }
   
