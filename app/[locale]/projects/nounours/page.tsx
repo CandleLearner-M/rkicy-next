@@ -11,7 +11,7 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps) {
   const { locale } = await params;
-  const project = projects.find(p => p.id === 'nounours-ma');
+  const project = projects.find(p => p.id === 'nounours');
   if (!project) return {};
   
   const t = await getTranslations({ locale, namespace: 'featured.projects.nounours' });
@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: PageProps) {
 }
 
 export default function NounoursProjectPage() {
-  const project = projects.find(p => p.id === 'nounours-ma');
+  const project = projects.find(p => p.id === 'nounours');
   
   if (!project) {
     notFound();

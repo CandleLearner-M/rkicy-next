@@ -16,7 +16,6 @@ import {
   ChevronLeft
 } from 'lucide-react';
 import { Project } from '../projects';
-import PageHeader from '@/components/Layout/PageHeader';
 import SectionBackground from '@/components/Layout/SectionBackground/SectionBackground';
 import ContactPreview from '@/components/HomePage/ContactPreview';
 import styles from './ProjectDetail.module.scss';
@@ -28,7 +27,7 @@ interface ProjectDetailProps {
 const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
-  const t = useTranslations();
+  const t = useTranslations('projects.featured.projects');
 
   useEffect(() => {
     setIsLoaded(true);
@@ -36,17 +35,33 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
 
   return (
     <main className={styles.projectDetailPage}>
-      <PageHeader 
-        titleKey="title"
-        subtitleKey="subtitle"
-        badgeKey="badge"
-        namespace="projectDetail"
-        breadcrumbs={[
-          { labelKey: "home", href: "/" },
-          { labelKey: "projects", href: "/projects" },
-          { labelKey: "project", href: `/projects/${project.id}`, active: true }
-        ]}
-      />
+      {/* Custom Project Header */}
+      <section className={styles.projectHeaderSection}>
+        <div className={styles.container}>
+          <div className={styles.heroContent}>
+            <div className={styles.breadcrumbsWrapper}>
+              <nav className={styles.breadcrumbs}>
+                <Link href="/" className={styles.breadcrumbLink}>Home</Link>
+                <span className={styles.breadcrumbSeparator}>/</span>
+                <Link href="/projects" className={styles.breadcrumbLink}>Projects</Link>
+                <span className={styles.breadcrumbSeparator}>/</span>
+                <span className={styles.breadcrumbCurrent}>{t(`${project.id}.title`)}</span>
+              </nav>
+            </div>
+            
+            <div className={styles.headerBadge}>Project Details</div>
+            <h1 className={styles.headerTitle}>
+              {t(`${project.id}.title`)}
+            </h1>
+            <p className={styles.headerSubtitle}>
+              {project.detailedDescriptionKey ? 
+                t(`${project.id}.detailedDescription`) : 
+                t(`${project.id}.description`)
+              }
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* Project Hero Section */}
       <section className={styles.projectHero}>
@@ -62,7 +77,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
               
               <div className={`${styles.projectMeta} ${isLoaded ? styles.loaded : ''}`}>
                 <span className={styles.projectBadge}>
-                  {t(project.categoryKey)}
+                  {t(`${project.id}.category`)}
                 </span>
                 <span className={styles.projectYear}>{project.year}</span>
                 <span className={styles.projectStatus}>
@@ -71,13 +86,13 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
               </div>
 
               <h1 className={`${styles.projectTitle} ${isLoaded ? styles.loaded : ''}`}>
-                {t(project.titleKey)}
+                {t(`${project.id}.title`)}
               </h1>
 
               <p className={`${styles.projectDescription} ${isLoaded ? styles.loaded : ''}`}>
                 {project.detailedDescriptionKey ? 
-                  t(project.detailedDescriptionKey) : 
-                  t(project.descriptionKey)
+                  t(`${project.id}.detailedDescription`) : 
+                  t(`${project.id}.description`)
                 }
               </p>
 
@@ -133,7 +148,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
                 <div className={styles.projectImage}>
                   <Image
                     src={project.image}
-                    alt={t(project.titleKey)}
+                    alt={t(`${project.id}.title`)}
                     fill
                     style={{ objectFit: 'cover' }}
                     priority
@@ -219,7 +234,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
                 <div className={styles.mainImage}>
                   <Image
                     src={project.gallery[activeImageIndex]}
-                    alt={`${t(project.titleKey)} screenshot ${activeImageIndex + 1}`}
+                    alt={`${t(`${project.id}.title`)} screenshot ${activeImageIndex + 1}`}
                     fill
                     style={{ objectFit: 'cover' }}
                   />
@@ -235,7 +250,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
                     >
                       <Image
                         src={image}
-                        alt={`${t(project.titleKey)} thumbnail ${index + 1}`}
+                        alt={`${t(`${project.id}.title`)} thumbnail ${index + 1}`}
                         fill
                         style={{ objectFit: 'cover' }}
                       />
