@@ -7,10 +7,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { CheckCircle, ArrowRight, Calendar, Zap, Smartphone, Layout } from "lucide-react";
 import styles from "./Finish3Feature.module.scss";
+import { useScreenSize } from "@/utils/useScreenSize";
 
 export default function Finish3Feature() {
   const [isLoaded, setIsLoaded] = useState(false);
   const t = useTranslations("projects");
+
+  const {isMobile, isDesktop} = useScreenSize();
 
   // Features for the feature list
   const features = [
@@ -97,6 +100,22 @@ export default function Finish3Feature() {
             <motion.h2 variants={itemVariants} className={styles.projectTitle}>
               Introducing <span className={styles.highlight}>Finish3</span> — Your Daily "Top 3" Task Mastery Tool
             </motion.h2>
+
+            {!isDesktop && <motion.div variants={itemVariants} className={styles.mockupContainer}>
+              <div className={styles.mockupImage}>
+                <Image
+                  src="/projects/finish3/mockup.jpg" 
+                  alt="Finish3 App Interface"
+                  width={600}
+                  height={300}
+                  className={styles.phoneMockup}
+
+                  style={{marginBottom: "2rem"}}
+                />
+                <div className={styles.reflectionEffect}></div>
+                <div className={styles.glowEffect}></div>
+              </div>
+            </motion.div>}
             
             <motion.p variants={itemVariants} className={styles.projectDescription}>
               Built from the ground up by Rkicy Technology, Finish3 is more than just a productivity 
@@ -115,7 +134,7 @@ export default function Finish3Feature() {
               ))}
             </motion.div>
             
-            <motion.div variants={itemVariants} className={styles.ctaContainer}>
+            {isDesktop && <motion.div variants={itemVariants} className={styles.ctaContainer}>
               <Link href="/projects/finish3" className={styles.primaryCta}>
                 <span>Explore Project</span>
                 <ArrowRight size={16} />
@@ -124,7 +143,7 @@ export default function Finish3Feature() {
                 <span>Visit Website</span>
                 <ArrowRight size={16} />
               </a>
-            </motion.div>
+            </motion.div>}
           </motion.div>
 
           {/* Right Side - Mockup and Features */}
@@ -134,7 +153,7 @@ export default function Finish3Feature() {
             initial="hidden"
             animate={isLoaded ? "visible" : "hidden"}
           >
-            <motion.div variants={itemVariants} className={styles.mockupContainer}>
+            {isDesktop && <motion.div variants={itemVariants} className={styles.mockupContainer}>
               <div className={styles.mockupImage}>
                 <Image
                   src="/projects/finish3/mockup.jpg" 
@@ -146,7 +165,7 @@ export default function Finish3Feature() {
                 <div className={styles.reflectionEffect}></div>
                 <div className={styles.glowEffect}></div>
               </div>
-            </motion.div>
+            </motion.div>}
 
             <motion.div variants={itemVariants} className={styles.featuresContainer}>
               <div className={styles.featureList}>
@@ -168,6 +187,16 @@ export default function Finish3Feature() {
                   </motion.div>
                 ))}
               </div>
+              {!isDesktop && <motion.div variants={itemVariants} className={styles.ctaContainer} style={{marginTop: "2rem", justifyContent: "center", alignItems: "center"}}>
+              <Link href="/projects/finish3" className={styles.primaryCta}>
+                <span>Explore Project</span>
+                <ArrowRight size={16} />
+              </Link>
+              <a href="https://finish3.app" target="_blank" rel="noopener noreferrer" className={styles.secondaryCta}>
+                <span>Visit Website</span>
+                <ArrowRight size={16} />
+              </a>
+            </motion.div>}
               <div className={styles.tagline}>
                 <span>Built with Care by Rkicy Technology</span>
               </div>
