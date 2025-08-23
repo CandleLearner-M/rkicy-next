@@ -1,5 +1,5 @@
   // This file defines the projects data structure used across the site
-  import { Calendar, CheckCircle, CreditCard, Globe, Shield, ShoppingBag, Users, Wallet, Zap } from 'lucide-react';
+  import { Calendar, CheckCircle, Clock, CreditCard, Globe, Shield, ShoppingBag, Users, Wallet, Zap } from 'lucide-react';
   import { JSX } from 'react';
 
   export interface Project {
@@ -139,7 +139,7 @@
       image: "/projects/finish3/mockup.jpg",
       categoryKey: 'featured.projects.finish3.category',
       category: "productivity",
-      technologies: ["React", "Node.js", "Firebase", "Mobile"],
+      technologies: ["React", "Next.js", "PostgreSQL", "Express.js"],
       stats: [
         { icon: <CheckCircle size={18} />, valueKey: 'featured.projects.finish3.stats.tasks.value', labelKey: 'featured.projects.finish3.stats.tasks.label' },
         { icon: <Zap size={18} />, valueKey: 'featured.projects.finish3.stats.sync.value', labelKey: 'featured.projects.finish3.stats.sync.label' },
@@ -151,7 +151,7 @@
       duration: "6 months",
       year: 2023,
       featured: false,
-      status: 'ongoing',
+      status: 'completed',
       industry: "Productivity Software",
       teamSize: 5,
       gallery: [
@@ -172,5 +172,53 @@
         "featured.projects.finish3.outcomes.2",
         "featured.projects.finish3.outcomes.3"
       ]
+    },
+    {
+      id: "ufc-countdown",
+      titleKey: 'featured.projects.ufcCountdown.title',
+      descriptionKey: 'featured.projects.ufcCountdown.description',
+      detailedDescriptionKey: 'featured.projects.ufcCountdown.detailedDescription',
+      image: "/projects/ufc-countdown/cover.png",
+      categoryKey: 'featured.projects.ufcCountdown.category',
+      category: "Sports & Entertainment",
+      technologies: ["Next.js", "React", "Tailwind CSS", "Real-Time API Integration"],
+      stats: [
+        { icon: <Clock size={18} />, valueKey: 'featured.projects.ufcCountdown.stats.events.value', labelKey: 'featured.projects.ufcCountdown.stats.events.label' },
+        { icon: <Globe size={18} />, valueKey: 'featured.projects.ufcCountdown.stats.reach.value', labelKey: 'featured.projects.ufcCountdown.stats.reach.label' },
+        { icon: <Zap size={18} />, valueKey: 'featured.projects.ufcCountdown.stats.speed.value', labelKey: 'featured.projects.ufcCountdown.stats.speed.label' }
+      ],
+      slug: "https://ufcCountdown.com/",
+      logo: '/projects/ufc-countdown.png',
+      client: "Internal Product",
+      duration: "2 months",
+      year: 2024,
+      featured: true,
+      status: 'completed',
+      industry: "Sports & Media",
+      teamSize: 3,
+      gallery: [
+        "/projects/ufc-countdown/cover.png"
+      ],
+      testimonial: {
+        quoteKey: 'featured.projects.ufcCountdown.testimonial.quote',
+        authorKey: 'featured.projects.ufcCountdown.testimonial.author',
+        roleKey: 'featured.projects.ufcCountdown.testimonial.role'
+      },
+      challenges: [
+        "featured.projects.ufcCountdown.challenges.1",
+        "featured.projects.ufcCountdown.challenges.2",
+        "featured.projects.ufcCountdown.challenges.3"
+      ],
+      solutions: [
+        "featured.projects.ufcCountdown.solutions.1",
+        "featured.projects.ufcCountdown.solutions.2",
+        "featured.projects.ufcCountdown.solutions.3"
+      ],
+      outcomes: [
+        "featured.projects.ufcCountdown.outcomes.1",
+        "featured.projects.ufcCountdown.outcomes.2",
+        "featured.projects.ufcCountdown.outcomes.3"
+      ]
     }
+
   ];

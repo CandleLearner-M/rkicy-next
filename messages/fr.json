@@ -380,38 +380,69 @@
           }
         },
         "finish3": {
-          "title": "Finish3 : Se concentrer. Terminer. Recommencer.",
-          "description": "Application de productivité minimaliste fondée sur un principe unique : terminer chaque jour vos 3 tâches les plus importantes—réinitialisation, report automatique et constance durable.",
-          "detailedDescription": "Vue d’Ensemble & Vision\nFinish3 est une application moderne et épurée de tâches et de focus, construite sur un pilier comportemental : « Terminez vos 3 tâches quotidiennes essentielles—chaque jour. » En limitant la priorité visible, elle réduit la charge cognitive, évite la surcharge et renforce une habitude durable d’accomplissement quotidien. Chaque matin, la liste repart à zéro; les tâches non terminées sont intelligemment reportées pour qu’aucune ne se perde.\n\nRésumé Produit\nObjectif : Aider l’utilisateur à terminer systématiquement ses 3 tâches critiques.\nPlateformes : Web, iOS, Android (synchronisation temps réel multi-appareils).\nUtilisateurs Cibles : Freelances, entrepreneurs, professionnels focalisés, créateurs.\n\nFonctionnalités Clés\n• Tableau de bord minimaliste et intentionnel.\n• Réinitialisation quotidienne + report automatique des tâches non achevées.\n• Synchronisation temps réel multi-appareils.\n• Suivi de progression & analytics légers.\n• Gestion rapide et simple des tâches.\n• Collaboration d’équipe (bientôt disponible).\n\nTarification & Plans\n• Gratuit : 0 $ – Jusqu’à 50 tâches / mois.\n• Pro : 2,99 $ / mois – Tâches illimitées + analytics complètes.\n• Équipes (À venir) : Tableaux partagés, permissions, administration.\n\nTémoignages\n« Finish3 a transformé ma manière de planifier ma journée. » – Product Designer\n« Ces trois tâches me gardent ultra-focalisé. » – Chef de Projet\n« Simple et efficace. » – Responsable Marketing\n\nTechnologie & Feuille de Route\nStack : React, Node.js, Firebase, intégrations BI.\nT3 2025 : Lancement offres Équipe.\nT4 2025 : Priorisation IA + intégrations calendrier.\n2026 : Mode hors-ligne + support wearables.\n\nÀ propos de Rkicy Technology\nFondée en 2023 à Casablanca, Rkicy développe logiciels de productivité, solutions IA/BI et intégrations ERP/CRM—alliant excellence technique et design centré utilisateur.\n\nPositionnement Concurrentiel\nFinish3 privilégie la clarté plutôt que la complexité. Il se positionne face à des outils plus lourds (Todoist, ClickUp, Notion) en restant volontairement minimaliste et orienté habitude. La conception comportementale stimule l’engagement récurrent.\n\nForces & Opportunités\nForces : UX focalisée, synchronisation fluide, prix accessible.\nOpportunités : Outils d’équipe, gamification, coaching de productivité par IA.\n\nIntégration sur rkicy.com\nAjouter une étude de cas « Finish3 by Rkicy » avec visuels, feuille de route et changelog—en soulignant le développement interne et l’évolution produit.",
+          "title": "Finish3 — Votre Outil Quotidien pour Maîtriser Vos 3 Tâches Prioritaires",
+          "description": "Finish3 est bien plus qu’une simple application de productivité—c’est votre système quotidien de focalisation. Conçu pour vous aider à accomplir vos trois tâches les plus importantes chaque jour, il allie science comportementale, minimalisme et formation d’habitudes.",
+          "detailedDescription": "Vue d’ensemble & Vision\nFinish3 est un outil de productivité ciblé, développé par Rkicy Technology pour répondre à une question simple : « Quelles sont les trois tâches qui définiront votre journée ? ». En limitant le choix à trois, Finish3 élimine la surcharge, favorise la réussite quotidienne et renforce la formation d’habitudes intentionnelles.\n\nFonctionnalités Clés\n• Simplicité élégante — Interface minimaliste affichant uniquement vos 3 tâches prioritaires.\n• Rollover intelligent — Les tâches non terminées sont automatiquement reportées au lendemain.\n• Réinitialisation quotidienne — Nouveau départ chaque matin.\n• Synchronisation en temps réel sur tous vos appareils.\n• Analyses basées sur les données — Suivi des séries d’achèvements, taux de réussite et tendances de progression.\n• Fiabilité intégrée — Interface réactive et backend stable.\n\nTarifs & Plans\n• Gratuit : 0 € – Jusqu’à 50 tâches/mois.\n• Pro : 2,99 €/mois – Tâches illimitées + analyses complètes.\n• Équipes (bientôt disponible) : Tableaux partagés et contrôles avancés.\n\nTechnologie & Feuille de Route\nStack : React, Node.js, Firebase.\nT3 2025 : Fonctionnalités pour les équipes.\nT4 2025 : Priorisation basée sur l’IA + intégrations calendrier.\n2026 : Mode hors ligne + compatibilité avec objets connectés.\n\nÀ propos de Rkicy Technology\nFondée en 2023 à Casablanca, Rkicy développe des logiciels de productivité intelligents et des solutions d’entreprise avec un engagement envers la clarté, la performance et l’excellence du design.\n\nPosition Concurrentielle\nContrairement aux outils lourds comme ClickUp ou Notion, Finish3 est volontairement minimaliste, utilisant le design comportemental pour assurer l’engagement et des résultats constants.\n\nProposition de Valeur\nFinish3 vous aide à accomplir—et non seulement à planifier—les tâches les plus importantes de votre journée, un jour à la fois.",
           "category": "Productivité & Gestion des Tâches",
           "stats": {
             "tasks": {
               "value": "Top 3 / Jour",
-              "label": "Cadre de Focus"
+              "label": "Cadre de Focalisation"
             },
             "sync": {
-              "value": "Temps Réel Multi-Appareils",
-              "label": "Sync"
+              "value": "Multi-Appareils en Temps Réel",
+              "label": "Synchronisation"
             },
             "rollover": {
               "value": "Report Automatique",
-              "label": "Report"
+              "label": "Rollover"
             }
           },
           "challenges": {
-            "1": "Surcharge décisionnelle et listes illimitées réduisant l’exécution quotidienne réelle.",
-            "2": "Habitude de focus instable faute d’un flux léger, contraint et multi-plateforme.",
-            "3": "Outils existants trop complexes ou sans analytics comportementales pour encourager la constance."
+            "1": "Les utilisateurs souffrent de fatigue décisionnelle et de surcharge liée aux listes de tâches infinies, réduisant la qualité d’exécution.",
+            "2": "Difficulté à créer une habitude quotidienne durable avec les outils existants trop complexes.",
+            "3": "Les applications actuelles manquent de renforcement comportemental et d’analyses pour un suivi réel des progrès."
           },
           "solutions": {
-            "1": "Application du principe « Top 3 » quotidien avec interface minimaliste et contrainte intentionnelle.",
-            "2": "Synchronisation temps réel multi-appareils + réinitialisation quotidienne et report intelligent.",
-            "3": "Analytics de progression et feuille de route extensible (équipes, priorisation IA, intégration calendrier)."
+            "1": "Mise en place du principe « Top 3 » avec une interface claire et sans distractions.",
+            "2": "Intégration d’une réinitialisation quotidienne automatique avec rollover intelligent et synchronisation multi-appareils en temps réel.",
+            "3": "Ajout d’analyses, suivi des séries et future priorisation basée sur l’IA pour une focalisation adaptative."
           },
           "outcomes": {
-            "1": "Taux de complétion quotidien accru grâce à la priorisation forcée et à la réduction de la charge cognitive.",
-            "2": "Formation d’une habitude de focus répétable soutenue par réinitialisation + report.",
-            "3": "Positionnement différencié comme alternative fluide aux suites de productivité surchargées."
+            "1": "Amélioration des taux d’accomplissement quotidien grâce à une contrainte intentionnelle.",
+            "2": "Les utilisateurs développent une habitude de focalisation répétable soutenue par les mécanismes de rollover et de réinitialisation.",
+            "3": "Finish3 se positionne comme une alternative minimaliste mais puissante face aux suites de productivité complexes."
+          }
+        },
+        "ufcCountdown": {
+          "title": "UFCCountdown.com",
+          "description": "Un outil en temps réel pour suivre les événements UFC, conçu pour la rapidité, la simplicité et l'engagement.",
+          "detailedDescription": "Chez RKICY, nous transformons rapidement les idées en produits numériques percutants. UFCCountdown.com en est la preuve. Cette plateforme permet aux fans de MMA de suivre les événements UFC à venir, les programmes des combats et les comptes à rebours en direct. Grâce à un design épuré, des mises à jour en temps réel et une expérience proche d’une application mobile, nous avons créé une destination fiable et engageante pour les fans du monde entier. Du concept au lancement, notre équipe a livré avec rapidité et précision, sans compromis sur la qualité.",
+          "category": "Sports & Divertissement",
+          "stats": {
+            "events": { "value": "Temps Réel", "label": "Mises à Jour" },
+            "reach": { "value": "Mondial", "label": "Audience" },
+            "speed": { "value": "Livraison Rapide", "label": "Cycle de Développement" }
+          },
+          "testimonial": {
+            "quote": "L'équipe RKICY a livré UFCCountdown.com avec une rapidité incroyable et une exécution parfaite.",
+            "author": "Responsable Produit",
+            "role": "Équipe Interne RKICY"
+          },
+          "challenges": {
+            "1": "Fournir des données d'événements UFC en temps réel sans délai.",
+            "2": "Créer une expérience réactive et fluide sur mobile et desktop.",
+            "3": "Lancer la plateforme dans un délai très court sans compromis sur la qualité."
+          },
+          "solutions": {
+            "1": "Intégration d'API en direct pour des mises à jour instantanées et une synchronisation des comptes à rebours.",
+            "2": "Conception d'une interface épurée et optimisée pour le mobile.",
+            "3": "Mise en place d'un cycle de développement agile pour un lancement rapide et itératif."
+          },
+          "outcomes": {
+            "1": "Les fans disposent désormais d'une plateforme unique pour les horaires et comptes à rebours UFC en temps réel.",
+            "2": "Augmentation de l'engagement et des visites grâce à une expérience intuitive.",
+            "3": "Livraison d'une plateforme prête pour un public mondial en un temps record, démontrant l'agilité de RKICY."
           }
         }
       }

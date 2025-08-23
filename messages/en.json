@@ -357,9 +357,9 @@
           }
         },
         "finish3": {
-          "title": "Finish3: Focus. Finish. Repeat.",
-          "description": "A minimalist, habit-forming productivity app built around one core principle: finish your 3 most important tasks every day—reset, rollover, and stay consistent.",
-          "detailedDescription": "Overview & Vision\nFinish3 is a clean, modern to‑do and focus app built on a single behavioral pillar: \"Finish your top 3 daily tasks—every day.\" By limiting visible priority, it reduces cognitive load, prevents overwhelm, and reinforces a sustainable habit of daily accomplishment. Each morning the list refreshes; any unfinished items roll forward automatically so nothing is lost.\n\nProduct Summary\nPurpose: Help users consistently finish their 3 most important tasks.\nPlatforms: Web, iOS, Android (multi-device real-time sync).\nIdeal Users: Freelancers, entrepreneurs, focused professionals, makers.\n\nCore Features\n• Minimalist dashboard with intentional constraint.\n• Daily reset + smart rollover of unfinished tasks.\n• Real-time sync across devices.\n• Progress tracking & lightweight analytics.\n• Fast task capture & simple status handling.\n• Team collaboration (coming soon).\n\nPricing & Plans\n• Free: $0 – Up to 50 tasks/month.\n• Pro: $2.99/month – Unlimited tasks + full analytics & insights.\n• Teams (Coming Soon): Shared boards, permissions, admin controls.\n\nTestimonials\n“Finish3 transformed how I plan my day.” – Product Designer\n“These three tasks keep me laser-focused.” – Project Manager\n“Simple and effective.” – Marketing Lead\n\nTechnology & Roadmap\nStack: React, Node.js, Firebase, BI integrations.\nQ3 2025: Team plans launch.\nQ4 2025: AI prioritization + calendar integrations.\n2026: Offline mode + wearable support.\n\nAbout Rkicy Technology\nFounded in 2023 (Casablanca), Rkicy builds productivity software, AI/BI solutions, and ERP/CRM integrations—combining deep technical execution with user-centric design.\n\nCompetitive Position\nFinish3 emphasizes clarity over complexity. It competes with heavier tools (Todoist, ClickUp, Notion) by staying intentionally minimal and habit-focused. Behavioral design drives repeat engagement.\n\nStrengths & Opportunities\nStrengths: Focused UX, seamless sync, affordable pricing.\nOpportunities: Team collaboration, gamification mechanics, AI productivity coaching.\n\nIntegration into rkicy.com\nAdd a \"Finish3 by Rkicy\" case study with visuals, roadmap, and changelog integrations—highlighting in‑house development and product evolution.",
+          "title": "Finish3 — Your Daily 'Top 3' Task Mastery Tool",
+          "description": "Finish3 is more than a productivity app—it’s your daily focus system. Designed to help you finish your top three tasks every day, it blends behavioral science, minimalism, and habit-building into one seamless experience.",
+          "detailedDescription": "Overview & Vision\nFinish3 is a focused productivity tool engineered by Rkicy Technology to answer one simple question: 'What are the three tasks that will define your day?' By reducing choices to three, Finish3 eliminates overwhelm, fosters daily success, and reinforces intentional habit formation.\n\nCore Features\n• Elegant simplicity—Minimalist dashboard displaying only your top 3 tasks.\n• Smart rollover—Unfinished tasks auto-carry to the next day.\n• Daily reset—Fresh start every morning.\n• Real-time sync across all devices.\n• Insight-driven analytics—Completion streaks, success rates, and progress trends.\n• Built-in reliability—Responsive UI and stable backend performance.\n\nPricing & Plans\n• Free: $0 – Up to 50 tasks/month.\n• Pro: $2.99/month – Unlimited tasks + full analytics.\n• Teams (Coming Soon): Shared boards and advanced controls.\n\nTechnology & Roadmap\nStack: React, Node.js, Firebase.\nQ3 2025: Team features.\nQ4 2025: AI-based prioritization + calendar integrations.\n2026: Offline mode + wearable support.\n\nAbout Rkicy Technology\nFounded in 2023 in Casablanca, Rkicy builds intelligent productivity software and enterprise solutions with an ethos of clarity, performance, and design excellence.\n\nCompetitive Position\nUnlike bloated tools like ClickUp or Notion, Finish3 is deliberately minimal, leveraging behavioral design to ensure engagement and consistent results.\n\nKey Value Proposition\nFinish3 helps you finish—not just plan—your day’s most important work, one day at a time.",
           "category": "Productivity & Task Management",
           "stats": {
             "tasks": {
@@ -376,19 +376,50 @@
             }
           },
           "challenges": {
-            "1": "Users experience decision fatigue and overwhelm from unrestricted task lists, hurting daily execution.",
-            "2": "Inconsistent habit formation due to lack of a lightweight, constrained, cross-platform workflow.",
-            "3": "Existing tools are either too complex or lack analytics and behavioral reinforcement for focus."
+            "1": "Users face decision fatigue and overwhelm from endless task lists, reducing execution quality.",
+            "2": "Difficulty forming a sustainable daily productivity habit with existing complex tools.",
+            "3": "Current apps lack behavioral reinforcement and analytics for real progress tracking."
           },
           "solutions": {
-            "1": "Applied the \"Top 3\" daily principle with a minimalist interface and intentional constraint.",
-            "2": "Real-time multi-device sync plus automatic daily reset and intelligent rollover for unfinished tasks.",
-            "3": "Integrated progress analytics and an extensible roadmap (teams, AI prioritization, calendar integration)."
+            "1": "Enforced the 'Top 3' principle with a clean, distraction-free UI.",
+            "2": "Integrated automatic daily reset with smart rollover and real-time multi-device sync.",
+            "3": "Added analytics, streak tracking, and future AI-driven prioritization for adaptive focus."
           },
           "outcomes": {
-            "1": "Higher daily completion rates through enforced prioritization and reduced cognitive load.",
-            "2": "Formation of a repeatable focus habit supported by reset + rollover mechanics.",
-            "3": "Positioning as a differentiated, frictionless alternative to bloated productivity suites."
+            "1": "Improved daily completion rates through intentional constraint.",
+            "2": "Users build a repeatable focus habit supported by rollover and reset mechanics.",
+            "3": "Finish3 positions as a minimal yet powerful alternative to complex productivity suites."
+          }
+        },
+        "ufcCountdown": {
+          "title": "UFCCountdown.com",
+          "description": "A real-time countdown and event tracker for UFC fans worldwide, designed for speed, simplicity, and engagement.",
+          "detailedDescription": "At RKICY, we move fast to turn ideas into impactful digital products. UFCCountdown.com exemplifies this principle. It’s a platform built for MMA enthusiasts to track upcoming UFC events, fight schedules, and live countdowns. With a clean design, real-time updates, and an app-like experience, we created a reliable and engaging destination for fans globally. From concept to launch, our team delivered with speed and precision, proving our ability to execute without compromising quality.",
+          "category": "Sports & Entertainment",
+          "stats": {
+            "events": { "value": "Real-Time", "label": "Event Updates" },
+            "reach": { "value": "Global", "label": "Audience Reach" },
+            "speed": { "value": "Fast Delivery", "label": "Development Cycle" }
+          },
+          "testimonial": {
+            "quote": "The RKICY team delivered UFCCountdown.com with incredible speed and flawless execution.",
+            "author": "Product Owner",
+            "role": "RKICY Internal Team"
+          },
+          "challenges": {
+            "1": "Provide real-time UFC event data with zero delays.",
+            "2": "Create a responsive, app-like experience for both mobile and desktop users.",
+            "3": "Deliver the platform within a very short timeline without compromising quality."
+          },
+          "solutions": {
+            "1": "Integrated live APIs for instant event updates and countdown synchronization.",
+            "2": "Designed a clean, mobile-first UI with optimized performance.",
+            "3": "Executed an agile development cycle for rapid launch and iteration."
+          },
+          "outcomes": {
+            "1": "Fans now have a single destination for real-time UFC schedules and countdowns.",
+            "2": "Increased engagement and return visits due to intuitive UX.",
+            "3": "Delivered a global-ready platform in record time, showcasing RKICY's agility."
           }
         }
       }
