@@ -146,7 +146,7 @@
         { icon: <Calendar size={18} />, valueKey: 'featured.projects.finish3.stats.rollover.value', labelKey: 'featured.projects.finish3.stats.rollover.label' }
       ],
       slug: "/projects/finish3",
-      logo: '/projects/finish3.png',
+      logo: '/projects/finish3/logo.png',
       client: "Finish3 App",
       duration: "6 months",
       year: 2023,
