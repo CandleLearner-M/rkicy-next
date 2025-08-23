@@ -61,9 +61,7 @@
       industry: "Financial Services",
       teamSize: 6,
       gallery: [
-        "/projects/paycov/screen1.png",
-        "/projects/paycov/screen2.png",
-        "/projects/paycov/screen3.png"
+        "/projects/paycov/cover.png"
       ],
       testimonial: {
         quoteKey: 'featured.projects.paycov.testimonial.quote',
@@ -110,9 +108,7 @@
       industry: "Retail & E-commerce",
       teamSize: 4,
       gallery: [
-        "/projects/nounours/product.png",
-        "/projects/nounours/checkout.png",
-        "/projects/nounours/mobile.png"
+        "/projects/nounours/cover.png"
       ],
       testimonial: {
         quoteKey: 'featured.projects.nounours.testimonial.quote',
@@ -140,7 +136,7 @@
       titleKey: 'featured.projects.finish3.title',
       descriptionKey: 'featured.projects.finish3.description',
       detailedDescriptionKey: 'featured.projects.finish3.detailedDescription',
-      image: "/projects/finish3/cover.png",
+      image: "/projects/finish3/mockup.jpg",
       categoryKey: 'featured.projects.finish3.category',
       category: "productivity",
       technologies: ["React", "Node.js", "Firebase", "Mobile"],
@@ -159,9 +155,7 @@
       industry: "Productivity Software",
       teamSize: 5,
       gallery: [
-        "/projects/finish3/dashboard.png",
-        "/projects/finish3/tasks.png",
-        "/projects/finish3/analytics.png"
+        "/projects/finish3/mockup.jpg"
       ],
       challenges: [
         "featured.projects.finish3.challenges.1",

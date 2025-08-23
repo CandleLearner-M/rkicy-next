@@ -135,14 +135,10 @@ export default function Finish3Feature() {
             </motion.div>
             
             {isDesktop && <motion.div variants={itemVariants} className={styles.ctaContainer}>
-              <Link href="/projects/finish3" className={styles.primaryCta}>
+              <Link href="https://finish3.com" target="_blank" rel="noopener noreferrer" className={styles.primaryCta}>
                 <span>Explore Project</span>
                 <ArrowRight size={16} />
               </Link>
-              <a href="https://finish3.app" target="_blank" rel="noopener noreferrer" className={styles.secondaryCta}>
-                <span>Visit Website</span>
-                <ArrowRight size={16} />
-              </a>
             </motion.div>}
           </motion.div>
 
@@ -188,14 +184,10 @@ export default function Finish3Feature() {
                 ))}
               </div>
               {!isDesktop && <motion.div variants={itemVariants} className={styles.ctaContainer} style={{marginTop: "2rem", justifyContent: "center", alignItems: "center"}}>
-              <Link href="/projects/finish3" className={styles.primaryCta}>
+              <Link href="https://finish3.com" target="_blank" rel="noopener noreferrer" className={styles.primaryCta}>
                 <span>Explore Project</span>
                 <ArrowRight size={16} />
               </Link>
-              <a href="https://finish3.app" target="_blank" rel="noopener noreferrer" className={styles.secondaryCta}>
-                <span>Visit Website</span>
-                <ArrowRight size={16} />
-              </a>
             </motion.div>}
               <div className={styles.tagline}>
                 <span>Built with Care by Rkicy Technology</span>

@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import styles from './FeaturedProjects.module.scss';
+import { projects } from '../projects';
 
 export default function FeaturedProjects() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -13,53 +14,7 @@ export default function FeaturedProjects() {
   const t = useTranslations('projects');
 
   // Featured projects (unchanged from your original)
-  const featuredProjects = [
-    {
-      id: "paycov",
-      titleKey: 'featured.projects.paycov.title',
-      descriptionKey: 'featured.projects.paycov.description',
-      image: "/projects/paycov/cover.png",
-      categoryKey: 'featured.projects.paycov.category',
-      technologies: ["Node.js", "PostgreSQL", "React Native", "Mobile"],
-      stats: [
-        { icon: <Shield size={18} />, valueKey: 'featured.projects.paycov.stats.security.value', labelKey: 'featured.projects.paycov.stats.security.label' },
-        { icon: <Globe size={18} />, valueKey: 'featured.projects.paycov.stats.channels.value', labelKey: 'featured.projects.paycov.stats.channels.label' },
-        { icon: <Wallet size={18} />, valueKey: 'featured.projects.paycov.stats.banks.value', labelKey: 'featured.projects.paycov.stats.banks.label' }
-      ],
-      slug: "/projects/paycov",
-      logo: '/projects/paycov-logo.png',
-    },
-    {
-      id: "nounours-ma",
-      titleKey: 'featured.projects.nounours.title',
-      descriptionKey: 'featured.projects.nounours.description',
-      image: "/projects/nounours/cover.png",
-      categoryKey: 'featured.projects.nounours.category',
-      technologies: ["Shopify", "Web Development", "Payment Integration", "Inventory Management"],
-      stats: [
-        { icon: <ShoppingBag size={18} />, valueKey: 'featured.projects.nounours.stats.collections.value', labelKey: 'featured.projects.nounours.stats.collections.label' },
-        { icon: <Users size={18} />, valueKey: 'featured.projects.nounours.stats.market.value', labelKey: 'featured.projects.nounours.stats.market.label' },
-        { icon: <CreditCard size={18} />, valueKey: 'featured.projects.nounours.stats.payment.value', labelKey: 'featured.projects.nounours.stats.payment.label' }
-      ],
-      slug: "/projects/nounours-ma",
-      logo: '/projects/nounours.png',
-    },
-    {
-      id: "finish3",
-      titleKey: 'featured.projects.finish3.title',
-      descriptionKey: 'featured.projects.finish3.description',
-      image: "",
-      logo: '/projects/finish3.png',
-      categoryKey: 'featured.projects.finish3.category',
-      technologies: ["React", "Node.js", "Firebase", "Mobile"],
-      stats: [
-        { icon: <CheckCircle size={18} />, valueKey: 'featured.projects.finish3.stats.tasks.value', labelKey: 'featured.projects.finish3.stats.tasks.label' },
-        { icon: <Zap size={18} />, valueKey: 'featured.projects.finish3.stats.sync.value', labelKey: 'featured.projects.finish3.stats.sync.label' },
-        { icon: <Calendar size={18} />, valueKey: 'featured.projects.finish3.stats.rollover.value', labelKey: 'featured.projects.finish3.stats.rollover.label' }
-      ],
-      slug: "/projects/finish3"
-    },
-  ];
+  const featuredProjects = projects;
 
   useEffect(() => {
     setIsLoaded(true);
