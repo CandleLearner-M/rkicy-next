@@ -145,7 +145,7 @@ export default function FeaturedProjects() {
                         ))}
                     </div>
                   
-                  <Link href={project.slug} className={styles.projectLink}>
+                  <Link href={project.slug} target="_blank" rel="noopener noreferrer" className={styles.projectLink}>
                     <span>{t('featured.viewProject')}</span>
                     <ArrowRight size={16} />
                   </Link>
