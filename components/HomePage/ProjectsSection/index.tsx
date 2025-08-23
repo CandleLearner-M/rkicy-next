@@ -41,7 +41,7 @@ export default function ProjectsSection() {
       background: "#ffffff",
       filter: "none",
       tags: [t('tags.fintech'), t('tags.payments')],
-      link: '/projects/paycov'
+      link: 'https://www.paycov.com/'
     },
     {
       id: '02',
@@ -62,25 +62,22 @@ export default function ProjectsSection() {
       logo: '/projects/finish3/logo.png',
       filter: "invert(100%) sepia(0%) saturate(7491%) hue-rotate(127deg) brightness(102%) contrast(99%)",
       tags: [t('tags.productivity'), t('tags.task')],
-      link: '/projects/finish3'
+      link: 'https://www.finish3.com/'
     },
     {
       id: '03',
-      title: 'Bato.ma',
-      description: t('projects.bato.description'),
+      title: 'UFC Countdown',
+      description: t('projects.ufcCountdown.description'),
       iconSvg: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={styles.projectIcon}>
-          <path d="M4 7L4.8 16.4C4.93333 18.4 5 19.4 5.87868 20C6.75736 20.6 7.95975 20.6 10.3645 20.6H13.6355C16.0403 20.6 17.2426 20.6 18.1213 20C19 19.4 19.0667 18.4 19.2 16.4L20 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-          <path d="M8 9V5C8 3.89543 8.89543 3 10 3H14C15.1046 3 16 3.89543 16 5V9" stroke="currentColor" strokeWidth="1.5" />
-          <path d="M2 7H22" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-          <path d="M15 11C15 11.5523 14.5523 12 14 12C13.4477 12 13 11.5523 13 11C13 10.4477 13.4477 10 14 10C14.5523 10 15 10.4477 15 11Z" fill="currentColor" />
-          <path d="M11 11C11 11.5523 10.5523 12 10 12C9.44772 12 9 11.5523 9 11C9 10.4477 9.44772 10 10 10C10.5523 10 11 10.4477 11 11Z" fill="currentColor" />
+          <path d="M5 3H19C20.1 3 21 3.9 21 5V19C21 20.1 20.1 21 19 21H5C3.9 21 3 20.1 3 19V5C3 3.9 3.9 3 5 3Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+          <path d="M12 8V16M8 12H16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
         </svg>
       ),
-      logo: '/projects/bato.png',
+      logo: '/projects/ufc-countdown.png',
       filter: "none",
-      tags: [t('tags.rentals'), t('tags.tourism')],
-      link: '/projects/bato'
+      tags: [t('tags.sports'), t('tags.media')],
+      link: 'https://www.ufccountdown.com/'
     },
     {
       id: '04',
