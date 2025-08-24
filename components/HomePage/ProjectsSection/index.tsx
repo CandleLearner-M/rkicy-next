@@ -125,7 +125,7 @@ export default function ProjectsSection() {
                 >
                 {project.logo && (
 
-                  <div className={styles.projectLogo}>
+                  <div className={styles.projectLogo} style={{background: project.background}}>
                     <Image 
                       src={project.logo}
                       alt={`${project.title} logo`}
