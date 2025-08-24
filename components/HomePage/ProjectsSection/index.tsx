@@ -74,7 +74,7 @@ export default function ProjectsSection() {
           <path d="M12 8V16M8 12H16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
         </svg>
       ),
-      logo: '/projects/ufc-countdown.png',
+      logo: '/projects/ufc.png',
       filter: "none",
       tags: [t('tags.sports'), t('tags.media')],
       link: 'https://www.ufccountdown.com/'
@@ -124,14 +124,16 @@ export default function ProjectsSection() {
                 whileHover="hover"
                 >
                 {project.logo && (
-                  <Image 
-                    src={project.logo}
-                    alt={`${project.title} logo`}
-                    width={48}
-                    height={48}
-                    className={styles.projectLogo}
-                    draggable='false'
-                  />
+
+                  <div className={styles.projectLogo}>
+                    <Image 
+                      src={project.logo}
+                      alt={`${project.title} logo`}
+                      width={48}
+                      height={48}
+                      draggable='false'
+                      />
+                    </div>
                 )}
                 <div className={styles.projectHeader}>
                   {project.iconSvg}

@@ -145,7 +145,7 @@
         { icon: <Zap size={18} />, valueKey: 'featured.projects.finish3.stats.sync.value', labelKey: 'featured.projects.finish3.stats.sync.label' },
         { icon: <Calendar size={18} />, valueKey: 'featured.projects.finish3.stats.rollover.value', labelKey: 'featured.projects.finish3.stats.rollover.label' }
       ],
-      slug: "/projects/finish3",
+      slug: "https://finish3.com/",
       logo: '/projects/finish3/logo.png',
       client: "Finish3 App",
       duration: "6 months",

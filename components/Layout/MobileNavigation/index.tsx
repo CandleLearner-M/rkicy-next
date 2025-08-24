@@ -40,15 +40,15 @@ export default function MobileNavigation() {
     { name: 'home', href: '/' },
     { name: 'about', href: '/about' },
     { name: 'services', href: '/services' },
-    { name: 'hardware', href: '/hardware' },
     { name: 'projects', href: '/projects' },
-    { name: 'contact', href: '/contact' }
+    { name: 'contact', href: '/contact' },
+    // { name: 'hardware', href: '/hardware' },
   ];
 
   // First and second half of nav items to show on either side of the center button
   const leftNavItems = [0, 1]; // Home, Services
-  const rightNavItems = [2, 5]; // Projects, Contact
-  const secondaryNavItems = [4, 3]; // About, Partners, Hardware
+  const rightNavItems = [2, 4]; // Projects, Contact
+  const secondaryNavItems = [3]; // About, Partners, Hardware
 
   // Handle scroll behavior to hide/show nav bar
   useEffect(() => {

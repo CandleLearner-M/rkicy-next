@@ -131,7 +131,7 @@ export default function UnifiedNavbar(): JSX.Element | null {
     { name: t('navigation.about'), href: `/${locale}/about` },
     { name: t('navigation.services'), href: `/${locale}/services` },
     // { name: t('navigation.partners'), href: `/${locale}/partners` },
-    { name: t('navigation.hardware'), href: `/${locale}/hardware` },
+    // { name: t('navigation.hardware'), href: `/${locale}/hardware` },
     { name: t('navigation.projects'), href: `/${locale}/projects` },
     { name: t('navigation.contact'), href: `/${locale}/contact` },
   ];
