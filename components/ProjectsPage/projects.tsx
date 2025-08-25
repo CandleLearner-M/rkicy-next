@@ -178,7 +178,7 @@
       titleKey: 'featured.projects.ufcCountdown.title',
       descriptionKey: 'featured.projects.ufcCountdown.description',
       detailedDescriptionKey: 'featured.projects.ufcCountdown.detailedDescription',
-      image: "/projects/ufc-countdown/cover.png",
+      image: "/projects/ufcCountdown/cover.jpg",
       categoryKey: 'featured.projects.ufcCountdown.category',
       category: "Sports & Entertainment",
       technologies: ["Next.js", "React", "Tailwind CSS", "Real-Time API Integration"],
@@ -188,7 +188,7 @@
         { icon: <Zap size={18} />, valueKey: 'featured.projects.ufcCountdown.stats.speed.value', labelKey: 'featured.projects.ufcCountdown.stats.speed.label' }
       ],
       slug: "https://ufcCountdown.com/",
-      logo: '/projects/ufc-countdown.png',
+      logo: '/projects/ufc.png',
       client: "Internal Product",
       duration: "2 months",
       year: 2024,
