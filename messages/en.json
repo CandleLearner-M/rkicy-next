@@ -783,6 +783,107 @@
     }
   },
 
+  "partnerships": {
+    "badge": "Strategic Partners",
+    "title": "World-Class Technology Partnerships",
+    "subtitle": "Building Morocco's digital future with premier strategic partnerships",
+    "tabs": {
+      "zebra": "Zebra Technologies",
+      "sap": "SAP Consulting"
+    },
+    "zebra": {
+      "badge": "Official Partner",
+      "title": "Official Partnership with Zebra Technologies",
+      "description": "As a trusted official partner of Zebra Technologies, Rkicy Technology delivers Morocco's businesses access to industry-leading enterprise-grade hardware solutions—from barcode scanners to rugged mobile computers and printers.",
+      "features": {
+        "supply": {
+          "title": "Seamless Supply of Zebra Products",
+          "description": "Fast, reliable access to Zebra's full portfolio of devices designed for enterprise operations."
+        },
+        "support": {
+          "title": "Expert Configuration & Support",
+          "description": "Professional setup, configuration, and ongoing technical support for Zebra hardware, ensuring their solutions integrate smoothly with your digital infrastructure."
+        },
+        "efficiency": {
+          "title": "Enhanced Operational Efficiency",
+          "description": "Whether you manage logistics, retail, or enterprise IT, Zebra's advanced hardware solutions powered by Rkicy's technical expertise help you optimize your operations for accuracy, speed, and traceability."
+        }
+      },
+      "commitment": {
+        "title": "Our Commitment to Excellence",
+        "description": "At Rkicy Technology, we take pride in our long-standing commitment to excellence—and getting the opportunity to partner with Zebra only strengthens our ability to deliver unmatched value to our Moroccan enterprise clients."
+      },
+      "cta": "Explore Partnership Benefits",
+      "showcase": {
+        "title": "Zebra Product Portfolio",
+        "badge": "Certified Partner"
+      },
+      "products": {
+        "scanners": "Barcode Scanners & Imagers",
+        "computers": "Rugged Mobile Computers",
+        "printers": "Industrial & Mobile Printers",
+        "rfid": "RFID & Location Solutions"
+      },
+      "stats": {
+        "products": "Products Available",
+        "support": "Technical Support",
+        "experience": "Years Experience"
+      }
+    },
+    "sap": {
+      "badge": "Expert Consultants",
+      "title": "SAP Consulting Expertise at Rkicy Technology",
+      "description": "At Rkicy Technology, we offer advanced SAP consulting services tailored to modern enterprises in Morocco. Our team is deeply experienced with SAP platforms and has successfully supported businesses in optimizing their ERP systems.",
+      "features": {
+        "implementation": {
+          "title": "Enterprise-Grade Implementation & Integration",
+          "description": "From initial setup to deployment, our SAP experts guide you every step of the way, ensuring seamless system integration aligned with your business processes."
+        },
+        "development": {
+          "title": "Custom Development & Automation",
+          "description": "We build tailored SAP extensions and automate critical workflows to boost operational efficiency and analytics across your organization."
+        },
+        "training": {
+          "title": "Training & Post-Implementation Support",
+          "description": "We provide hands-on training for users, documentation, and ongoing support to ensure system reliability and performance."
+        },
+        "insight": {
+          "title": "Industry Insight & Local Reach",
+          "description": "Whether in finance, retail, manufacturing, or government, our local presence enables us to deliver SAP-powered business outcomes that align with Moroccan market needs."
+        }
+      },
+      "commitment": {
+        "title": "Our Technical Depth",
+        "description": "By showcasing our SAP consulting capabilities with confidence, we underscore the technical depth and enterprise readiness of Rkicy Technology."
+      },
+      "cta": "Discuss Your SAP Needs",
+      "showcase": {
+        "title": "SAP Solutions We Implement"
+      },
+      "solutions": {
+        "businessOne": {
+          "name": "SAP Business One",
+          "description": "Complete ERP solution for SMEs, managing everything from finance to inventory and production."
+        },
+        "s4hana": {
+          "name": "SAP S/4HANA",
+          "description": "Next-generation ERP with advanced analytics, AI capabilities, and real-time processing for large enterprises."
+        },
+        "fiori": {
+          "name": "SAP Fiori",
+          "description": "Modern user experience design for SAP applications, providing intuitive interfaces across devices."
+        }
+      },
+      "industries": {
+        "title": "Industries We Serve",
+        "finance": "Finance & Banking",
+        "retail": "Retail & Distribution",
+        "manufacturing": "Manufacturing",
+        "government": "Government"
+      }
+    }
+  },
+
   "contact": {
     "cards": {
       "chat": {
@@ -1238,6 +1339,7 @@
   
 
   "pageHeader": {
+
       "about": {
       "page": "About",
       "home": "Home",
@@ -1268,6 +1370,14 @@
       "badge": "Our Portfolio",
       "title": "Discover our <highlight>impactful</highlight> projects",
       "subtitle": "Explore our diverse range of successful technology implementations across different industries and sectors"
+    },
+
+     "partnerships": {
+      "badge": "Strategic Partnerships",
+      "title": "<highlight>World-Class</highlight> Technology Partners",
+      "subtitle": "Delivering enterprise solutions through official partnerships with global technology leaders",
+      "home": "Home",
+      "page": "Partnerships"
     },
     
     "contact": {

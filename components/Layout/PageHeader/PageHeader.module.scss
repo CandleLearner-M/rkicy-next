@@ -17,12 +17,43 @@ $highlight-bg-dark: linear-gradient(135deg, rgba($primary, 0.04), rgba($accent, 
   overflow: hidden;
   background: white;
   
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+      rgba($primary, 0), 
+      rgba($primary, 0.15), 
+      rgba($primary, 0));
+    transform: scaleX(0);
+    animation: expandFromCenter 1.2s ease-out forwards;
+    
+    [data-theme="dark"] & {
+      background: linear-gradient(90deg, 
+        rgba($primary, 0), 
+        rgba($primary, 0.25), 
+        rgba($primary, 0));
+    }
+  }
+
   [data-theme="dark"] & {
     background: #0a0a0a;
   }
   
   @media (max-width: $breakpoint-md) {
     min-height: 500px;
+  }
+}
+
+@keyframes expandFromCenter {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
   }
 }
 

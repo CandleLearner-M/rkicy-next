@@ -53,12 +53,24 @@ const PageHeader: React.FC<PageHeaderProps> = ({
 
   return (
     <div className={styles.heroWrapper}>
-      {/* Background gradient animation */}
+      {/* Enhanced background gradient animation */}
       <motion.div 
         className={styles.backgroundGradient}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.2, ease: "easeOut" }}
+        initial={{ 
+          opacity: 0,
+          scale: 0.8,
+          rotateX: 10
+        }}
+        animate={{ 
+          opacity: 1,
+          scale: 1,
+          rotateX: 0
+        }}
+        transition={{ 
+          duration: 1.8, 
+          ease: [0.16, 1, 0.3, 1],
+          delay: 0.2
+        }}
       />
 
       <motion.div className={styles.heroContent}>
@@ -73,7 +85,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
                   animate={{ opacity: isLoaded ? 1 : 0, x: isLoaded ? 0 : -10 }}
                   transition={{ 
                     duration: 0.3, 
-                    delay: 0.3 + index * 0.1,
+                    delay: 0.8 + index * 0.1,
                     ease: [0.22, 1, 0.36, 1]
                   }}
                 >
@@ -99,11 +111,11 @@ const PageHeader: React.FC<PageHeaderProps> = ({
           {/* Badge */}
           <motion.div 
             className={styles.preHeadingWrapper}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 20 }}
+            initial={{ opacity: 0, y: 20, scale: 0.9 }}
+            animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 20, scale: isLoaded ? 1 : 0.9 }}
             transition={{ 
               duration: 0.6, 
-              delay: 0.6,
+              delay: 1.1,
               ease: [0.16, 1, 0.3, 1]
             }}
           >
@@ -115,11 +127,11 @@ const PageHeader: React.FC<PageHeaderProps> = ({
           {/* Main Title */}
           <motion.h1 
             className={styles.heading}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 30 }}
+            initial={{ opacity: 0, y: 30, scale: 0.95 }}
+            animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 30, scale: isLoaded ? 1 : 0.95 }}
             transition={{ 
-              duration: 0.7, 
-              delay: 0.7,
+              duration: 0.8, 
+              delay: 1.2,
               ease: [0.16, 1, 0.3, 1]
             }}
           >
@@ -133,7 +145,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
             animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 30 }}
             transition={{ 
               duration: 0.7, 
-              delay: 0.8,
+              delay: 1.4,
               ease: [0.16, 1, 0.3, 1]
             }}
           >
