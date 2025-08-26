@@ -228,7 +228,232 @@
           }
         }
       },
-  "services": {},
+  "services": {
+    "badge": "OUR EXPERTISE",
+    "title": "Comprehensive IT Solutions for Business Success",
+    "subtitle": "Our comprehensive range of services provides all the tools you need to transform your business and stay ahead in the digital age.",
+    
+    "categories": {
+      "technologiesTitle": "Key Technologies",
+      "learnMore": "Learn More",
+      
+      "ai": {
+        "title": "Artificial Intelligence & Automation",
+        "short": "Smart solutions to analyze, automate, and improve your operations with cutting-edge AI technology.",
+        "description": "Leverage the power of artificial intelligence to transform your business operations, automate routine tasks, and extract valuable insights from your data. Our AI & automation solutions are designed to boost efficiency and drive innovation.",
+        "features": {
+          "1": "Custom AI model development and deployment",
+          "2": "Intelligent process automation and workflows",
+          "3": "Natural language processing and computer vision solutions",
+          "4": "Predictive analytics and decision support systems"
+        },
+        "technologies": {
+          "1": "TensorFlow",
+          "2": "PyTorch",
+          "3": "Azure AI",
+          "4": "OpenAI",
+          "5": "Scikit-Learn"
+        }
+      },
+      
+      "webmobile": {
+        "title": "Web & Mobile Development",
+        "short": "Scalable digital platforms, built with performance and user experience in mind for modern businesses.",
+        "description": "Create powerful digital experiences that engage users across all devices. Our web and mobile development team combines cutting-edge technology with thoughtful design to deliver solutions that drive business growth.",
+        "features": {
+          "1": "Responsive web applications with modern frameworks",
+          "2": "Native and cross-platform mobile apps",
+          "3": "Progressive Web Apps (PWAs) for seamless experiences",
+          "4": "UX/UI design with conversion optimization"
+        },
+        "technologies": {
+          "1": "React",
+          "2": "Vue.js",
+          "3": "Next.js",
+          "4": "React Native",
+          "5": "Flutter"
+        }
+      },
+      
+      "sap": {
+        "title": "SAP & IT Consulting",
+        "short": "Industry-grade support and consulting for ERP systems and comprehensive digital roadmaps.",
+        "description": "Navigate the complexities of enterprise resource planning with our expert SAP consulting services. We help businesses implement, optimize, and maintain their SAP systems to achieve operational excellence and drive digital transformation.",
+        "features": {
+          "1": "SAP implementation, migration, and support",
+          "2": "Business process optimization and integration",
+          "3": "Custom SAP module development and extensions",
+          "4": "Data migration and quality management"
+        },
+        "technologies": {
+          "1": "SAP S/4HANA",
+          "2": "SAP Fiori",
+          "3": "SAP BW/4HANA",
+          "4": "SAP Business One",
+          "5": "SAP Business Objects"
+        }
+      },
+      
+      "hardware": {
+        "title": "Enterprise Hardware Solutions",
+        "short": "Official partners of Zebra Technologies and resellers of major brands like Dell & HP for all your hardware needs.",
+        "description": "Equip your business with reliable, high-performance hardware solutions. As official partners of leading brands, we provide comprehensive hardware procurement, deployment, and management services tailored to your specific needs.",
+        "features": {
+          "1": "Enterprise-grade servers and storage solutions",
+          "2": "Networking equipment and infrastructure",
+          "3": "Barcode scanners, printers, and data capture devices",
+          "4": "Managed hardware services and maintenance"
+        },
+        "technologies": {
+          "1": "Zebra Technologies",
+          "2": "Dell EMC",
+          "3": "HP Enterprise",
+          "4": "Cisco",
+          "5": "Lenovo ThinkSystem"
+        }
+      }
+    },
+    
+    "benefits": {
+      "badge": "WHY CHOOSE US",
+      "title": "Business Benefits That Drive Success",
+      "subtitle": "Partner with us to transform your IT operations and achieve sustainable business growth with our comprehensive solutions.",
+      
+      "items": {
+        "growth": {
+          "title": "Business Growth",
+          "description": "Accelerate your business expansion with technology solutions designed for scalability and performance.",
+          "points": {
+            "1": "Increase revenue through digital transformation",
+            "2": "Scale operations efficiently with cloud solutions",
+            "3": "Enter new markets with innovative digital products"
+          }
+        },
+        "security": {
+          "title": "Enhanced Security",
+          "description": "Protect your business with enterprise-grade security measures and compliance frameworks.",
+          "points": {
+            "1": "Implement robust cybersecurity protocols",
+            "2": "Ensure data protection and regulatory compliance",
+            "3": "Reduce risk with continuous security monitoring"
+          }
+        },
+        "efficiency": {
+          "title": "Operational Efficiency",
+          "description": "Streamline your business processes and reduce operational costs through intelligent automation.",
+          "points": {
+            "1": "Automate repetitive tasks and workflows",
+            "2": "Optimize resource allocation and utilization",
+            "3": "Reduce operational costs by up to 30%"
+          }
+        },
+        "innovation": {
+          "title": "Continuous Innovation",
+          "description": "Stay ahead of the competition with cutting-edge technology solutions and strategic consulting.",
+          "points": {
+            "1": "Access emerging technologies and methodologies",
+            "2": "Foster a culture of innovation within your organization",
+            "3": "Rapid prototyping and proof-of-concept development"
+          }
+        }
+      }
+    },
+    
+    "features": {
+      "badge": "Our Services",
+      "titleStart": "Comprehensive",
+      "titleHighlight": "Technology Solutions",
+      "titleEnd": "for Modern Businesses",
+      "description": "We offer a wide range of services tailored to meet the evolving needs of businesses in the digital age.",
+      "ai": {
+        "title": "AI & Machine Learning",
+        "description": "Leverage the power of artificial intelligence and machine learning to automate processes, gain insights, and make data-driven decisions."
+      },
+      "enterprise": {
+        "title": "Enterprise IT Solutions",
+        "description": "Comprehensive enterprise-grade IT infrastructure and services designed to support mission-critical business operations."
+      },
+      "software": {
+        "title": "Custom Software Development",
+        "description": "Bespoke software solutions crafted to address your unique business challenges and operational requirements."
+      },
+      "hardware": {
+        "title": "Hardware & IoT Solutions",
+        "description": "Cutting-edge hardware implementations and Internet of Things solutions to connect your physical and digital ecosystems."
+      },
+      "benefits": {
+        "title": "Key Advantages",
+        "efficiency": {
+          "title": "Increased Efficiency",
+          "description": "Streamline operations and automate workflows to maximize productivity across your organization."
+        },
+        "security": {
+          "title": "Enhanced Security",
+          "description": "Protect your digital assets with state-of-the-art security protocols and threat detection systems."
+        },
+        "analytics": {
+          "title": "Advanced Analytics",
+          "description": "Gain valuable insights from your data through powerful analytics and business intelligence tools."
+        },
+        "integration": {
+          "title": "Seamless Integration",
+          "description": "Ensure all your systems work together flawlessly through comprehensive integration solutions."
+        }
+      },
+      "contactCta": "Discuss Your Project With Us"
+    },
+    "hero": {
+      "badge": "Our Expertise",
+      "titleStart": "Comprehensive",
+      "titleHighlight": "Technology Services",
+      "titleEnd": "for Your Business",
+      "description": "Discover our range of specialized technology services designed to help your business grow, innovate, and succeed in the digital landscape.",
+      "technologies": "Technologies",
+      "learnMore": "Learn More",
+      "services": {
+        "ai": {
+        "title": "AI & Machine Learning",
+        "description": "Harness the power of artificial intelligence and machine learning to transform your business processes, gain valuable insights, and create innovative solutions.",
+        "features": {
+          "custom": "Custom AI solution development",
+          "nlp": "Natural language processing & chatbots",
+          "automation": "Intelligent process automation",
+          "analytics": "Predictive analytics & data modeling"
+        }
+      },
+      "enterprise": {
+        "title": "Enterprise Solutions",
+        "description": "Enterprise-grade systems and infrastructure to support your organization's mission-critical operations, streamline processes, and enhance productivity.",
+        "features": {
+          "erp": "ERP implementation & customization",
+          "crm": "CRM & customer experience platforms",
+          "integration": "System integration & middleware",
+          "cloud": "Cloud migration & management"
+        }
+      },
+      "software": {
+        "title": "Software Development",
+        "description": "Custom software development services tailored to your specific business needs, from web and mobile applications to complex enterprise systems.",
+        "features": {
+          "web": "Web application development",
+          "mobile": "Mobile app development",
+          "custom": "Custom software solutions",
+          "ux": "UI/UX design & prototyping"
+        }
+      },
+      "hardware": {
+        "title": "Hardware & Infrastructure",
+        "description": "Comprehensive hardware solutions and infrastructure services to ensure your technology backbone is robust, secure, and ready for the future.",
+        "features": {
+          "infrastructure": "IT infrastructure deployment",
+          "networking": "Network design & implementation",
+          "security": "Physical security solutions",
+          "maintenance": "Hardware maintenance & support"
+        }
+      }
+      }
+    }
+  },
   "home": {
     "hero": {
       "title": "Empowering Morocco's {break}Digital Future",

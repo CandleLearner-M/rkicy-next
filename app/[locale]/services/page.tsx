@@ -3,6 +3,11 @@
 import ContactPreview from "@/components/HomePage/ContactPreview";
 import PageHeader from "@/components/Layout/PageHeader";
 import styles from "./page.module.scss";
+import ServiceCategories from "@/components/ServicesPage/ServiceCategories";
+import SectionBackground from "@/components/Layout/SectionBackground/SectionBackground";
+import ClientTestimonials from "@/components/ServicesPage/ServiceFeatures";
+import BusinessBenefits from "@/components/ServicesPage/BusinessBenefits";
+import ServiceFeatures from "@/components/ServicesPage/ServiceFeatures";
 
 export default function ServicesPage() {
   
@@ -21,6 +26,14 @@ export default function ServicesPage() {
           ]}
         />
       
+        <ServiceCategories />
+      
+        <SectionBackground style="subtle">
+          <ServiceFeatures />
+        </SectionBackground>
+      
+        <BusinessBenefits />
+
         <ContactPreview />
     </main>
   );
