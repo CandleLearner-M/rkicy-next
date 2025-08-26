@@ -146,6 +146,19 @@
           "start": "Rencontrez Les ",
           "highlight": "Experts"
         },
+        "modal": {
+            "title": "opportunités de carrière",
+            "noOpenings": {
+              "title": "ouverture actuellement non disponible",
+              "message": "Nous n'avons actuellement aucun ouverture à l'ouverture, mais nous sommes toujours à la recherche de personnalités talentueuses pour notre équipe future."
+            },
+            "checkBack": "Vérifiez bientôt",
+            "notification": "Nous mettons régulièrement à jour nos opportunités de carrière tout en notre entreprise évolue.",
+            "contact": {
+              "text": "Intéressé par les opportunités futures? Envoi votre curriculum vitae à:"
+            },
+            "close": "Fermer"
+          },
         "description": "Notre équipe est composée de professionnels certifiés possédant une vaste expérience dans divers domaines technologiques. Ensemble, nous apportons une richesse de connaissances et de passion à chaque projet que nous entreprenons.",
         "members": {
           "ceo": {
@@ -215,8 +228,153 @@
         }
       }
     },
-   
-  "services": {},
+
+  "services": {
+    "badge": "NOTRE EXPERTISE",
+    "title": "Solutions informatiques complètes pour le succès de votre entreprise",
+    "subtitle": "Notre gamme complète de services vous fournit tous les outils nécessaires pour transformer votre entreprise et rester en tête à l’ère du numérique.",
+    
+    "benefits": {
+      "badge": "POURQUOI NOUS CHOISIR",
+      "title": "Avantages commerciaux qui stimulent la réussite",
+      "subtitle": "Collaborez avec nous pour transformer vos opérations informatiques et atteindre une croissance durable grâce à nos solutions complètes.",
+      
+      "items": {
+        "growth": {
+          "title": "Croissance de l'entreprise",
+          "description": "Accélérez l'expansion de votre entreprise avec des solutions technologiques conçues pour la performance et l'évolutivité.",
+          "points": {
+            "1": "Augmentez vos revenus grâce à la transformation numérique",
+            "2": "Faites évoluer vos opérations efficacement avec des solutions cloud",
+            "3": "Pénétrez de nouveaux marchés avec des produits numériques innovants"
+          }
+        },
+        "security": {
+          "title": "Sécurité renforcée",
+          "description": "Protégez votre entreprise avec des mesures de sécurité de niveau entreprise et des cadres de conformité.",
+          "points": {
+            "1": "Mettez en œuvre des protocoles de cybersécurité robustes",
+            "2": "Assurez la protection des données et la conformité réglementaire",
+            "3": "Réduisez les risques grâce à une surveillance continue de la sécurité"
+          }
+        },
+        "efficiency": {
+          "title": "Efficacité opérationnelle",
+          "description": "Rationalisez vos processus métier et réduisez les coûts opérationnels grâce à l'automatisation intelligente.",
+          "points": {
+            "1": "Automatisez les tâches et les flux de travail répétitifs",
+            "2": "Optimisez l'allocation et l'utilisation des ressources",
+            "3": "Réduisez les coûts opérationnels jusqu'à 30 %"
+          }
+        },
+        "innovation": {
+          "title": "Innovation continue",
+          "description": "Restez en tête de la concurrence avec des solutions technologiques de pointe et un conseil stratégique.",
+          "points": {
+            "1": "Accédez aux technologies et méthodologies émergentes",
+            "2": "Favorisez une culture d'innovation au sein de votre organisation",
+            "3": "Développement rapide de prototypes et preuves de concept"
+          }
+        }
+      }
+    },
+    
+    "features": {
+      "badge": "Nos Services",
+      "titleStart": "Des solutions",
+      "titleHighlight": "technologiques complètes",
+      "titleEnd": "pour les entreprises modernes",
+      "description": "Nous proposons une large gamme de services adaptés aux besoins évolutifs des entreprises à l’ère numérique.",
+      "ai": {
+        "title": "IA & Apprentissage Automatique",
+        "description": "Exploitez la puissance de l’intelligence artificielle et de l’apprentissage automatique pour automatiser les processus, obtenir des informations et prendre des décisions basées sur les données."
+      },
+      "enterprise": {
+        "title": "Solutions IT pour Entreprises",
+        "description": "Une infrastructure et des services informatiques de niveau entreprise pour soutenir les opérations critiques de votre société."
+      },
+      "software": {
+        "title": "Développement de logiciels sur mesure",
+        "description": "Des solutions logicielles personnalisées conçues pour répondre à vos défis métier uniques et à vos exigences opérationnelles."
+      },
+      "hardware": {
+        "title": "Solutions matérielles & IoT",
+        "description": "Implémentations matérielles de pointe et solutions Internet des objets pour connecter vos écosystèmes physiques et numériques."
+      },
+      "benefits": {
+        "title": "Avantages clés",
+        "efficiency": {
+          "title": "Efficacité accrue",
+          "description": "Rationalisez vos opérations et automatisez les workflows pour maximiser la productivité dans toute votre organisation."
+        },
+        "security": {
+          "title": "Sécurité renforcée",
+          "description": "Protégez vos actifs numériques avec des protocoles de sécurité avancés et des systèmes de détection des menaces."
+        },
+        "analytics": {
+          "title": "Analytique avancée",
+          "description": "Obtenez des informations précieuses à partir de vos données grâce à des outils puissants d'analyse et d'intelligence d'affaires."
+        },
+        "integration": {
+          "title": "Intégration fluide",
+          "description": "Assurez une interopérabilité parfaite de tous vos systèmes grâce à des solutions d'intégration complètes."
+        }
+      },
+      "contactCta": "Discutons de votre projet"
+    },
+    "hero": {
+      "badge": "Notre Expertise",
+      "titleStart": "Des services technologiques",
+      "titleHighlight": "complets",
+      "titleEnd": "pour votre entreprise",
+      "description": "Découvrez notre gamme de services technologiques spécialisés conçus pour aider votre entreprise à croître, innover et réussir dans le paysage numérique.",
+      "technologies": "Technologies",
+      "learnMore": "En savoir plus",
+      "services": {
+        "ai": {
+        "title": "IA & Apprentissage Automatique",
+        "description": "Exploitez la puissance de l'intelligence artificielle et du machine learning pour transformer vos processus, obtenir des insights précieux et créer des solutions innovantes.",
+        "features": {
+          "custom": "Développement de solutions IA personnalisées",
+          "nlp": "Traitement du langage naturel & chatbots",
+          "automation": "Automatisation intelligente des processus",
+          "analytics": "Analytique prédictive & modélisation des données"
+        }
+      },
+      "enterprise": {
+        "title": "Solutions Entreprise",
+        "description": "Systèmes et infrastructures de niveau entreprise pour soutenir vos opérations critiques, rationaliser les processus et améliorer la productivité.",
+        "features": {
+          "erp": "Implémentation & personnalisation ERP",
+          "crm": "CRM & plateformes d'expérience client",
+          "integration": "Intégration des systèmes & middleware",
+          "cloud": "Migration & gestion cloud"
+        }
+      },
+      "software": {
+        "title": "Développement Logiciel",
+        "description": "Services de développement logiciel sur mesure adaptés à vos besoins spécifiques, des applications web et mobiles aux systèmes d’entreprise complexes.",
+        "features": {
+          "web": "Développement d'applications web",
+          "mobile": "Développement d'applications mobiles",
+          "custom": "Solutions logicielles personnalisées",
+          "ux": "Conception UI/UX & prototypage"
+        }
+      },
+      "hardware": {
+        "title": "Matériel & Infrastructure",
+        "description": "Solutions matérielles complètes et services d'infrastructure pour garantir une base technologique robuste, sécurisée et prête pour l'avenir.",
+        "features": {
+          "infrastructure": "Déploiement d'infrastructures IT",
+          "networking": "Conception & mise en place de réseaux",
+          "security": "Solutions de sécurité physique",
+          "maintenance": "Maintenance & support matériel"
+        }
+      }
+      }
+    }
+  },
+
   "hardware": {},
   
   "projects": {
