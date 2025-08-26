@@ -854,7 +854,7 @@
         },
         "call": {
           "title": "Call Us",
-          "text": "+212 6 88 18 32 10"
+          "text": "+212 07 07 07 2558"
         },
         "email": {
           "title": "Email Us",
@@ -897,6 +897,7 @@
   },
 
   "duplicate" : {
+      "learnMore": "Learn More",
       "about": {
         "label": "YOUR TRUSTED IT PARTNER",
         "title": "Driving Morocco's",
@@ -1027,12 +1028,12 @@
       "title2": "your business?",
       "subtitle": "Let's discuss how Rkicy Technology can help your organization thrive in the digital age",
       "getInTouch": "Get in Touch",
-      "phoneNumber": "+212688183210",
+      "phoneNumber": "+212 07 07 07 2558",
       "emailAddress": "contact@rkicy.com",
       "cards": {
         "call": {
           "title": "Call Us",
-          "text": "+212 6 88 18 32 10"
+          "text": "+212 07 07 07 2558"
         },
         "email": {
           "title": "Email Us",
@@ -1054,7 +1055,7 @@
     "company": {
       "description": "Leading Morocco's digital transformation with enterprise-grade IT solutions, from AI to hardware. Empowering businesses across Morocco and beyond.",
       "contact": {
-        "phone": "+212 6 88 18 32 10",
+        "phone": "+212 07 07 07 2558",
         "email": "contact@rkicy.tech",
         "location": "Rabat, Morocco"
       }

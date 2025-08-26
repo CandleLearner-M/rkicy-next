@@ -2,13 +2,15 @@
 
 import { useRef } from 'react';
 import Image from 'next/image';
-import { useTranslations } from 'next-intl';
-import { Shield, Award } from 'lucide-react';
+import { useLocale, useTranslations } from 'next-intl';
+import { Shield, Award,  ArrowUpRight } from 'lucide-react';
 import styles from './PartnersSection.module.scss';
+import Link from 'next/link';
 
 export default function PartnersSection() {
   const t = useTranslations('duplicate');
   const containerRef = useRef<HTMLDivElement>(null);
+  const locale = useLocale();
 
   const partners = [
     {
@@ -110,8 +112,15 @@ export default function PartnersSection() {
               </div>
             ))}
           </div>
+      <div className={styles.ctaContainer}>
+        <Link href={`/${locale}/partnerships`} className={styles.aboutCta}>
+          <span>{t('learnMore')}</span>
+          <ArrowUpRight className={styles.ctaIcon} size={18} />
+        </Link>
+      </div>
         </div>
       </div>
+
     </section>
   );
 }
