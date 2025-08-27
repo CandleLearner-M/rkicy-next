@@ -1125,7 +1125,9 @@
           "tourism": "Tourism",
           "rentals": "Rentals",
           "toys": "Toys",
-          "retail": "Retail"
+          "retail": "Retail",
+          "sports": "Sports",
+          "media": "Media"
         }
       },
       "testimonials": {

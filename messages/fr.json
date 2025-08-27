@@ -1024,7 +1024,9 @@
         "tourism": "Tourisme",
         "rentals": "Locations",
         "toys": "Jouets",
-        "retail": "Commerce de détail"
+        "retail": "Commerce de détail",
+        "sports": "Sports",
+        "media": "Médias"
       }
     },
     "testimonials": {
