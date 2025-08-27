@@ -14,12 +14,12 @@ export default function Home() {
       <Hero />
       <AboutPreview />
 
-      <SectionBackground style="subtle" >
+      <SectionBackground showGrid={true} >
         <ServicesPreview />
       </SectionBackground>
 
       <PartnersPreview />
-      <SectionBackground style="subtle" >
+      <SectionBackground showGrid={true} >
         <ProjectsSection />
       </SectionBackground>
 

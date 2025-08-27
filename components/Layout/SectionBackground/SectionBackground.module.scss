@@ -1,15 +1,19 @@
 @import "@/styles/variables.scss";
 @import "@/styles/mixins.scss";
 
-// Premium color variables
-$premium-primary: #2563eb;
-$premium-secondary: #134cca;
-$premium-accent: #8b5cf6;
-
 // Background colors
 $bg-light: #fcfcfc;
 $bg-dark: #0a0a0a;
 $bg-dark-subtle: #111111;
+
+@keyframes expandFromCenter {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
 
 .sectionBackground {
   position: relative;
@@ -17,6 +21,59 @@ $bg-dark-subtle: #111111;
   overflow: hidden;
   z-index: 1;
   padding: 4rem 0;
+  background-color: $bg-light;
+  
+  [data-theme="dark"] & {
+    background-color: $bg-dark-subtle;
+  }
+  
+  // Top line
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+      rgba($primary, 0), 
+      rgba($primary, 0.15), 
+      rgba($primary, 0));
+    transform: scaleX(0);
+    animation: expandFromCenter 1.2s ease-out forwards;
+    z-index: 1;
+    
+    [data-theme="dark"] & {
+      background: linear-gradient(90deg, 
+        rgba($primary, 0), 
+        rgba($primary, 0.25), 
+        rgba($primary, 0));
+    }
+  }
+
+  // Bottom line
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+      rgba($primary, 0), 
+      rgba($primary, 0.15), 
+      rgba($primary, 0));
+    transform: scaleX(0);
+    animation: expandFromCenter 1.2s ease-out forwards;
+    z-index: 1;
+    
+    [data-theme="dark"] & {
+      background: linear-gradient(90deg, 
+        rgba($primary, 0), 
+        rgba($primary, 0.25), 
+        rgba($primary, 0));
+    }
+  }
   
   @media (max-width: $breakpoint-md) {
     padding: 2.5rem 0;
@@ -27,153 +84,25 @@ $bg-dark-subtle: #111111;
   }
 }
 
-// Minimal, clean background styles
-.style-minimal {
-  background-color: $bg-light;
-  
-  [data-theme="dark"] & {
-    background-color: $bg-dark;
-  }
-}
-
-// Subtle style with very faint pattern
-.style-subtle {
-  background-color: $bg-light;
-  
-  [data-theme="dark"] & {
-    background-color: $bg-dark-subtle;
-  }
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: 
-      linear-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px),
-      linear-gradient(to right, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
-    background-size: 50px 50px;
-    z-index: -1;
-    opacity: 0.5;
-    
-    [data-theme="dark"] & {
-      background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-      opacity: 0.3;
-    }
-  }
-}
-
-// Accent style with thin line
-.style-accent {
-  background-color: $bg-light;
-  
-  [data-theme="dark"] & {
-    background-color: $bg-dark;
-  }
-}
-
-// Gradient style
-.style-gradient {
-  background-color: $bg-light;
-  
-  [data-theme="dark"] & {
-    background-color: $bg-dark;
-  }
-}
-
-// Position variations
-.position-left {
-  .gradientEffect {
-    left: 0;
-    right: 60%;
-  }
-  
-  .accentLine {
-    left: 0;
-    margin-left: 10%;
-    width: 30%;
-    transform-origin: left center;
-  }
-}
-
-.position-center {
-  .gradientEffect {
-    left: 20%;
-    right: 20%;
-  }
-  
-  .accentLine {
-    left: 35%;
-    width: 30%;
-    transform-origin: center;
-  }
-}
-
-.position-right {
-  .gradientEffect {
-    left: 60%;
-    right: 0;
-  }
-  
-  .accentLine {
-    right: 0;
-    margin-right: 10%;
-    width: 30%;
-    transform-origin: right center;
-  }
-}
-
-// Premium effects
-.gradientEffect {
+// Subtle grid pattern - using a child element instead of pseudo-element
+.gridPattern {
   position: absolute;
   top: 0;
-  height: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+    linear-gradient(to right, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+  background-size: 50px 50px;
   z-index: -1;
-  background: radial-gradient(
-    ellipse at center,
-    rgba($premium-primary, 0.03) 0%,
-    rgba($premium-accent, 0.02) 40%,
-    transparent 80%
-  );
-  opacity: 0.7;
-  filter: blur(40px);
-  
-  [data-theme="dark"] & {
-    background: radial-gradient(
-      ellipse at center,
-      rgba($premium-primary, 0.08) 0%,
-      rgba($premium-accent, 0.05) 40%,
-      transparent 80%
-    );
-    opacity: 0.4;
-  }
-}
-
-.accentLine {
-  position: absolute;
-  top: 30%;
-  height: 1px;
-  background: linear-gradient(
-    to right,
-    transparent,
-    rgba($premium-primary, 0.3),
-    transparent
-  );
   opacity: 0.5;
-  z-index: -1;
   
   [data-theme="dark"] & {
-    background: linear-gradient(
-      to right,
-      transparent,
-      rgba($premium-primary, 0.5),
-      transparent
-    );
-    opacity: 0.4;
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    opacity: 0.3;
   }
 }
 
