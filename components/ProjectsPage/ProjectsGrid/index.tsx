@@ -389,9 +389,7 @@ export default function ProjectsGrid({ projects, filters, onResetFilters }: Proj
 
                 <div className={styles.cardBody}>
                   <div className={styles.categoryLine}>
-                    {t(`grid.categories.${project.category}`, {
-                      fallback: project.category
-                    })}
+                    {t(project.categoryKey)}
                   </div>
                   <h3 className={styles.cardTitle}>{t(project.titleKey)}</h3>
                   <p className={styles.cardExcerpt}>
