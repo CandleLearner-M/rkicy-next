@@ -1,11 +1,42 @@
 @import "@/styles/variables.scss";
 @import "@/styles/mixins.scss";
 
+@keyframes expandFromCenter {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
 .contactPreview {
   position: relative;
   padding: 6rem 0;
   background: linear-gradient(135deg, rgba($primary, 0.03) 0%, rgba($accent, 0.03) 100%);
   overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+      rgba($primary, 0), 
+      rgba($primary, 0.15), 
+      rgba($primary, 0));
+    transform: scaleX(0);
+    animation: expandFromCenter 1.2s ease-out forwards;
+    
+    [data-theme="dark"] & {
+      background: linear-gradient(90deg, 
+        rgba($primary, 0), 
+        rgba($primary, 0.25), 
+        rgba($primary, 0));
+    }
+  }
   
   [data-theme="dark"] & {
     background: linear-gradient(135deg, rgba($primary, 0.08) 0%, rgba($accent, 0.08) 100%);
@@ -169,7 +200,7 @@
   &:hover {
     gap: 1rem;
     box-shadow: 0 15px 30px rgba($primary, 0.4);
-    transform: translateY(-1px); /* Fixed: was missing 'px' unit */
+    transform: translateY(-1px);
   }
   
   [data-theme="dark"] & {
@@ -216,26 +247,22 @@
   position: relative;
   overflow: hidden;
   
+  // FIXED: Combined both ::before rules into one
   &::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 4px;
-    height: 0;
+    height: 40px; // Combined the height property here
     background: linear-gradient(to bottom, $primary, $accent);
     border-radius: 0 0 4px 0;
     transition: height 0.3s ease;
   }
-  &::before {
-      height: 40px;
-    }
   
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-    
-    
     
     .cardArrow {
       transform: translateX(3px);
@@ -245,10 +272,7 @@
   
   [data-theme="dark"] & {
     background: $bg-secondary-dark;
-    // background: #0e0e0e;
     border: 1px solid rgba($primary, 0.2);
-
-
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     
     &:hover {
