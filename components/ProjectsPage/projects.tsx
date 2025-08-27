@@ -1,5 +1,5 @@
   // This file defines the projects data structure used across the site
-  import { Calendar, CheckCircle, Clock, CreditCard, Globe, Shield, ShoppingBag, Users, Wallet, Zap } from 'lucide-react';
+  import { Calendar, CheckCircle, Clock, CreditCard, Globe, Shield, ShoppingBag, TrendingUp, Users, Wallet, Zap } from 'lucide-react';
   import { JSX } from 'react';
 
   export interface Project {
@@ -150,7 +150,7 @@
       client: "Finish3 App",
       duration: "6 months",
       year: 2023,
-      featured: false,
+      featured: true,
       status: 'completed',
       industry: "Productivity Software",
       teamSize: 5,
@@ -174,6 +174,50 @@
       ]
     },
     {
+      id: "cropdoc",
+      titleKey: 'featured.projects.cropdoc.title',
+      descriptionKey: 'featured.projects.cropdoc.description',
+      detailedDescriptionKey: 'featured.projects.cropdoc.detailedDescription',
+      image: "/projects/cropdoc/mockup.jpg",
+      categoryKey: 'featured.projects.cropdoc.category',
+      category: "AgriTech",
+      technologies: ["React Native", "TensorFlow", "Node.js", "AWS", "PostgreSQL"],
+      stats: [
+        { icon: <Users size={18} />, valueKey: 'featured.projects.cropdoc.stats.farmers.value', labelKey: 'featured.projects.cropdoc.stats.farmers.label' },
+        { icon: <TrendingUp size={18} />, valueKey: 'featured.projects.cropdoc.stats.yield.value', labelKey: 'featured.projects.cropdoc.stats.yield.label' },
+        { icon: <Shield size={18} />, valueKey: 'featured.projects.cropdoc.stats.accuracy.value', labelKey: 'featured.projects.cropdoc.stats.accuracy.label' }
+      ],
+      slug: "https://cropdoc.rkicy.com/",
+      logo: '/projects/cropdoc/logo.png',
+      client: "CropDoc",
+      duration: "4 months",
+      year: 2025,
+      featured: true,
+      status: 'completed',
+      industry: "Agriculture Technology",
+      teamSize: 4,
+      gallery: [
+        "/projects/cropdoc/mockup.jpg",
+        "/projects/cropdoc/farmers-using-app.jpg",
+        "/projects/cropdoc/drone-scan.jpg"
+      ],
+      challenges: [
+        "featured.projects.cropdoc.challenges.1",
+        "featured.projects.cropdoc.challenges.2",
+        "featured.projects.cropdoc.challenges.3"
+      ],
+      solutions: [
+        "featured.projects.cropdoc.solutions.1",
+        "featured.projects.cropdoc.solutions.2",
+        "featured.projects.cropdoc.solutions.3"
+      ],
+      outcomes: [
+        "featured.projects.cropdoc.outcomes.1",
+        "featured.projects.cropdoc.outcomes.2",
+        "featured.projects.cropdoc.outcomes.3"
+      ]
+    },
+    {
       id: "ufc-countdown",
       titleKey: 'featured.projects.ufcCountdown.title',
       descriptionKey: 'featured.projects.ufcCountdown.description',
@@ -192,7 +236,7 @@
       client: "Internal Product",
       duration: "2 months",
       year: 2024,
-      featured: true,
+      featured: false,
       status: 'completed',
       industry: "Sports & Media",
       teamSize: 3,

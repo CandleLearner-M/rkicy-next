@@ -422,6 +422,37 @@
       "comingSoon": "Coming Soon",
       
       "projects": {
+        "cropdoc": {
+          "title": "CropDoc",
+          "description": "AI-powered crop disease detection app helping farmers in Morocco and Nigeria protect their fields and boost yields.",
+          "detailedDescription": "CropDoc is an AI-driven mobile-first solution designed for farmers in Africa to detect crop diseases early and provide actionable treatments. By combining advanced image recognition, offline capability, and drone scanning services, CropDoc empowers farmers with instant diagnosis, step-by-step treatment plans, and localized recommendations in multiple languages. Trusted by thousands of farmers, CropDoc is transforming agriculture by reducing treatment costs, increasing yields, and preventing crop losses.",
+          "category": "Agriculture Technology",
+          "stats": {
+            "farmers": { "value": "15,000+", "label": "Active Farmers" },
+            "yield": { "value": "+25%", "label": "Yield Increase" },
+            "accuracy": { "value": "98%", "label": "Detection Accuracy" }
+          },
+          "testimonial": {
+            "quote": "The app identified diseases before visible symptoms appeared, saving entire harvests.",
+            "author": "Ahmed Benali",
+            "role": "Wheat Farmer, Morocco"
+          },
+          "challenges": {
+            "1": "Build an AI model that works offline for farmers in remote areas.",
+            "2": "Design an intuitive mobile interface for low-tech users.",
+            "3": "Ensure accuracy and speed in disease detection under diverse conditions."
+          },
+          "solutions": {
+            "1": "Integrated a lightweight TensorFlow model optimized for offline performance.",
+            "2": "Created a simple, localized UX with multilingual support (Arabic, French, English).",
+            "3": "Trained AI on thousands of crop images for 98% detection accuracy."
+          },
+          "outcomes": {
+            "1": "Over 15,000 farmers now use CropDoc to protect their crops.",
+            "2": "Average yield increased by 25%, treatment costs reduced by 30%.",
+            "3": "Expanded coverage from Nigeria to Morocco with future plans for wider Africa."
+          }
+        },
         "paycov": {
           "title": "Paycov: Revolutionizing Payments in Morocco and Beyond",
           "description": "A universal, bank‑agnostic digital payment platform enabling instant, secure P2P and merchant transactions—built to bridge Morocco’s financial ecosystem and accelerate open banking adoption.",

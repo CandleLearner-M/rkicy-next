@@ -14,7 +14,7 @@ export default function FeaturedProjects() {
   const t = useTranslations('projects');
 
   // Featured projects (unchanged from your original)
-  const featuredProjects = projects;
+  const featuredProjects = projects.filter(project => project.featured);
 
   useEffect(() => {
     setIsLoaded(true);

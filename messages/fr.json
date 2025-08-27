@@ -457,6 +457,37 @@
       "inProgressLabel": "En Cours",
       "comingSoon": "Bientôt Disponible",
       "projects": {
+        "cropdoc": {
+          "title": "CropDoc",
+          "description": "Application IA pour détecter les maladies des cultures et aider les agriculteurs au Maroc et au Nigeria à protéger leurs champs et augmenter leurs rendements.",
+          "detailedDescription": "CropDoc est une solution mobile basée sur l'IA conçue pour aider les agriculteurs africains à détecter rapidement les maladies des cultures et à fournir des traitements adaptés. En combinant la reconnaissance d'images avancée, une utilisation hors ligne et des services de drones, CropDoc offre un diagnostic instantané, des plans de traitement détaillés et des recommandations locales multilingues. Adoptée par des milliers d'agriculteurs, CropDoc transforme l'agriculture en réduisant les coûts de traitement, en augmentant les rendements et en évitant les pertes de récoltes.",
+          "category": "Technologie Agricole",
+          "stats": {
+            "farmers": { "value": "15 000+", "label": "Agriculteurs Actifs" },
+            "yield": { "value": "+25%", "label": "Augmentation du Rendement" },
+            "accuracy": { "value": "98%", "label": "Précision de Détection" }
+          },
+          "testimonial": {
+            "quote": "L'application a détecté la maladie avant l'apparition des symptômes visibles, sauvant ainsi toute la récolte.",
+            "author": "Ahmed Benali",
+            "role": "Agriculteur de Blé, Maroc"
+          },
+          "challenges": {
+            "1": "Créer un modèle IA fonctionnant hors ligne pour les zones rurales.",
+            "2": "Concevoir une interface simple et intuitive pour des utilisateurs peu technophiles.",
+            "3": "Assurer précision et rapidité dans la détection des maladies dans des conditions variées."
+          },
+          "solutions": {
+            "1": "Intégration d’un modèle TensorFlow léger optimisé pour une utilisation hors ligne.",
+            "2": "Création d'une UX simple et localisée avec support multilingue (Arabe, Français, Anglais).",
+            "3": "Entraînement de l'IA sur des milliers d'images pour atteindre 98% de précision."
+          },
+          "outcomes": {
+            "1": "Plus de 15 000 agriculteurs utilisent désormais CropDoc pour protéger leurs cultures.",
+            "2": "Augmentation moyenne des rendements de 25%, réduction des coûts de traitement de 30%.",
+            "3": "Extension de la couverture du Nigeria au Maroc avec des plans pour toute l'Afrique."
+          }
+        },
         "paycov": {
           "title": "Paycov : Révolutionner les paiements au Maroc et au-delà",
           "description": "Plateforme de paiement numérique universelle, indépendante des banques, offrant des transactions P2P et commerçantes instantanées et sécurisées—un pont vers l’open banking au Maroc.",
