@@ -1234,6 +1234,107 @@
       "saved": "Préférences enregistrées"
     }
   },
+
+  "partnerships": {
+    "badge": "Partenaires Stratégiques",
+    "title": "Partenariats technologiques de classe mondiale",
+    "subtitle": "Construire l'avenir numérique du Maroc grâce à des partenariats stratégiques de premier plan",
+    "tabs": {
+      "zebra": "Zebra Technologies",
+      "sap": "Conseil SAP"
+    },
+    "zebra": {
+      "badge": "Partenaire Officiel",
+      "title": "Partenariat officiel avec Zebra Technologies",
+      "description": "En tant que partenaire officiel de confiance de Zebra Technologies, Rkicy Technology offre aux entreprises marocaines un accès à des solutions matérielles professionnelles de premier plan — des lecteurs de codes-barres aux ordinateurs mobiles robustes et aux imprimantes.",
+      "features": {
+        "supply": {
+          "title": "Approvisionnement fluide en produits Zebra",
+          "description": "Accès rapide et fiable à l'ensemble du portefeuille d'appareils Zebra conçus pour les opérations d'entreprise."
+        },
+        "support": {
+          "title": "Configuration et support expert",
+          "description": "Installation professionnelle, configuration et support technique continu pour le matériel Zebra, garantissant une intégration fluide avec votre infrastructure numérique."
+        },
+        "efficiency": {
+          "title": "Efficacité opérationnelle renforcée",
+          "description": "Que vous gériez la logistique, le commerce de détail ou l’informatique d’entreprise, les solutions matérielles avancées de Zebra, combinées à l'expertise technique de Rkicy, vous aident à optimiser vos opérations pour plus de précision, de rapidité et de traçabilité."
+        }
+      },
+      "commitment": {
+        "title": "Notre engagement envers l'excellence",
+        "description": "Chez Rkicy Technology, nous sommes fiers de notre engagement de longue date envers l'excellence — et la possibilité de collaborer avec Zebra renforce notre capacité à offrir une valeur inégalée à nos clients entreprises marocains."
+      },
+      "cta": "Découvrez les avantages du partenariat",
+      "showcase": {
+        "title": "Portefeuille de produits Zebra",
+        "badge": "Partenaire Certifié"
+      },
+      "products": {
+        "scanners": "Lecteurs et imageurs de codes-barres",
+        "computers": "Ordinateurs mobiles robustes",
+        "printers": "Imprimantes industrielles et mobiles",
+        "rfid": "Solutions RFID et de localisation"
+      },
+      "stats": {
+        "products": "Produits disponibles",
+        "support": "Support technique",
+        "experience": "Années d'expérience"
+      }
+    },
+    "sap": {
+      "badge": "Consultants Experts",
+      "title": "Expertise en conseil SAP chez Rkicy Technology",
+      "description": "Chez Rkicy Technology, nous proposons des services avancés de conseil SAP adaptés aux entreprises modernes au Maroc. Notre équipe possède une grande expérience des plateformes SAP et a aidé avec succès des entreprises à optimiser leurs systèmes ERP.",
+      "features": {
+        "implementation": {
+          "title": "Implémentation et intégration de niveau entreprise",
+          "description": "De la configuration initiale au déploiement, nos experts SAP vous accompagnent à chaque étape pour garantir une intégration fluide et alignée sur vos processus métiers."
+        },
+        "development": {
+          "title": "Développement sur mesure et automatisation",
+          "description": "Nous concevons des extensions SAP personnalisées et automatisons les workflows critiques pour améliorer l'efficacité opérationnelle et l'analyse au sein de votre organisation."
+        },
+        "training": {
+          "title": "Formation et support post-implémentation",
+          "description": "Nous assurons une formation pratique pour les utilisateurs, fournissons la documentation et un support continu afin de garantir la fiabilité et la performance du système."
+        },
+        "insight": {
+          "title": "Expertise sectorielle et présence locale",
+          "description": "Que ce soit dans la finance, le commerce, l'industrie ou le secteur public, notre présence locale nous permet de fournir des résultats commerciaux alignés sur les besoins du marché marocain grâce à SAP."
+        }
+      },
+      "commitment": {
+        "title": "Notre profondeur technique",
+        "description": "En présentant nos capacités en conseil SAP avec assurance, nous mettons en avant la profondeur technique et la préparation de Rkicy Technology pour les solutions d’entreprise."
+      },
+      "cta": "Discutons de vos besoins SAP",
+      "showcase": {
+        "title": "Solutions SAP que nous implémentons"
+      },
+      "solutions": {
+        "businessOne": {
+          "name": "SAP Business One",
+          "description": "Solution ERP complète pour les PME, couvrant la finance, la gestion des stocks et la production."
+        },
+        "s4hana": {
+          "name": "SAP S/4HANA",
+          "description": "ERP de nouvelle génération avec analyses avancées, IA et traitement en temps réel pour les grandes entreprises."
+        },
+        "fiori": {
+          "name": "SAP Fiori",
+          "description": "Design d'expérience utilisateur moderne pour les applications SAP, offrant des interfaces intuitives sur tous les appareils."
+        }
+      },
+      "industries": {
+        "title": "Secteurs que nous servons",
+        "finance": "Finance & Banque",
+        "retail": "Commerce & Distribution",
+        "manufacturing": "Industrie",
+        "government": "Secteur public"
+      }
+    }
+  },
  
   "pageHeader": {
     "about": {
@@ -1258,6 +1359,14 @@
       "badge": "Solutions Matérielles",
       "title": "Technologie <highlight>Matérielle</highlight> de Niveau Entreprise",
       "subtitle": "Distributeur officiel de solutions matérielles technologiques premium pour les entreprises d'Afrique du Nord"
+    },
+
+    "partnerships": {
+      "badge": "Partenariats Stratégiques",
+      "title": "Des partenaires technologiques  de classe <highlight>mondiale</highlight>",
+      "subtitle": "Fournir des solutions d'entreprise grâce à des partenariats officiels avec des leaders technologiques mondiaux",
+      "home": "Accueil",
+      "page": "Partenariats"
     },
     
     "projects": {
