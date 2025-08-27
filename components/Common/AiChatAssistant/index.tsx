@@ -11,7 +11,8 @@ import {
   ChevronDown,
   CornerDownLeft,
   Bot,
-  User
+  User,
+  BotMessageSquare
 } from "lucide-react";
 import Image from "next/image";
 import styles from "./AiChatAssistant.module.scss";
@@ -131,8 +132,8 @@ export default function AiChatAssistant() {
           whileTap={{ scale: 0.95 }}
         >
           <div className={styles.launcherGlow} />
-          <Sparkles size={24} />
-          <span>AI Assistant</span>
+          <BotMessageSquare  size={24} />
+          {/* <span>AI Assistant</span> */}
         </motion.button>
       )}
 

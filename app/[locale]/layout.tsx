@@ -50,7 +50,7 @@ export default async function LocaleLayout({
             <Navbar />
             <FixedBackground />
             {children}
-            {/* <AiChatAssistant /> */}
+            <AiChatAssistant />
             <MobileNavigation />
             <Footer />
             <Analytics />

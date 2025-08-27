@@ -8,15 +8,15 @@
   right: 24px;
   
   @media (max-width: 768px) {
-    bottom: 80px;
-    right: 0.8rem;
+    display: none;
+    
   }
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 12px 20px;
+  padding: 12px 12px;
   border: none;
-  border-radius: 40px;
+  border-radius: 50%;
   background: linear-gradient(135deg, $primary, darken($primary, 10%));
   color: white;
   font-weight: 600;
