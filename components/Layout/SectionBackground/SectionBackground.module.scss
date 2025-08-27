@@ -27,51 +27,54 @@ $bg-dark-subtle: #111111;
     background-color: $bg-dark-subtle;
   }
   
-  // Top line
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, 
-      rgba($primary, 0), 
-      rgba($primary, 0.15), 
-      rgba($primary, 0));
-    transform: scaleX(0);
-    animation: expandFromCenter 1.2s ease-out forwards;
-    z-index: 1;
-    
-    [data-theme="dark"] & {
-      background: linear-gradient(90deg, 
-        rgba($primary, 0), 
-        rgba($primary, 0.25), 
-        rgba($primary, 0));
-    }
-  }
 
-  // Bottom line
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, 
-      rgba($primary, 0), 
-      rgba($primary, 0.15), 
-      rgba($primary, 0));
-    transform: scaleX(0);
-    animation: expandFromCenter 1.2s ease-out forwards;
-    z-index: 1;
-    
-    [data-theme="dark"] & {
+  @media (min-width: 1025px) {
+    // Top line
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
       background: linear-gradient(90deg, 
         rgba($primary, 0), 
-        rgba($primary, 0.25), 
+        rgba($primary, 0.15), 
         rgba($primary, 0));
+      transform: scaleX(0);
+      animation: expandFromCenter 1.2s ease-out forwards;
+      z-index: 1;
+      
+      [data-theme="dark"] & {
+        background: linear-gradient(90deg, 
+          rgba($primary, 0), 
+          rgba($primary, 0.25), 
+          rgba($primary, 0));
+      }
+    }
+
+    // Bottom line
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, 
+        rgba($primary, 0), 
+        rgba($primary, 0.15), 
+        rgba($primary, 0));
+      transform: scaleX(0);
+      animation: expandFromCenter 1.2s ease-out forwards;
+      z-index: 1;
+      
+      [data-theme="dark"] & {
+        background: linear-gradient(90deg, 
+          rgba($primary, 0), 
+          rgba($primary, 0.25), 
+          rgba($primary, 0));
+      }
     }
   }
   
