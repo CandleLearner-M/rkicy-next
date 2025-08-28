@@ -251,6 +251,14 @@
       color: $text-primary-dark;
     }
   }
+
+ 
+}
+
+.closeBTN {
+   @media (max-width: 1024px) {
+    display: none;
+  }
 }
 
 .newMessageDot {

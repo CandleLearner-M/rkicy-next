@@ -225,7 +225,7 @@ export default function AiChatAssistant() {
                     <button className={styles.headerButton} onClick={toggleMinimize} aria-label="Minimize chat">
                       <Minimize2 size={16} />
                     </button>
-                    <button className={styles.headerButton} onClick={toggleChatLocal} aria-label="Close chat">
+                    <button className={`${styles.headerButton} ${styles.closeBTN}`} onClick={toggleChatLocal} aria-label="Close chat">
                       <X size={16} />
                     </button>
                   </>
