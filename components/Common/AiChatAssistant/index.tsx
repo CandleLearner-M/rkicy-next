@@ -38,6 +38,8 @@ export default function AiChatAssistant() {
   const [hasNewMessage, setHasNewMessage] = useState(false);
   const messagesEndRef = useRef(null);
 
+  
+
   // Notify other components of chat state
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -51,12 +53,7 @@ export default function AiChatAssistant() {
       setIsOpen(true);
       setIsMinimized(false);
       setHasNewMessage(false);
-      setTimeout(() => {
-        const input = document.querySelector(`.${styles.chatInput}`);
-        if (input && typeof (input as HTMLInputElement).focus === "function") {
-          (input as HTMLInputElement).focus();
-        }
-      }, 0);
+      // Removed auto-focus on mobile; desktop-only:
     };
 
     const toggleChat = () => {
@@ -65,12 +62,6 @@ export default function AiChatAssistant() {
         if (next) {
           setIsMinimized(false);
           setHasNewMessage(false);
-          setTimeout(() => {
-            const input = document.querySelector(`.${styles.chatInput}`);
-            if (input && typeof (input as HTMLInputElement).focus === "function") {
-              (input as HTMLInputElement).focus();
-            }
-          }, 0);
         }
         return next;
       });
