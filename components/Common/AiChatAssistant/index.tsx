@@ -2,29 +2,21 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  Send, 
-  Maximize2, 
-  Minimize2, 
-  X, 
-  Sparkles,
-  ChevronDown,
-  CornerDownLeft,
-  Bot,
-  User,
-  BotMessageSquare
-} from "lucide-react";
+import { Send, Maximize2, Minimize2, X, CornerDownLeft, User } from "lucide-react";
 import Image from "next/image";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import rehypeSanitize from "rehype-sanitize";
 import styles from "./AiChatAssistant.module.scss";
 
-// Sample messages to demonstrate UI
+// Initial assistant message
 const initialMessages = [
   {
     id: "welcome-1",
     type: "assistant",
     content: "Hello! I'm the Rkicy AI assistant. How can I help you today?",
-    timestamp: new Date(Date.now() - 60000).toISOString()
-  }
+    timestamp: new Date(Date.now() - 60000).toISOString(),
+  },
 ];
 
 export default function AiChatAssistant() {
@@ -34,24 +26,22 @@ export default function AiChatAssistant() {
   const [inputValue, setInputValue] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [hasNewMessage, setHasNewMessage] = useState(false);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const messagesEndRef = useRef(null);
 
   // Scroll to bottom when messages change
   useEffect(() => {
     if (messagesEndRef.current && isOpen && !isMinimized) {
-      messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+      (messagesEndRef.current as any).scrollIntoView({ behavior: "smooth" });
     }
   }, [messages, isOpen, isMinimized]);
 
-  // Toggle chat open/closed
   const toggleChat = () => {
     setIsOpen(!isOpen);
     setIsMinimized(false);
     setHasNewMessage(false);
   };
 
-  // Toggle chat minimized/maximized
-  const toggleMinimize = (e: React.MouseEvent) => {
+  const toggleMinimize = (e) => {
     e.stopPropagation();
     setIsMinimized(!isMinimized);
     if (isMinimized) {
@@ -59,68 +49,78 @@ export default function AiChatAssistant() {
     }
   };
 
-  // Handle input change
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e) => {
     setInputValue(e.target.value);
   };
 
-  // Sample send message functionality (just for UI demonstration)
-  const handleSendMessage = (e: React.FormEvent) => {
+  // Send the conversation to our API and append the assistant reply
+  const handleSendMessage = async (e) => {
     e.preventDefault();
-    
-    if (!inputValue.trim()) return;
-    
-    // Add user message
+    const text = inputValue.trim();
+    if (!text) return;
+
     const newUserMessage = {
       id: `user-${Date.now()}`,
       type: "user",
-      content: inputValue,
-      timestamp: new Date().toISOString()
+      content: text,
+      timestamp: new Date().toISOString(),
     };
-    
-    setMessages([...messages, newUserMessage]);
+
+    // Optimistically add user message and show typing
+    setMessages((prev) => [...prev, newUserMessage]);
     setInputValue("");
-    
-    // Simulate AI typing
     setIsTyping(true);
-    
-    // Simulate AI response after delay
-    setTimeout(() => {
-      setIsTyping(false);
-      
-      const responses = [
-        "I can help you with that! Would you like more information about our technology solutions?",
-        "Thanks for your question. Our team specializes in enterprise IT solutions for Moroccan businesses.",
-        "Great question! Rkicy Technology offers a range of AI and hardware solutions. Would you like to know more about a specific service?"
-      ];
-      
-      const randomResponse = responses[Math.floor(Math.random() * responses.length)];
-      
+
+    try {
+      const res = await fetch("/api/ai-chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          messages: [...messages, newUserMessage].map((m) => ({
+            type: m.type,
+            content: m.content,
+          })),
+        }),
+      });
+
+      const data = await res.json();
+
+      const content =
+        res.ok && data?.message
+          ? data.message
+          : data?.error || "Sorry, I couldn't process that right now. Please try again.";
+
       const newAiMessage = {
         id: `ai-${Date.now()}`,
         type: "assistant",
-        content: randomResponse,
-        timestamp: new Date().toISOString()
+        content,
+        timestamp: new Date().toISOString(),
       };
-      
-      setMessages(prev => [...prev, newAiMessage]);
-      
-      // If chat is minimized, show new message indicator
-      if (isMinimized) {
-        setHasNewMessage(true);
-      }
-    }, 1500);
+
+      setMessages((prev) => [...prev, newAiMessage]);
+      if (isMinimized) setHasNewMessage(true);
+    } catch (err) {
+      console.error("Chat error:", err);
+      const newAiMessage = {
+        id: `ai-${Date.now()}`,
+        type: "assistant",
+        content: "Sorry, there was a network or server error. Please try again in a moment.",
+        timestamp: new Date().toISOString(),
+      };
+      setMessages((prev) => [...prev, newAiMessage]);
+      if (isMinimized) setHasNewMessage(true);
+    } finally {
+      setIsTyping(false);
+    }
   };
 
-  // Format timestamp
-  const formatTime = (timestamp: string) => {
+  const formatTime = (timestamp) => {
     const date = new Date(timestamp);
-    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    return date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
   };
 
   return (
     <>
-      {/* Chat launcher button */}
       {!isOpen && (
         <motion.button
           className={styles.chatLauncher}
@@ -132,40 +132,23 @@ export default function AiChatAssistant() {
           whileTap={{ scale: 0.95 }}
         >
           <div className={styles.launcherGlow} />
-          <BotMessageSquare  size={24} />
-          {/* <span>AI Assistant</span> */}
+          <Image src="/ai/logo.svg" alt="Rkicy AI" width={30} height={30} className={styles.launcherIcon} />
         </motion.button>
       )}
 
-      {/* Chat window */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className={`${styles.chatContainer} ${isMinimized ? styles.minimized : ''}`}
+            className={`${styles.chatContainer} ${isMinimized ? styles.minimized : ""}`}
             initial={{ opacity: 0, y: 20, height: isMinimized ? 60 : 500 }}
-            animate={{ 
-              opacity: 1, 
-              y: 0, 
-              height: isMinimized ? 60 : 500,
-              width: isMinimized ? 300 : 380
-            }}
+            animate={{ opacity: 1, y: 0, height: isMinimized ? 60 : 500, width: isMinimized ? 300 : 380 }}
             exit={{ opacity: 0, y: 20, scale: 0.9 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
           >
-            {/* Chat header */}
-            <div 
-              className={styles.chatHeader}
-              onClick={isMinimized ? toggleMinimize : undefined}
-            >
+            <div className={styles.chatHeader} onClick={isMinimized ? toggleMinimize : undefined}>
               <div className={styles.headerContent}>
                 <div className={styles.botIconContainer}>
-                  <Image 
-                    src="/icons/logo.svg" 
-                    alt="Rkicy AI" 
-                    width={28} 
-                    height={28}
-                    className={styles.botIcon}
-                  />
+                  <Image src="/ai/logo.svg" alt="Rkicy AI" width={28} height={28} className={styles.botIcon} />
                 </div>
                 <div className={styles.headerInfo}>
                   <h3>Rkicy AI Assistant</h3>
@@ -180,28 +163,16 @@ export default function AiChatAssistant() {
                 {isMinimized ? (
                   <>
                     {hasNewMessage && <div className={styles.newMessageDot} />}
-                    <button 
-                      className={styles.headerButton}
-                      onClick={toggleMinimize}
-                      aria-label="Maximize chat"
-                    >
+                    <button className={styles.headerButton} onClick={toggleMinimize} aria-label="Maximize chat">
                       <Maximize2 size={16} />
                     </button>
                   </>
                 ) : (
                   <>
-                    <button 
-                      className={styles.headerButton}
-                      onClick={toggleMinimize}
-                      aria-label="Minimize chat"
-                    >
+                    <button className={styles.headerButton} onClick={toggleMinimize} aria-label="Minimize chat">
                       <Minimize2 size={16} />
                     </button>
-                    <button 
-                      className={styles.headerButton}
-                      onClick={toggleChat}
-                      aria-label="Close chat"
-                    >
+                    <button className={styles.headerButton} onClick={toggleChat} aria-label="Close chat">
                       <X size={16} />
                     </button>
                   </>
@@ -209,50 +180,54 @@ export default function AiChatAssistant() {
               </div>
             </div>
 
-            {/* Messages area - only shown when not minimized */}
             <AnimatePresence>
               {!isMinimized && (
-                <motion.div 
-                  className={styles.messagesContainer}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
+                <motion.div className={styles.messagesContainer} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }}>
                   <div className={styles.messagesWrapper}>
                     <div className={styles.welcomeBox}>
                       <div className={styles.welcomeBoxHeader}>
                         <div className={styles.welcomeIcon}>
-                          <Bot size={20} />
+                          <Image src="/ai/logo.svg" alt="Rkicy AI Logo" width={22} height={22} />
                         </div>
                         <h4>Rkicy AI Assistant</h4>
                       </div>
                       <p>
-                        I can answer questions about Rkicy's services, 
-                        technology solutions, and help you find the information you need.
+                        I can answer questions about Rkicy&apos;s services, technology solutions, and help you find the information you need.
                       </p>
                     </div>
-                    
+
                     <div className={styles.messages}>
                       {messages.map((message) => (
-                        <div 
-                          key={message.id} 
+                        <div
+                          key={message.id}
                           className={`${styles.messageGroup} ${
                             message.type === "assistant" ? styles.assistantGroup : styles.userGroup
                           }`}
                         >
                           <div className={styles.messageBubble}>
                             <div className={styles.messageContent}>
-                              {message.content}
+                              {message.type === "assistant" ? (
+                                <ReactMarkdown
+                                  remarkPlugins={[remarkGfm]}
+                                  rehypePlugins={[rehypeSanitize]}
+                                  components={{
+                                    a: (props) => (
+                                      <a {...props} target="_blank" rel="noopener noreferrer" />
+                                    ),
+                                  }}
+                                >
+                                  {message.content}
+                                </ReactMarkdown>
+                              ) : (
+                                <span>{message.content}</span>
+                              )}
                             </div>
-                            <div className={styles.messageTime}>
-                              {formatTime(message.timestamp)}
-                            </div>
+                            <div className={styles.messageTime}>{formatTime(message.timestamp)}</div>
                           </div>
                           <div className={styles.messageAvatar}>
                             {message.type === "assistant" ? (
                               <div className={styles.assistantAvatar}>
-                                <Bot size={16} />
+                                <Image src="/ai/logo.svg" alt="Rkicy AI Logo" width={20} height={20} />
                               </div>
                             ) : (
                               <div className={styles.userAvatar}>
@@ -262,8 +237,7 @@ export default function AiChatAssistant() {
                           </div>
                         </div>
                       ))}
-                      
-                      {/* Typing indicator */}
+
                       {isTyping && (
                         <div className={`${styles.messageGroup} ${styles.assistantGroup}`}>
                           <div className={`${styles.messageBubble} ${styles.typingBubble}`}>
@@ -275,18 +249,16 @@ export default function AiChatAssistant() {
                           </div>
                           <div className={styles.messageAvatar}>
                             <div className={styles.assistantAvatar}>
-                              <Bot size={16} />
+                              <Image src="/ai/logo.svg" alt="Rkicy AI Logo" width={17} height={17} />
                             </div>
                           </div>
                         </div>
                       )}
-                      
-                      {/* Empty div for scrolling to bottom */}
+
                       <div ref={messagesEndRef} />
                     </div>
                   </div>
 
-                  {/* Suggestion chips */}
                   <div className={styles.suggestionChips}>
                     <button className={styles.chip} onClick={() => setInputValue("Tell me about your services")}>
                       Services
@@ -299,7 +271,6 @@ export default function AiChatAssistant() {
                     </button>
                   </div>
 
-                  {/* Input area */}
                   <form className={styles.inputArea} onSubmit={handleSendMessage}>
                     <input
                       type="text"
@@ -308,11 +279,7 @@ export default function AiChatAssistant() {
                       placeholder="Type your message..."
                       className={styles.chatInput}
                     />
-                    <button 
-                      type="submit" 
-                      className={styles.sendButton}
-                      disabled={!inputValue.trim()}
-                    >
+                    <button type="submit" className={styles.sendButton} disabled={!inputValue.trim()}>
                       <Send size={18} />
                     </button>
                     <div className={styles.returnKeyHint}>
@@ -323,10 +290,11 @@ export default function AiChatAssistant() {
               )}
             </AnimatePresence>
 
-            {/* Footer note - only when not minimized */}
             {!isMinimized && (
               <div className={styles.chatFooter}>
-                <p>Powered by <span>Rkicy AI</span></p>
+                <p>
+                  Powered by <span>Rkicy AI</span>
+                </p>
               </div>
             )}
           </motion.div>

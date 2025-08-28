@@ -16,18 +16,19 @@
   gap: 12px;
   padding: 12px 12px;
   border: none;
-  border-radius: 50%;
-  background: linear-gradient(135deg, $primary, darken($primary, 10%));
+  border-radius: 1.2rem;
+  background: linear-gradient(135deg, $accent, darken($accent, 10%));
   color: white;
   font-weight: 600;
   cursor: pointer;
   z-index: 99;
-  box-shadow: 0 10px 25px rgba($primary, 0.3);
+  box-shadow: 0 10px 25px rgba($accent, 0.3);
   transition: all 0.3s ease;
   overflow: hidden;
   
-  span {
-    font-size: 1rem;
+  img {
+    object-fit: contain;
+    transform: scale(1.3);
   }
   
   &:hover {
@@ -51,8 +52,8 @@
   height: 200%;
   background: radial-gradient(
     circle,
-    rgba(255, 255, 255, 0.3) 0%,
-    rgba(255, 255, 255, 0) 70%
+    $accent 0%,
+    $accent 70%
   );
   opacity: 0;
   animation: pulse 3s infinite;
@@ -153,6 +154,8 @@
   .botIcon {
     width: 24px;
     height: 24px;
+    transform: scale(1.2);
+
     filter: brightness(0) invert(1);
   }
 }
@@ -656,5 +659,66 @@
   [data-theme="dark"] & {
     color: $text-secondary-dark;
     border-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Add inside your AiChatAssistant.module.scss (or the file that defines .messageContent) */
+
+.messageContent {
+  /* paragraphs */
+  p {
+    margin: 0 0 0.5rem 0;
+  }
+
+  /* lists */
+  ul, ol {
+    margin: 0.25rem 0 0.5rem 1.25rem;
+    padding-left: 1rem;
+  }
+  li {
+    margin: 0.2rem 0;
+  }
+
+  /* bold/italics handled by default */
+
+  /* inline code */
+  :not(pre) > code {
+    background: rgba(0, 0, 0, 0.06);
+    padding: 0.15rem 0.35rem;
+    border-radius: 6px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    font-size: 0.9em;
+  }
+
+  /* code blocks */
+  pre {
+    background: rgba(0, 0, 0, 0.06);
+    padding: 0.75rem;
+    border-radius: 10px;
+    overflow-x: auto;
+    margin: 0.4rem 0;
+    code {
+      background: transparent;
+      padding: 0;
+    }
+  }
+
+  /* blockquotes */
+  blockquote {
+    border-left: 3px solid rgba(0, 0, 0, 0.15);
+    padding-left: 0.75rem;
+    margin: 0.4rem 0;
+    color: inherit;
+    opacity: 0.9;
+  }
+}
+
+/* Optional: better contrast in dark mode, if you use [data-theme="dark"] */
+[data-theme="dark"] .messageContent {
+  :not(pre) > code, pre {
+    background: rgba(255, 255, 255, 0.08);
+  }
+  blockquote {
+    border-left-color: rgba(255, 255, 255, 0.25);
   }
 }
