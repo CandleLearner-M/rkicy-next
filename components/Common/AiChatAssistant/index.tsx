@@ -9,15 +9,25 @@ import remarkGfm from "remark-gfm";
 import rehypeSanitize from "rehype-sanitize";
 import styles from "./AiChatAssistant.module.scss";
 
-// Initial assistant message
 const initialMessages = [
   {
     id: "welcome-1",
     type: "assistant",
     content: "Hello! I'm the Rkicy AI assistant. How can I help you today?",
-    timestamp: new Date(Date.now() - 60000).toISOString(),
-  },
+    timestamp: new Date(Date.now() - 60000).toISOString()
+  }
 ];
+
+const localFallbackMessage = `
+### Rkicy AI is temporarily unavailable
+
+We're making improvements right now. Please reach out and we'll help you directly:
+
+- Email: contact@rkicy.com  
+- Phone: +212 07 07 07 2558
+
+Thanks for your patience!
+`.trim();
 
 export default function AiChatAssistant() {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,14 +38,60 @@ export default function AiChatAssistant() {
   const [hasNewMessage, setHasNewMessage] = useState(false);
   const messagesEndRef = useRef(null);
 
-  // Scroll to bottom when messages change
+  // Notify other components of chat state
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new CustomEvent("rkicy:chat-state", { detail: { open: isOpen } }));
+    }
+  }, [isOpen]);
+
+  // Listen for global open/toggle events from the mobile nav
+  useEffect(() => {
+    const openChat = () => {
+      setIsOpen(true);
+      setIsMinimized(false);
+      setHasNewMessage(false);
+      setTimeout(() => {
+        const input = document.querySelector(`.${styles.chatInput}`);
+        if (input && typeof (input as HTMLInputElement).focus === "function") {
+          (input as HTMLInputElement).focus();
+        }
+      }, 0);
+    };
+
+    const toggleChat = () => {
+      setIsOpen((prev) => {
+        const next = !prev;
+        if (next) {
+          setIsMinimized(false);
+          setHasNewMessage(false);
+          setTimeout(() => {
+            const input = document.querySelector(`.${styles.chatInput}`);
+            if (input && typeof (input as HTMLInputElement).focus === "function") {
+              (input as HTMLInputElement).focus();
+            }
+          }, 0);
+        }
+        return next;
+      });
+    };
+
+    window.addEventListener("rkicy:open-chat", openChat);
+    window.addEventListener("rkicy:toggle-chat", toggleChat);
+    return () => {
+      window.removeEventListener("rkicy:open-chat", openChat);
+      window.removeEventListener("rkicy:toggle-chat", toggleChat);
+    };
+  }, []);
+
+  // Keep scroll at bottom when messages change
   useEffect(() => {
     if (messagesEndRef.current && isOpen && !isMinimized) {
       (messagesEndRef.current as any).scrollIntoView({ behavior: "smooth" });
     }
   }, [messages, isOpen, isMinimized]);
 
-  const toggleChat = () => {
+  const toggleChatLocal = () => {
     setIsOpen(!isOpen);
     setIsMinimized(false);
     setHasNewMessage(false);
@@ -44,16 +100,11 @@ export default function AiChatAssistant() {
   const toggleMinimize = (e) => {
     e.stopPropagation();
     setIsMinimized(!isMinimized);
-    if (isMinimized) {
-      setHasNewMessage(false);
-    }
+    if (isMinimized) setHasNewMessage(false);
   };
 
-  const handleInputChange = (e) => {
-    setInputValue(e.target.value);
-  };
+  const handleInputChange = (e) => setInputValue(e.target.value);
 
-  // Send the conversation to our API and append the assistant reply
   const handleSendMessage = async (e) => {
     e.preventDefault();
     const text = inputValue.trim();
@@ -63,10 +114,9 @@ export default function AiChatAssistant() {
       id: `user-${Date.now()}`,
       type: "user",
       content: text,
-      timestamp: new Date().toISOString(),
+      timestamp: new Date().toISOString()
     };
 
-    // Optimistically add user message and show typing
     setMessages((prev) => [...prev, newUserMessage]);
     setInputValue("");
     setIsTyping(true);
@@ -83,29 +133,31 @@ export default function AiChatAssistant() {
         }),
       });
 
-      const data = await res.json();
-
-      const content =
-        res.ok && data?.message
+      let content = "";
+      if (res.ok) {
+        const data = await res.json().catch(() => null);
+        content = typeof data?.message === "string" && data.message.trim()
           ? data.message
-          : data?.error || "Sorry, I couldn't process that right now. Please try again.";
+          : localFallbackMessage;
+      } else {
+        content = localFallbackMessage;
+      }
 
       const newAiMessage = {
         id: `ai-${Date.now()}`,
         type: "assistant",
         content,
-        timestamp: new Date().toISOString(),
+        timestamp: new Date().toISOString()
       };
 
       setMessages((prev) => [...prev, newAiMessage]);
       if (isMinimized) setHasNewMessage(true);
-    } catch (err) {
-      console.error("Chat error:", err);
+    } catch {
       const newAiMessage = {
         id: `ai-${Date.now()}`,
         type: "assistant",
-        content: "Sorry, there was a network or server error. Please try again in a moment.",
-        timestamp: new Date().toISOString(),
+        content: localFallbackMessage,
+        timestamp: new Date().toISOString()
       };
       setMessages((prev) => [...prev, newAiMessage]);
       if (isMinimized) setHasNewMessage(true);
@@ -121,10 +173,11 @@ export default function AiChatAssistant() {
 
   return (
     <>
+      {/* Desktop floating launcher only; hidden on mobile via CSS */}
       {!isOpen && (
         <motion.button
           className={styles.chatLauncher}
-          onClick={toggleChat}
+          onClick={toggleChatLocal}
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0, opacity: 0 }}
@@ -172,7 +225,7 @@ export default function AiChatAssistant() {
                     <button className={styles.headerButton} onClick={toggleMinimize} aria-label="Minimize chat">
                       <Minimize2 size={16} />
                     </button>
-                    <button className={styles.headerButton} onClick={toggleChat} aria-label="Close chat">
+                    <button className={styles.headerButton} onClick={toggleChatLocal} aria-label="Close chat">
                       <X size={16} />
                     </button>
                   </>
@@ -182,7 +235,13 @@ export default function AiChatAssistant() {
 
             <AnimatePresence>
               {!isMinimized && (
-                <motion.div className={styles.messagesContainer} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }}>
+                <motion.div 
+                  className={styles.messagesContainer}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
                   <div className={styles.messagesWrapper}>
                     <div className={styles.welcomeBox}>
                       <div className={styles.welcomeBoxHeader}>
@@ -192,14 +251,15 @@ export default function AiChatAssistant() {
                         <h4>Rkicy AI Assistant</h4>
                       </div>
                       <p>
-                        I can answer questions about Rkicy&apos;s services, technology solutions, and help you find the information you need.
+                        I can answer questions about Rkicy&apos;s services, 
+                        technology solutions, and help you find the information you need.
                       </p>
                     </div>
-
+                    
                     <div className={styles.messages}>
                       {messages.map((message) => (
-                        <div
-                          key={message.id}
+                        <div 
+                          key={message.id} 
                           className={`${styles.messageGroup} ${
                             message.type === "assistant" ? styles.assistantGroup : styles.userGroup
                           }`}
@@ -211,9 +271,7 @@ export default function AiChatAssistant() {
                                   remarkPlugins={[remarkGfm]}
                                   rehypePlugins={[rehypeSanitize]}
                                   components={{
-                                    a: (props) => (
-                                      <a {...props} target="_blank" rel="noopener noreferrer" />
-                                    ),
+                                    a: (props) => <a {...props} target="_blank" rel="noopener noreferrer" />,
                                   }}
                                 >
                                   {message.content}
@@ -222,7 +280,9 @@ export default function AiChatAssistant() {
                                 <span>{message.content}</span>
                               )}
                             </div>
-                            <div className={styles.messageTime}>{formatTime(message.timestamp)}</div>
+                            <div className={styles.messageTime}>
+                              {formatTime(message.timestamp)}
+                            </div>
                           </div>
                           <div className={styles.messageAvatar}>
                             {message.type === "assistant" ? (
@@ -279,7 +339,11 @@ export default function AiChatAssistant() {
                       placeholder="Type your message..."
                       className={styles.chatInput}
                     />
-                    <button type="submit" className={styles.sendButton} disabled={!inputValue.trim()}>
+                    <button 
+                      type="submit" 
+                      className={styles.sendButton}
+                      disabled={!inputValue.trim()}
+                    >
                       <Send size={18} />
                     </button>
                     <div className={styles.returnKeyHint}>
@@ -292,9 +356,7 @@ export default function AiChatAssistant() {
 
             {!isMinimized && (
               <div className={styles.chatFooter}>
-                <p>
-                  Powered by <span>Rkicy AI</span>
-                </p>
+                <p>Powered by <span>Rkicy AI</span></p>
               </div>
             )}
           </motion.div>

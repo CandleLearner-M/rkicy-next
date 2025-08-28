@@ -7,10 +7,10 @@
   bottom: 24px;
   right: 24px;
   
-  // @media (max-width: 768px) {
-  //   display: none;
+  @media (max-width: 1024px) {
+    display: none;
     
-  // }
+  }
   display: flex;
   align-items: center;
   gap: 12px;
@@ -89,6 +89,13 @@
   z-index: 999;
   overflow: hidden;
   isolation: isolate;
+
+  @media (max-width: 1024px) {
+    width: 90% !important;
+    bottom: 82px;
+    left: 50%;
+    transform: translateX(-50%) !important;
+  }
   
   &.minimized {
     height: 60px;

@@ -3,13 +3,12 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useTranslations } from 'next-intl';
-import { motion, AnimatePresence } from "framer-motion";
+import { useTranslations } from "next-intl";
+import { motion } from "framer-motion";
 import { 
   Home, 
   Info, 
   LayoutGrid, 
-  Handshake, 
   HardDrive, 
   Briefcase, 
   PhoneCall,
@@ -17,116 +16,119 @@ import {
   X
 } from "lucide-react";
 import styles from "./MobileNavigation.module.scss";
+import Image from "next/image";
 
 // Map icons to nav items
 const iconMap = {
-  'home': <Home size={18} />,
-  'about': <Info size={18} />,
-  'services': <LayoutGrid size={18} />,
-  'hardware': <HardDrive size={18} />,
-  'projects': <Briefcase size={18} />,
-  'contact': <PhoneCall size={18} />
+  home: <Home size={18} />,
+  about: <Info size={18} />,
+  services: <LayoutGrid size={18} />,
+  hardware: <HardDrive size={18} />,
+  projects: <Briefcase size={18} />,
+  contact: <PhoneCall size={18} />
 };
 
 export default function MobileNavigation() {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
+  const [chatOpen, setChatOpen] = useState(false);
   const pathname = usePathname();
-  const t = useTranslations('navigation');
+  const t = useTranslations("navigation");
 
   // Nav links with active state - now using translation keys
   const navLinks = [
-    { name: 'home', href: '/' },
-    { name: 'about', href: '/about' },
-    { name: 'services', href: '/services' },
-    { name: 'projects', href: '/projects' },
-    { name: 'contact', href: '/contact' },
-    // { name: 'hardware', href: '/hardware' },
+    { name: "home", href: "/" },
+    { name: "about", href: "/about" },
+    { name: "services", href: "/services" },
+    { name: "projects", href: "/projects" },
+    { name: "contact", href: "/contact" },
   ];
 
-  // First and second half of nav items to show on either side of the center button
-  const leftNavItems = [0, 1]; // Home, Services
-  const rightNavItems = [2, 4]; // Projects, Contact
-  const secondaryNavItems = [3]; // About, Partners, Hardware
+  // Left and right items
+  const leftNavItems = [0, 1];   // Home, About
+  const rightNavItems = [2, 4];  // Services, Contact
 
-  // Handle scroll behavior to hide/show nav bar
+  // Track chat state from assistant
   useEffect(() => {
-  let ticking = false;
-  let lastScrollY = window.scrollY;
-  
-  const updateNavVisibility = () => {
-    ticking = false;
-    const currentScrollY = window.scrollY;
-    
-    // If at top of page, always show
-    if (currentScrollY < 50) {
-      setVisible(true);
-      lastScrollY = currentScrollY;
-      return;
-    }
-    
-    // If menu is expanded, don't hide
-    if (isExpanded) {
-      lastScrollY = currentScrollY;
-      return;
-    }
-    
-    const isScrollingDown = lastScrollY < currentScrollY;
-    const scrollDifference = Math.abs(lastScrollY - currentScrollY);
-    
-    if (scrollDifference > 10) {
-      setVisible(!isScrollingDown);
-      lastScrollY = currentScrollY;
-    }
-  };
-  
-  const handleScroll = () => {
-    if (!ticking) {
-      // Use requestAnimationFrame to limit updates
-      window.requestAnimationFrame(updateNavVisibility);
-      ticking = true;
-    }
-  };
-  
-  window.addEventListener('scroll', handleScroll, { passive: true });
-  return () => window.removeEventListener('scroll', handleScroll);
-}, [isExpanded]);
+    const onChatState = (e) => {
+      const open = !!e?.detail?.open;
+      setChatOpen(open);
+      if (open) setVisible(true); // ensure nav is shown when chat opens
+    };
+    window.addEventListener("rkicy:chat-state", onChatState as any);
+    return () => window.removeEventListener("rkicy:chat-state", onChatState as any);
+  }, []);
 
-  // Toggle expanded menu
-  const toggleExpanded = () => {
-    setIsExpanded(!isExpanded);
+  // Handle scroll behavior; do not hide when chat is open
+  useEffect(() => {
+    let ticking = false;
+    let lastScrollY = typeof window !== "undefined" ? window.scrollY : 0;
+
+    const updateNavVisibility = () => {
+      ticking = false;
+      if (chatOpen) {
+        // Keep visible while chat is open
+        setVisible(true);
+        return;
+      }
+
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY < 50) {
+        setVisible(true);
+        lastScrollY = currentScrollY;
+        return;
+      }
+
+      const isScrollingDown = lastScrollY < currentScrollY;
+      const scrollDifference = Math.abs(lastScrollY - currentScrollY);
+
+      if (scrollDifference > 10) {
+        setVisible(!isScrollingDown);
+        lastScrollY = currentScrollY;
+      }
+    };
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateNavVisibility);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [chatOpen]);
+
+  // Center button toggles AI chat
+  const toggleAIChat = () => {
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new CustomEvent("rkicy:toggle-chat", { detail: { source: "mobile-nav" } }));
+    }
   };
 
-  // Close expanded menu when a link is clicked
-  const handleNavClick = () => {
-    setIsExpanded(false);
-  };
+  const centerAria = chatOpen
+    ? t("accessibility.closeAssistant", { default: "Close AI Assistant" })
+    : t("accessibility.openAssistant", { default: "Open AI Assistant" });
 
   return (
-    <motion.nav 
+    <motion.nav
       className={styles.mobileNavigation}
       initial={{ transform: "translateY(0)" }}
-      animate={{ transform: visible ? "translateY(0)" : "translateY(114%)" }}
-      transition={{ 
-        duration: 0.5,
-        ease: [0.23, 1, 0.32, 1],
-        type: "tween"
-       }}
-       style={{ willChange: "transform" }}
+      animate={{ transform: visible ? "translateY(0)" : "translateY(115%)" }}
+      transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1], type: "tween" }}
+      style={{ willChange: "transform" }}
     >
       <div className={styles.primaryNav}>
         <div className={styles.leftSection}>
           {leftNavItems.map((index) => {
             const link = navLinks[index];
             const isActive = pathname === link.href;
-            
+
             return (
-              <Link 
+              <Link
                 key={link.name}
                 href={link.href}
-                className={`${styles.navItem} ${isActive ? styles.active : ''}`}
-                onClick={handleNavClick}
+                className={`${styles.navItem} ${isActive ? styles.active : ""}`}
               >
                 <div className={styles.navIcon}>
                   {iconMap[link.name as keyof typeof iconMap]}
@@ -137,38 +139,36 @@ export default function MobileNavigation() {
             );
           })}
         </div>
-        
-        {/* Center button */}
+
+        {/* Center AI button: logo when closed, X when open */}
         <div className={styles.centerSection}>
-          <button 
-            className={`${styles.centerButton} ${isExpanded ? styles.active : ''}`}
-            onClick={toggleExpanded}
-            aria-expanded={isExpanded}
-            aria-label={isExpanded ? t('accessibility.closeMenu') : t('accessibility.openMenu')}
+          <button
+            className={styles.centerButton}
+            onClick={toggleAIChat}
+            aria-label={centerAria}
           >
             <div className={styles.buttonBackground}>
-              <motion.div 
-                className={styles.iconContainer}
-                animate={{ rotate: isExpanded ? 90 : 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                {isExpanded ? <X size={20} /> : <Plus size={20} />}
-              </motion.div>
+              <div className={styles.iconContainer}>
+                {chatOpen ? (
+                  <X size={22} />
+                ) : (
+                  <Image src="/ai/logo.svg" alt="AI Assistant" width={32} height={32} />
+                )}
+              </div>
             </div>
           </button>
         </div>
-        
+
         <div className={styles.rightSection}>
           {rightNavItems.map((index) => {
             const link = navLinks[index];
             const isActive = pathname === link.href;
-            
+
             return (
-              <Link 
+              <Link
                 key={link.name}
                 href={link.href}
-                className={`${styles.navItem} ${isActive ? styles.active : ''}`}
-                onClick={handleNavClick}
+                className={`${styles.navItem} ${isActive ? styles.active : ""}`}
               >
                 <div className={styles.navIcon}>
                   {iconMap[link.name as keyof typeof iconMap]}
@@ -180,62 +180,6 @@ export default function MobileNavigation() {
           })}
         </div>
       </div>
-      
-      {/* Expanded menu overlay */}
-      <AnimatePresence>
-        {isExpanded && (
-          <motion.div 
-            className={styles.expandedMenuContainer}
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.4, ease: [0.19, 1.0, 0.22, 1.0] }}
-          >
-            <div className={styles.expandedMenu}>
-              {secondaryNavItems.map((index, i) => {
-                const link = navLinks[index];
-                const isActive = pathname === link.href;
-                
-                return (
-                  <motion.div
-                    key={link.name}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 10 }}
-                    transition={{ duration: 0.3, delay: i * 0.07 }}
-                  >
-                    <Link 
-                      href={link.href}
-                      className={`${styles.expandedNavItem} ${isActive ? styles.active : ''}`}
-                      onClick={handleNavClick}
-                    >
-                      <div className={styles.expandedNavIcon}>
-                        {iconMap[link.name as keyof typeof iconMap]}
-                      </div>
-                      <span className={styles.expandedNavLabel}>{t(`items.${link.name}`)}</span>
-                      {isActive && <div className={styles.expandedActiveIndicator} />}
-                    </Link>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-      
-      {/* Backdrop for expanded menu */}
-      <AnimatePresence>
-        {isExpanded && (
-          <motion.div 
-            className={styles.backdrop}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            onClick={() => setIsExpanded(false)}
-          />
-        )}
-      </AnimatePresence>
     </motion.nav>
   );
 }

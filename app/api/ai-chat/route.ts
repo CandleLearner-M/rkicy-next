@@ -1,22 +1,50 @@
 import Groq from "groq-sdk";
 
+const maintenanceMessage = `
+### Rkicy AI is temporarily unavailable
+
+Our AI assistant is currently undergoing maintenance. In the meantime, our team is happy to help you directly:
+
+- Email: contact@rkicy.com
+- Phone: +212 07 07 07 2558
+- Or use the contact form on our website
+
+Thank you for your patience—please try again shortly.
+`.trim();
+
+function ok(payload: any, headers: Record<string, string> = {}) {
+  return new Response(JSON.stringify(payload), {
+    status: 200,
+    headers: {
+      "Content-Type": "application/json",
+      "Cache-Control": "no-store",
+      ...headers,
+    },
+  });
+}
+
+function makeCorrelationId() {
+  // Lightweight correlation id without adding deps
+  return `rkicy_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`;
+}
+
 export async function POST(req: Request) {
+  const cid = makeCorrelationId();
+
   try {
-    if (!process.env.GROQ_API_KEY) {
-      return new Response(JSON.stringify({ error: "GROQ_API_KEY is not configured" }), {
-        status: 500,
-        headers: { "Content-Type": "application/json" },
-      });
+    // Basic validation (do NOT leak details to the client)
+    const body = await req.json().catch(() => null);
+    const messages = Array.isArray(body?.messages) ? body?.messages : null;
+
+    if (!messages || messages.length === 0) {
+      // Client-side usually prevents this, but keep UX consistent
+      console.warn(`[${cid}] Invalid request: missing messages`);
+      return ok({ message: maintenanceMessage, meta: { degraded: true, cid } }, { "x-rkicy-cid": cid });
     }
 
-    const body = await req.json();
-    const { messages } = body || {};
-
-    if (!messages || !Array.isArray(messages) || messages.length === 0) {
-      return new Response(JSON.stringify({ error: "Please provide messages" }), {
-        status: 400,
-        headers: { "Content-Type": "application/json" },
-      });
+    if (!process.env.GROQ_API_KEY) {
+      console.error(`[${cid}] Missing GROQ_API_KEY`);
+      return ok({ message: maintenanceMessage, meta: { degraded: true, cid } }, { "x-rkicy-cid": cid });
     }
 
     const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
@@ -27,32 +55,29 @@ export async function POST(req: Request) {
     }));
 
     const systemMessage = {
-      role: 'system',
+      role: "system" as const,
       content: `You are Rkicy's Virtual Team Member - a knowledgeable, friendly tech consultant representing Rkicy.
 
       About Rkicy: We're Morocco's premier technology partner, combining cutting-edge AI expertise with enterprise IT solutions and hardware services. Our headquarters are in Morocco, and we serve businesses worldwide.
 
-      YOUR PERSONA:
-      - You're a tech-savvy professional with a conversational, helpful tone
-      - You're passionate about how technology transforms businesses
-      - You respond in a friendly, confident manner - never robotic or formal
-      - You use "we" when referring to Rkicy's services and team
+      FORMAT & TONE:
+      - Always format responses in Markdown (headings, bullet lists, numbered lists, bold where helpful).
+      - Keep paragraphs short and scannable. Do not wrap the whole response in triple backticks.
+      - Friendly, confident, conversational tone; use "we" for Rkicy.
 
-      OUR CORE EXPERTISE:
-      1. AI & Data Solutions: Machine learning systems, predictive analytics, computer vision, NLP, custom AI implementation
+      CORE EXPERTISE:
+      1. AI & Data Solutions: ML systems, predictive analytics, computer vision, NLP, custom AI implementation
       2. Enterprise IT: Cloud migration, system integration, network architecture, cybersecurity, IT infrastructure optimization
-      3. Custom Software: Web/mobile applications, enterprise software, digital transformation, UX/UI design
-      4. Hardware Solutions: Server infrastructure, hardware procurement, maintenance, technical support
+      3. Custom Software: Web/mobile apps, enterprise software, digital transformation, UX/UI design
+      4. Hardware Solutions: Server infrastructure, procurement, maintenance, technical support
 
-      OUR APPROACH:
-      - We take time to understand each client's unique business challenges
-      - We develop customized solutions rather than one-size-fits-all approaches
-      - We prioritize long-term partnerships over quick transactions
-      - We combine global technology trends with local business understanding
+      APPROACH:
+      - Understand each client's unique challenges
+      - Propose tailored solutions (not one-size-fits-all)
+      - Prioritize long-term partnerships
+      - Blend global tech trends with local business context
 
-      For questions you can't answer specifically about pricing, ongoing projects, or proprietary information, offer to connect them with our team via the contact form or direct them to contact@rkicy.com or at the number : +212 07 07 07 2558.
-
-      Maintain a helpful, enthusiastic tone that reflects our commitment to technological excellence and client success.`
+      If asked for specifics you can't provide (pricing, ongoing projects, proprietary details), offer to connect them with our team at contact@rkicy.com or +212 07 07 07 2558.`,
       };
 
     const response = await groq.chat.completions.create({
@@ -62,24 +87,25 @@ export async function POST(req: Request) {
       max_tokens: 500,
     });
 
-    const text = response.choices?.[0]?.message?.content ?? "";
+    const text = response.choices?.[0]?.message?.content?.trim() ?? "";
 
-    return new Response(JSON.stringify({ message: text }), {
-      status: 200,
-      headers: { "Content-Type": "application/json" },
-    });
+    if (!text) {
+      // Rare, but keep UX clean
+      console.warn(`[${cid}] Empty model response`);
+      return ok({ message: maintenanceMessage, meta: { degraded: true, cid } }, { "x-rkicy-cid": cid });
+    }
+
+    return ok({ message: text, meta: { degraded: false, cid } }, { "x-rkicy-cid": cid });
   } catch (error: any) {
-    console.error("Groq API error:", error);
-
-    const status = error?.status || (error?.code === "insufficient_quota" ? 402 : 500);
-    const msg =
-      error?.code === "insufficient_quota"
-        ? "Groq API quota exceeded or no free quota available."
-        : error?.message || "Error processing your request";
-
-    return new Response(JSON.stringify({ error: msg }), {
-      status,
-      headers: { "Content-Type": "application/json" },
+    // Log full details server-side only
+    console.error(`[${cid}] Groq API error`, {
+      message: error?.message,
+      code: error?.code,
+      status: error?.status,
+      stack: error?.stack,
     });
+
+    // Always return a friendly message to the client
+    return ok({ message: maintenanceMessage, meta: { degraded: true, cid } }, { "x-rkicy-cid": cid });
   }
 }
