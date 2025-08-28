@@ -7,16 +7,8 @@ import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeSanitize from "rehype-sanitize";
+import { useTranslations } from "next-intl";
 import styles from "./AiChatAssistant.module.scss";
-
-const initialMessages = [
-  {
-    id: "welcome-1",
-    type: "assistant",
-    content: "Hello! I'm the Rkicy AI assistant. How can I help you today?",
-    timestamp: new Date(Date.now() - 60000).toISOString()
-  }
-];
 
 const localFallbackMessage = `
 ### Rkicy AI is temporarily unavailable
@@ -30,15 +22,31 @@ Thanks for your patience!
 `.trim();
 
 export default function AiChatAssistant() {
+  const t = useTranslations("ai");
+
   const [isOpen, setIsOpen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
-  const [messages, setMessages] = useState(initialMessages);
+  const [messages, setMessages] = useState<Array<{id:string; type:"assistant"|"user"; content:string; timestamp:string}>>([]);
   const [inputValue, setInputValue] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [hasNewMessage, setHasNewMessage] = useState(false);
-  const messagesEndRef = useRef(null);
+  const messagesEndRef = useRef<HTMLDivElement | null>(null);
+  const didInit = useRef(false);
 
-  
+  // Seed translated welcome message once
+  useEffect(() => {
+    if (!didInit.current) {
+      didInit.current = true;
+      setMessages([
+        {
+          id: "welcome-1",
+          type: "assistant",
+          content: t("welcome"),
+          timestamp: new Date(Date.now() - 60000).toISOString(),
+        },
+      ]);
+    }
+  }, [t]);
 
   // Notify other components of chat state
   useEffect(() => {
@@ -53,7 +61,6 @@ export default function AiChatAssistant() {
       setIsOpen(true);
       setIsMinimized(false);
       setHasNewMessage(false);
-      // Removed auto-focus on mobile; desktop-only:
     };
 
     const toggleChat = () => {
@@ -88,24 +95,24 @@ export default function AiChatAssistant() {
     setHasNewMessage(false);
   };
 
-  const toggleMinimize = (e) => {
+  const toggleMinimize = (e: React.MouseEvent) => {
     e.stopPropagation();
     setIsMinimized(!isMinimized);
     if (isMinimized) setHasNewMessage(false);
   };
 
-  const handleInputChange = (e) => setInputValue(e.target.value);
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => setInputValue(e.target.value);
 
-  const handleSendMessage = async (e) => {
+  const handleSendMessage = async (e: React.FormEvent) => {
     e.preventDefault();
     const text = inputValue.trim();
     if (!text) return;
 
     const newUserMessage = {
       id: `user-${Date.now()}`,
-      type: "user",
+      type: "user" as const,
       content: text,
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
     };
 
     setMessages((prev) => [...prev, newUserMessage]);
@@ -127,18 +134,19 @@ export default function AiChatAssistant() {
       let content = "";
       if (res.ok) {
         const data = await res.json().catch(() => null);
-        content = typeof data?.message === "string" && data.message.trim()
-          ? data.message
-          : localFallbackMessage;
+        content =
+          typeof data?.message === "string" && data.message.trim()
+            ? data.message
+            : localFallbackMessage;
       } else {
         content = localFallbackMessage;
       }
 
       const newAiMessage = {
         id: `ai-${Date.now()}`,
-        type: "assistant",
+        type: "assistant" as const,
         content,
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
       };
 
       setMessages((prev) => [...prev, newAiMessage]);
@@ -146,9 +154,9 @@ export default function AiChatAssistant() {
     } catch {
       const newAiMessage = {
         id: `ai-${Date.now()}`,
-        type: "assistant",
+        type: "assistant" as const,
         content: localFallbackMessage,
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
       };
       setMessages((prev) => [...prev, newAiMessage]);
       if (isMinimized) setHasNewMessage(true);
@@ -157,7 +165,7 @@ export default function AiChatAssistant() {
     }
   };
 
-  const formatTime = (timestamp) => {
+  const formatTime = (timestamp: string) => {
     const date = new Date(timestamp);
     return date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
   };
@@ -195,10 +203,10 @@ export default function AiChatAssistant() {
                   <Image src="/ai/logo.svg" alt="Rkicy AI" width={28} height={28} className={styles.botIcon} />
                 </div>
                 <div className={styles.headerInfo}>
-                  <h3>Rkicy AI Assistant</h3>
+                  <h3>{t("title")}</h3>
                   <div className={styles.botStatus}>
                     <span className={styles.statusDot}></span>
-                    <span>Online</span>
+                    <span>{t("status.online")}</span>
                   </div>
                 </div>
               </div>
@@ -207,16 +215,20 @@ export default function AiChatAssistant() {
                 {isMinimized ? (
                   <>
                     {hasNewMessage && <div className={styles.newMessageDot} />}
-                    <button className={styles.headerButton} onClick={toggleMinimize} aria-label="Maximize chat">
+                    <button className={styles.headerButton} onClick={toggleMinimize} aria-label={t("aria.maximize")}>
                       <Maximize2 size={16} />
                     </button>
                   </>
                 ) : (
                   <>
-                    <button className={styles.headerButton} onClick={toggleMinimize} aria-label="Minimize chat">
+                    <button className={styles.headerButton} onClick={toggleMinimize} aria-label={t("aria.minimize")}>
                       <Minimize2 size={16} />
                     </button>
-                    <button className={`${styles.headerButton} ${styles.closeBTN}`} onClick={toggleChatLocal} aria-label="Close chat">
+                    <button
+                      className={`${styles.headerButton} ${styles.closeBTN}`}
+                      onClick={toggleChatLocal}
+                      aria-label={t("aria.close")}
+                    >
                       <X size={16} />
                     </button>
                   </>
@@ -226,7 +238,7 @@ export default function AiChatAssistant() {
 
             <AnimatePresence>
               {!isMinimized && (
-                <motion.div 
+                <motion.div
                   className={styles.messagesContainer}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -239,18 +251,15 @@ export default function AiChatAssistant() {
                         <div className={styles.welcomeIcon}>
                           <Image src="/ai/logo.svg" alt="Rkicy AI Logo" width={22} height={22} />
                         </div>
-                        <h4>Rkicy AI Assistant</h4>
+                        <h4>{t("title")}</h4>
                       </div>
-                      <p>
-                        I can answer questions about Rkicy&apos;s services, 
-                        technology solutions, and help you find the information you need.
-                      </p>
+                      <p>{t("welcomeBox")}</p>
                     </div>
-                    
+
                     <div className={styles.messages}>
                       {messages.map((message) => (
-                        <div 
-                          key={message.id} 
+                        <div
+                          key={message.id}
                           className={`${styles.messageGroup} ${
                             message.type === "assistant" ? styles.assistantGroup : styles.userGroup
                           }`}
@@ -271,9 +280,7 @@ export default function AiChatAssistant() {
                                 <span>{message.content}</span>
                               )}
                             </div>
-                            <div className={styles.messageTime}>
-                              {formatTime(message.timestamp)}
-                            </div>
+                            <div className={styles.messageTime}>{formatTime(message.timestamp)}</div>
                           </div>
                           <div className={styles.messageAvatar}>
                             {message.type === "assistant" ? (
@@ -311,14 +318,14 @@ export default function AiChatAssistant() {
                   </div>
 
                   <div className={styles.suggestionChips}>
-                    <button className={styles.chip} onClick={() => setInputValue("Tell me about your services")}>
-                      Services
+                    <button className={styles.chip} onClick={() => setInputValue(t("chipsPrompt.services"))}>
+                      {t("chips.services")}
                     </button>
-                    <button className={styles.chip} onClick={() => setInputValue("How can I contact sales?")}>
-                      Contact sales
+                    <button className={styles.chip} onClick={() => setInputValue(t("chipsPrompt.contactSales"))}>
+                      {t("chips.contactSales")}
                     </button>
-                    <button className={styles.chip} onClick={() => setInputValue("What industries do you serve?")}>
-                      Industries
+                    <button className={styles.chip} onClick={() => setInputValue(t("chipsPrompt.industries"))}>
+                      {t("chips.industries")}
                     </button>
                   </div>
 
@@ -327,17 +334,13 @@ export default function AiChatAssistant() {
                       type="text"
                       value={inputValue}
                       onChange={handleInputChange}
-                      placeholder="Type your message..."
+                      placeholder={t("input.placeholder")}
                       className={styles.chatInput}
                     />
-                    <button 
-                      type="submit" 
-                      className={styles.sendButton}
-                      disabled={!inputValue.trim()}
-                    >
+                    <button type="submit" className={styles.sendButton} disabled={!inputValue.trim()} aria-label={t("aria.send")}>
                       <Send size={18} />
                     </button>
-                    <div className={styles.returnKeyHint}>
+                    <div className={styles.returnKeyHint} aria-hidden>
                       <CornerDownLeft size={14} />
                     </div>
                   </form>
@@ -347,7 +350,9 @@ export default function AiChatAssistant() {
 
             {!isMinimized && (
               <div className={styles.chatFooter}>
-                <p>Powered by <span>Rkicy AI</span></p>
+                <p>
+                  {t("footer.poweredBy")} <span>Rkicy AI</span>
+                </p>
               </div>
             )}
           </motion.div>

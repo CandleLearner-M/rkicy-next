@@ -52,7 +52,9 @@
       },
       "accessibility": {
         "openMenu": "Open navigation menu",
-        "closeMenu": "Close navigation menu"
+        "closeMenu": "Close navigation menu",
+        "openAssistant": "Open chat assistant",
+        "closeAssistant": "Close chat assistant"
       }
     },
     "accessibility": {
