@@ -1422,6 +1422,35 @@
       "title": "Let's Build Your Technology <highlight>Future</highlight>",
       "subtitle": "Connect with our expert team to discuss your business requirements and technology needs"
     }
+  },
+  "ai": {
+    "title": "Rkicy AI Assistant",
+    "status": {
+      "online": "Online"
+    },
+    "welcome": "Hello! I'm the Rkicy AI assistant. How can I help you today?",
+    "welcomeBox": "I can answer questions about Rkicy's services, technology solutions, and help you find the information you need.",
+    "chips": {
+      "services": "Services",
+      "contactSales": "Contact sales",
+      "industries": "Industries"
+    },
+    "chipsPrompt": {
+      "services": "Tell me about your services",
+      "contactSales": "How can I contact sales?",
+      "industries": "What industries do you serve?"
+    },
+    "input": {
+      "placeholder": "Type your message..."
+    },
+    "footer": {
+      "poweredBy": "Powered by"
+    },
+    "aria": {
+      "send": "Send message",
+      "minimize": "Minimize chat",
+      "maximize": "Maximize chat",
+      "close": "Close chat"
+    }
   }
-  
 }

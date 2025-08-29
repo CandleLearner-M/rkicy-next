@@ -1419,5 +1419,36 @@
       "title": "Construisons Votre <highlight>Avenir</highlight> Technologique",
       "subtitle": "Connectez-vous avec notre équipe d'experts pour discuter des besoins technologiques de votre entreprise"
     }
+  },
+
+  "ai": {
+    "title": "Assistant IA de Rkicy",
+    "status": {
+      "online": "En ligne"
+    },
+    "welcome": "Bonjour ! Je suis l’assistant IA de Rkicy. Comment puis‑je vous aider aujourd’hui ?",
+    "welcomeBox": "Je peux répondre à vos questions sur les services et solutions technologiques de Rkicy et vous aider à trouver les informations dont vous avez besoin.",
+    "chips": {
+      "services": "Services",
+      "contactSales": "Contacter les ventes",
+      "industries": "Secteurs"
+    },
+    "chipsPrompt": {
+      "services": "Parlez‑moi de vos services",
+      "contactSales": "Comment puis‑je contacter le service commercial ?",
+      "industries": "Quels secteurs servez‑vous ?"
+    },
+    "input": {
+      "placeholder": "Écrivez votre message…"
+    },
+    "footer": {
+      "poweredBy": "Propulsé par"
+    },
+    "aria": {
+      "send": "Envoyer le message",
+      "minimize": "Réduire le chat",
+      "maximize": "Agrandir le chat",
+      "close": "Fermer le chat"
+    }
   }
 }
