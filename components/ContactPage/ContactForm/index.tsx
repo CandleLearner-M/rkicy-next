@@ -221,14 +221,19 @@ export default function ContactForm() {
             </div>
           </div>
           
+          
           <div className={styles.mapContainer}>
-            <div className={styles.mapPlaceholder}>
-              {/* Replace with actual Google Maps embed */}
-              <div className={styles.mapOverlay}>
-                <MapPin size={32} />
-                <p>{t("contactInfo.mapLabel")}</p>
-              </div>
-            </div>
+           <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.991626!2d-5.813518!3d35.775172!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDQ2JzMwLjYiTiA1wrA0OCc0OC43Ilc!5e0!3m2!1sen!2sus!4v1598458168389!5m2!1sen!2sus"
+            width="100%"
+            height="100%"
+            style={{ border: 0, borderRadius: "12px" }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Office Location"
+          />
+
           </div>
         </div>
       </motion.div>
