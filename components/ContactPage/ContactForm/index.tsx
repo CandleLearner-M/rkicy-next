@@ -54,16 +54,7 @@ export default function ContactForm() {
   const formRef = useRef<HTMLFormElement>(null);
   const [isFormInView, setIsFormInView] = useState(false);
   
-  // Effect to generate reference number
-  useEffect(() => {
-    if (submitStatus === 'success') {
-      const timestamp = new Date().getTime();
-      const random = Math.floor(Math.random() * 1000);
-      setReferenceNumber(`RKY-${timestamp.toString().substr(-6)}-${random}`);
-    }
-  }, [submitStatus]);
-
-  // Intersection observer for form animations
+  // Effect for form animation
   useEffect(() => {
     if (!formRef.current) return;
     
@@ -127,7 +118,7 @@ export default function ContactForm() {
     return errors;
   };
 
-  // Form submission
+  // Form submission - UPDATED to use API route
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -141,8 +132,23 @@ export default function ContactForm() {
     setSubmitStatus('loading');
     
     try {
-      // In a real app, replace with actual API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      // Send data to our API route
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formState),
+      });
+      
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.error || 'Something went wrong');
+      }
+      
+      // Set the reference number from the response
+      setReferenceNumber(data.referenceNumber);
       setSubmitStatus('success');
       setFormState({
         name: "",
@@ -153,6 +159,7 @@ export default function ContactForm() {
         message: "",
       });
     } catch (error) {
+      console.error('Error submitting form:', error);
       setSubmitStatus('error');
     }
   };
